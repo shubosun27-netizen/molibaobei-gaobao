@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>控制台登录</title>
+    <style>
+        :root {
+            --primary: #007bff;
+            --primary-hover: #0056b3;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100dvh;
+            margin: 0;
+            padding: 72px 16px 48px;
+        }
+
+        .login-container {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 360px;
+        }
+
+        .login-container h2 {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .input-group {
+            margin-bottom: 1rem;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 0.5rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .login-button {
+            width: 100%;
+            padding: 0.75rem;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .login-button:hover {
+            background-color: var(--primary-hover);
+        }
+
+        .top-links-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 8px;
+            flex-wrap: wrap;
+            max-width: 100vw;
+            padding: 10px 12px;
+            background: rgba(255, 255, 255, 0.96);
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+        }
+
+        .toolbar-primary {
+            margin-right: auto;
+            min-width: 0;
+            flex: 1 1 auto;
+        }
+
+        .toolbar-secondary {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-shrink: 0;
+        }
+
+        .top-links-container select {
+            max-width: 160px;
+            font-size: 12px;
+            padding: 6px 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background: white;
+        }
+
+        .toolbar-primary select {
+            max-width: 100%;
+            width: 100%;
+        }
+
+        .game-menu-btn {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            padding: 6px 10px;
+            font-size: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background: white;
+            color: #333;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+
+        .game-menu-btn:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .version-info {
+            color: #666;
+            font-size: 12px;
+            white-space: nowrap;
+        }
+
+        .top-link {
+            color: #666;
+            font-size: 12px;
+            cursor: pointer;
+            text-decoration: underline;
+            white-space: nowrap;
+            background: none;
+            border: none;
+            padding: 0;
+        }
+
+        .top-link:hover {
+            color: var(--primary);
+        }
+
+        .mobile-version {
+            display: none;
+            position: fixed;
+            bottom: 12px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            color: #999;
+            font-size: 11px;
+        }
+
+        .desktop-only {
+            display: block;
+        }
+
+        .mobile-only {
+            display: none;
+        }
+
+        @media (max-width: 767px) {
+            body {
+                padding-top: 64px;
+                align-items: flex-start;
+            }
+
+            .top-links-container {
+                justify-content: space-between;
+                flex-wrap: nowrap;
+            }
+
+            .toolbar-primary {
+                flex: 1 1 0;
+                min-width: 0;
+                margin-right: 8px;
+            }
+
+            .toolbar-primary select {
+                max-width: 100%;
+            }
+
+            .desktop-only {
+                display: none !important;
+            }
+
+            .mobile-only {
+                display: inline;
+            }
+
+            .mobile-version {
+                display: block;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="top-links-container">
+        <div class="toolbar-primary">
+            <div id="serverSelectWrap">
+                <select class="server-select" disabled>
+                    <option>加载中...</option>
+                </select>
+            </div>
+        </div>
+        <div class="toolbar-secondary">
+            <button type="button" class="game-menu-btn" onclick="openGamesPage()">
+                🎮 畅玩小游戏
+            </button>
+            <button type="button" class="top-link desktop-only" onclick="openPortScan()">端口扫描</button>
+            <button type="button" class="top-link mobile-only" onclick="openPortScan()">端口扫描</button>
+            <div class="version-info desktop-only">当前版本: 1.0.1011</div>
+        </div>
+    </div>
+
+    <div class="login-container">
+        <h2>控制台登录</h2>
+        <div class="input-group">
+            <label for="phone">手机号</label>
+            <input type="tel" id="phone" placeholder="请输入您的手机号" maxlength="11">
+        </div>
+        <button class="login-button" onclick="handleLogin()">登录</button>
+    </div>
+
+    <div class="mobile-version mobile-only">当前版本: 1.0.1011</div>
+
+    <script>
+        let consoleDomain;
+
+        function getSelectedServerHost() {
+            if (!consoleDomain) return '';
+            try {
+                return new URL(consoleDomain).hostname;
+            } catch {
+                return consoleDomain.replace(/^https?:\/\//, '').split('/')[0];
+            }
+        }
+
+        function openGamesPage() {
+            window.location.href = 'games.html';
+        }
+
+        function handleLogin() {
+            const phone = document.getElementById('phone').value;
+            if (!/^1[3-9]\d{9}$/.test(phone)) {
+                alert('请输入有效的手机号');
+                return;
+            }
+            if (!consoleDomain) {
+                alert('请先选择服务器');
+                return;
+            }
+            fetch('/v1/3rd/api/login', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ phone: phone })
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        localStorage.setItem('accessToken', data.accessToken);
+                        setOrientation('landscape');
+                        const redirectUrl = `${consoleDomain}/console?token=${encodeURIComponent(data.accessToken)}&t=${Date.now()}`;
+                        window.location.href = redirectUrl;
+                    } else {
+                        alert(data.message);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('登录失败，请重试');
+                });
+        }
+
+        function handleServerChange() {
+            const serverSelect = document.getElementById('dynamicServerSelect');
+            if (!serverSelect) return;
+            consoleDomain = serverSelect.value;
+            localStorage.setItem('selectedServer', consoleDomain);
+        }
+
+        function validateServerList(data) {
+            if (!Array.isArray(data) || data.length === 0) {
+                throw new Error('服务器列表无效');
+            }
+            data.forEach((server, index) => {
+                if (!server.domain || !server.name) {
+                    throw new Error(`服务器列表第${index + 1}项格式错误`);
+                }
+            });
+        }
+
+        function loadServerList() {
+            const container = document.getElementById('serverSelectWrap');
+            fetch('/servers.json?t=' + Date.now())
+                .then(response => {
+                    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+                    return response.json();
+                })
+                .then(data => {
+                    validateServerList(data);
+                    const options = data.map(s => `<option value="${s.domain}">${s.name}</option>`).join('');
+                    container.innerHTML = `<select class="server-select" id="dynamicServerSelect" onchange="handleServerChange()">${options}</select>`;
+                    const savedServer = localStorage.getItem('selectedServer');
+                    const serverSelect = document.getElementById('dynamicServerSelect');
+                    if (savedServer && data.some(s => s.domain === savedServer)) {
+                        serverSelect.value = savedServer;
+                    }
+                    handleServerChange();
+                })
+                .catch(error => {
+                    console.error('服务器加载失败:', error);
+                    container.innerHTML = '<select class="server-select" disabled><option>加载失败</option></select>';
+                });
+        }
+
+        function openPortScan() {
+            const host = getSelectedServerHost();
+            window.location.href = host
+                ? `port-scan.html?target=${encodeURIComponent(host)}`
+                : 'port-scan.html';
+        }
+
+        window.addEventListener('DOMContentLoaded', loadServerList);
+    </script>
+    <script>
+        function setOrientation(orientation) {
+            if (window.AndroidBridge && typeof window.AndroidBridge.setScreenOrientation === 'function') {
+                window.AndroidBridge.setScreenOrientation(orientation);
+            }
+        }
+        setOrientation('auto');
+    </script>
+</body>
+
+</html>

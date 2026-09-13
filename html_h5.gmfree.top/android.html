@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>屏幕方向控制</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body { font-family: sans-serif; text-align: center; margin-top: 50px; }
+        button { font-size: 1.2em; padding: 10px 15px; margin: 10px; cursor: pointer; }
+    </style>
+</head>
+<body>
+
+    <h1>WebView 与 Android 通信示例</h1>
+    <p>点击下方按钮来改变APP的屏幕方向。</p>
+
+    <button onclick="setOrientation('landscape')">切换到横屏</button>
+    <button onclick="setOrientation('portrait')">切换到竖屏</button>
+    <button onclick="setOrientation('auto')">恢复自动旋转</button>
+    <br><br>
+    <button onclick="testConnection()">测试通信 (Toast)</button>
+
+    <script>
+        /**
+         * 设置屏幕方向的函数。
+         * @param {string} orientation - 期望的方向 ("landscape", "portrait", "auto")。
+         */
+        function setOrientation(orientation) {
+            // 首先检查我们注入的桥梁对象是否存在，以及方法是否可用
+            if (window.AndroidBridge && typeof window.AndroidBridge.setScreenOrientation === 'function') {
+                console.log("调用 AndroidBridge.setScreenOrientation('" + orientation + "')");
+                window.AndroidBridge.setScreenOrientation(orientation);
+            } else {
+                // 如果在普通浏览器或接口不存在的环境中，可以在控制台打印一条消息
+                console.warn("AndroidBridge 接口不可用。当前环境不是我们的APP WebView。");
+                alert("此功能仅在APP内可用！");
+            }
+        }
+
+        /**
+         * (可选) 测试连接的函数
+         */
+        function testConnection() {
+            if (window.AndroidBridge && typeof window.AndroidBridge.showToast === 'function') {
+                window.AndroidBridge.showToast("JavaScript 与 Android 通信成功！");
+            } else {
+                console.warn("AndroidBridge 接口不可用。");
+                alert("此功能仅在APP内可用！");
+            }
+        }
+    </script>
+
+</body>
+</html>

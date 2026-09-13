@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>嵌入式文章列表</title>
+    <!-- 引入外部资源 -->
+    <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    
+    <!-- 配置Tailwind -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#165DFF',
+                        secondary: '#6B7280',
+                        accent: '#F59E0B',
+                        danger: '#EF4444'
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- 自定义工具类 -->
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .article-item {
+                @apply flex items-start p-3 rounded-lg transition-all duration-200 cursor-pointer;
+            }
+            .article-item:hover {
+                @apply bg-gray-50 translate-x-1;
+            }
+            .custom-scrollbar {
+                scrollbar-width: thin;
+            }
+            .custom-scrollbar::-webkit-scrollbar {
+                width: 3px;
+            }
+            .custom-scrollbar::-webkit-scrollbar-thumb {
+                @apply bg-gray-300 rounded-full;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 主容器 - 固定尺寸580×250 -->
+    <div class="w-[580px] h-[250px] bg-white rounded-lg shadow-sm border border-gray-100 overflow-hidden flex flex-col">
+        
+        <!-- 标题栏 -->
+        <div class="bg-primary text-white px-4 py-2.5 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <i class="fa fa-newspaper-o"></i>
+                <h2 class="font-medium">最新资讯</h2>
+            </div>
+            <select class="bg-primary/30 text-white text-sm rounded border-none px-2 py-1 focus:outline-none">
+                <option>全部文章</option>
+                <option>技术动态</option>
+                <option>行业新闻</option>
+                <option>教程指南</option>
+            </select>
+        </div>
+        
+        <!-- 文章列表区域 -->
+        <div class="flex-1 overflow-y-auto custom-scrollbar px-2">
+            <!-- 文章1 - 带新标签 -->
+            <div class="article-item">
+                <span class="bg-danger text-white text-xs px-1.5 py-0.5 rounded mt-0.5 mr-2">新</span>
+                <div class="flex-1 min-w-0">
+                    <h3 class="text-sm font-medium text-gray-800 truncate">2024年Web开发趋势：从AI工具到性能优化</h3>
+                    <p class="text-xs text-gray-500 mt-1 line-clamp-1">探索今年将影响前端开发的关键技术和实践方法</p>
+                    <div class="flex justify-between mt-2 text-xs text-gray-400">
+                        <span>2小时前</span>
+                        <span><i class="fa fa-eye mr-1"></i> 342</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 文章2 - 普通 -->
+            <div class="article-item">
+                <div class="flex-1 min-w-0">
+                    <h3 class="text-sm font-medium text-gray-800 truncate">CSS变量完全指南：从基础到高级应用</h3>
+                    <p class="text-xs text-gray-500 mt-1 line-clamp-1">掌握CSS自定义属性，提升样式代码的可维护性</p>
+                    <div class="flex justify-between mt-2 text-xs text-gray-400">
+                        <span>1天前</span>
+                        <span><i class="fa fa-eye mr-1"></i> 786</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 文章3 - 带热门标签 -->
+            <div class="article-item">
+                <span class="bg-accent text-white text-xs px-1.5 py-0.5 rounded mt-0.5 mr-2">热门</span>
+                <div class="flex-1 min-w-0">
+                    <h3 class="text-sm font-medium text-gray-800 truncate">JavaScript性能优化：提升代码执行效率的10个技巧</h3>
+                    <p class="text-xs text-gray-500 mt-1 line-clamp-1">从减少重绘到合理使用闭包，全方位优化JS代码</p>
+                    <div class="flex justify-between mt-2 text-xs text-gray-400">
+                        <span>2天前</span>
+                        <span><i class="fa fa-eye mr-1"></i> 1253</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 文章4 - 普通 -->
+            <div class="article-item">
+                <div class="flex-1 min-w-0">
+                    <h3 class="text-sm font-medium text-gray-800 truncate">响应式设计最佳实践：适配各种设备的布局策略</h3>
+                    <p class="text-xs text-gray-500 mt-1 line-clamp-1">学习如何构建在手机、平板和桌面设备上都表现出色的界面</p>
+                    <div class="flex justify-between mt-2 text-xs text-gray-400">
+                        <span>3天前</span>
+                        <span><i class="fa fa-eye mr-1"></i> 645</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 文章5 - 普通 -->
+            <div class="article-item">
+                <div class="flex-1 min-w-0">
+                    <h3 class="text-sm font-medium text-gray-800 truncate">前端安全防护：防范XSS和CSRF攻击</h3>
+                    <p class="text-xs text-gray-500 mt-1 line-clamp-1">了解常见的前端安全威胁及有效的防御措施</p>
+                    <div class="flex justify-between mt-2 text-xs text-gray-400">
+                        <span>4天前</span>
+                        <span><i class="fa fa-eye mr-1"></i> 521</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 底部查看更多 -->
+        <div class="bg-gray-50 border-t border-gray-100 py-2 flex justify-center">
+            <a href="#" class="text-primary text-sm font-medium hover:text-primary/80 transition-colors flex items-center">
+                查看更多 <i class="fa fa-chevron-right ml-1 text-xs"></i>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // 文章点击事件
+        document.querySelectorAll('.article-item').forEach(item => {
+            item.addEventListener('click', function() {
+                const title = this.querySelector('h3').textContent;
+                // 在实际应用中，这里可以替换为跳转到文章详情页的逻辑
+                console.log(`打开文章: ${title}`);
+            });
+        });
+    </script>
+</body>
+</html>

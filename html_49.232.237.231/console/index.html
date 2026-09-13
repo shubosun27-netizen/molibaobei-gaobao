@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>高爆魔力</title>
+    <meta charset='utf-8' />
+    <meta name='renderer' content='webkit' />
+    <meta name='viewport'
+        content='width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no' />
+    <meta name='apple-mobile-web-app-capable' content='yes' />
+    <meta name='full-screen' content='true' />
+    <meta name='x5-fullscreen' content='true' />
+    <meta name='360-fullscreen' content='true' />
+    <meta name='laya' screenorientation='portrait' />
+    <meta http-equiv='expires' content='0' />
+    <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1' />
+    <meta http-equiv='expires' content='0' />
+    <meta http-equiv='Cache-Control' content='no-siteapp' />
+    <link rel="shortcut icon" href="#" />
+    <script src="/game.js"></script>
+    <!-- <script src="/outjs/app.c70ff0a6bb14c77adfca.bundle.js"></script> -->
+    <script src="/task.js"></script>
+    <script src="/game/min/game.min.js"></script>
+    <style>
+        /* 遮罩层样式 */
+        #overlay {
+            position: fixed;
+            /* 与iframe左侧对齐 */
+            left: 390px;
+            top: 40px;
+            width: 100%;
+            /* 与iframe高度相同 */
+            height: calc(100vh - 50px);
+            /* 半透明黑色 */
+            background-color: rgba(0, 0, 0, 0.0);
+            /* 确保在所有元素之上 */
+            z-index: 500;
+            /* 默认隐藏 */
+            display: none;
+            align-content: center;
+        }
+
+        /* 提示文字样式 */
+        #loading-message {
+            background-color: rgba(255, 255, 255, 0.9);
+            color: red;
+            padding: 30px;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            max-width: 50%;
+            line-height: 1.6;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        /* 头部区域样式 */
+        #header {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            /* display: flex; */
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* 刷新按钮样式 */
+        #refresh-button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+
+        /* iframe样式 */
+        iframe {
+            width: 100%;
+            height: calc(100vh - 50px);
+            /* 减去头部区域的高度 */
+            border: none;
+        }
+
+        /* 导航栏样式 */
+        #sidebar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 390px;
+            height: 100vh;
+            background-color: #333;
+            color: white;
+            transform: translateX(-100%);
+            transition: transform 0.3s ease-in-out;
+            /* 新增滚动相关样式 */
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+            /* 用于iOS平滑滚动 */
+        }
+
+        #sidebar.open {
+            transform: translateX(0);
+        }
+
+        #sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            padding-bottom: 20px;
+        }
+
+        #sidebar ul li {
+            padding: 10px;
+            border-bottom: 1px solid #555;
+        }
+
+        #sidebar ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        #sidebar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            background-color: #444;
+        }
+
+        #sidebar-title {
+            margin: 0;
+            color: white;
+        }
+
+        #close-sidebar-button {
+            background-color: transparent;
+            color: white;
+            border: none;
+            /* cursor: pointer; */
+            font-size: 1.5em;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 头部区域 -->
+    <div id="header">
+        <!-- <h1>高爆魔力</h1> -->
+        <div>
+            <input type="text" id="gameurl-input" placeholder="请输入游戏地址">
+            <button id="enter-game-button">进入游戏</button>
+            <button id="toggle-button">更多设置...</button>
+            <!-- <select id="hunter-list" disabled>
+                <option>偷谁的菜？</option>
+            </select> -->
+            <!-- <button id="hunter-button" disabled>偷他的菜</button> -->
+            <!-- 新增背包物品列表 -->
+            <select id="bag-item-list">
+                <option value="item1">背包物品列表</option>
+                <!-- 可以根据实际情况添加更多物品选项 -->
+            </select>
+            <button onclick="handleSellItemButtonClick()">手动卖垃圾</button>
+            <button onclick="createAnalysisUI()">通讯分析</button>
+            <input type="text" id="account-input" value="19999999999" placeholder="账号">
+            <input type="password" id="password-input" value="1" placeholder="密码">
+            <!-- <button id="login-button" onclick="handleLoginButtonClick()">登录</button> -->
+            <span id="auth-expire-time" style="margin-left: 10px; color: #ffcc00;"></span>
+        </div>
+    </div>
+
+    <!-- 导航栏 -->
+    <div id="sidebar">
+        <div id="sidebar-header">
+            <h2 id="sidebar-title" onclick="handleToggleButtonClick()">更多设置</h2>
+            <button id="close-sidebar-button">×</button>
+        </div>
+        <ul>
+            <li>
+                <details>
+                    <summary>必经之路</summary>
+                    <ul>
+                        <li><span>第一步：</span><button id="account-login-button">账号登录</button></li>
+                        <li><span>第二步：</span>
+                            <select id="map-list"></select>
+                            <button id="enter-map-button">进入地图</button>
+                        </li>
+                        <li><span>第三步：</span>
+                            <button id="battle-monster-button">快速遇敌</button>
+                        </li>
+                        <li><span>第四步：</span>
+                            <input type="checkbox" id="quick-battle-checkbox"
+                                onclick="handleQuickBattleCheckboxClick()">
+                            <button id="quick-battle-button"><label for="quick-battle-checkbox">快速战斗</label></button>
+                        </li>
+                    </ul>
+                </details>
+            </li>
+            <li>
+                <details style="display: none;">
+                    <summary>基础配置项</summary>
+                    <ul>
+                        <li>
+                            <input type="checkbox" id="auto-daka-checkbox" onclick="handleAutoDakaCheckboxClick()">
+                            <button><label for="auto-daka-checkbox">自动打卡+购买和使用水晶</label></button>
+                            <br>
+                            <input type="checkbox" id="auto-shalou-checkbox" onclick="handleAutoShalouCheckboxClick()">
+                            <button><label for="auto-shalou-checkbox">自动购买+使用沙漏(默认360个)</label></button>
+                            <br>
+                            <input type="checkbox" id="auto-fishing-checkbox" onclick="handleAutoFishCheckboxClick()"
+                                disabled>
+                            <button><label for="auto-fishing-checkbox">自动钓鱼（开发中）</label></button>
+                            <br>
+                            <input type="checkbox" id="auto-hunting-checkbox" onclick="handleAutoHunterCheckboxClick()">
+                            <button><label for="auto-hunting-checkbox">自动狩猎</label></button>
+                            <button onclick="huntingManualmodeClick()">手动模式</button>
+                            <br>
+                            <input type="checkbox" id="auto-star-palace-checkbox"
+                                onclick="handleAutoStarPalaceCheckboxClick()">
+                            <button><label for="auto-star-palace-checkbox">自动星宫</label></button>
+                            <button onclick="starPalaceManualmodeClick()">手动模式</button>
+                            <br>
+                            <input type="checkbox" id="auto-pata-checkbox" onclick="handleAutoPataeCheckboxClick()">
+                            <button><label for="auto-pata-checkbox">自动元素</label></button>
+                            <button onclick="pataManualmodeClick()">手动模式</button>
+                            <br>
+                            <input type="checkbox" id="auto-CWZHJ-checkbox" onclick="handleAutoCWZHJCheckboxClick()">
+                            <button><label for="auto-CWZHJ-checkbox">领取宠物召唤券</label></button>
+                            <br>
+                            <input type="checkbox" id="auto-XYZHJ-checkbox" onclick="handleAutoXYZHJCheckboxClick()">
+                            <button><label for="auto-XYZHJ-checkbox">领取心愿召唤券</label></button>
+                            <br>
+                            <button onclick="handleAutoBuyCheckboxClick()">手动购买每日限购商品（已配置自动）</button>
+                        </li>
+                    </ul>
+                </details>
+            </li>
+            <li>
+                <details style="display: none;">
+                    <summary>超值配置项</summary>
+                    <ul>
+                        <li>
+                            <input type="checkbox" id="buy-baoshi-checkbox" onclick="handleBuyBaoshiCheckboxClick()">
+                            <button id="baoshi-shop-button"><label
+                                    for="buy-baoshi-checkbox">刷新宝石商店（自动购买）</label></button>
+                            <br>
+                            <input type="checkbox" id="auto-redbag-checkbox" onclick="handleAutoRedBagCheckboxClick()">
+                            <button><label for="auto-redbag-checkbox">自动领红包</label></button>
+                            <br>
+                            <input type="checkbox" id="auto-jindi-checkbox" onclick="handleJindiCheckboxClick()">
+                            <button><label for="auto-jindi-checkbox">自动打禁地</label></button>
+                            <input type="number" id="auto-jindi-count" value="2" min="1" max="10">
+                            <button onclick="jindiManualmodeClick()">手动模式</button>
+                            <br>
+                            <input type="checkbox" id="auto-dungeon-checkbox"
+                                onclick="handleAutoDungeonCheckboxClick()">
+                            <button><label for="auto-dungeon-checkbox">自动刷挑战</label></button>
+                            <select id="dungeon-map-list"></select>
+                            <button id="dungeon-manual-mode" onclick="handleManualmodeDungeonClick()">手动模式</button>
+                            <br>
+                            <input type="checkbox" id="auto-dungeon-boss-checkbox"
+                                onclick="handleAutoDungeonBossCheckboxClick()">
+                            <button><label for="auto-dungeon-boss-checkbox">扫荡刷迷宫</label></button>
+                            <select id="dungeon-boss-map-list"></select>
+                            <button id="dungeon-manual-mode" onclick="handleManualmodeDungeonBossClick()">手动扫荡</button>
+                            <br>
+                            <input type="checkbox" id="dao100-manual-mode" onclick="handleManualmodeDao100Click()">
+                            <button><label for="dao100-manual-mode">手动百人</label></button>
+                            <span id="dao100-floor-display">百人当前楼层: 未指定</span>
+                            <!-- <br>
+                            <input type="checkbox" id="monitor-shop-items-checkbox" onclick="handleMonitorShopItemsCheckboxClick()">
+                            <button><label for="monitor-shop-items-checkbox">监控交易行</label></button>
+                            <button onclick="monitorShopItemsManualmodeClick()">手动刷新</button> -->
+                            <br>
+                            <input type="checkbox" id="auto-god-are-checkbox" onclick="handleAutoGodAreCheckboxClick()">
+                            <button><label for="auto-god-are-checkbox">自动群星之墓(进地图后点我)</label></button>
+                            <br>
+                            <input type="checkbox" id="auto-xkzt-checkbox" onclick="handleAutoXKZTCheckboxClick()">
+                            <button><label for="auto-xkzt-checkbox">自动星空之塔</label></button>
+                            <br>
+                            <input type="checkbox" id="auto-forge-checkbox" onclick="handleAutoForgeCheckboxClick()">
+                            <button><label for="auto-forge-checkbox">自动强化装备</label></button>
+                            <span id="mini-game-span">设定
+                                <input id="auto-forge-minute" value="3" min="1" max="100" style="width: 15px;">分钟</span>
+                            <br>
+                            <button onclick="handleManualSealsCheckboxClick()">手动鉴定圣印</button>
+                        </li>
+                    </ul>
+                </details>
+            </li>
+            <li>
+                <details style="display: none;">
+                    <summary>小游戏相关</summary>
+                    <ul>
+                        <li>
+                            <button id="taoquan" onclick="handleTaoQuanButtonClick()">套圈（必中）</button>
+                            <input id="tao-quan-pos" value="2" min="1" max="10" style="width: 15px;">
+                            <button
+                                onclick="alert(`娃娃的位置如下对应关系：\n0, 1, 2, 3, 4\n5, 6, 7, 8, 9\n10,11,12,13,14\n输出对应位置的数字，就可以套中娃娃`)">不知道套哪个？看说明</button>
+                            <br>
+                            <span id="mini-game-span">勇士游戏：第
+                                <input id="mini-game-level" value="1" min="1" max="3" style="width: 15px;">关</span>
+                            <span id="mini-game-span">，得分
+                                <input id="mini-game-value" value="1500" min="1000" max="3000"
+                                    style="width: 30px;"></span>
+                            <button onclick="generateRandomScore()">生成得分</button>
+                            <br>
+                            <span id="mini-game-span">数独游戏：第
+                                <input id="mini-sudoku-level" value="1" min="1" max="3" style="width: 15px;">关</span>
+                            <span id="mini-game-span">，得分
+                                <input id="mini-sudoku-value" value="1500" min="200" max="2000"
+                                    style="width: 30px;"></span>
+                            <button onclick="generateSudokuScore()">生成得分</button>
+                            <br>
+                            <span id="mini-game-span">奇妙魔石：第
+                                <input id="mini-stone-level" value="1" min="1" max="3" style="width: 15px;">关</span>
+                            <span id="mini-game-span">，得分
+                                <input id="mini-stone-value" value="1500" min="200" max="2000"
+                                    style="width: 30px;"></span>
+                            <button onclick="generateStoneScore()">生成得分</button>
+                            <br>
+                            <span id="mini-game-span">拿潘食品店：第
+                                <input id="mini-food-level" value="1" min="1" max="3" style="width: 15px;">关</span>
+                            <span id="mini-game-span">，得分
+                                <input id="mini-food-value" value="1500" min="200" max="2000"
+                                    style="width: 30px;"></span>
+                            <button onclick="generateFoodScore()">生成得分</button>
+                            <br>
+                            <span id="mini-game-span">晶石消消乐：第
+                                <input id="mini-xxl-level" value="1" min="1" max="3" style="width: 15px;">关</span>
+                            <span id="mini-game-span">，得分
+                                <input id="mini-xxl-value" value="1500" min="200" max="2000"
+                                    style="width: 30px;"></span>
+                            <button onclick="generateXXLScore()">生成得分</button>
+                            <br>
+                            <span id="mini-game-span">果蔬消消乐：第
+                                <input id="mini-gsxxl-level" value="1" min="1" max="3" style="width: 15px;">关</span>
+                            <span id="mini-game-span">，得分
+                                <input id="mini-gsxxl-value" value="1500" min="200" max="2000"
+                                    style="width: 30px;"></span>
+                            <button onclick="generateGSXXLScore()">生成得分</button>
+                            <br>
+                            <span id="mini-game-span">彩环叠叠乐：第
+                                <input id="mini-chddl-level" value="1" min="1" max="3" style="width: 15px;">关</span>
+                            <span id="mini-game-span">，得分
+                                <input id="mini-chddl-value" value="1500" min="200" max="2000"
+                                    style="width: 30px;"></span>
+                            <button onclick="generateCHDDLScore()">生成得分</button>
+                            <br>
+                            <span id="mini-game-span">勇闯魔窟：第
+                                <input id="mini-ycmk-level" value="1" min="1" max="3" style="width: 15px;">关</span>
+                            <span id="mini-game-span">，得分
+                                <input id="mini-ycmk-value" value="1500" min="200" max="2000"
+                                    style="width: 30px;"></span>
+                            <button onclick="generateYCMKScore()">生成得分</button>
+                            <br>
+                            <span id="mini-game-span">消灭史莱姆：第
+                                <input id="mini-xmslm-level" value="1" min="1" max="3" style="width: 15px;">关</span>
+                            <span id="mini-game-span">，得分
+                                <input id="mini-xmslm-value" value="1500" min="200" max="2000"
+                                    style="width: 30px;"></span>
+                            <button onclick="generateXMSLMScore()">生成得分</button>
+                            <br>
+                            <span id="mini-game-span">小鸭冲刺：第
+                                <input id="mini-xycc-level" value="1" min="1" max="3" style="width: 15px;">关</span>
+                            <span id="mini-game-span">，得分
+                                <input id="mini-xycc-value" value="1500" min="200" max="2000"
+                                    style="width: 30px;"></span>
+                            <button onclick="generateXYCCScore()">生成得分</button>
+                            <br>
+                            <span id="mini-game-span">勇者闯地牢：第
+                                <input id="mini-YZCDL-level" value="1" min="1" max="3" style="width: 15px;">关</span>
+                            <span id="mini-game-span">，得分
+                                <input id="mini-YZCDL-value" value="1500" min="200" max="2000"
+                                    style="width: 30px;"></span>
+                            <button onclick="generateYZCDLScore()">生成得分</button>
+                            <br>
+                            <span id="mini-game-span">勇者跳高高：第
+                                <input id="mini-YZTGG-level" value="1" min="1" max="3" style="width: 15px;">关</span>
+                            <span id="mini-game-span">，得分
+                                <input id="mini-YZTGG-value" value="1500" min="200" max="2000"
+                                    style="width: 30px;"></span>
+                            <button onclick="generateYZTGGScore()">生成得分</button>
+                        </li>
+                    </ul>
+                </details>
+            </li>
+            <li>
+                <details style="display: none;">
+                    <summary>自动练小号</summary>
+                    <ul>
+                        <li>
+                            <span>第<input id="test-level-stage" value="1" min="1" max="3" style="width: 15px;">阶段</span>
+                            <button onclick="handleLevelButtonClick()">开始升级</button>
+                            <br>
+
+                        </li>
+                    </ul>
+            </li>
+        </ul>
+    </div>
+
+    <!-- 内容区域，使用iframe嵌套 -->
+    <iframe id="content-frame" src=""></iframe>
+
+    <!-- 遮罩层 -->
+    <div id="overlay">
+        <div id="loading-message">
+            资源加载中...请稍等...<br>
+            第一次使用时，请等待资源加载完成....<br>
+            弹出“服务登录失败的提示”后，请点击【更多设置 - 必经之路 - 账号登录】，进行账号登录。<br>
+            进入游戏后，此窗口会自动关闭...
+        </div>
+    </div>
+
+    <script>
+        // 获取按钮元素
+        const accountLoginButton = document.getElementById('account-login-button');
+        const shopButton = document.getElementById('baoshi-shop-button');
+        const toggleButton = document.getElementById('toggle-button');
+        const battleMonsterButton = document.getElementById('battle-monster-button');
+        const enterGameButton = document.getElementById('enter-game-button');
+        const enterMapButton = document.getElementById('enter-map-button');
+        const mapList = document.getElementById('map-list');
+        const dungeonBossMapList = document.getElementById('dungeon-boss-map-list');
+        const hunterList = document.getElementById('hunter-list');
+        // const hunterButton = document.getElementById('hunter-button');
+        const dungeonMapList = document.getElementById('dungeon-map-list');
+        const bagItemList = document.getElementById('bag-item-list');
+        const dungeonManualmode = document.getElementById('dungeon-manual-mode');
+        const dao100FloorDisplay = document.getElementById('dao100-floor-display');
+        const dao100ManualMode = document.getElementById('dao100-manual-mode');
+        const testLevelStage = document.getElementById('test-level-stage');
+        // 获取关闭按钮元素
+        const closeSidebarButton = document.getElementById('close-sidebar-button');
+
+        // 获取游戏地址输入框的值
+        const gameUrlInput = document.getElementById('gameurl-input').value;
+
+
+        // 获取iframe元素
+        const contentFrame = document.getElementById('content-frame');
+
+        // 定义新的src内容
+        const newSrc = "http://example.com/new-page.html"; // 替换为您想要的新src内容
+
+        // 导航栏
+        function handleToggleButtonClick(event) {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('open');
+            event.stopPropagation(); // 阻止事件冒泡
+        }
+
+        // 关闭导航栏事件
+        function handleCloseSidebarButtonClick() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.remove('open');
+        }
+
+        // 从localStorage获取Token并解析权限
+        function getPrivilegesFromToken() {
+            const token = localStorage.getItem('accessToken');
+            if (!token) return [];
+
+            try {
+                const payload = JSON.parse(atob(token.split('.')[1]));
+                return payload.privileges || [];
+            } catch (e) {
+                console.error('解析Token失败', e);
+                return [];
+            }
+        }
+
+        // 初始化页面权限
+        function initPageWithPrivileges() {
+            const privileges = getPrivilegesFromToken();
+
+            // 根据权限控制模块显示
+            toggleModule('基础配置项', privileges.includes('基础配置项'));
+            toggleModule('超值配置项', privileges.includes('超值配置项'));
+            toggleModule('小游戏相关', privileges.includes('小游戏相关'));
+            toggleModule('自动练小号', privileges.includes('自动练小号'));
+        }
+
+        // 控制模块显示/隐藏
+        function toggleModule(moduleName, isVisible) {
+            // 查找所有summary元素
+            const summaries = document.querySelectorAll('summary');
+            let targetSummary = null;
+
+            // 遍历查找包含指定文本的summary
+            summaries.forEach(summary => {
+                if (summary.textContent.includes(moduleName)) {
+                    targetSummary = summary;
+                    return;
+                }
+            });
+
+            // 如果找到对应的模块
+            if (targetSummary) {
+                // 根据isVisible参数决定显示或隐藏
+                targetSummary.parentElement.style.display = isVisible ? '' : 'none';
+            }
+        }
+
+
+        // 在console域的页面中添加
+        function handleCrossDomainToken() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const token = urlParams.get('token');
+
+            if (token) {
+                // 解码token
+                const decodedToken = decodeURIComponent(token);
+
+                // 保存到当前域的localStorage
+                localStorage.setItem('accessToken', decodedToken);
+
+                // 从URL中移除token参数（保持URL整洁）
+                if (history.replaceState) {
+                    const cleanUrl = window.location.pathname + '?t=' + Date.now();
+                    history.replaceState(null, '', cleanUrl);
+                }
+
+                return decodedToken;
+            }
+
+            // 如果没有token参数，尝试从localStorage获取
+            return localStorage.getItem('accessToken');
+        }
+
+        // 页面加载时处理token
+        document.addEventListener('DOMContentLoaded', function () {
+            const token = handleCrossDomainToken();
+
+            if (token) {
+                // 使用token进行API调用等操作
+                initializeConsole(token);
+            } else {
+                console.error('未找到有效的accessToken');
+                // 可以跳转回登录页或显示错误信息
+                handleTokenError();
+            }
+        });
+
+        function initializeConsole(token) {
+            // 检查访问令牌
+            if (!checkAccessToken()) {
+                handleTokenError();
+                return;
+            }
+        }
+
+        function handleTokenError() {
+            // 处理token错误的情况
+            // 可以跳转回登录页或显示错误页面
+            window.location.href = 'http://101.201.53.154/home';
+        }
+
+        // 等待iframe加载完成
+        window.onload = function () {
+            // 先检查访问令牌
+            // if (!checkAccessToken()) {
+            //     return;
+            // }
+
+            // 获取并显示到期时间
+            // 从localStorage获取并显示到期时间
+            const expireTimeStr = localStorage.getItem('expireTimeStr');
+            if (expireTimeStr) {
+                document.getElementById('auth-expire-time').textContent =
+                    `授权到期时间：${decodeURIComponent(expireTimeStr)}`;
+            }
+
+            initPageWithPrivileges();
+
+            // 从localStorage读取账号和密码
+            const savedAccount = localStorage.getItem('savedAccount');
+            const savedPassword = localStorage.getItem('savedPassword');
+            if (savedAccount) {
+                document.getElementById('account-input').value = savedAccount;
+            }
+            if (savedPassword) {
+                document.getElementById('password-input').value = savedPassword;
+            }
+
+            // 移除之前可能添加的事件监听器
+            accountLoginButton.removeEventListener('click', handleAccountLoginButtonClick);
+            toggleButton.removeEventListener('click', handleToggleButtonClick);
+            battleMonsterButton.removeEventListener('click', handleBattleMonsterButtonClick);
+            enterGameButton.removeEventListener('click', handleEnterGameButtonClick);
+            enterMapButton.removeEventListener('click', handleEnterMapButtonClick);
+            closeSidebarButton.removeEventListener('click', handleCloseSidebarButtonClick);
+            // hunterButton.removeEventListener('click', handlehunterButtonClick);
+
+            // 重新添加事件监听器
+            accountLoginButton.addEventListener('click', handleAccountLoginButtonClick);
+            toggleButton.addEventListener('click', handleToggleButtonClick);
+            battleMonsterButton.addEventListener('click', handleBattleMonsterButtonClick);
+            enterGameButton.addEventListener('click', handleEnterGameButtonClick);
+            enterMapButton.addEventListener('click', handleEnterMapButtonClick);
+            closeSidebarButton.addEventListener('click', handleCloseSidebarButtonClick);
+            // hunterButton.addEventListener('click', handlehunterButtonClick);
+
+        };
+
+        // 处理加载失败的情况
+        contentFrame.onerror = function () {
+            reject(new Error("iframe 加载失败"));
+        };
+
+        // 监听来自 iframe 的消息
+        window.addEventListener("message", function (event) {
+            // 处理消息
+            if (event.data.type === "iframeMethodResult") {
+                console.log("收到 iframe 的消息:", event.data.result);
+                // 获取iframe元素
+                const contentFrame = document.getElementById('content-frame');
+
+                // 改写iframe的src内容
+                contentFrame.src = event.data.result;
+
+            } else if (event.data.type === "iframeMethodError") {
+                console.error("iframe 方法调用失败:", event.data.error);
+            }
+        });
+
+
+        // 导航栏事件，点击页面其他位置关闭sidebar
+        document.addEventListener('click', function (event) {
+            if (sidebar.classList.contains('open')) {
+                sidebar.classList.toggle('open');
+            }
+        });
+
+        // 导航栏，防止点击sidebar本身触发关闭事件
+        sidebar.addEventListener('click', function (event) {
+            event.stopPropagation();
+        });
+
+        // 为账号和密码输入框添加change事件监听
+        document.getElementById('account-input').addEventListener('change', function () {
+            localStorage.setItem('savedAccount', this.value);
+        });
+
+        document.getElementById('password-input').addEventListener('change', function () {
+            localStorage.setItem('savedPassword', this.value);
+        });
+    </script>
+</body>
+
+</html>

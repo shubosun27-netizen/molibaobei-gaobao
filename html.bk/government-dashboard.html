@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>省政府数据驾驶舱</title>
+  <!-- 引入外部资源 -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.8/dist/chart.umd.min.js"></script>
+  
+  <!-- 配置Tailwind自定义主题 - 与经济运行分析保持一致的政务色调 -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#0A3C86', // 政务深蓝作为主色调
+            secondary: '#165DFF',
+            success: '#007A4D',
+            warning: '#E67700',
+            danger: '#C9252C',
+            dark: '#1D2129',
+            'gov-gray': '#6B7785',
+            'gov-bg': '#F7F9FC'
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          },
+        },
+      }
+    }
+  </script>
+  
+  <!-- 自定义工具类 - 保持风格一致性 -->
+  <style type="text/tailwindcss">
+    @layer utilities {
+      .content-auto {
+        content-visibility: auto;
+      }
+      .card-shadow {
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+      }
+      .hover-lift {
+        transition: transform 0.2s, box-shadow 0.2s;
+      }
+      .hover-lift:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+      }
+      .sidebar-item-active {
+        @apply bg-primary/10 text-primary border-l-4 border-primary;
+      }
+      .stat-card {
+        @apply bg-white rounded-lg p-5 card-shadow hover-lift border border-gray-100;
+      }
+    }
+  </style>
+</head>
+
+<body class="bg-gov-bg font-sans text-dark min-h-screen flex">
+  <!-- 侧边栏导航 - 与经济运行分析保持一致的结构 -->
+  <aside class="w-64 bg-white border-r border-gray-200 flex-shrink-0 hidden md:block transition-all duration-300 ease-in-out z-20" id="sidebar">
+    <!-- 政府Logo和标题 -->
+    <div class="p-4 border-b border-gray-200 flex items-center space-x-3 bg-primary">
+      <div class="w-10 h-10 rounded-md bg-white flex items-center justify-center">
+        <i class="fa fa-building-o text-primary text-xl"></i>
+      </div>
+      <h1 class="text-xl font-bold text-white">省政府数据驾驶舱</h1>
+      <button class="ml-auto text-white/80 hover:text-white md:hidden" id="closeSidebar">
+        <i class="fa fa-times"></i>
+      </button>
+    </div>
+    
+    <!-- 导航菜单 -->
+    <nav class="p-4 space-y-1">
+      <p class="text-xs font-semibold text-gov-gray uppercase tracking-wider mb-2 px-3">经济总览</p>
+      
+      <a href="#" class="sidebar-item-active flex items-center px-3 py-3 rounded-md text-sm font-medium mb-1">
+        <i class="fa fa-dashboard w-5 h-5 mr-3"></i>
+        <span>综合数据概览</span>
+      </a>
+      
+      <a href="/economic-analysis.html" class="flex items-center px-3 py-3 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-50 mb-1 transition-colors">
+        <i class="fa fa-bar-chart w-5 h-5 mr-3"></i>
+        <span>经济运行分析</span>
+      </a>
+      
+      <a href="#" class="flex items-center px-3 py-3 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-50 mb-1 transition-colors">
+        <i class="fa fa-flag w-5 h-5 mr-3"></i>
+        <span>经济目标监测</span>
+      </a>
+      
+      <p class="text-xs font-semibold text-gov-gray uppercase tracking-wider mb-2 mt-6 px-3">专项分析</p>
+      
+      <a href="#" class="flex items-center px-3 py-3 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-50 mb-1 transition-colors">
+        <i class="fa fa-industry w-5 h-5 mr-3"></i>
+        <span>产业结构分析</span>
+      </a>
+      
+      <a href="#" class="flex items-center px-3 py-3 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-50 mb-1 transition-colors">
+        <i class="fa fa-map-marker w-5 h-5 mr-3"></i>
+        <span>区域经济发展</span>
+      </a>
+      
+      <a href="#" class="flex items-center px-3 py-3 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-50 mb-1 transition-colors">
+        <i class="fa fa-exchange w-5 h-5 mr-3"></i>
+        <span>投资消费出口</span>
+      </a>
+      
+      <a href="#" class="flex items-center px-3 py-3 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-50 mb-1 transition-colors">
+        <i class="fa fa-pie-chart w-5 h-5 mr-3"></i>
+        <span>财政金融分析</span>
+      </a>
+      
+      <a href="#" class="flex items-center px-3 py-3 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-50 mb-1 transition-colors">
+        <i class="fa fa-users w-5 h-5 mr-3"></i>
+        <span>就业收入分析</span>
+      </a>
+      
+      <p class="text-xs font-semibold text-gov-gray uppercase tracking-wider mb-2 mt-6 px-3">系统管理</p>
+      
+      <a href="#" class="flex items-center px-3 py-3 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-50 mb-1 transition-colors">
+        <i class="fa fa-file-text w-5 h-5 mr-3"></i>
+        <span>分析报告管理</span>
+      </a>
+      
+      <a href="#" class="flex items-center px-3 py-3 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-50 mb-1 transition-colors">
+        <i class="fa fa-cog w-5 h-5 mr-3"></i>
+        <span>系统设置</span>
+      </a>
+    </nav>
+  </aside>
+
+  <!-- 主内容区域 -->
+  <div class="flex-1 flex flex-col">
+    <!-- 顶部导航栏 - 保持与经济分析界面一致的布局 -->
+    <header class="bg-white border-b border-gray-200 shadow-sm z-10">
+      <div class="flex items-center justify-between h-16 px-6">
+        <!-- 左侧：汉堡菜单和搜索框 -->
+        <div class="flex items-center">
+          <button class="mr-4 text-gray-500 hover:text-gray-700 md:hidden" id="openSidebar">
+            <i class="fa fa-bars text-xl"></i>
+          </button>
+          
+          <div class="relative">
+            <span class="absolute inset-y-0 left-0 flex items-center pl-3">
+              <i class="fa fa-search text-gov-gray"></i>
+            </span>
+            <input type="text" placeholder="搜索指标、数据或报表..." 
+                  class="pl-10 pr-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary w-64 text-sm">
+          </div>
+        </div>
+        
+        <!-- 右侧：操作区和用户信息 -->
+        <div class="flex items-center space-x-6">
+          <div class="flex items-center space-x-3">
+            <button class="p-2 text-gov-gray hover:text-primary hover:bg-gray-100 rounded transition-colors" title="刷新数据">
+              <i class="fa fa-refresh"></i>
+            </button>
+            
+            <button class="p-2 text-gov-gray hover:text-primary hover:bg-gray-100 rounded transition-colors" title="数据导出">
+              <i class="fa fa-download"></i>
+            </button>
+            
+            <button class="p-2 text-gov-gray hover:text-primary hover:bg-gray-100 rounded transition-colors" title="打印报告">
+              <i class="fa fa-print"></i>
+            </button>
+            
+            <div class="h-6 border-r border-gray-300"></div>
+            
+            <div class="text-sm text-gov-gray flex items-center">
+              <i class="fa fa-clock-o mr-2"></i>
+              <span id="current-date">2023年6月</span>
+            </div>
+          </div>
+          
+          <div class="flex items-center space-x-3">
+            <div class="relative">
+              <img src="https://picsum.photos/id/1005/200/200" alt="领导头像" class="w-8 h-8 rounded-full object-cover border-2 border-white shadow-sm">
+            </div>
+            <div class="hidden md:block">
+              <p class="text-sm font-medium">王省长</p>
+              <p class="text-xs text-gov-gray">省政府</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- 页面内容 -->
+    <main class="flex-1 overflow-y-auto bg-gov-bg p-6 scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-1000">
+      <!-- 页面标题和时间筛选 - 与经济分析保持一致的布局 -->
+      <div class="mb-6 flex flex-wrap justify-between items-center">
+        <div>
+          <h2 class="text-[clamp(1.5rem,3vw,2rem)] font-bold text-dark">综合数据概览</h2>
+          <p class="text-gov-gray mt-1">全省经济社会发展核心指标实时监测</p>
+        </div>
+        
+        <div class="flex flex-wrap gap-3 mt-4 sm:mt-0">
+          <div class="bg-white rounded-lg border border-gray-200 flex items-center overflow-hidden">
+            <button class="px-4 py-2 text-sm text-primary bg-primary/5 border-r border-gray-200">本月</button>
+            <button class="px-4 py-2 text-sm text-gov-gray hover:bg-gray-50">本季度</button>
+            <button class="px-4 py-2 text-sm text-gov-gray hover:bg-gray-50">本年度</button>
+          </div>
+          
+          <div class="relative">
+            <select class="appearance-none pl-4 pr-10 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary text-sm bg-white">
+              <option>与去年同期对比</option>
+              <option>与上季度对比</option>
+              <option>与年度目标对比</option>
+            </select>
+            <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gov-gray">
+              <i class="fa fa-chevron-down text-xs"></i>
+            </div>
+          </div>
+          
+          <button class="flex items-center px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors shadow-sm">
+            <i class="fa fa-file-pdf-o mr-2"></i>
+            <span>生成分析报告</span>
+          </button>
+        </div>
+      </div>
+      
+      <!-- 经济社会发展总体评价 - 新增模块，保持与经济分析一致的风格 -->
+      <div class="bg-white rounded-lg p-5 card-shadow mb-6">
+        <h3 class="font-semibold text-lg mb-4">经济社会发展总体评价</h3>
+        
+        <div class="flex flex-col md:flex-row gap-6">
+          <div class="flex-1">
+            <div class="flex items-center mb-4">
+              <div class="w-10 h-10 rounded-full bg-success/10 flex items-center justify-center text-success mr-3">
+                <i class="fa fa-check text-xl"></i>
+              </div>
+              <h4 class="text-base font-medium">总体态势</h4>
+            </div>
+            
+            <p class="text-gray-700 leading-relaxed">
+              今年以来，我省经济社会发展呈现"稳中有进、进中向好"的良好态势，主要经济指标运行在合理区间，
+              社会大局保持稳定，民生福祉持续增进。上半年地区生产总值同比增长5.8%，高于全国平均水平，
+              为完成全年目标任务奠定了坚实基础。
+            </p>
+            
+            <div class="mt-4 flex flex-wrap gap-2">
+              <span class="px-3 py-1 bg-success/10 text-success text-xs rounded-full">稳中有进</span>
+              <span class="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">结构优化</span>
+              <span class="px-3 py-1 bg-warning/10 text-warning text-xs rounded-full">压力犹存</span>
+            </div>
+          </div>
+          
+          <div class="flex-1">
+            <div class="flex items-center mb-4">
+              <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary mr-3">
+                <i class="fa fa-tasks text-xl"></i>
+              </div>
+              <h4 class="text-base font-medium">目标完成情况</h4>
+            </div>
+            
+            <div class="space-y-3">
+              <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                  <i class="fa fa-line-chart text-primary mr-2"></i>
+                  <span class="text-sm">经济增长目标</span>
+                </div>
+                <div class="text-right">
+                  <span class="text-sm font-medium">5.8%</span>
+                  <span class="text-xs text-success ml-1">(目标5.5%)</span>
+                </div>
+              </div>
+              
+              <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                  <i class="fa fa-users text-success mr-2"></i>
+                  <span class="text-sm">就业目标</span>
+                </div>
+                <div class="text-right">
+                  <span class="text-sm font-medium">57.0%</span>
+                  <span class="text-xs text-success ml-1">(时间过半)</span>
+                </div>
+              </div>
+              
+              <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                  <i class="fa fa-money text-secondary mr-2"></i>
+                  <span class="text-sm">财政收入目标</span>
+                </div>
+                <div class="text-right">
+                  <span class="text-sm font-medium">8.2%</span>
+                  <span class="text-xs text-success ml-1">(目标7.0%)</span>
+                </div>
+              </div>
+              
+              <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                  <i class="fa fa-shopping-cart text-warning mr-2"></i>
+                  <span class="text-sm">消费增长目标</span>
+                </div>
+                <div class="text-right">
+                  <span class="text-sm font-medium">6.5%</span>
+                  <span class="text-xs text-success ml-1">(目标6.0%)</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- 核心指标卡片 - 保持与经济分析一致的设计风格 -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 mb-6">
+        <!-- 指标1：地区生产总值 -->
+        <div class="stat-card">
+          <div class="flex items-start justify-between">
+            <div>
+              <p class="text-gov-gray text-sm font-medium">地区生产总值(亿元)</p>
+              <h3 class="text-3xl font-bold mt-2 mb-1">26,847.5</h3>
+              <p class="text-success text-sm flex items-center">
+                <i class="fa fa-arrow-up mr-1"></i>
+                <span>5.8% 同比增长</span>
+                <span class="text-gov-gray ml-2">(目标5.5%)</span>
+              </p>
+            </div>
+            <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+              <i class="fa fa-line-chart text-xl"></i>
+            </div>
+          </div>
+          <div class="mt-4 h-10">
+            <canvas id="gdpChart"></canvas>
+          </div>
+        </div>
+        
+        <!-- 指标2：一般公共预算收入 -->
+        <div class="stat-card">
+          <div class="flex items-start justify-between">
+            <div>
+              <p class="text-gov-gray text-sm font-medium">一般公共预算收入(亿元)</p>
+              <h3 class="text-3xl font-bold mt-2 mb-1">3,216.8</h3>
+              <p class="text-success text-sm flex items-center">
+                <i class="fa fa-arrow-up mr-1"></i>
+                <span>8.2% 同比增长</span>
+                <span class="text-gov-gray ml-2">(目标7.0%)</span>
+              </p>
+            </div>
+            <div class="w-12 h-12 rounded-full bg-secondary/10 flex items-center justify-center text-secondary">
+              <i class="fa fa-money text-xl"></i>
+            </div>
+          </div>
+          <div class="mt-4 h-10">
+            <canvas id="budgetChart"></canvas>
+          </div>
+        </div>
+        
+        <!-- 指标3：城镇新增就业人数 -->
+        <div class="stat-card">
+          <div class="flex items-start justify-between">
+            <div>
+              <p class="text-gov-gray text-sm font-medium">城镇新增就业人数(万人)</p>
+              <h3 class="text-3xl font-bold mt-2 mb-1">68.4</h3>
+              <p class="text-success text-sm flex items-center">
+                <i class="fa fa-arrow-up mr-1"></i>
+                <span>完成年度目标57.0%</span>
+                <span class="text-gov-gray ml-2">(时间过半)</span>
+              </p>
+            </div>
+            <div class="w-12 h-12 rounded-full bg-success/10 flex items-center justify-center text-success">
+              <i class="fa fa-users text-xl"></i>
+            </div>
+          </div>
+          <div class="mt-4 h-10">
+            <canvas id="employmentChart"></canvas>
+          </div>
+        </div>
+        
+        <!-- 指标4：居民消费价格指数 -->
+        <div class="stat-card">
+          <div class="flex items-start justify-between">
+            <div>
+              <p class="text-gov-gray text-sm font-medium">居民消费价格指数(%)</p>
+              <h3 class="text-3xl font-bold mt-2 mb-1">1.8</h3>
+              <p class="text-warning text-sm flex items-center">
+                <i class="fa fa-arrow-up mr-1"></i>
+                <span>控制在年度目标内</span>
+                <span class="text-gov-gray ml-2">(目标3.0%以内)</span>
+              </p>
+            </div>
+            <div class="w-12 h-12 rounded-full bg-warning/10 flex items-center justify-center text-warning">
+              <i class="fa fa-shopping-basket text-xl"></i>
+            </div>
+          </div>
+          <div class="mt-4 h-10">
+            <canvas id="cpiChart"></canvas>
+          </div>
+        </div>
+      </div>
+      
+      <!-- 主要经济指标和民生指标 - 保持风格一致性 -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-5 mb-6">
+        <!-- 经济运行趋势 -->
+        <div class="lg:col-span-2 bg-white rounded-lg p-5 card-shadow">
+          <div class="flex justify-between items-center mb-5">
+            <h3 class="font-semibold text-lg">经济运行趋势分析</h3>
+            <div class="flex space-x-2">
+              <button class="px-3 py-1 text-xs bg-primary/10 text-primary rounded-full">季度</button>
+              <button class="px-3 py-1 text-xs bg-gray-100 text-gov-gray rounded-full hover:bg-gray-200">月度</button>
+              <button class="px-3 py-1 text-xs bg-gray-100 text-gov-gray rounded-full hover:bg-gray-200">年度</button>
+            </div>
+          </div>
+          <div class="h-80">
+            <canvas id="economicTrendChart"></canvas>
+          </div>
+        </div>
+        
+        <!-- 民生保障指标 -->
+        <div class="bg-white rounded-lg p-5 card-shadow">
+          <div class="flex justify-between items-center mb-5">
+            <h3 class="font-semibold text-lg">民生保障核心指标</h3>
+            <button class="text-gov-gray hover:text-primary">
+              <i class="fa fa-ellipsis-v"></i>
+            </button>
+          </div>
+          
+          <div class="space-y-6">
+            <!-- 指标1 -->
+            <div>
+              <div class="flex justify-between items-center mb-2">
+                <div class="flex items-center">
+                  <i class="fa fa-graduation-cap text-primary mr-2"></i>
+                  <span class="text-sm font-medium">义务教育巩固率</span>
+                </div>
+                <span class="text-sm font-semibold">95.8%</span>
+              </div>
+              <div class="w-full bg-gray-100 rounded-full h-2">
+                <div class="bg-primary h-2 rounded-full" style="width: 95.8%"></div>
+              </div>
+              <p class="text-xs text-gov-gray mt-1">较上年提高0.3个百分点</p>
+            </div>
+            
+            <!-- 指标2 -->
+            <div>
+              <div class="flex justify-between items-center mb-2">
+                <div class="flex items-center">
+                  <i class="fa fa-heartbeat text-secondary mr-2"></i>
+                  <span class="text-sm font-medium">基本医疗保险覆盖率</span>
+                </div>
+                <span class="text-sm font-semibold">98.6%</span>
+              </div>
+              <div class="w-full bg-gray-100 rounded-full h-2">
+                <div class="bg-secondary h-2 rounded-full" style="width: 98.6%"></div>
+              </div>
+              <p class="text-xs text-gov-gray mt-1">较上年提高0.2个百分点</p>
+            </div>
+            
+            <!-- 指标3 -->
+            <div>
+              <div class="flex justify-between items-center mb-2">
+                <div class="flex items-center">
+                  <i class="fa fa-home text-success mr-2"></i>
+                  <span class="text-sm font-medium">保障性住房开工率</span>
+                </div>
+                <span class="text-sm font-semibold">78.3%</span>
+              </div>
+              <div class="w-full bg-gray-100 rounded-full h-2">
+                <div class="bg-success h-2 rounded-full" style="width: 78.3%"></div>
+              </div>
+              <p class="text-xs text-gov-gray mt-1">年度计划完成率78.3%</p>
+            </div>
+            
+            <!-- 指标4 -->
+            <div>
+              <div class="flex justify-between items-center mb-2">
+                <div class="flex items-center">
+                  <i class="fa fa-car text-warning mr-2"></i>
+                  <span class="text-sm font-medium">农村公路通达率</span>
+                </div>
+                <span class="text-sm font-semibold">99.2%</span>
+              </div>
+              <div class="w-full bg-gray-100 rounded-full h-2">
+                <div class="bg-warning h-2 rounded-full" style="width: 99.2%"></div>
+              </div>
+              <p class="text-xs text-gov-gray mt-1">较上年提高0.5个百分点</p>
+            </div>
+            
+            <!-- 指标5 -->
+            <div>
+              <div class="flex justify-between items-center mb-2">
+                <div class="flex items-center">
+                  <i class="fa fa-tint text-danger mr-2"></i>
+                  <span class="text-sm font-medium">农村自来水普及率</span>
+                </div>
+                <span class="text-sm font-semibold">87.5%</span>
+              </div>
+              <div class="w-full bg-gray-100 rounded-full h-2">
+                <div class="bg-danger h-2 rounded-full" style="width: 87.5%"></div>
+              </div>
+              <p class="text-xs text-gov-gray mt-1">较上年提高2.1个百分点</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- 区域发展和重点项目 - 保持一致的设计语言 -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-5">
+        <!-- 各设区市GDP完成情况 -->
+        <div class="bg-white rounded-lg p-5 card-shadow">
+          <div class="flex justify-between items-center mb-5">
+            <h3 class="font-semibold text-lg">各设区市GDP完成情况</h3>
+            <a href="#" class="text-primary text-sm hover:underline">详情</a>
+          </div>
+          <div class="h-72">
+            <canvas id="cityGDPChart"></canvas>
+          </div>
+        </div>
+        
+        <!-- 重点项目进展 -->
+        <div class="lg:col-span-2 bg-white rounded-lg p-5 card-shadow">
+          <div class="flex justify-between items-center mb-5">
+            <h3 class="font-semibold text-lg">省级重点项目进展情况</h3>
+            <div class="flex items-center">
+              <span class="text-sm text-gov-gray mr-3">共216个项目</span>
+              <a href="#" class="text-primary text-sm hover:underline">全部项目</a>
+            </div>
+          </div>
+          
+          <div class="overflow-x-auto">
+            <table class="min-w-full divide-y divide-gray-200">
+              <thead>
+                <tr>
+                  <th class="px-3 py-3 bg-gray-50 text-left text-xs font-medium text-gov-gray uppercase tracking-wider rounded-tl-lg">项目名称</th>
+                  <th class="px-3 py-3 bg-gray-50 text-left text-xs font-medium text-gov-gray uppercase tracking-wider">所属领域</th>
+                  <th class="px-3 py-3 bg-gray-50 text-left text-xs font-medium text-gov-gray uppercase tracking-wider">投资规模(亿元)</th>
+                  <th class="px-3 py-3 bg-gray-50 text-left text-xs font-medium text-gov-gray uppercase tracking-wider">进度</th>
+                  <th class="px-3 py-3 bg-gray-50 text-left text-xs font-medium text-gov-gray uppercase tracking-wider rounded-tr-lg">状态</th>
+                </tr>
+              </thead>
+              <tbody class="bg-white divide-y divide-gray-100">
+                <tr>
+                  <td class="px-3 py-4 whitespace-nowrap">
+                    <div class="text-sm font-medium">省会城市轨道交通3号线</div>
+                  </td>
+                  <td class="px-3 py-4 whitespace-nowrap">
+                    <div class="text-sm text-gov-gray">基础设施</div>
+                  </td>
+                  <td class="px-3 py-4 whitespace-nowrap">
+                    <div class="text-sm text-gov-gray">186.5</div>
+                  </td>
+                  <td class="px-3 py-4 whitespace-nowrap">
+                    <div class="w-24">
+                      <div class="flex items-center">
+                        <div class="w-full bg-gray-100 rounded-full h-1.5 mr-2">
+                          <div class="bg-success h-1.5 rounded-full" style="width: 78%"></div>
+                        </div>
+                        <span class="text-xs text-gov-gray">78%</span>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="px-3 py-4 whitespace-nowrap">
+                    <span class="px-2 py-1 text-xs font-medium bg-success/10 text-success rounded-full">顺利推进</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="px-3 py-4 whitespace-nowrap">
+                    <div class="text-sm font-medium">东部地区产业升级示范区</div>
+                  </td>
+                  <td class="px-3 py-4 whitespace-nowrap">
+                    <div class="text-sm text-gov-gray">产业发展</div>
+                  </td>
+                  <td class="px-3 py-4 whitespace-nowrap">
+                    <div class="text-sm text-gov-gray">320.8</div>
+                  </td>
+                  <td class="px-3 py-4 whitespace-nowrap">
+                    <div class="w-24">
+                      <div class="flex items-center">
+                        <div class="w-full bg-gray-100 rounded-full h-1.5 mr-2">
+                          <div class="bg-primary h-1.5 rounded-full" style="width: 45%"></div>
+                        </div>
+                        <span class="text-xs text-gov-gray">45%</span>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="px-3 py-4 whitespace-nowrap">
+                    <span class="px-2 py-1 text-xs font-medium bg-primary/10 text-primary rounded-full">按计划进行</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="px-3 py-4 whitespace-nowrap">
+                    <div class="text-sm font-medium">全省医疗中心建设工程</div>
+                  </td>
+                  <td class="px-3 py-4 whitespace-nowrap">
+                    <div class="text-sm text-gov-gray">社会事业</div>
+                  </td>
+                  <td class="px-3 py-4 whitespace-nowrap">
+                    <div class="text-sm text-gov-gray">98.6</div>
+                  </td>
+                  <td class="px-3 py-4 whitespace-nowrap">
+                    <div class="w-24">
+                      <div class="flex items-center">
+                        <div class="w-full bg-gray-100 rounded-full h-1.5 mr-2">
+                          <div class="bg-warning h-1.5 rounded-full" style="width: 62%"></div>
+                        </div>
+                        <span class="text-xs text-gov-gray">62%</span>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="px-3 py-4 whitespace-nowrap">
+                    <span class="px-2 py-1 text-xs font-medium bg-warning/10 text-warning rounded-full">略有滞后</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="px-3 py-4 whitespace-nowrap">
+                    <div class="text-sm font-medium">北部生态涵养区建设</div>
+                  </td>
+                  <td class="px-3 py-4 whitespace-nowrap">
+                    <div class="text-sm text-gov-gray">生态环保</div>
+                  </td>
+                  <td class="px-3 py-4 whitespace-nowrap">
+                    <div class="text-sm text-gov-gray">156.3</div>
+                  </td>
+                  <td class="px-3 py-4 whitespace-nowrap">
+                    <div class="w-24">
+                      <div class="flex items-center">
+                        <div class="w-full bg-gray-100 rounded-full h-1.5 mr-2">
+                          <div class="bg-danger h-1.5 rounded-full" style="width: 30%"></div>
+                        </div>
+                        <span class="text-xs text-gov-gray">30%</span>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="px-3 py-4 whitespace-nowrap">
+                    <span class="px-2 py-1 text-xs font-medium bg-danger/10 text-danger rounded-full">需协调推进</span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- JavaScript -->
+  <script>
+    // 侧边栏切换功能
+    document.getElementById('openSidebar').addEventListener('click', function() {
+      document.getElementById('sidebar').classList.remove('hidden');
+      document.getElementById('sidebar').classList.add('block');
+    });
+    
+    document.getElementById('closeSidebar').addEventListener('click', function() {
+      document.getElementById('sidebar').classList.add('hidden');
+      document.getElementById('sidebar').classList.remove('block');
+    });
+    
+    // 设置当前日期
+    document.addEventListener('DOMContentLoaded', function() {
+      const now = new Date();
+      const year = now.getFullYear();
+      const month = now.getMonth() + 1;
+      
+      document.getElementById('current-date').textContent = `${year}年${month}月`;
+      
+      // 初始化图表
+      initCharts();
+    });
+    
+    // 图表初始化函数 - 保持与经济分析一致的样式
+    function initCharts() {
+      // 小型趋势图 - GDP
+      new Chart(document.getElementById('gdpChart'), {
+        type: 'line',
+        data: {
+          labels: ['1月', '2月', '3月', '4月', '5月', '6月'],
+          datasets: [{
+            data: [4120, 4250, 4480, 4360, 4850, 4787],
+            borderColor: '#0A3C86',
+            backgroundColor: 'rgba(10, 60, 134, 0.1)',
+            borderWidth: 2,
+            tension: 0.4,
+            fill: true
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: { legend: { display: false } },
+          scales: { x: { display: false }, y: { display: false } },
+          elements: { point: { radius: 0 } }
+        }
+      });
+      
+      // 小型趋势图 - 一般公共预算收入
+      new Chart(document.getElementById('budgetChart'), {
+        type: 'line',
+        data: {
+          labels: ['1月', '2月', '3月', '4月', '5月', '6月'],
+          datasets: [{
+            data: [480, 520, 560, 510, 580, 566],
+            borderColor: '#165DFF',
+            backgroundColor: 'rgba(22, 93, 255, 0.1)',
+            borderWidth: 2,
+            tension: 0.4,
+            fill: true
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: { legend: { display: false } },
+          scales: { x: { display: false }, y: { display: false } },
+          elements: { point: { radius: 0 } }
+        }
+      });
+      
+      // 小型趋势图 - 城镇新增就业人数
+      new Chart(document.getElementById('employmentChart'), {
+        type: 'line',
+        data: {
+          labels: ['1月', '2月', '3月', '4月', '5月', '6月'],
+          datasets: [{
+            data: [8.5, 10.2, 11.8, 12.3, 13.2, 12.4],
+            borderColor: '#007A4D',
+            backgroundColor: 'rgba(0, 122, 77, 0.1)',
+            borderWidth: 2,
+            tension: 0.4,
+            fill: true
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: { legend: { display: false } },
+          scales: { x: { display: false }, y: { display: false } },
+          elements: { point: { radius: 0 } }
+        }
+      });
+      
+      // 小型趋势图 - 居民消费价格指数
+      new Chart(document.getElementById('cpiChart'), {
+        type: 'line',
+        data: {
+          labels: ['1月', '2月', '3月', '4月', '5月', '6月'],
+          datasets: [{
+            data: [1.2, 1.3, 1.4, 1.5, 1.6, 1.8],
+            borderColor: '#E67700',
+            backgroundColor: 'rgba(230, 119, 0, 0.1)',
+            borderWidth: 2,
+            tension: 0.4,
+            fill: true
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: { legend: { display: false } },
+          scales: { x: { display: false }, y: { display: false } },
+          elements: { point: { radius: 0 } }
+        }
+      });
+      
+      // 经济运行趋势图
+      new Chart(document.getElementById('economicTrendChart'), {
+        type: 'line',
+        data: {
+          labels: ['2022Q1', '2022Q2', '2022Q3', '2022Q4', '2023Q1', '2023Q2'],
+          datasets: [
+            {
+              label: '地区生产总值(亿元)',
+              data: [23560, 24120, 24890, 25670, 26120, 26847],
+              borderColor: '#0A3C86',
+              backgroundColor: 'rgba(10, 60, 134, 0.05)',
+              borderWidth: 2,
+              tension: 0.3,
+              fill: true,
+              yAxisID: 'y'
+            },
+            {
+              label: '同比增长率(%)',
+              data: [4.2, 4.5, 4.8, 5.2, 5.5, 5.8],
+              borderColor: '#007A4D',
+              backgroundColor: 'transparent',
+              borderWidth: 2,
+              tension: 0.3,
+              borderDash: [],
+              fill: false,
+              yAxisID: 'y1'
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          interaction: { mode: 'index', intersect: false },
+          plugins: {
+            legend: {
+              position: 'top',
+              align: 'end',
+              labels: {
+                boxWidth: 10,
+                usePointStyle: true,
+                pointStyle: 'circle'
+              }
+            },
+            tooltip: {
+              padding: 10,
+              boxPadding: 5
+            }
+          },
+          scales: {
+            x: {
+              grid: { display: false }
+            },
+            y: {
+              type: 'linear',
+              display: true,
+              position: 'left',
+              title: {
+                display: true,
+                text: '地区生产总值(亿元)',
+                font: { size: 11 }
+              },
+              grid: {
+                borderDash: [2, 4],
+                color: 'rgba(0, 0, 0, 0.05)'
+              }
+            },
+            y1: {
+              type: 'linear',
+              display: true,
+              position: 'right',
+              title: {
+                display: true,
+                text: '同比增长率(%)',
+                font: { size: 11 }
+              },
+              grid: {
+                drawOnChartArea: false
+              },
+              min: 0,
+              max: 10
+            }
+          }
+        }
+      });
+      
+      // 各设区市GDP完成情况
+      new Chart(document.getElementById('cityGDPChart'), {
+        type: 'bar',
+        data: {
+          labels: ['省会市', '东部市', '南部市', '西部市', '北部市', '中部市'],
+          datasets: [{
+            label: 'GDP(亿元)',
+            data: [8650, 5230, 4120, 3850, 2980, 2017],
+            backgroundColor: [
+              '#0A3C86',
+              '#165DFF',
+              '#007A4D',
+              '#E67700',
+              '#C9252C',
+              '#6B7785'
+            ],
+            borderRadius: 4
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          indexAxis: 'y',
+          plugins: {
+            legend: { display: false },
+            tooltip: {
+              callbacks: {
+                label: function(context) {
+                  return `GDP: ${context.raw}亿元`;
+                }
+              }
+            }
+          },
+          scales: {
+            x: {
+              grid: { display: false },
+              beginAtZero: true
+            },
+            y: {
+              grid: { display: false }
+            }
+          }
+        }
+      });
+    }
+  </script>
+</body>
+</html>

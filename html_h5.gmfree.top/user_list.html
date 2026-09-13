@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>用户列表</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th,
+        td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f5f5f5;
+        }
+
+        .status {
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+        }
+
+        .status.active {
+            background-color: #d4edda;
+            color: #155724;
+        }
+
+        .status.expired {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>用户列表</h1>
+    <div id="authSection">
+        <input type="password" id="authCode" placeholder="请输入查询密钥">
+        <button onclick="verifyAuthCode()">验证</button>
+        <span id="authError" style="color: red; margin-left: 10px;"></span>
+    </div>
+    <table id="userTable" style="display: none;">
+        <thead>
+            <tr>
+                <th>手机号</th>
+                <th>邀请码</th>
+                <th>过期时间</th>
+                <th>权限</th>
+                <th>游戏ID</th>
+                <th>剩余天数</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- 数据将通过JavaScript填充 -->
+        </tbody>
+    </table>
+
+    <script>
+        // 获取用户数据
+        async function fetchUsers() {
+            try {
+                const response = await fetch('/v1/3rd/api/getUsers', {
+                    method: 'GET',
+                    headers: {
+                        'Authorization': localStorage.getItem('accessToken')
+                    }
+                });
+
+                const data = await response.json();
+                if (!data.success) {
+                    alert(data.message);
+                    return;
+                }
+
+                // 填充表格
+                const tbody = document.querySelector('#userTable tbody');
+                tbody.innerHTML = '';
+
+                data.data.forEach(user => {
+                    const row = document.createElement('tr');
+
+                    // 手机号
+                    const phoneCell = document.createElement('td');
+                    phoneCell.textContent = user.phone;
+                    row.appendChild(phoneCell);
+
+                    // 邀请码
+                    const inviteCodeCell = document.createElement('td');
+                    inviteCodeCell.textContent = user.invite_code;
+                    row.appendChild(inviteCodeCell);
+
+                    // 过期时间
+                    const expireDateCell = document.createElement('td');
+                    expireDateCell.textContent = user.expire_date;
+                    row.appendChild(expireDateCell);
+
+                    // 权限
+                    const privilegesCell = document.createElement('td');
+                    privilegesCell.textContent = user.privileges.join(', ');
+                    row.appendChild(privilegesCell);
+
+                    // 游戏ID
+                    const gameIdCell = document.createElement('td');
+                    gameIdCell.textContent = user.game_ids.join(', ');
+                    row.appendChild(gameIdCell);
+
+                    // 剩余天数
+                    const daysLeftCell = document.createElement('td');
+                    const expireDate = new Date(user.expire_date);
+                    const now = new Date();
+                    const timeDiff = expireDate - now;
+                    const daysLeft = Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
+                    daysLeftCell.textContent = daysLeft > 0 ? daysLeft : '已过期';
+                    row.appendChild(daysLeftCell);
+
+                    tbody.appendChild(row);
+                });
+
+            } catch (error) {
+                console.error('Error:', error);
+                alert('获取用户数据失败');
+            }
+        }
+
+        // 验证密钥
+        async function verifyAuthCode() {
+            const authCode = document.getElementById('authCode').value;
+            if (!authCode) {
+                document.getElementById('authError').textContent = '请输入查询密钥';
+                return;
+            }
+
+            try {
+                const response = await fetch('/v1/3rd/api/verifyAuthCode', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': localStorage.getItem('accessToken')
+                    },
+                    body: JSON.stringify({ authCode })
+                });
+
+                const data = await response.json();
+                if (!data.success) {
+                    document.getElementById('authError').textContent = data.message;
+                    return;
+                }
+
+                // 验证通过，显示表格并获取数据
+                document.getElementById('authSection').style.display = 'none';
+                document.getElementById('userTable').style.display = 'table';
+                fetchUsers();
+            } catch (error) {
+                console.error('Error:', error);
+                document.getElementById('authError').textContent = '验证失败';
+            }
+        }
+
+        // 修改页面加载逻辑
+        window.onload = function () {
+            // 隐藏表格，显示验证部分
+            document.getElementById('userTable').style.display = 'none';
+            document.getElementById('authSection').style.display = 'block';
+        };
+    </script>
+</body>
+
+</html>

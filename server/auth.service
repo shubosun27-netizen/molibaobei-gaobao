@@ -1,0 +1,26 @@
+[Unit]
+# 服务描述（自定义，如程序功能）
+Description=Auth Service
+# 服务依赖（可选，如依赖网络：After=network.target；依赖数据库：After=mysql.service）
+After=network.target
+
+[Service]
+# 运行用户（建议用普通用户，如 ubuntu；避免 root 权限风险，需确保目录有读写权限）
+User=root
+# 运行组（与用户一致，如 ubuntu）
+Group=root
+# 工作目录（Python 程序所在目录，绝对路径）
+WorkingDirectory=/data/fugu/server
+# 启动命令（Python 解释器绝对路径 + 脚本绝对路径，无多余空格）
+ExecStart=/usr/bin/python3.9 /data/fugu/server/serv.py
+# 重启策略（关键：程序崩溃/退出后自动重启）
+Restart=always
+# 重启延迟（崩溃后等待 3 秒再重启，避免频繁重启）
+RestartSec=3
+# 日志配置（可选，将程序输出重定向到系统日志，便于排查问题）
+StandardOutput=journal+console
+StandardError=journal+console
+
+[Install]
+# 开机自启的目标（多用户模式，默认即可）
+WantedBy=multi-user.target

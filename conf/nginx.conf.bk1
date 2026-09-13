@@ -1,0 +1,462 @@
+
+#user  nobody;
+worker_processes  1;
+
+#error_log  logs/error.log;
+#error_log  logs/error.log  notice;
+#error_log  logs/error.log  info;
+
+#pid        logs/nginx.pid;
+
+
+events {
+    worker_connections  1024;
+}
+
+
+http {
+    include       mime.types;
+    default_type  application/octet-stream;
+
+    log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
+                     '$status $body_bytes_sent "$http_referer" '
+                     '"$http_user_agent" "$http_x_forwarded_for"';
+
+    log_format custom '$http_referer';
+
+    # access_log  logs/access.log  main;
+
+    sendfile        on;
+    #tcp_nopush     on;
+
+    #keepalive_timeout  0;
+    keepalive_timeout  65;
+
+    gzip  on;
+    server {
+        listen       80;
+        server_name  localhost;
+
+        location / {
+            root   html_myGame;
+            index  index.html index.htm;
+        }
+
+         # 添加login转发
+        location /v1/3rd/api {
+            proxy_pass http://localhost:5000;
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header X-Forwarded-Proto $scheme;
+        }
+
+        location /servers.json {
+            proxy_pass http://localhost:59977;
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header X-Forwarded-Proto $scheme;
+        }
+
+        location /xhs/service {
+            default_type application/json;
+            return 200 '{"code":"200","msg":"success","content":{"records":[{"name":"张三","ss":"1","bm":"信息中心","rylx":"1","task_inthebase_instate":{},"task_outofbase_approval":{},"working":"1","businesstrip_xian_abovethreedays":{},"businesstrip_xian_lessthanthreedays":{},"businesstrip_luoyang_instate":{},"businesstrip_nonlocal":{},"vacation_xian_abovethreedays":{},"vacation_xian_lessthanthreedays":{},"vacation_nonlocal":{},"study_xian":{},"study_nonlocal":{},"go_abroad":{},"recuperate":{},"departure_date":{},"end_date":{},"address_area_name":{},"remarks":{},"test":"1","attention":{}}],"pages":1}}';
+        }
+
+        location /xhs/docs {
+            default_type application/json;
+            return 200 '{"code":"200","msg":"success","content":{"columnList":[{"columnName":"name","columnType":"varchar","length":4000,"comment":"姓名"},{"columnName":"ss","columnType":"varchar","length":4000,"comment":"所属"},{"columnName":"bm","columnType":"varchar","length":100,"comment":"部门"},{"columnName":"rylx","columnType":"varchar","length":10,"comment":"人员类型"},{"columnName":"task_inthebase_instate","columnType":"int4","length":10,"comment":"任务_内调驻在"},{"columnName":"task_outofbase_approval","columnType":"varchar","length":4000,"comment":"任务_外调"},{"columnName":"working","columnType":"int4","length":10,"comment":"上班"},{"columnName":"businesstrip_xian_abovethreedays","columnType":"int4","length":10,"comment":"出差-西安-三天及以上"},{"columnName":"businesstrip_xian_lessthanthreedays","columnType":"int4","length":10,"comment":"出差-西安-少于三天"},{"columnName":"businesstrip_luoyang_instate","columnType":"int4","length":10,"comment":"出差-洛阳-驻在"},{"columnName":"businesstrip_nonlocal","columnType":"int4","length":10,"comment":"出差-外地"},{"columnName":"vacation_xian_abovethreedays","columnType":"int4","length":10,"comment":"休假-西安-三天及以上"},{"columnName":"vacation_xian_lessthanthreedays","columnType":"int4","length":10,"comment":"休假-西安-少于三天"},{"columnName":"vacation_nonlocal","columnType":"int4","length":10,"comment":"休假-外地"},{"columnName":"study_xian","columnType":"int4","length":10,"comment":"学习-西安"},{"columnName":"study_nonlocal","columnType":"int4","length":10,"comment":"学习-外地"},{"columnName":"go_abroad","columnType":"varchar","length":4000,"comment":"出国"},{"columnName":"recuperate","columnType":"varchar","length":4000,"comment":"疗养"},{"columnName":"departure_date","columnType":"timestamp","length":29,"comment":"出差日期"},{"columnId":"end_date","columnName":"end_date","columnType":"timestamp","length":29,"comment":"预计返程时间"},{"columnName":"address_area_name","columnType":"varchar","length":4000,"comment":"外出地址"},{"columnName":"remarks","columnType":"varchar","length":4000,"comment":"备注"},{"columnName":"test","columnType":"int4","length":10,"comment":"测试"},{"columnName":"attention","columnType":"varchar","length":4000,"comment":"需确认情况"}]}}';
+        }
+
+    }
+
+    server {
+        listen       59977;
+        server_name  localhost;
+
+        location / {
+            root   html_update;
+            index  index.html index.htm;
+        }
+
+        # 添加login转发
+        location /v1/3rd/api {
+            proxy_pass http://localhost:5000;
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header X-Forwarded-Proto $scheme;
+        }
+
+    }
+
+    server {
+        listen       81;
+        server_name  localhost;
+
+        #charset koi8-r;
+
+        # access_log  logs/host.access.log  main;
+
+        # access_log /var/log/nginx/custom.log custom;
+
+        location / {
+            root   html_moli.u2ip.com;
+            index  index.html index.htm;
+        }
+
+        # 添加login转发
+        location /v1/3rd/api {
+            proxy_pass http://localhost:5000;
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header X-Forwarded-Proto $scheme;
+        }
+
+        location /juhe/api/user/getLoginToken {
+            access_log logs/host.access.log custom;
+            # 修改 Referer
+            proxy_set_header Host "juhe.gateway.yofijoy.com";
+            proxy_set_header Origin "https://mlrg.u2ip.com:5099";
+            proxy_set_header Referer "https://mlrg.u2ip.com:5099/";
+            proxy_set_header re-ssk "https://mlrg.u2ip.com:5099/";
+            proxy_redirect off;  # 禁止 302 跳转
+            
+            proxy_pass https://juhe.gateway.yofijoy.com/juhe/api/user/getLoginToken;
+        }
+
+        location /api/v1/webhook {
+            proxy_pass https://xz.wps.cn/api/v1/webhook/;
+            proxy_redirect off;  # 禁止 302 跳转
+        }
+
+        location /test {
+            # access_log logs/host.access.log main;
+            # proxy_pass https://mlrg.u2ip.com:5099/;
+            proxy_pass http://mlrg.u2ip.com:5099/;
+            # proxy_set_header Referer "https://mlrg.u2ip.com:5099/libs/laya/min/workerloader.min.js";
+            proxy_set_header Host mlrg.u2ip.com:5099;
+            proxy_redirect off;  # 禁止 302 跳转
+        }
+
+        location /scene {
+            # access_log logs/host.access.log main;
+            # proxy_pass https://mlrg.u2ip.com:5099/scene;
+            proxy_pass http://mlrg.u2ip.com:5099/scene;
+            # proxy_set_header Referer "https://mlrg.u2ip.com:5099/libs/laya/min/workerloader.min.js";
+            proxy_set_header Host mlrg.u2ip.com:5099;
+            proxy_redirect off;  # 禁止 302 跳转
+        }
+        
+        location /res {
+            # access_log logs/host.access.log main;
+            # proxy_pass https://mlrg.u2ip.com:5099/res;
+            proxy_pass http://mlrg.u2ip.com:5099/res;
+            # proxy_set_header Referer "https://mlrg.u2ip.com:5099/libs/laya/min/workerloader.min.js";
+            proxy_set_header Host mlrg.u2ip.com:5099;
+            proxy_redirect off;  # 禁止 302 跳转
+        }
+
+        location /res/atlas {
+            # access_log logs/host.access.log main;
+            # proxy_pass https://mlrg.u2ip.com:5099/res/atlas;
+            proxy_pass http://mlrg.u2ip.com:5099/res/atlas;
+            # proxy_set_header Referer "https://mlrg.u2ip.com:5099/libs/laya/min/workerloader.min.js";
+            proxy_set_header Host mlrg.u2ip.com:5099;
+            proxy_redirect off;  # 禁止 302 跳转
+        }
+
+        location /atlas/ui {
+            # access_log logs/host.access.log main;
+            # proxy_pass https://mlrg.u2ip.com:5099/atlas/ui;
+            proxy_pass http://mlrg.u2ip.com:5099/atlas/ui;
+            # proxy_set_header Referer "https://mlrg.u2ip.com:5099/libs/laya/min/workerloader.min.js";
+            proxy_set_header Host mlrg.u2ip.com:5099;
+            proxy_redirect off;  # 禁止 302 跳转
+        }
+
+        location /res/audio {
+            # access_log logs/host.access.log main;
+            # proxy_pass https://mlrg.u2ip.com:5099/res/audio;
+            proxy_pass http://mlrg.u2ip.com:5099/res/audio;
+            # proxy_set_header Referer "https://mlrg.u2ip.com:5099/libs/laya/min/workerloader.min.js";
+            proxy_set_header Host mlrg.u2ip.com:5099;
+            proxy_redirect off;  # 禁止 302 跳转
+        }
+
+        location /res/font1.ttf {
+            # access_log logs/host.access.log main;
+            proxy_pass https://mlrg.u2ip.com:5099/res/font1.ttf;
+            # proxy_set_header Referer "https://mlrg.u2ip.com:5099/libs/laya/min/workerloader.min.js";
+            proxy_set_header Host mlrg.u2ip.com:5099;
+            proxy_redirect off;  # 禁止 302 跳转
+        }
+
+        
+        location /106u {
+            proxy_pass http://www.106u.com/;
+            proxy_redirect off;  # 禁止 302 跳转
+        }
+
+
+        # 添加 moli.u2ip.com:89 的代理配置，修改 Origin 和 Referer
+        location /moli {
+            # 代理到目标服务器
+            proxy_pass http://moli.u2ip.com:89/;
+            
+            # 修改请求头
+            proxy_set_header Host moli.u2ip.com:89;
+            proxy_set_header Origin "http://moli.u2ip.com:89";
+            proxy_set_header Referer "http://moli.u2ip.com:89/game_moli_gaobao/start/indexQV.html?yofisdk=1&sdkshell=0&channelid=13000&sdkid=0&centerflag=mlbb_newfg";
+            
+            # 其他常用头设置
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header X-Forwarded-Proto $scheme;
+            
+            # 禁止重定向
+            proxy_redirect off;
+            
+            # 允许跨域（如果需要）
+            add_header Access-Control-Allow-Origin *;
+            add_header Access-Control-Allow-Methods 'GET, POST, OPTIONS';
+            add_header Access-Control-Allow-Headers 'DNT,X-Mx-ReqToken,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Authorization';
+            
+            # 处理 OPTIONS 预检请求
+            if ($request_method = 'OPTIONS') {
+                return 204;
+            }
+        }
+
+
+
+        # ########## 核心配置：指定路径返回JSON ##########
+        location /api/demo { # 自定义访问路径
+            default_type application/json; # 声明响应为JSON类型
+            # 返回JSON数据（双引号需转义为\"）
+            proxy_pass http://localhost:5000/v1/3rd/api/demo;
+        }
+
+        location /servers.json {
+            proxy_pass http://localhost:59977;
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header X-Forwarded-Proto $scheme;
+        }
+
+
+
+
+        #error_page  404              /404.html;
+
+        # redirect server error pages to the static page /50x.html
+        #
+        error_page   500 502 503 504  /50x.html;
+        location = /50x.html {
+            root   html;
+        }
+    }
+
+    server {
+        listen       82;
+        server_name  localhost;
+
+        location / {
+            root   html_101.43.162.207;
+            index  index.html index.htm;
+        }
+
+        location /kkk {
+            return 200 '111';
+        }
+
+        # 添加login转发
+        location /v1/3rd/api {
+            proxy_pass http://localhost:5000;
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header X-Forwarded-Proto $scheme;
+        }
+
+        location /test {
+            # access_log logs/host.access.log main;
+            # proxy_pass https://mlgbcdn.bigrnet.com/;
+            proxy_pass http://101.43.162.207:89/game_moli_gaobao/;
+            # proxy_set_header Referer "https://mlgbcdn.bigrnet.com/libs/laya/min/workerloader.min.js";
+            proxy_set_header Host mlgbcdn.bigrnet.com;
+            proxy_redirect off;  # 禁止 302 跳转
+        }
+
+        location /scene {
+            # access_log logs/host.access.log main;
+            # proxy_pass https://mlgbcdn.bigrnet.com/scene;
+            proxy_pass http://101.43.162.207:89/game_moli_gaobao/scene;
+            # proxy_set_header Referer "https://mlgbcdn.bigrnet.com/libs/laya/min/workerloader.min.js";
+            proxy_set_header Host mlgbcdn.bigrnet.com;
+            proxy_redirect off;  # 禁止 302 跳转
+        }
+        
+        location /res {
+            # access_log logs/host.access.log main;
+            # proxy_pass https://mlgbcdn.bigrnet.com/res;
+            proxy_pass http://101.43.162.207:89/game_moli_gaobao/res;
+            # proxy_set_header Referer "https://mlgbcdn.bigrnet.com/libs/laya/min/workerloader.min.js";
+            proxy_set_header Host mlgbcdn.bigrnet.com;
+            proxy_redirect off;  # 禁止 302 跳转
+        }
+
+        location /res/atlas {
+            # access_log logs/host.access.log main;
+            # proxy_pass https://mlgbcdn.bigrnet.com/res/atlas;
+            proxy_pass http://101.43.162.207:89/game_moli_gaobao/res/atlas;
+            # proxy_set_header Referer "https://mlgbcdn.bigrnet.com/libs/laya/min/workerloader.min.js";
+            proxy_set_header Host mlgbcdn.bigrnet.com;
+            proxy_redirect off;  # 禁止 302 跳转
+        }
+
+        location /atlas/ui {
+            # access_log logs/host.access.log main;
+            # proxy_pass https://mlgbcdn.bigrnet.com/atlas/ui;
+            proxy_pass http://101.43.162.207:89/game_moli_gaobao/atlas/ui;
+            # proxy_set_header Referer "https://mlgbcdn.bigrnet.com/libs/laya/min/workerloader.min.js";
+            proxy_set_header Host mlgbcdn.bigrnet.com;
+            proxy_redirect off;  # 禁止 302 跳转
+        }
+
+        location /res/audio {
+            # access_log logs/host.access.log main;
+            # proxy_pass https://mlgbcdn.bigrnet.com/res/audio;
+            proxy_pass http://101.43.162.207:89/game_moli_gaobao/res/audio;
+            # proxy_set_header Referer "https://mlgbcdn.bigrnet.com/libs/laya/min/workerloader.min.js";
+            proxy_set_header Host mlgbcdn.bigrnet.com;
+            proxy_redirect off;  # 禁止 302 跳转
+        }
+
+        location /res/font1.ttf {
+            # access_log logs/host.access.log main;
+            proxy_pass https://mlgbcdn.bigrnet.com/res/font1.ttf;
+            # proxy_set_header Referer "https://mlgbcdn.bigrnet.com/libs/laya/min/workerloader.min.js";
+            proxy_set_header Host mlgbcdn.bigrnet.com;
+            proxy_redirect off;  # 禁止 302 跳转
+        }
+
+        location /servers.json {
+            proxy_pass http://localhost:59977;
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header X-Forwarded-Proto $scheme;
+        }
+
+        error_page   500 502 503 504  /50x.html;
+        location = /50x.html {
+            root   html;
+        }
+    }
+      server {
+        listen       83;
+        server_name  localhost;
+
+        location / {
+            root   html_moli.yofijoy.com;
+            index  index.html index.htm;
+        }
+
+        # 添加login转发
+        location /v1/3rd/api {
+            proxy_pass http://localhost:5000;
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header X-Forwarded-Proto $scheme;
+        }
+
+        location /test {
+            proxy_pass http://cdn.yofijoy.com/game_moli_gaobao/;
+            proxy_set_header Host cdn.yofijoy.com;
+            proxy_redirect off;  # 禁止 302 跳转
+        }
+
+        location /scene {
+            proxy_pass http://cdn.yofijoy.com/game_moli_gaobao/scene;
+            proxy_set_header Host cdn.yofijoy.com;
+            proxy_redirect off;  # 禁止 302 跳转
+        }
+        
+        location /res {
+            proxy_pass http://cdn.yofijoy.com/game_moli_gaobao/res;
+            proxy_set_header Host cdn.yofijoy.com;
+            proxy_redirect off;  # 禁止 302 跳转
+        }
+
+        location /res/atlas {
+            proxy_pass http://cdn.yofijoy.com/game_moli_gaobao/res/atlas;
+            proxy_set_header Host cdn.yofijoy.com;
+            proxy_redirect off;  # 禁止 302 跳转
+        }
+
+        location /atlas/ui {
+            proxy_pass http://cdn.yofijoy.com/game_moli_gaobao/atlas/ui;
+            proxy_set_header Host cdn.yofijoy.com;
+            proxy_redirect off;  # 禁止 302 跳转
+        }
+
+        location /res/audio {
+            proxy_pass http://cdn.yofijoy.com/game_moli_gaobao/res/audio;
+            proxy_set_header Host cdn.yofijoy.com;
+            proxy_redirect off;  # 禁止 302 跳转
+        }
+
+        location /res/font1.ttf {
+            proxy_pass https://cdn.yofijoy.com/res/font1.ttf;
+            proxy_set_header Host cdn.yofijoy.com;
+            proxy_redirect off;  # 禁止 302 跳转
+        }
+
+        # 添加 sdk.gateway.yofijoy.com 的代理配置，修改 Origin 和 Referer
+        location /moli/ {
+            # 代理到目标服务器
+            proxy_pass http://sdk.gateway.yofijoy.com/;
+            
+            # 修改请求头
+            proxy_set_header Host sdk.gateway.yofijoy.com;
+            proxy_set_header Origin "http://mlcdn.quannijoy.com";
+            proxy_set_header Referer "http://mlcdn.quannijoy.com/";
+            proxy_set_header Yofichannelid "4";
+            proxy_set_header Yofideviceid "";
+            proxy_set_header Yofipackagename "com.yofijoy.mlbbgl.h5";
+            proxy_set_header Yofisdkversion "1.0.0";
+            proxy_set_header Yofisystem "5";
+            proxy_set_header Yofiversion "1.0.0";
+            proxy_set_header Clientid "10004";
+            
+            # 其他常用头设置
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header X-Forwarded-Proto $scheme;
+            
+            # 禁止重定向
+            proxy_redirect off;
+            
+            # 允许跨域（如果需要）
+            add_header Access-Control-Allow-Origin *;
+            add_header Access-Control-Allow-Methods 'GET, POST, OPTIONS';
+            add_header Access-Control-Allow-Headers 'DNT,X-Mx-ReqToken,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Authorization';
+            
+            # 处理 OPTIONS 预检请求
+            if ($request_method = 'OPTIONS') {
+                return 204;
+            }
+        }
+
+
+        error_page   500 502 503 504  /50x.html;
+        location = /50x.html {
+            root   html;
+        }
+    }
+}

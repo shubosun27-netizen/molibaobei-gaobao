@@ -1,0 +1,3210 @@
+[
+  {
+    "name": "地牢RPG游戏",
+    "url": "http://toolsa.cn/gameA.html",
+    "group": "本地推荐",
+    "featured": true,
+    "tags": [
+      "RPG"
+    ]
+  },
+  {
+    "name": "刀锋幸存者：最终进化",
+    "url": "http://toolsa.cn/gameB.html",
+    "group": "本地推荐",
+    "featured": true,
+    "tags": [
+      "RPG"
+    ]
+  },
+  {
+    "name": "大明市井行商录",
+    "url": "http://toolsa.cn:59973",
+    "group": "本地推荐",
+    "featured": true,
+    "tags": [
+      "模拟经营"
+    ]
+  },
+  {
+    "name": "夹缝",
+    "url": "http://toolsa.cn:59972",
+    "group": "本地推荐",
+    "featured": true,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "守卫大作战",
+    "url": "https://tos.qwpo2018.com/mp/game/web/inside/73c40a33e2151feac8cd5e33ccb5c644/index.html",
+    "group": "本地推荐",
+    "featured": true,
+    "tags": [
+      "塔防"
+    ]
+  },
+  {
+    "name": "脑洞派对",
+    "url": "https://scriptmaster-1300577131.cos.ap-nanjing.myqcloud.com/RoomEscape/NaoDongPaiDui/web/index.html",
+    "group": "2025-01-30",
+    "featured": false,
+    "tags": [
+      "脑洞"
+    ]
+  },
+  {
+    "name": "无限经营/菜鸡闯江湖",
+    "url": "https://juezhongjue-1320710492.cos.ap-nanjing.myqcloud.com/ZhanZhengBeiBao/web_0123/web-mobile/index.html",
+    "group": "2025-01-30",
+    "featured": false,
+    "tags": [
+      "模拟经营"
+    ]
+  },
+  {
+    "name": "人生泰裤辣",
+    "url": "https://www.yzqgamefun.com/packages/RenshengTaikula/web/version106/web-mobile/",
+    "group": "2025-01-30",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "去旅行",
+    "url": "http://101.200.182.248/shoudongban/",
+    "group": "2025-01-30",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "草原大作战",
+    "url": "https://play.qwplay.cn/caoyuan/",
+    "group": "2025-01-30",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "脑洞哪家强",
+    "url": "https://cdn.198434.com/h5/ZuMa/zmjmm202501221814/",
+    "group": "2025-01-30",
+    "featured": false,
+    "tags": [
+      "脑洞"
+    ]
+  },
+  {
+    "name": "节奏盒模组",
+    "url": "https://cos.umgame.cn/minigame_preview/10132/1.1.21webchaojijiachang/web/index.html?n=%E8%8A%82%E5%A5%8F%E7%9B%92%E6%A8%A1%E7%BB%84",
+    "group": "2025-01-30",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "头脑大作战",
+    "url": "https://h5.zckcloud.com/h5/cat-park-game-tt/web-mobile/index.html",
+    "group": "2025-01-30",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "愤怒的鸡蛋",
+    "url": "https://env-00jx4jyg9fu6-static.normal.cloudstatic.cn/games/fndjd/index.html",
+    "group": "2025-01-30",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "命运的反转",
+    "url": "https://z10.tanyu.mobi/tanpaixyx/28027/web/web-mobile/index.html",
+    "group": "2025-01-30",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "超级怪手",
+    "url": "https://maoyumeng.club/CJGS/web-mobile1/index.html",
+    "group": "2025-01-30",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "乱斗大比拼",
+    "url": "https://cdn.game.chot.cn/resource/chot/lddbp_zs/index.html",
+    "group": "2025-01-30",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "不服来玩",
+    "url": "https://maoyumeng.club/daoshuiWeb/daoshui1/004/web-mobile/index.html",
+    "group": "2025-01-30",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "极品大乱斗",
+    "url": "https://cdngame.atomgameteam.com/minigame/game/bbfight/web-desktop/index.html?isLiveTest=true&t=1737597429107",
+    "group": "2025-01-30",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "闯关乐园",
+    "url": "https://liuzhaoling.com/%E9%97%AF%E5%85%B3%E4%B9%90%E5%9B%AD/index.html",
+    "group": "2025-01-30",
+    "featured": false,
+    "tags": [
+      "益智"
+    ]
+  },
+  {
+    "name": "荒岛三兄弟",
+    "url": "https://gamesres.ultralisk.cn/h5_games_daren/255_1737345745587/index.html",
+    "group": "2025-01-30",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "魔性大冒险",
+    "url": "https://game2.sfplay.net/BraveTower/v1.3.7/v2/",
+    "group": "2025-01-30",
+    "featured": false,
+    "tags": [
+      "RPG"
+    ],
+    "note": "《老爹沙威玛》口令 101264"
+  },
+  {
+    "name": "爆笑侦探社",
+    "url": "https://static.zuiqiangyingyu.cn/wb_webview/hzwz3/otherH5/bxzts/index.html?111",
+    "group": "2025-01-30",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "狙击外星人",
+    "url": "https://res.kampfiregames.cn/3/81eda50ec31642c3a6ff533eaaa333a1/index.html",
+    "group": "2025-01-30",
+    "featured": false,
+    "tags": [
+      "射击动作"
+    ]
+  },
+  {
+    "name": "汉字对决",
+    "url": "https://play.qwplay.cn/hzdj/",
+    "group": "2025-01-12",
+    "featured": false,
+    "tags": [
+      "文字"
+    ]
+  },
+  {
+    "name": "阿姐鼓",
+    "url": "https://xiaoyouxi.tyoufun.com/puzzle19/ajiegu/index.html",
+    "group": "2025-01-12",
+    "featured": false,
+    "tags": [
+      "恐怖解谜"
+    ]
+  },
+  {
+    "name": "阿姐鼓2",
+    "url": "https://xiaoyouxi.tyoufun.com/puzzle25/ajg2/index.html",
+    "group": "2025-01-12",
+    "featured": false,
+    "tags": [
+      "恐怖解谜"
+    ]
+  },
+  {
+    "name": "阿姐鼓3",
+    "url": "https://xiaoyouxi.tyoufun.com/puzzle27/ajg3/index.html",
+    "group": "2025-01-12",
+    "featured": false,
+    "tags": [
+      "恐怖解谜"
+    ]
+  },
+  {
+    "name": "谁是大卧底",
+    "url": "https://lionstudios.tos-cn-beijing.volces.com/ClueMaster/3/index.html",
+    "group": "2025-01-12",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "我就要消除",
+    "url": "https://cdn.flysheeep.com/noadgame/linkBlock/20241119/web-mobile/index.html",
+    "group": "2025-01-12",
+    "featured": false,
+    "tags": [
+      "消除"
+    ]
+  },
+  {
+    "name": "晚晚的新装",
+    "url": "https://game-link.walkpacers.cn:7021/",
+    "group": "2025-01-12",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "摸鱼小能手",
+    "url": "https://cdn.moblazer.com/BurgerPlease/web/web3/index.html",
+    "group": "2025-01-12",
+    "featured": false,
+    "tags": [
+      "钓鱼"
+    ]
+  },
+  {
+    "name": "高情商选择",
+    "url": "https://game-res.tos-cn-beijing.volces.com/web-games/ndd_gaoQingShangXuanZe/1.0.0/web-mobile/index.html",
+    "group": "2025-01-12",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "模拟大作战",
+    "url": "https://res.wqop2018.com/partner/cdbhy/mndzz/Ancestor/index.html",
+    "group": "2025-01-12",
+    "featured": false,
+    "tags": [
+      "模拟经营"
+    ]
+  },
+  {
+    "name": "最强进化",
+    "url": "https://cdn.cdlionhead.com/minigame/web-mobile/index.html",
+    "group": "2025-01-12",
+    "featured": false,
+    "tags": [
+      "RPG"
+    ]
+  },
+  {
+    "name": "星际战舰",
+    "url": "https://ztyxyx.tanyu.mobi/cxwl/BagProj_H5/2501082002/index.html",
+    "group": "2025-01-12",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "引魂灵",
+    "url": "https://xiaoyouxi.tyoufun.com/yinhunling/dyzb/index.html",
+    "group": "2024-12-13",
+    "featured": false,
+    "tags": [
+      "恐怖解谜"
+    ]
+  },
+  {
+    "name": "背后灵",
+    "url": "https://youxipic.88090.com/puzzle29/dyzb/index.html",
+    "group": "2024-12-13",
+    "featured": false,
+    "tags": [
+      "恐怖解谜"
+    ]
+  },
+  {
+    "name": "我爱玩弹珠",
+    "url": "https://woaiwandanzhu.xinzhiyukeji.cn/",
+    "group": "2024-12-13",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "爽剧之王",
+    "url": "https://daren.glifegame.com/sjzw/index.html",
+    "group": "2024-12-13",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "玩不过就锤你",
+    "url": "https://static.zuiqiangyingyu.net/wb_webview/saveGirlDragon/playHammer/_wbgjcn/web-mobile/index.html",
+    "group": "2024-12-13",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "脑洞群英传新链接",
+    "url": "https://res.game.7to.cn/gameres/pgame2/ndjjc/gfu1frbr/",
+    "group": "2024-12-13",
+    "featured": false,
+    "tags": [
+      "脑洞"
+    ]
+  },
+  {
+    "name": "猛鬼打工日记",
+    "url": "https://gamesres.ultralisk.cn/h5_games_daren/4_1733810980829/index.html",
+    "group": "2024-12-13",
+    "featured": false,
+    "tags": [
+      "恐怖解谜"
+    ]
+  },
+  {
+    "name": "剧情找找茬(竖屏）",
+    "url": "https://www.lekonghd.cn/jqzzc_s/0.0.1/",
+    "group": "2024-12-13",
+    "featured": false,
+    "tags": [
+      "找茬"
+    ]
+  },
+  {
+    "name": "剧情找找茬（横屏）",
+    "url": "https://www.lekonghd.cn/jqzzc/2.1.0/",
+    "group": "2024-12-13",
+    "featured": false,
+    "tags": [
+      "找茬"
+    ]
+  },
+  {
+    "name": "赚钱养女儿",
+    "url": "https://www.lekonghd.cn/wyynr2/0.1.1/",
+    "group": "2024-12-13",
+    "featured": false,
+    "tags": [
+      "模拟经营"
+    ]
+  },
+  {
+    "name": "雀实赢麻了",
+    "url": "https://www.lekonghd.cn/qsyml/0.3.0/",
+    "group": "2024-12-13",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "一起找找找",
+    "url": "https://tos.qwpo2018.com/mp/game/web/gm/be3c784a5d9df93f0f4cce97d1aa037e/index.html",
+    "group": "2024-11-18",
+    "featured": false,
+    "tags": [
+      "找茬"
+    ]
+  },
+  {
+    "name": "枪火小队 GM工具：在主页面车头位置点击",
+    "url": "https://szj.txhy1699.com/web_bbzombie/240920/index.html",
+    "group": "2024-11-18",
+    "featured": false,
+    "tags": [
+      "射击动作"
+    ]
+  },
+  {
+    "name": "看谁能通关",
+    "url": "https://res.wqop2018.com/partner/hzdy/lxcb/ylyxc/webgl/Web_WX_0627E/index.html",
+    "group": "2024-11-18",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "篮球奥利给",
+    "url": "http://juzhen-1304272202.cos.ap-guangzhou.myqcloud.com/Basketball/bin/index.html",
+    "group": "2024-11-18",
+    "featured": false,
+    "tags": [
+      "射击动作"
+    ],
+    "note": "谁能数一亿粒米；进去随便输入账号登录"
+  },
+  {
+    "name": "后台教程: 点击金币数值，即可打开后台",
+    "url": "https://game-static.heicheng51.com/gm/sm/web-mobile/index.html",
+    "group": "2024-11-18",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "命运挑战",
+    "url": "https://res.wqop2018.com/partner/cdbhy/xjrs/Childbirth/index.html",
+    "group": "2024-11-18",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "放置探险团",
+    "url": "https://gamesres.ultralisk.cn/h5_games_daren/270v2_1728466813326/index.html",
+    "group": "2024-11-18",
+    "featured": false,
+    "tags": [
+      "模拟经营"
+    ],
+    "note": "超级房间/巨物大对决"
+  },
+  {
+    "name": "点击金币钻石宝石，可以直接加",
+    "url": "https://file.gugudang.com/res/down/public/p_hegedacheche/web-mobile/lts/index.html",
+    "group": "2024-11-18",
+    "featured": false,
+    "tags": [
+      "其他"
+    ],
+    "note": "佣兵传说"
+  },
+  {
+    "name": "一直点第一关三个字右边位置有后台",
+    "url": "https://file.gugudang.com/res/down/public/p_fwcs_zs/web-mobile/lts/index.html",
+    "group": "2024-11-18",
+    "featured": false,
+    "tags": [
+      "其他"
+    ],
+    "note": "一直点第三关右侧有后台"
+  },
+  {
+    "name": "末日庇护所",
+    "url": "https://game2.sfplay.net/CatSentinel3D/v2",
+    "group": "2024-11-18",
+    "featured": false,
+    "tags": [
+      "塔防"
+    ]
+  },
+  {
+    "name": "我的乡村生活",
+    "url": "https://renyounew.renyouwangluo.cn/remoteGame/web_xjgt3/",
+    "group": "2024-11-18",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "找茬大师怀旧版80年代",
+    "url": "https://cdngame.shuling.vip/BianJuDaShi/zhaoChaDaShi/H5/web-mobile/index.html?V1.0.25",
+    "group": "2024-11-18",
+    "featured": false,
+    "tags": [
+      "找茬"
+    ]
+  },
+  {
+    "name": "花光十个亿挑战",
+    "url": "https://oss.tobetopone.com/h5/eschaton/",
+    "group": "2024-11-18",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "本宫重生了",
+    "url": "https://renyousome.renyouwangluo.cn/remoteGame/bgcsl_drwg/",
+    "group": "2024-11-18",
+    "featured": false,
+    "tags": [
+      "其他"
+    ],
+    "note": "GM选项开启：游戏中点击头像，再点击设置两个字 可无限加钱等各种功能"
+  },
+  {
+    "name": "别藏了宝贝",
+    "url": "https://res.wqop2018.com/partner/hzdy/tzyyg/Webgl/webgl_xzgs_090311/index.html",
+    "group": "2024-11-18",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "老爹大排档 口令：518000",
+    "url": "https://qcdn.bdoggame.com/ttgame/lddpd/webVer/index.html",
+    "group": "2024-11-18",
+    "featured": false,
+    "tags": [
+      "美食"
+    ]
+  },
+  {
+    "name": "重生道长模拟器",
+    "url": "https://blsxx.glifegame.com/daozhang/web/1.4.13/index.html",
+    "group": "2024-11-18",
+    "featured": false,
+    "tags": [
+      "模拟经营",
+      "修仙"
+    ],
+    "note": "解压猫咪"
+  },
+  {
+    "name": "中间随便输入账号 不要太简单 避免重复",
+    "url": "https://cdn.smartfoxgames2.xyz/cats/cat_web.html",
+    "group": "2024-11-18",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "就挺秃然的",
+    "url": "https://cl-game-jttrd.chuanglinggame.com/i1t3ycU/web-mobile/index.html",
+    "group": "2024-11-18",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "摆烂式修仙",
+    "url": "https://blsxx.glifegame.com/tangping/web/daren1.3.0/index.html",
+    "group": "2024-11-18",
+    "featured": false,
+    "tags": [
+      "修仙"
+    ]
+  },
+  {
+    "name": "这关你不行",
+    "url": "https://res.wqop2018.com/zhise/zgnbxls/gm777/005/index.html",
+    "group": "2024-11-18",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "超级电玩城",
+    "url": "https://assets.tinyfun.online/game/sale/playground/2.4.6/index.html",
+    "group": "2024-11-18",
+    "featured": false,
+    "tags": [
+      "其他"
+    ],
+    "note": "拆拆家模拟器 拆迁特工队 合了个兵；合了个枪 挤挤挤公交 机智火柴人 老铁你快点 魔幻粒子 魔幻蜘蛛 末世特攻队；全民经营模拟器 神秘精灵屋 塔防守卫战 我最爱解压 星球探险家 拥挤车站 拥挤团战；颜色大作战 养鱼大亨 战车出击 炸弹进化 组队末世求生 毒液人快跑 开个牧场；蛇蛇快点跑 超级大餐厅 酒店大亨 我爱消一消 黑洞入侵 除草大师；大胃王英雄 一棍打天下合集；合集链接："
+  },
+  {
+    "name": "连了又连",
+    "url": "https://cos.ucpopo.com/llyl/client_web/?openid=o2KX55b3r0fMvESCwVfIMy6FYcP8&sessid=dlz619vr2qccevsw8dhjumgypmyo",
+    "group": "2024-11-18",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "我的狗头",
+    "url": "https://static.zuiqiangyingyu.cn/wb_webview/brain6/myDog/web/1.0.0/web-mobile/index.html",
+    "group": "2024-11-18",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "人类一路守卫（加载慢 等十几秒）",
+    "url": "https://gamesres.ultralisk.cn/h5_games_daren/255v2_1726656151151/index.html",
+    "group": "2024-11-18",
+    "featured": false,
+    "tags": [
+      "塔防"
+    ]
+  },
+  {
+    "name": "猫咪前哨站",
+    "url": "https://game2.sfplay.net/CatShotRogou/v1.0.0/v2/",
+    "group": "2024-11-18",
+    "featured": false,
+    "tags": [
+      "塔防"
+    ]
+  },
+  {
+    "name": "超级消除王",
+    "url": "https://aaa.puffergames.com/GameServerData2/Unity/unity_cjxcw/cjxcw17/",
+    "group": "2024-11-18",
+    "featured": false,
+    "tags": [
+      "消除"
+    ]
+  },
+  {
+    "name": "进不去的话 玩这个链接",
+    "url": "https://res.wqop2018.com/partner/hzdy/cjxcw/hgxx3/index.html",
+    "group": "2024-11-18",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "聪明的开局",
+    "url": "https://game.csquyou.com/UnscrewRemove11/live.html?v=1.0.0",
+    "group": "2024-11-18",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "聪明开局",
+    "url": "https://cdn.flysheeep.com/noadgame/carScrew2d/20241025/web-mobile/index.html",
+    "group": "2024-11-18",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "脑洞大师傅",
+    "url": "https://z10.tanyu.mobi/tanpaixyx/28004/new-web/index.html",
+    "group": "2024-11-18",
+    "featured": false,
+    "tags": [
+      "脑洞"
+    ]
+  },
+  {
+    "name": "智力大挑战",
+    "url": "https://res.wqop2018.com/zhise/zghyl/hggm50zl/index.html",
+    "group": "2024-11-18",
+    "featured": false,
+    "tags": [
+      "益智"
+    ]
+  },
+  {
+    "name": "我的模拟超市",
+    "url": "https://tianyugame-1259238728.file.myqcloud.com/wdmncs/index.html",
+    "group": "2024-11-18",
+    "featured": false,
+    "tags": [
+      "模拟经营"
+    ]
+  },
+  {
+    "name": "猎梦者小队",
+    "url": "https://game2.sfplay.net/CatSentinelHP/TP/1.2.5/v2/",
+    "group": "2024-11-18",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "浮生物语",
+    "url": "https://xiaoyouxi.tyoufun.com/puzzle11/fswy/index.html",
+    "group": "2024-11-18",
+    "featured": false,
+    "tags": [
+      "收纳"
+    ]
+  },
+  {
+    "name": "滋滋烧烤店",
+    "url": "https://gamesres.ultralisk.cn/h5_games_res/game220/daren/v1_2021314/webgl/index.html",
+    "group": "2024-11-18",
+    "featured": false,
+    "tags": [
+      "美食"
+    ]
+  },
+  {
+    "name": "最强冲关小队",
+    "url": "https://game2.sfplay.net/swzc/v1.0.0/v4/",
+    "group": "2024-11-18",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "钓鱼佬逆袭只为红颜",
+    "url": "https://mh5.mijingcn.com/miniGame",
+    "group": "2024-11-18",
+    "featured": false,
+    "tags": [
+      "钓鱼"
+    ]
+  },
+  {
+    "name": "动手来消消",
+    "url": "https://cdngame.shuling.vip/BianJuDaShi/DongShouLaiXiaoXiao/h5/web-mobile/index.html?1.0.2",
+    "group": "2024-11-18",
+    "featured": false,
+    "tags": [
+      "消除"
+    ]
+  },
+  {
+    "name": "深宫诡敲门",
+    "url": "https://gamesres.ultralisk.cn/h5_games_daren/165_1730272738806/index.html",
+    "group": "2024-11-18",
+    "featured": false,
+    "tags": [
+      "恐怖解谜"
+    ]
+  },
+  {
+    "name": "自然灾害模拟器",
+    "url": "https://cdn.cdwaterbear.cn/NaturalDisasterSimulator/web/index.html",
+    "group": "2024-11-18",
+    "featured": false,
+    "tags": [
+      "模拟经营"
+    ]
+  },
+  {
+    "name": "末日终防线",
+    "url": "http://littlegame.tomato123.cn/EndWorld/index.html",
+    "group": "2024-11-18",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "抓娃娃模拟器",
+    "url": "https://gamesres.ultralisk.cn/h5_games_daren/275_1730189172191/index.html",
+    "group": "2024-11-18",
+    "featured": false,
+    "tags": [
+      "模拟经营"
+    ]
+  },
+  {
+    "name": "33个需要密码的游戏合集",
+    "url": "https://si.ali.landintheair.com/gamepass.html",
+    "group": "2024-10-30",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "别藏了宝贝",
+    "url": "https://res.wqop2018.com/H5/tt_bclbb/webgl1/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "无敌圈圈",
+    "url": "https://res5.haotgame.com/cu04/static/daluosi_dy/web-mobile/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "找个锤子找",
+    "url": "https://res5.haotgame.com/cu04/static/Zhaogechuizizhao/web-mobile/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "80找茬大师 更新了2个新模式【找小熊】和【找小猫】",
+    "url": "https://res5.haotgame.com/cu04/static/80zhaochadashi/web-mobile1/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "找茬"
+    ]
+  },
+  {
+    "name": "大胃王英雄",
+    "url": "https://si.ali.landintheair.com/daweiwang/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "我来跑步",
+    "url": "https://file-loseweight-dy.jiutaikeji.net/wx/loseweight_h5/v1/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "戏法门",
+    "url": "https://xiaoyouxi.tyoufun.com/puzzle18/xfm/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "玩梗脑洞王-新无广链接",
+    "url": "https://res.game.7to.cn/gameres/pgame2/wgndw/wghh1018/",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "脑洞"
+    ]
+  },
+  {
+    "name": "水坝建造模拟器",
+    "url": "https://sdk.hwengame.com/IssuerPack/IdleDamBuild/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "模拟经营"
+    ]
+  },
+  {
+    "name": "落花洞女",
+    "url": "https://xiaoyouxi.tyoufun.com/game160/lhdn/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "阿三除字害",
+    "url": "https://gamesres.ultralisk.cn/h5_games_daren/261_1729215799922/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "反派我当定了",
+    "url": "https://gamesres.ultralisk.cn/h5_games_daren/265_1727324812249/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "萌宠收纳屋》新增关卡",
+    "url": "https://www.rewanyouxi.com/games/houses/web/index.html?t=2",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "收纳"
+    ]
+  },
+  {
+    "name": "末日特工队",
+    "url": "https://static-cdn.zhouhy.net/h5/project/qingdu/web/moritegong/1/web-mobile/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "火眼惊睛",
+    "url": "https://www.lekonghd.cn/hyjj/2.7.3/",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "隐秘的档案",
+    "url": "https://file-hidfile.kidikidi.net/secretfiles/h5/promote/after/web-mobile/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "恐怖解谜"
+    ]
+  },
+  {
+    "name": "暴富一刻",
+    "url": "https://z10.tanyu.mobi/tanpaixyx/28010/web/1.0.0/web-mobile/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "疯狂商业街",
+    "url": "https://game2.sfplay.net/CounterattackDiary/v1/",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "帮助姐姐当女帝",
+    "url": "https://oss.zhejing.tech/webH5/zhenhuan-tiktok/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "关不住我吧",
+    "url": "https://res.wqop2018.com/partner/hzdy/gbzwb/H5_gbzwb/8_1/web-mobile/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "救救这只猪",
+    "url": "http://d.glf2ym.cn/wkaCK4",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "开局一条狗",
+    "url": "https://game2.sfplay.net/kjytg/",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "全民羽毛球",
+    "url": "https://res.wqop2018.com/mp/game/web/gm/a17aa8a788c3cd38ef693fd30e863b35/1698897243203/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "射击动作"
+    ]
+  },
+  {
+    "name": "最强打工王",
+    "url": "https://z10.tanyu.mobi/tanpaixyx/28013/darenshow/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "沉浸式生活",
+    "url": "http://d.glf2ym.cn/pfHA8i",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "尸潮战车",
+    "url": "https://tos.qwpo2018.com/mp/game/web/gm/aa0be7829b5322d0fac213008c412eb9/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "射击动作"
+    ]
+  },
+  {
+    "name": "逆袭一刻 密码6789",
+    "url": "https://z10.tanyu.mobi/tanpaixyx/210007/nxyktt/web/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ],
+    "note": "（验证码：6789）"
+  },
+  {
+    "name": "脑洞大开3D",
+    "url": "https://file.gugudang.com/res/down/public/p_roomsort/web-mobile/lts1/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "脑洞"
+    ]
+  },
+  {
+    "name": "废物成神",
+    "url": "http://debug.pumpkinheadgame.online/CorpseRoad2",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "修仙"
+    ]
+  },
+  {
+    "name": "火车大厨 我是大玩家",
+    "url": "https://webgame-6gzwg8ti52e46012-1310209978.tcloudbaseapp.com/119/ttzhise/web-mobile/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "美食"
+    ],
+    "note": "挪车冲冲冲"
+  },
+  {
+    "name": "手机端无广链接：",
+    "url": "https://cdn.flysheeep.com/noadgame/moveCarZ6/0823/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "电脑端无广链接：",
+    "url": "https://cdn.flysheeep.com/noadgame/moveCarZ6/0823/indexPc.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ],
+    "note": "无广告新增放大缩小功能，滑动滚轮即可放大缩小。首页可选模式选关，共369关"
+  },
+  {
+    "name": "恐怖屠夫",
+    "url": "https://static-cdn.zhouhy.net/h5/project/qingdu/web/laitangpingba/2/web-mobile/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "恐怖解谜"
+    ]
+  },
+  {
+    "name": "好玩个锤子",
+    "url": "https://oss.tobetopone.com/h5/playHammer/",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "开心挪挪车",
+    "url": "https://idata.igame58.com/h5/KXNNC/web-mobile/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "停车"
+    ]
+  },
+  {
+    "name": "赘婿的逆袭",
+    "url": "http://d.glf2ym.cn/mHhY4Y",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "进击的大鹅",
+    "url": "https://cdn.flysheeep.com/noadgame/GoGoGoose/20240326_1/web-mobile/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "射击动作"
+    ]
+  },
+  {
+    "name": "植物变异大招版",
+    "url": "https://game2.sfplay.net/mutant_plants/",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "筑梦之旅",
+    "url": "https://z10.tanyu.mobi/tanpaixyx/28008/web/1.0.4/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "收租生活日记",
+    "url": "http://d.glf2ym.cn/fe2Cz5",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "模拟经营"
+    ]
+  },
+  {
+    "name": "纸牌人生同类型游戏",
+    "url": "https://game2.sfplay.net/Bankruptcy/v1.1.3/v1",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "贱走偏风",
+    "url": "https://oppomini.eqmobi.com/wt63/jianzoupianfeng/web/version103/web3/web-mobile/",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "无尽消消消",
+    "url": "https://res.wqop2018.com/partner/hzdy/gbzwb/H5_TuetleBlindBox/8_28/web-mobile/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "消除"
+    ]
+  },
+  {
+    "name": "无尽传说",
+    "url": "http://h5.sm.deniulor.com/gartenofrainbowmonsters/h5/",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "无敌消消消",
+    "url": "https://cdn.198434.com/h5/zhise/wdxxx202405171516/",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "消除"
+    ]
+  },
+  {
+    "name": "我坐哪里",
+    "url": "https://qcdn.bdoggame.com/ttgame/findSeat/web/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "我要学打螺丝",
+    "url": "https://static.zuiqiangyingyu.net/wb_webview/playHammer/playHammer/_wyxdls/web-mobile/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "益智"
+    ]
+  },
+  {
+    "name": "我要当状元",
+    "url": "https://play.qwplay.cn/dtext/",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "我是天师",
+    "url": "https://mkw.youngwingtec.com/project_config/daoshi2_pro/",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "修仙"
+    ]
+  },
+  {
+    "name": "我滴个神啊",
+    "url": "https://littlegame.tomato123.cn/ohmygod/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "我的脑洞无限",
+    "url": "https://langqu.darknight.games/web-mobile/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "脑洞"
+    ]
+  },
+  {
+    "name": "我的梦世界",
+    "url": "http://h5.sm.deniulor.com/famous-fashion/h5/",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "我的保卫战",
+    "url": "https://res.innofuns.com/h5/WY_TDYX/web-mobile/",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "我的摆摊日子",
+    "url": "https://res.wqop2018.com/partner/xamy/wdbtrz/h5/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "模拟经营"
+    ]
+  },
+  {
+    "name": "我打螺丝贼六",
+    "url": "https://static.zuiqiangyingyu.net/wb_webview/playHammer/playHammer/_wdlszl/web-mobile/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "益智"
+    ]
+  },
+  {
+    "name": "我锤子贼6",
+    "url": "https://cdn.flysheeep.com/jiangnengren/ScrewJamNoAd/20240530_1/NoAdRelease/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "文字真相",
+    "url": "https://cdnsource-1.oss-cn-hangzhou.aliyuncs.com/tanpaixyx/28009/tt_wzzx/web-mobile/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "文字"
+    ]
+  },
+  {
+    "name": "文字无双",
+    "url": "https://zzxygame.com/hzws/",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "文字"
+    ]
+  },
+  {
+    "name": "打工没前途",
+    "url": "https://cdn.hiluluke.com/noad/dagong/index2.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ],
+    "note": "第一次进游戏慢 等待十几秒左右"
+  },
+  {
+    "name": "文字派对",
+    "url": "https://www.yzqgamefun.com/assets/wenziparty/web/zhibo/web-mobile/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "脑洞",
+      "文字"
+    ]
+  },
+  {
+    "name": "文字密室",
+    "url": "https://jolstorage.oss-cn-shanghai.aliyuncs.com/Build/WenZiMiShi/2023060703/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "文字",
+      "益智"
+    ]
+  },
+  {
+    "name": "文字闯一闯",
+    "url": "http://cy.mirahs.top/wzcyc/index.html?v2.0.0",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "文字"
+    ]
+  },
+  {
+    "name": "王者的大脑",
+    "url": "https://www.yzqgamefun.com/assets/KingsBrain/web/version117/web-mobile/",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "万宁方块",
+    "url": "https://h5-1258110380.file.myqcloud.com/test3/wnfk/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "玩转文字",
+    "url": "https://play.qwplay.cn/zstext/",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "文字"
+    ]
+  },
+  {
+    "name": "玩就完事了",
+    "url": "https://static.zuiqiangyingyu.cn/wb_webview/justeliminateit/justplay/h52/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "玩家国度",
+    "url": "http://h5.sm.deniulor.com/weaponmaster/daren/",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "玩个梗把",
+    "url": "https://wdztbj-1256464321.cos.ap-guangzhou.myqcloud.com/wggb-zhibo/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "推了又推",
+    "url": "http://lyngames-1302407170.cos.ap-guangzhou.myqcloud.com/shenhe/TLYT/web-mobile/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "头脑天花板",
+    "url": "https://oss.tobetopone.com/h5/mmxc_h5/",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "停车大作战",
+    "url": "https://play.qwplay.cn/car/",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "停车"
+    ]
+  },
+  {
+    "name": "天选幸存者",
+    "url": "http://h5.sm.deniulor.com/humanelectriccompany/h5/",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "RPG"
+    ]
+  },
+  {
+    "name": "套圈圈达人",
+    "url": "https://cdn.198434.com/cli/H5/PourCircle/",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ],
+    "note": "第一次进入慢 等待即可"
+  },
+  {
+    "name": "逃脱大师",
+    "url": "https://game-res.tos-cn-beijing.volces.com/web-games/tao_tuo_da_shi/1.0.8/web-mobile/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "水滴连连消",
+    "url": "https://changshazhise01-1254961065.cos.ap-guangzhou.myqcloud.com/cp/tt_wzwz/shuidilianlianxiao/v1.0/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "消除"
+    ]
+  },
+  {
+    "name": "舒适解压馆",
+    "url": "https://cl-minigame.chuanglinggame.com/zqndd/h5/web-mobile/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "解压"
+    ]
+  },
+  {
+    "name": "收纳人生",
+    "url": "https://www.lekonghd.cn/myhouse/3.1.14/",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "收纳"
+    ]
+  },
+  {
+    "name": "纯爱冒险记",
+    "url": "http://cy.mirahs.top/mlmxj/index.html?v1.0.5",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "RPG"
+    ]
+  },
+  {
+    "name": "咻咻剑仙/咻咻修仙",
+    "url": "https://web-project.feigo.fun/douyin-xxfj/",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "修仙"
+    ]
+  },
+  {
+    "name": "炮弹兵冲冲冲",
+    "url": "https://z10.tanyu.mobi/tanpaixyx/zuimei/web/1.1.0/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "停车"
+    ]
+  },
+  {
+    "name": "豪赚人生",
+    "url": "https://test-cdn.ququwangluo.com/excavator/dr/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "王者战塔英雄",
+    "url": "https://oss.chuanqwx.com/ztwz/wh5/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "愚公移大山",
+    "url": "https://game-static.heicheng51.com/gm/ygys/web-mobile/index.html?v=1.0.1",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "小兵快冲鸭",
+    "url": "https://candymatch-update.fjbgwl.com/web-mobile1/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "魔兽人生",
+    "url": "https://cdn17.tomato123.cn/web-mobile2/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "RPG"
+    ]
+  },
+  {
+    "name": "闯关乐园",
+    "url": "https://tos.qwpo2018.com/mp/game/web/gm/51e25f06010d92b781a92fe02d99391c/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "益智"
+    ]
+  },
+  {
+    "name": "咸鱼逆袭 连点10下版本号可以连续出兵",
+    "url": "https://daren.glifegame.com/fish_tuyue/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "钓鱼"
+    ]
+  },
+  {
+    "name": "赚够100关",
+    "url": "https://antplay888.com/zG100g/asd/web-mobile/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "疯狂的石头",
+    "url": "https://oss.zhejing.tech/webH5/dont-stop/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "脑洞猜猜猜",
+    "url": "https://mini.ssflashgo.com/wt70/newhanzi/web/?gameid=ndccc&time=1712563491569",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "脑洞"
+    ]
+  },
+  {
+    "name": "钉子要回家",
+    "url": "https://tos.qwpo2018.com/mp/game/web/gm/768b2b758e66193e25ed78aa935647bd/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "打个螺丝儿",
+    "url": "https://cdn.flysheeep.com/noadgame/screwJam/240327/web-mobile/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "益智"
+    ]
+  },
+  {
+    "name": "传奇游戏",
+    "url": "http://122.228.116.145:88/",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ],
+    "note": "进入游戏后先点击注册，您自己设置密码和账号，密码不可少于6位，账号不可文字。注册成功后请记住自己的账号和密码。"
+  },
+  {
+    "name": "不思议的脑洞",
+    "url": "https://minigame.qizheplay.com/bsydnd/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "脑洞"
+    ]
+  },
+  {
+    "name": "蛇皮走位",
+    "url": "https://www.lekonghd.cn/spzw/1.0.1/",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "指尖狂飙",
+    "url": "https://cdn.shyzgame.com/screw/web2/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "钓鱼大师兄",
+    "url": "https://qf-game.xiaokr.cn/dy/web/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "钓鱼"
+    ]
+  },
+  {
+    "name": "建造我最牛/我的ktv酒店",
+    "url": "https://game2.sfplay.net/ktv_3D/v1.0.0/v1/",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "模拟经营"
+    ]
+  },
+  {
+    "name": "小小修仙传",
+    "url": "https://web-project.feigo.fun/douyin-xxxxz1/",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "修仙"
+    ]
+  },
+  {
+    "name": "爆笑纸盒人",
+    "url": "https://res.sjzgxwl.com/pingce/zhiheren_hall/web_9/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "凑十消消",
+    "url": "https://dd.darknight.games/MahJong/web-mobile/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "消除"
+    ]
+  },
+  {
+    "name": "猫猫餐厅",
+    "url": "https://preview-1253953345.cos.ap-nanjing.myqcloud.com/cat/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "模拟经营",
+      "美食"
+    ]
+  },
+  {
+    "name": "砍价大师",
+    "url": "https://cdn.flysheeep.com/noadgame/KanJia/20230926/web-mobile/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "不响丸辣",
+    "url": "https://renyousome.renyouwangluo.cn/remoteGame/ly_bxwl_test/",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "超级解压王",
+    "url": "https://mini.ssflashgo.com/stonesh/hh/qwsn/web/?gameid=cjjyw&version=1707301656613&time=1713153404163",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "解压"
+    ]
+  },
+  {
+    "name": "飞吧金枪鱼",
+    "url": "https://www.huoyin2015.com/feiyu/feiyuh5/feiyu1.2.2/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "射击动作",
+      "钓鱼"
+    ]
+  },
+  {
+    "name": "整得害挺好",
+    "url": "https://game.hongshunet.com/zhuangmm/zhengdehaitinghao/cs/0.0.14/web-mobile/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "迷你贪吃蛇3D",
+    "url": "https://oppomini.eqmobi.com/stonesh/games/snake3d/mntcs0424fhfgjhgjhk/",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "我靠经营致富",
+    "url": "https://cdn.cxgame.net/game/xiaoshijie/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "模拟经营"
+    ]
+  },
+  {
+    "name": "收纳达人",
+    "url": "https://webgame-6gzwg8ti52e46012-1310209978.tcloudbaseapp.com/109/1.0.0/web-mobile/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "收纳"
+    ]
+  },
+  {
+    "name": "十个小目标",
+    "url": "https://hscdn1.quanmin-game.com/game/DreamOilfield/zijie_sgxmb/game/test/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "神脑洞",
+    "url": "https://static.zuiqiangyingyu.cn/wb_webview/justeliminateit/snd/h5/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "脑洞"
+    ]
+  },
+  {
+    "name": "射箭大作战",
+    "url": "https://cdn.flysheeep.com/zhuangchenyang/Arrow/tt53a7251acc94b0aa07/1.0.15/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "烧脑找茬王",
+    "url": "https://static.zuiqiangyingyu.cn/wb_webview/hzwz2/snzcw/nh5/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "找茬"
+    ]
+  },
+  {
+    "name": "沙雕小羊哥",
+    "url": "https://www.rewanyouxi.com/games/sdxyg2333/",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "入侵异世界",
+    "url": "https://game2.sfplay.net/CatSentinelHP/TP/v1.2.4/v3/",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "RPG"
+    ]
+  },
+  {
+    "name": "拳王俱乐部",
+    "url": "https://res.sjzgxwl.com/CHZ/GameWeb/QG_zx20240508/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "全民大卖场",
+    "url": "https://hscdn1.quanmin-game.com/game/ShoppingMall/WebGL/202404011110/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "人类超级进化",
+    "url": "https://game2.sfplay.net/SuperEvolution/v1.1.1/",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "RPG"
+    ]
+  },
+  {
+    "name": "双枪王者",
+    "url": "https://assets.tinyfun.online/game/sale/double-guns/latest/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "射击动作"
+    ]
+  },
+  {
+    "name": "苦命打工人",
+    "url": "https://static.zuiqiangyingyu.cn/wb_webview/sandbox3/tangpingmy/web-mobile/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "解绳小能手",
+    "url": "https://cdn.flysheeep.com/ganshaojun/RopeKiller/web5/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "寻物小达人",
+    "url": "https://oppomini.eqmobi.com/wt63/web_mobile/web-mobile/",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "一起来钻地",
+    "url": "https://play.qwplay.cn/zuandi/",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "天天套圈",
+    "url": "https://changshazhise01-1254961065.cos.ap-guangzhou.myqcloud.com/zhise/tttq/h5/web-mobile/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "货车停车场",
+    "url": "https://cdn.cdwaterbear.cn/CargoTruckParking3D/web/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "停车"
+    ]
+  },
+  {
+    "name": "我在唐朝打工",
+    "url": "https://game2.sfplay.net/wzdtdg/",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "不是一班的牛",
+    "url": "https://yxcy-minigame.chuanglinggame.com/bsybdn/GlvrRC/web-mobile/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "怪诞的冒险",
+    "url": "https://qcdn.bdoggame.com/ttgame/kjygy/webVer/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "RPG"
+    ]
+  },
+  {
+    "name": "脑洞实验室",
+    "url": "https://youxipic.88090.com/naodongshiyanshi/dyzb/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "脑洞"
+    ]
+  },
+  {
+    "name": "逆袭之觉醒重生",
+    "url": "https://tm-web.sanzigame.cn/4.5.2/web-mobile/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ],
+    "note": "最强小兵"
+  },
+  {
+    "name": "放置我贼溜",
+    "url": "https://debug.pumpkinheadgame.online/Stone/",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "枪战王者",
+    "url": "https://file.gugudang.com/res/down/public/p_xxqs/qzwz_002/web/lts/web-mobile/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "射击动作"
+    ]
+  },
+  {
+    "name": "酋长模拟器",
+    "url": "http://h5.sm.deniulor.com/idleminerfactory/h5/",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "模拟经营"
+    ]
+  },
+  {
+    "name": "枪组大师",
+    "url": "https://self-data-1256706884.cos.ap-chengdu.myqcloud.com/stickmantd/tdstickman_0417/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "射击动作"
+    ]
+  },
+  {
+    "name": "气球爆爆爆",
+    "url": "https://cdn.flysheeep.com/liaojie/PopBalloon/byte/NoAd24/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "启强逆袭记",
+    "url": "https://mkw.youngwingtec.com/project_config/qiangge_ttmobileweb/",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "奇葩朵朵开",
+    "url": "https://cl-minigame.chuanglinggame.com/qpddk/h5/web-mobile/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "盘个大宝贝",
+    "url": "http://h5.sm.deniulor.com/screwjam/h5/",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "脑子动一动",
+    "url": "https://cdn.webuzz.com.cn/cdn/game/nzdyd/",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "脑汁转一转",
+    "url": "http://www.szlinglewangluo.com/nzzyz/web-mobile/",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "脑力充能站",
+    "url": "https://qianzong.darknight.games/naolizhaochawang/web/0.0.3/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "难倒大侦探",
+    "url": "https://static.zuiqiangyingyu.cn/wb_webview/hzwz2/nddzt/h52/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "魔王再临",
+    "url": "https://mkw.youngwingtec.com/daoshi2_mwzl/",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "魔性大冒险",
+    "url": "https://game2.sfplay.net/BraveTower/v1.0.0/v2/",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "RPG"
+    ]
+  },
+  {
+    "name": "小小生存队",
+    "url": "https://game2.sfplay.net/ClimbTower2D/v1.0.2/v2",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "RPG"
+    ]
+  },
+  {
+    "name": "一步一步往上爬",
+    "url": "https://res5.haotgame.com/cu04/static/xinnixi/web-mobile/",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ],
+    "note": "躺赢玩家同类型游戏"
+  },
+  {
+    "name": "开始游戏进去玩一会左下角第一个图标有本书选择古代模式",
+    "url": "https://game2.sfplay.net/Bankruptcy/v1.2.0/v3/",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "镶钻高手（进入会白屏20-25秒耐心等待即可）",
+    "url": "https://aaa.puffergames.com/GameServerData2/Unity/webgl_xzgs/webgl_xzgs/",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "我的煎饼摊",
+    "url": "https://webgame-6gzwg8ti52e46012-1310209978.tcloudbaseapp.com/107/web-mobile/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "美食"
+    ]
+  },
+  {
+    "name": "鸭鸭收纳大师",
+    "url": "https://www.rewanyouxi.com/games/snds/",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "收纳"
+    ]
+  },
+  {
+    "name": "一代梗王",
+    "url": "https://hm-ydgw.chuanglinggame.com/web/yidgw/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "脑洞"
+    ]
+  },
+  {
+    "name": "小鱼人战争",
+    "url": "http://shisuiwang.top/dyldrc/web-mobile/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "钓鱼"
+    ]
+  },
+  {
+    "name": "大炮轰猛鬼",
+    "url": "https://cooperation.pailedi.com/web2/wuff/tower-defence/demo/v27/web-mobile/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "恐怖解谜"
+    ]
+  },
+  {
+    "name": "僵尸来袭",
+    "url": "https://gamesres.ultralisk.cn/h5_games_daren/255v2_1725608409244/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "射击动作"
+    ]
+  },
+  {
+    "name": "拔了个罐（初次打开可能缓慢，耐心等待即可）",
+    "url": "https://incubator-static.easygame2021.com/screw-puzzle/guest/345/webpackage/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "放置冒险团",
+    "url": "https://gamesres.ultralisk.cn/h5_games_daren/270v2_1727317436781/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "RPG"
+    ]
+  },
+  {
+    "name": "魔兽进化论2",
+    "url": "https://cdn17.tomato123.cn/msjhlOld2/web/104/web-mobile/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "RPG"
+    ]
+  },
+  {
+    "name": "面条君快跑",
+    "url": "https://account.api.snsfun.com/h5game/noodles-run/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "萌宠收纳屋",
+    "url": "https://www.rewanyouxi.com/games/houses/web/1.1.4/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "收纳"
+    ]
+  },
+  {
+    "name": "麻将消一消",
+    "url": "http://47.108.200.73/WebGames/MJXYX/web-mobile/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "消除"
+    ]
+  },
+  {
+    "name": "类似爱情",
+    "url": "http://cdn.198434.com/cli/H5/HeAndHerStory/?id=1",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "老铁救救我",
+    "url": "https://static.zuiqiangyingyu.net/wb_webview/brain6/buddySaveMe/web/web-mobile/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "消了个消啊",
+    "url": "https://res.wqop2018.com/partner/hzdy/lxcb/20240614/007/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "废柴修仙",
+    "url": "https://littlegame.tomato123.cn/XXMNQ/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "修仙"
+    ]
+  },
+  {
+    "name": "就我眼神好",
+    "url": "https://u.yigomob.com/sl/jwysh",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "想致富先修路",
+    "url": "https://game2.sfplay.net/PlantTrees/v1/",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ],
+    "note": "加载有点慢等等"
+  },
+  {
+    "name": "再创辉煌",
+    "url": "https://cdn.doflame.com.cn/NewFutureYou/web-mobile/",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "梦幻女团",
+    "url": "https://rescdn.gamejym.com/szsh/zj_ewft1/",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "啪瞄人生",
+    "url": "https://z10.tanyu.mobi/tanpaixyx/28005/web/1.0.1/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "我托儿索贼溜 （进入回黑屏十五秒 耐心等待即可）",
+    "url": "https://gamesres.ultralisk.cn/h5_games_daren/244_1723513047584/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "天道之创造（只有安卓版 需要下载的app版本）",
+    "url": "https://docs.qq.com/doc/DR2VUcWZDSmhDSGtL",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "修仙"
+    ]
+  },
+  {
+    "name": "吃不到我吧（只有安卓版 需要下载的app版本）",
+    "url": "https://share.feijipan.com/s/6BCFtUby",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "摆烂发育",
+    "url": "https://mayahudong-1253544343.file.myqcloud.com/cdn/blfy_web/webnew/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "修仙"
+    ],
+    "note": "GM模式打开方式:(无广链接进入任意界面连续点击右上角空白格三次）加载慢等等"
+  },
+  {
+    "name": "翡翠大王",
+    "url": "http://h5.huangen.top/M6",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "苟皇逆袭记/完蛋我成了负二代/就要飞跃",
+    "url": "https://cdn.cdwaterbear.cn/SimulationGame_Web/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "小小挖矿记",
+    "url": "https://game2.sfplay.net/minng3d/v1/",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ],
+    "note": "菜单在设置里面"
+  },
+  {
+    "name": "生化围城",
+    "url": "http://h5.sm.deniulor.com/basedefence/daren/",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "造路大师（只有安卓版 需要下载的app版本）",
+    "url": "https://share.feijipan.com/s/mnCxvva9",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "猫咪前哨战",
+    "url": "https://game2.sfplay.net/CatSentinelForeign/v1",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "塔防"
+    ]
+  },
+  {
+    "name": "梦幻都市",
+    "url": "https://oss.tobetopone.com/h5/dream_city/",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "彩色世界",
+    "url": "https://cdn.cdwaterbear.cn/Storyteller/web/",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "文字来找茬",
+    "url": "https://short.puzzles100.com/sl/Gbjiu8",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "找茬",
+      "文字"
+    ]
+  },
+  {
+    "name": "我靠钓鱼买座岛",
+    "url": "https://static.game.jingyougz.com/fishisland_h5/web-mobile-1.1/",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "钓鱼"
+    ]
+  },
+  {
+    "name": "我要养女儿",
+    "url": "https://www.lekonghd.cn/wyynr/2.0.6/",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "模拟经营"
+    ]
+  },
+  {
+    "name": "神奇的文字",
+    "url": "http://ld.tobetopone.com/webGame/sqdwz/",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "文字"
+    ]
+  },
+  {
+    "name": "当帝王有多好",
+    "url": "https://wsdw.dengdengkeji.com/cocosv1.1.18/web-mobile/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "超级解压馆",
+    "url": "https://res.kampfiregames.cn/coinSort/web6/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "解压"
+    ]
+  },
+  {
+    "name": "遇事不要慌",
+    "url": "https://shifeng-minigame.chuanglinggame.com/trdsd/H5/web-mobile/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "捡钱我最行/经营我特牛",
+    "url": "http://mrw.so/6gzqQY",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "模拟经营"
+    ]
+  },
+  {
+    "name": "回到古代当帝王",
+    "url": "https://renyounew.renyouwangluo.cn/remoteGame/HdgddhdGame",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "王牌老司机（复制链接到浏览器打开）",
+    "url": "https://game-res.tos-cn-beijing.volces.com/qi-huan/wplsj-daren/web-mobile/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "开局一把刀",
+    "url": "https://game2.sfplay.net/knife/",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "非凡的大多数",
+    "url": "https://tos.zaml2018.com/index.html?app=outer_a7049830eef467d37352b3fcab1e47c5",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ],
+    "note": "激活码:ai1079513151；GM修改器:打开设置，连点五次设置标题"
+  },
+  {
+    "name": "我要爆装备",
+    "url": "https://cdn.moblazer.com/Exploere/web101/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "沙雕日记",
+    "url": "https://file-diary.kidikidi.net/h5/promote/after/web-mobile/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "荒岛大作战",
+    "url": "https://cdn.rewanyouxi.com/games/link/web-mobile/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "旅行餐车",
+    "url": "https://qcdn.bdoggame.com/ttgame/lvxingcc/webVer/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "美食"
+    ]
+  },
+  {
+    "name": "非常脑洞",
+    "url": "https://h5.wugua.com.cn/project_a_1/web/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "脑洞"
+    ]
+  },
+  {
+    "name": "收纳物语",
+    "url": "https://cdn.hanyougame.cn/snwy_web_1.0.1/web-mobile/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "收纳"
+    ]
+  },
+  {
+    "name": "全民剧本大师",
+    "url": "http://www.chengmei.games/script/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "小乞丐逆袭记",
+    "url": "https://mini.ssflashgo.com/wt74/web/1026/web-mobile/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "海底猎杀进化",
+    "url": "https://game2.sfplay.net/shby/",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "RPG"
+    ]
+  },
+  {
+    "name": "给娘娘请安",
+    "url": "https://daren.glifegame.com/hggl/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "命运主宰者",
+    "url": "https://cos.mjh5.cn/thief/game/1.0.2/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "我欲成仙",
+    "url": "https://game.hongshunet.com/wenyun/GGCS/TT/web-mobile/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "动动大脑瓜",
+    "url": "https://huoshancdn.langqugame.com/H5/web-mobile/",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "这是解谜吗",
+    "url": "https://tos.zaml2018.com/index.html?app=gm_7fefb8165695e3d436a9cb1cc59a5c21",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "益智"
+    ],
+    "note": "美食叠叠乐"
+  },
+  {
+    "name": "电脑网页链接",
+    "url": "https://res.wqop2018.com/cp/tt_msddl/h5/v2/web/web-desktop/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "手机链接",
+    "url": "https://res.wqop2018.com/cp/tt_msddl/h5/v2/mobile/web-mobile/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "烧脑大乱斗",
+    "url": "https://short.puzzles100.com/sl/OMDFok",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "特色烧烤",
+    "url": "https://static-cdn.zhouhy.net/h5/project/qingdu/web/shaokao/4/web-mobile/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "美食"
+    ]
+  },
+  {
+    "name": "兔兔爱消除",
+    "url": "http://112.74.33.201:8080/xcyx/",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "消除"
+    ]
+  },
+  {
+    "name": "玩梗找茬王",
+    "url": "https://static.zuiqiangyingyu.cn/wb_webview/hzwz/wgzcwh5/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "找茬",
+      "脑洞"
+    ]
+  },
+  {
+    "name": "我要上王者/无敌闯关高手",
+    "url": "https://minigame-1300810619.cos.ap-guangzhou.myqcloud.com/emperor/client/web-mobile/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "益智"
+    ]
+  },
+  {
+    "name": "消个土豆",
+    "url": "https://h5.wugua.com.cn/project_potato/web/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "野王999",
+    "url": "https://test2-1258404770.file.myqcloud.com//test-game/LL/yd999/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ],
+    "note": "有间烧烤店"
+  },
+  {
+    "name": "手机版无广告链接:",
+    "url": "http://wxclient.gzqidong.cn/GunFactory/wencong_desk/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "桌面版无广告链接:",
+    "url": "http://wxclient.gzqidong.cn/GunFactory/operateTest_desk/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "怨宅",
+    "url": "https://static-cdn.51haodong.com/oppo/horror_amongus/1/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "恐怖解谜"
+    ]
+  },
+  {
+    "name": "召唤超神龙",
+    "url": "https://games.qtjoy.com/games/DragonNew/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "致富大作战",
+    "url": "http://101.43.205.35:8095/ZhiFuDaZuoZhan_8/",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "智商贼高250",
+    "url": "https://xcdn.selpay.cn/games2/xxl/0.0.1/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "花园叠叠消",
+    "url": "https://game-static.heicheng51.com/gm/hyddx/web-mobile/index.html?v=1.0.1",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "消除"
+    ]
+  },
+  {
+    "name": "从零开始的进化",
+    "url": "https://www.lekonghd.cn/kghd/0.0.4/",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "RPG"
+    ]
+  },
+  {
+    "name": "勇者无敌",
+    "url": "https://game.hdbuyu.com/yzwd/",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "疯狂打螺丝",
+    "url": "http://www.chengmei.games/daluosi/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "益智"
+    ]
+  },
+  {
+    "name": "打螺丝达人",
+    "url": "https://cdn.flysheeep.com/noadgame/Screw2D/240117/web-mobile/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "益智"
+    ]
+  },
+  {
+    "name": "你有我快吗",
+    "url": "https://cdn.198434.com/h5/zhise/nywkm202403211318/",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ],
+    "note": "我是显眼包"
+  },
+  {
+    "name": "破冰行动/滑个冰圈圈",
+    "url": "https://www.wesane.com/game/1673/",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "美食串串串",
+    "url": "https://cdn.hanyougame.cn/MscccGame/web/web-mobile/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "美食"
+    ]
+  },
+  {
+    "name": "文字王者",
+    "url": "http://changshazhise01-1254961065.cos.ap-guangzhou.myqcloud.com/cp/tt_wzwz/web-mobile/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "文字"
+    ]
+  },
+  {
+    "name": "有趣解压神器",
+    "url": "https://qt.szyqhd.com:6001/jieyaguan/",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "解压"
+    ]
+  },
+  {
+    "name": "拯救我的漂亮女友",
+    "url": "https://lvgame.android.riofun.cn/emperorhtml/zjny/",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "筑梦空间",
+    "url": "https://z10.tanyu.mobi/tanpaixyx/28020/Web/1.0.7/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "求生前哨站",
+    "url": "https://cdn.tagame.cn/60qsqsz/",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "塔防"
+    ]
+  },
+  {
+    "name": "我又长脑子了",
+    "url": "https://final-puzzle-res.exploent.com/h5/1.0.0/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "王牌司机",
+    "url": "https://static.zuiqiangyingyu.cn/wb_webview/driveplane/h5-zb/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "火柴人就要吃鸡",
+    "url": "https://res.sjzgxwl.com/pingce/HuoChaiRenChiJiHeJi/HuoChaiRenJiuYaoChiJi/web/100/web-mobile/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "纸上当大侠",
+    "url": "https://game2.sfplay.net/PracticeSwords_match/v1.0.0/v1/",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "小怪兽迷你枪战",
+    "url": "https://ztyxyx.tanyu.mobi/cxwl/Gun666_masterman/web-mobile/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "射击动作"
+    ]
+  },
+  {
+    "name": "猫狗家园争霸",
+    "url": "https://super-mt.com/game/v2/web-mobile/",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "从细胞到奇点进化永无止境",
+    "url": "http://cdn.game-meng.com/xiaoyouxi/xb/webgl/v1/",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "RPG"
+    ]
+  },
+  {
+    "name": "海上攻防战",
+    "url": "https://changshazhise01-1254961065.cos.ap-guangzhou.myqcloud.com/partner/grcy/hsgfz/H5/0.2/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "山地摩托飘移/极品登山摩托",
+    "url": "https://source.youletd.com/file/h5/dsjxmtkb/v101/",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "射击动作"
+    ]
+  },
+  {
+    "name": "收纳模拟器",
+    "url": "http://112.74.33.201:8080/cnmnq/",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "模拟经营",
+      "收纳"
+    ]
+  },
+  {
+    "name": "彩笔大作战",
+    "url": "https://tos.qwpo2018.com/mp/game/web/gm/135c1ce999104a85ae0f18d60c6c98bb/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "象棋不象棋（仅限安卓系统)app版本",
+    "url": "https://share.feijipan.com/s/b2AhBKb3",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "聪明的老六",
+    "url": "https://changshazhise01-1254961065.cos.ap-guangzhou.myqcloud.com/zhise/cmdll/20240427_4/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "抖个梗",
+    "url": "https://res.sjzgxwl.com/pingce/DouGeGeng_HH/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "遇见你的花",
+    "url": "https://webgame-6gzwg8ti52e46012-1310209978.tcloudbaseapp.com/118/1.0.0/web-mobile/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "疯狂推推推",
+    "url": "https://cdn.cdwaterbear.cn/DeliverIt3D/web/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "这关脑洞大",
+    "url": "http://yy.xdpvp.com/zgndd_dr/",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "脑洞"
+    ]
+  },
+  {
+    "name": "僵尸榨汁达人",
+    "url": "https://qtweb.qtjoy.com/games/ZombieJuicing/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "射击动作"
+    ]
+  },
+  {
+    "name": "人间诡视",
+    "url": "http://littlegame.tomato123.cn/peep/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "恐怖解谜"
+    ]
+  },
+  {
+    "name": "广告模拟器",
+    "url": "https://game-res.tos-cn-beijing.volces.com/web-games/guang-gao-mo-ni-qi/1.0.7/web-mobile/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "模拟经营"
+    ]
+  },
+  {
+    "name": "炫彩节奏2",
+    "url": "https://musicgame.xplaymobile.com/Games/MusicColorBall2/web-mobile/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "小小车队",
+    "url": "https://cdn.flysheeep.com/noadgame/xiaoxiaoCheDui/1013/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "车了个车",
+    "url": "https://res.xcx.snsfun.com/dgnxcWEB_05/",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "停车"
+    ]
+  },
+  {
+    "name": "反击击杀",
+    "url": "https://res.xcx.snsfun.com/fjyxWEB_01/",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "第七人格",
+    "url": "https://res3.haotgame.com/cu04/static/HungerCastle/web-mobile/",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  },
+  {
+    "name": "食神再婚",
+    "url": "https://daren.glifegame.com/jtmsnx/index.html",
+    "group": "最新更新",
+    "featured": false,
+    "tags": [
+      "其他"
+    ]
+  }
+]

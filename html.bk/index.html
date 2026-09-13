@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>控制台登录</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .login-container {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+
+        .login-container h2 {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .input-group {
+            margin-bottom: 1rem;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 0.5rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .login-button {
+            width: 100%;
+            padding: 0.75rem;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .login-button:hover {
+            background-color: #0056b3;
+        }
+
+        /* 顶部链接容器样式 */
+        .top-links-container {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        /* 链接通用样式 */
+        .top-link {
+            color: #666;
+            font-size: 12px;
+            cursor: pointer;
+            text-decoration: underline;
+            white-space: nowrap;
+        }
+
+        .top-link:hover {
+            color: #007bff;
+        }
+
+        /* 版本号样式 */
+        .version-info {
+            color: #666;
+            font-size: 12px;
+            white-space: nowrap;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 顶部链接容器 -->
+    <div class="top-links-container">
+        <!-- 服务器选择 -->
+        <select class="server-select" id="serverSelect" onchange="handleServerChange()">
+            <option value="http://101.201.53.154/">魔力小游戏</option>
+            <option value="http://116.62.210.96/">h5.gmfree.top</option>
+            <option value="http://101.201.53.154:81/">moli.u2ip.com</option>
+            <option value="http://101.201.53.154:82/">101.43.162.207</option>
+        </select>
+        <!-- 方向恢复 -->
+        <!-- <div class="top-link" onclick="setOrientation('auto')">方向切换</div> -->
+        <!-- 版本测试 -->
+        <!-- <div class="top-link" onclick="window.location.href='/android.html'">版本测试</div> -->
+        <!-- music链接 -->
+        <div class="top-link" onclick="window.location.href='http://101.201.53.154/music/music_player.html'">🎵 music
+        </div>
+        <!-- 版本号显示 -->
+        <div class="version-info">当前版本: 1.0.1009</div>
+    </div>
+
+    <div class="login-container">
+        <h2>控制台登录</h2>
+        <div class="input-group">
+            <label for="phone">手机号</label>
+            <input type="tel" id="phone" placeholder="请输入您的手机号" maxlength="11">
+        </div>
+        <button class="login-button" onclick="handleLogin()">登录</button>
+    </div>
+
+    <script>
+        function handleLogin() {
+            const phone = document.getElementById('phone').value;
+            if (!/^1[3-9]\d{9}$/.test(phone)) {
+                alert('请输入有效的手机号');
+                return;
+            }
+
+            fetch('/v1/3rd/api/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ phone: phone })
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        // 保存accessToken到localStorage
+                        localStorage.setItem('accessToken', data.accessToken);
+                        // 调用设置屏幕方向的函数
+                        setOrientation('landscape');
+                        // 登录成功后跳转到控制台页面
+                        window.location.href = '/console?t=' + Date.now();
+                    } else {
+                        alert(data.message);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('登录失败，请重试');
+                });
+        }
+
+        /**
+         * 处理服务器选择变化事件
+         */
+        function handleServerChange() {
+            const serverSelect = document.getElementById('serverSelect');
+            const selectedServer = serverSelect.value;
+            const selectedText = serverSelect.options[serverSelect.selectedIndex].text;
+            
+            console.log(`切换到服务器: ${selectedText} (${selectedServer})`);
+            
+            // 切换服务器
+            window.location.href = selectedServer + '/?t=' + Date.now();
+
+            // 保存服务器选择到localStorage，以便下次记住选择
+            localStorage.setItem('selectedServer', selectedServer);
+        }
+
+        /**
+         * 页面加载时初始化服务器选择
+         */
+        function initializeServerSelection() {
+            const savedServer = localStorage.getItem('selectedServer');
+            if (savedServer) {
+                const serverSelect = document.getElementById('serverSelect');
+                serverSelect.value = savedServer;
+                console.log(`已恢复上次选择的服务器: ${savedServer}`);
+            }
+        }
+
+        // 页面加载完成后初始化服务器选择
+        document.addEventListener('DOMContentLoaded', initializeServerSelection);
+    </script>
+    <script>
+        /**
+        * 设置屏幕方向的函数。
+        * @param {string} orientation - 期望的方向 ("landscape", "portrait", "auto")。 横，竖，自动
+        */
+        function setOrientation(orientation) {
+            // 首先检查我们注入的桥梁对象是否存在，以及方法是否可用
+            if (window.AndroidBridge && typeof window.AndroidBridge.setScreenOrientation === 'function') {
+                window.AndroidBridge.setScreenOrientation(orientation);
+            } else {
+                // 如果在普通浏览器或接口不存在的环境中，可以在控制台打印一条消息
+                console.warn("AndroidBridge 接口不可用。当前非APP环境。");
+                // alert("此功能仅在APP内可用！");
+            }
+        };
+
+        setOrientation('auto');
+    </script>
+</body>
+
+</html>

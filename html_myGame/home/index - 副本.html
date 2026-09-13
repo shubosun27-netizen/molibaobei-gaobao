@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>控制台登录</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .login-container {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+
+        .login-container h2 {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .input-group {
+            margin-bottom: 1rem;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 0.5rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .login-button {
+            width: 100%;
+            padding: 0.75rem;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .login-button:hover {
+            background-color: #0056b3;
+        }
+
+        /* 顶部链接容器样式 */
+        .top-links-container {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        /* 链接通用样式 */
+        .top-link {
+            color: #666;
+            font-size: 12px;
+            cursor: pointer;
+            text-decoration: underline;
+            white-space: nowrap;
+        }
+
+        .top-link:hover {
+            color: #007bff;
+        }
+
+        /* 版本号样式 */
+        .version-info {
+            color: #666;
+            font-size: 12px;
+            white-space: nowrap;
+        }
+
+        .server-list-container {
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        .server-list {
+            list-style: none;
+            padding: 0;
+            margin: 10px 0;
+        }
+
+        .server-list li {
+            /* padding: 12px; */
+            border-bottom: 1px solid #eee;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .server-list li:hover {
+            background: #f5f5f5;
+        }
+
+        .error {
+            color: #dc3545;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 顶部链接容器 -->
+    <div class="top-links-container">
+        <!-- 服务器选择 -->
+        <div class="server-list-container"></div>
+        <!-- 方向恢复 -->
+        <!-- <div class="top-link" onclick="setOrientation('auto')">方向切换</div> -->
+        <!-- 版本测试 -->
+        <!-- <div class="top-link" onclick="window.location.href='/android.html'">版本测试</div> -->
+        <div class="server-list-container">
+            <select id="gameSelect" onchange="handleGameChange()">
+                <option value="" disabled selected>畅玩小游戏</option>
+                <option value="http://101.201.53.154/gameA.html">地牢RPG游戏</option>
+                <option value="http://101.201.53.154/gameB.html">刀锋幸存者：最终进化</option>
+            </select>
+        </div>
+        <!-- music链接 -->
+        <!-- <div class="top-link" onclick="window.location.href='http://101.201.53.154/music/music_player.html'">🎵 music</div> -->
+        <!-- 版本号显示 -->
+        <div class="version-info">当前版本: 1.0.1011</div>
+    </div>
+
+    <div class="login-container">
+        <h2>控制台登录</h2>
+        <div class="input-group">
+            <label for="phone">手机号</label>
+            <input type="tel" id="phone" placeholder="请输入您的手机号" maxlength="11">
+        </div>
+        <button class="login-button" onclick="handleLogin()">登录</button>
+    </div>
+
+    <script>
+        let consoleDomain;
+
+        function handleLogin() {
+            const phone = document.getElementById('phone').value;
+            if (!/^1[3-9]\d{9}$/.test(phone)) {
+                alert('请输入有效的手机号');
+                return;
+            }
+
+            fetch('/v1/3rd/api/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ phone: phone })
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        // 保存accessToken到localStorage（当前域使用）
+                        localStorage.setItem('accessToken', data.accessToken);
+                        // 调用设置屏幕方向的函数
+                        setOrientation('landscape');
+
+                        // 跨域跳转：通过URL参数传递token
+                        // 假设console域是 https://console.example.com
+                        const tokenParam = 'token=' + encodeURIComponent(data.accessToken);
+                        const timestampParam = 't=' + Date.now();
+
+                        // 构建跨域跳转URL
+                        const redirectUrl = `${consoleDomain}/console?${tokenParam}&${timestampParam}`;
+                        console.log('跳转到:', redirectUrl);
+
+                        window.location.href = redirectUrl;
+                    } else {
+                        alert(data.message);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('登录失败，请重试');
+                });
+        }
+
+        /**
+         * 处理服务器选择变化事件
+         */
+        function handleServerChange(serverDomain) {
+            const serverSelect = document.getElementById('dynamicServerSelect');
+            const selectedText = serverSelect.options[serverSelect.selectedIndex].text;
+            consoleDomain = serverSelect.value;
+
+            console.log(`切换到服务器: ${selectedText} (${consoleDomain})`);
+
+            // 切换服务器
+            // window.location.href = consoleDomain + '/?t=' + Date.now();
+
+            // 保存服务器选择到localStorage，以便下次记住选择
+            localStorage.setItem('selectedServer', consoleDomain);
+        }
+
+
+        // 添加服务器列表验证函数
+        function validateServerList(data) {
+            if (!Array.isArray(data)) {
+                throw new Error('服务器列表格式错误');
+            }
+            
+            if (data.length === 0) {
+                throw new Error('服务器列表为空');
+            }
+            
+            // 验证每个服务器对象的结构
+            data.forEach((server, index) => {
+                if (!server.domain || !server.name) {
+                    throw new Error(`服务器列表第${index + 1}项格式错误`);
+                }
+            });
+            
+            return true;
+        }
+        
+        // 在loadServerList中使用
+        function loadServerList() {
+            fetch('/servers.json?t=' + Date.now())
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    // 验证服务器列表
+                    validateServerList(data);
+                    
+                    const container = document.querySelector('.server-list-container');
+
+                    // 生成与serverSelect相同的option结构
+                    const options = data.map(server =>
+                        `<option value='${server.domain}'>${server.name}</option>`
+                    ).join('');
+
+                    // 保留原有容器结构
+                    container.innerHTML = `
+                            <select 
+                            class="server-select"
+                            id="dynamicServerSelect"
+                            onchange="handleServerChange()">
+                            ${options}
+                            </select>
+                        `;
+
+                    // 尝试从localStorage加载上次选择的服务器
+                    const savedServer = localStorage.getItem('selectedServer');
+                    if (savedServer && data.some(server => server.domain === savedServer)) {
+                        // 如果上次选择的服务器在列表中，设置为选中
+                        handleServerChange(savedServer); // 触发切换事件
+                    }
+                })
+                .catch(error => {
+                    console.error('服务器加载失败:', error);
+                    container.innerHTML = '<select class="server-select"><option>加载失败</option></select>';
+                });
+        }
+
+        // 页面加载完成后执行
+        window.addEventListener('DOMContentLoaded', () => {
+            loadServerList();
+        });
+
+        /**
+         * 处理游戏选择变化事件
+         */
+        function handleGameChange() {
+            const gameSelect = document.getElementById('gameSelect');
+            const selectedGameUrl = gameSelect.value + '?t=' + Date.now();
+            
+            if (selectedGameUrl) {
+                console.log(`跳转到游戏: ${gameSelect.options[gameSelect.selectedIndex].text}`);
+                window.location.href = selectedGameUrl;
+            }
+        }
+    </script>
+    <script>
+        /**
+        * 设置屏幕方向的函数。
+        * @param {string} orientation - 期望的方向 ("landscape", "portrait", "auto")。 横，竖，自动
+        */
+        function setOrientation(orientation) {
+            // 首先检查我们注入的桥梁对象是否存在，以及方法是否可用
+            if (window.AndroidBridge && typeof window.AndroidBridge.setScreenOrientation === 'function') {
+                window.AndroidBridge.setScreenOrientation(orientation);
+            } else {
+                // 如果在普通浏览器或接口不存在的环境中，可以在控制台打印一条消息
+                console.warn("AndroidBridge 接口不可用。当前非APP环境。");
+                // alert("此功能仅在APP内可用！");
+            }
+        };
+
+        setOrientation('auto');
+    </script>
+</body>
+
+</html>

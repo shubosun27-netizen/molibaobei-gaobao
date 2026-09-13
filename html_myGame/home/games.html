@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>畅玩小游戏</title>
+    <style>
+        :root {
+            --primary: #007bff;
+            --primary-hover: #0056b3;
+            --bg: #f5f5f5;
+            --card-bg: #fff;
+            --text: #333;
+            --muted: #666;
+            --border: #eee;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: var(--bg);
+            padding: 16px;
+            min-height: 100dvh;
+        }
+
+        .page-header {
+            max-width: 960px;
+            margin: 0 auto 12px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .back-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-size: 14px;
+            white-space: nowrap;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            padding: 24px;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+            min-height: calc(100dvh - 32px);
+        }
+
+        h1 {
+            text-align: center;
+            color: var(--text);
+            margin-bottom: 8px;
+            font-size: 1.5rem;
+        }
+
+        .game-stats {
+            text-align: center;
+            color: var(--muted);
+            font-size: 13px;
+            margin-bottom: 16px;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+
+        .tab-btn {
+            flex: 1;
+            padding: 10px 12px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: #fafafa;
+            color: var(--muted);
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        .tab-btn.active {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: #fff;
+        }
+
+        .search-box {
+            margin-bottom: 16px;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 12px 14px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        .search-box input:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        .tag-filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+
+        .tag-chip {
+            padding: 6px 12px;
+            border: 1px solid var(--border);
+            border-radius: 999px;
+            background: #fafafa;
+            color: var(--muted);
+            font-size: 12px;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+
+        .tag-chip.active {
+            background: #e7f1ff;
+            border-color: #b6d4fe;
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .tag-chip .count {
+            opacity: 0.75;
+            margin-left: 4px;
+        }
+
+        .section {
+            margin-bottom: 24px;
+        }
+
+        .section-title {
+            position: sticky;
+            top: 0;
+            z-index: 2;
+            background: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(4px);
+            padding: 10px 0 12px;
+            margin-bottom: 12px;
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--text);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .featured-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            gap: 12px;
+        }
+
+        .game-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 12px;
+        }
+
+        .game-card {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            background: #fff;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.15s ease, box-shadow 0.15s ease;
+        }
+
+        .game-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+        }
+
+        .game-card.featured {
+            border-color: #cfe2ff;
+            background: linear-gradient(180deg, #f8fbff 0%, #fff 100%);
+        }
+
+        .game-avatar {
+            height: 72px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 28px;
+            font-weight: 700;
+        }
+
+        .game-card-body {
+            padding: 10px 12px 12px;
+            min-height: 64px;
+        }
+
+        .game-name {
+            font-size: 13px;
+            line-height: 1.4;
+            color: var(--text);
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            word-break: break-word;
+        }
+
+        .game-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4px;
+            margin-top: 8px;
+        }
+
+        .game-tag {
+            padding: 2px 6px;
+            border-radius: 4px;
+            background: #f0f4ff;
+            color: #4a6fa5;
+            font-size: 10px;
+            line-height: 1.3;
+        }
+
+        .game-note {
+            margin-top: 6px;
+            font-size: 11px;
+            line-height: 1.35;
+            color: #888;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .favorite-btn {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            width: 28px;
+            height: 28px;
+            border: none;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.92);
+            color: #bbb;
+            font-size: 16px;
+            line-height: 1;
+            cursor: pointer;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+        }
+
+        .favorite-btn.active {
+            color: #ffb400;
+        }
+
+        .game-empty {
+            padding: 48px 16px;
+            text-align: center;
+            color: #999;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 767px) {
+            .container {
+                padding: 16px;
+            }
+
+            .featured-grid,
+            .game-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .favorite-btn {
+                width: 32px;
+                height: 32px;
+                font-size: 18px;
+            }
+
+            .game-name {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page-header">
+        <a class="back-link" href="index.html">&larr; 返回登录</a>
+    </div>
+
+    <div class="container">
+        <h1>畅玩小游戏</h1>
+        <div class="game-stats" id="gameStats">加载中...</div>
+
+        <div class="tabs">
+            <button type="button" class="tab-btn active" data-tab="all" onclick="switchTab('all')">全部</button>
+            <button type="button" class="tab-btn" data-tab="favorites" onclick="switchTab('favorites')">收藏</button>
+            <button type="button" class="tab-btn" data-tab="recent" onclick="switchTab('recent')">最近</button>
+        </div>
+
+        <div class="search-box">
+            <input type="search" id="gameSearchInput" placeholder="搜索游戏名、分类或备注..." oninput="renderCurrentView()">
+        </div>
+
+        <div id="tagFilters" class="tag-filters"></div>
+
+        <div id="gameContent">
+            <div class="game-empty">加载中...</div>
+        </div>
+    </div>
+
+    <script>
+        const FAVORITES_KEY = 'gameFavorites';
+        const RECENT_KEY = 'gameRecent';
+        const RECENT_LIMIT = 20;
+        const GROUP_ORDER = ['本地推荐', '2025-01-30', '2025-01-12', '2024-12-13', '2024-11-18', '2024-10-30', '最新更新'];
+        const GROUP_LABELS = {
+            '本地推荐': '本地推荐',
+            '2025-01-30': '2025-01-30 更新',
+            '2025-01-12': '2025-01-12 更新',
+            '2024-12-13': '2024-12-13 更新',
+            '2024-11-18': '2024-11-18 更新',
+            '2024-10-30': '2024-10-30 更新',
+            '最新更新': '最新更新',
+            '未分类': '未分类'
+        };
+        const AVATAR_COLORS = ['#007bff', '#28a745', '#fd7e14', '#6f42c1', '#20c997', '#e83e8c', '#17a2b8', '#6610f2'];
+
+        let gameListData = [];
+        let currentTab = 'all';
+        let currentTag = '';
+        let cardIndexMap = [];
+        let tagStats = {};
+
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        function getAvatarColor(name) {
+            let hash = 0;
+            for (let i = 0; i < name.length; i++) {
+                hash = name.charCodeAt(i) + ((hash << 5) - hash);
+            }
+            return AVATAR_COLORS[Math.abs(hash) % AVATAR_COLORS.length];
+        }
+
+        function getAvatarLetter(name) {
+            return (name.trim()[0] || '?').toUpperCase();
+        }
+
+        function readFavorites() {
+            try {
+                const data = JSON.parse(localStorage.getItem(FAVORITES_KEY) || '[]');
+                return Array.isArray(data) ? data : [];
+            } catch {
+                return [];
+            }
+        }
+
+        function writeFavorites(list) {
+            localStorage.setItem(FAVORITES_KEY, JSON.stringify(list));
+        }
+
+        function readRecent() {
+            try {
+                const data = JSON.parse(localStorage.getItem(RECENT_KEY) || '[]');
+                return Array.isArray(data) ? data : [];
+            } catch {
+                return [];
+            }
+        }
+
+        function writeRecent(list) {
+            localStorage.setItem(RECENT_KEY, JSON.stringify(list.slice(0, RECENT_LIMIT)));
+        }
+
+        function isFavorite(url) {
+            return readFavorites().includes(url);
+        }
+
+        function toggleFavorite(url, event) {
+            event.stopPropagation();
+            const favorites = readFavorites();
+            const index = favorites.indexOf(url);
+            if (index >= 0) {
+                favorites.splice(index, 1);
+            } else {
+                favorites.push(url);
+            }
+            writeFavorites(favorites);
+            renderCurrentView();
+        }
+
+        function trackRecent(game) {
+            const recent = readRecent().filter(item => item.url !== game.url);
+            recent.unshift({ url: game.url, name: game.name, ts: Date.now() });
+            writeRecent(recent.slice(0, RECENT_LIMIT));
+        }
+
+        function openGame(game) {
+            trackRecent(game);
+            const url = game.url + (game.url.includes('?') ? '&' : '?') + 't=' + Date.now();
+            window.location.href = url;
+        }
+
+        function getSearchKeyword() {
+            return document.getElementById('gameSearchInput').value.trim().toLowerCase();
+        }
+
+        function getGameTags(game) {
+            return Array.isArray(game.tags) && game.tags.length ? game.tags : ['其他'];
+        }
+
+        function matchKeyword(game, keyword) {
+            if (!keyword) return true;
+            const haystack = [
+                game.name,
+                ...(game.tags || []),
+                game.note || '',
+            ].join(' ').toLowerCase();
+            return haystack.includes(keyword);
+        }
+
+        function matchTag(game) {
+            if (!currentTag) return true;
+            return getGameTags(game).includes(currentTag);
+        }
+
+        function buildTagStats() {
+            tagStats = {};
+            gameListData.forEach(game => {
+                getGameTags(game).forEach(tag => {
+                    tagStats[tag] = (tagStats[tag] || 0) + 1;
+                });
+            });
+        }
+
+        function renderTagFilters() {
+            const container = document.getElementById('tagFilters');
+            const tags = Object.keys(tagStats).sort((a, b) => {
+                if (a === '其他') return 1;
+                if (b === '其他') return -1;
+                return tagStats[b] - tagStats[a] || a.localeCompare(b, 'zh-CN');
+            });
+
+            container.innerHTML = [
+                `<button type="button" class="tag-chip${currentTag === '' ? ' active' : ''}" onclick="switchTag('')">全部分类</button>`,
+                ...tags.map(tag =>
+                    `<button type="button" class="tag-chip${currentTag === tag ? ' active' : ''}" onclick="switchTag('${tag.replace(/'/g, "\\'")}')">${escapeHtml(tag)}<span class="count">${tagStats[tag]}</span></button>`
+                ),
+            ].join('');
+        }
+
+        function switchTag(tag) {
+            currentTag = tag;
+            renderTagFilters();
+            renderCurrentView();
+        }
+
+        function sortGroups(groups) {
+            return groups.sort((a, b) => {
+                const indexA = GROUP_ORDER.indexOf(a);
+                const indexB = GROUP_ORDER.indexOf(b);
+                const safeA = indexA === -1 ? 999 : indexA;
+                const safeB = indexB === -1 ? 999 : indexB;
+                return safeA - safeB;
+            });
+        }
+
+        function getGamesForTab() {
+            const keyword = getSearchKeyword();
+            const baseFilter = game => matchKeyword(game, keyword) && matchTag(game);
+
+            if (currentTab === 'favorites') {
+                const favorites = new Set(readFavorites());
+                return gameListData.filter(game => favorites.has(game.url) && baseFilter(game));
+            }
+
+            if (currentTab === 'recent') {
+                const recent = readRecent();
+                const gameMap = new Map(gameListData.map(game => [game.url, game]));
+                return recent
+                    .map(item => gameMap.get(item.url) || item)
+                    .filter(game => game && baseFilter(game));
+            }
+
+            return gameListData.filter(baseFilter);
+        }
+
+        function renderTagBadges(game) {
+            const tags = getGameTags(game).slice(0, 2);
+            if (!tags.length) return '';
+            return `<div class="game-tags">${tags.map(tag => `<span class="game-tag">${escapeHtml(tag)}</span>`).join('')}</div>`;
+        }
+
+        function createCardHtml(game, index, featured = false) {
+            const favoriteActive = isFavorite(game.url) ? ' active' : '';
+            const featuredClass = featured ? ' featured' : '';
+            const color = getAvatarColor(game.name);
+            const letter = getAvatarLetter(game.name);
+            const noteHtml = game.note ? `<div class="game-note" title="${escapeHtml(game.note)}">${escapeHtml(game.note)}</div>` : '';
+            const titleAttr = game.note ? ` title="${escapeHtml(game.note)}"` : '';
+
+            return `
+                <article class="game-card${featuredClass}" data-card-index="${index}"${titleAttr}>
+                    <button type="button" class="favorite-btn${favoriteActive}" data-action="favorite" aria-label="收藏">★</button>
+                    <div class="game-avatar" style="background:${color}">${escapeHtml(letter)}</div>
+                    <div class="game-card-body">
+                        <div class="game-name">${escapeHtml(game.name)}</div>
+                        ${renderTagBadges(game)}
+                        ${noteHtml}
+                    </div>
+                </article>
+            `;
+        }
+
+        function renderCards(games, gridClass) {
+            cardIndexMap = games;
+            return `<div class="${gridClass}">${games.map((game, index) => createCardHtml(game, index)).join('')}</div>`;
+        }
+
+        function updateStats(visibleCount) {
+            const stats = document.getElementById('gameStats');
+            const keyword = getSearchKeyword();
+
+            if (!gameListData.length) {
+                stats.textContent = '';
+                return;
+            }
+
+            if (currentTab === 'favorites') {
+                stats.textContent = keyword
+                    ? `收藏 ${readFavorites().length} 款，匹配 ${visibleCount} 款`
+                    : `收藏 ${visibleCount} 款游戏`;
+                return;
+            }
+
+            if (currentTab === 'recent') {
+                stats.textContent = keyword || currentTag
+                    ? `最近 ${readRecent().length} 款，匹配 ${visibleCount} 款`
+                    : `最近 ${visibleCount} 款游戏`;
+                return;
+            }
+
+            const tagText = currentTag ? `，分类「${currentTag}」` : '';
+            stats.textContent = keyword || currentTag
+                ? `共 ${gameListData.length} 款${tagText}，匹配 ${visibleCount} 款`
+                : `共 ${gameListData.length} 款游戏`;
+        }
+
+        function renderAllTab(games) {
+            if (currentTag) {
+                renderFlatTab(
+                    games,
+                    `「${escapeHtml(currentTag)}」分类下暂无匹配游戏`,
+                    `${escapeHtml(currentTag)}（${games.length}）`
+                );
+                return;
+            }
+
+            const container = document.getElementById('gameContent');
+            const featuredGames = games.filter(game => game.featured);
+            const grouped = {};
+
+            games.forEach(game => {
+                if (game.featured) return;
+                if (!grouped[game.group]) grouped[game.group] = [];
+                grouped[game.group].push(game);
+            });
+
+            cardIndexMap = [];
+            const sections = [];
+
+            if (featuredGames.length) {
+                const start = cardIndexMap.length;
+                cardIndexMap.push(...featuredGames);
+                sections.push(`
+                    <section class="section">
+                        <h2 class="section-title">${GROUP_LABELS['本地推荐']}</h2>
+                        <div class="featured-grid">
+                            ${featuredGames.map((game, index) => createCardHtml(game, start + index, true)).join('')}
+                        </div>
+                    </section>
+                `);
+            }
+
+            sortGroups(Object.keys(grouped)).forEach(group => {
+                const groupGames = grouped[group];
+                if (!groupGames.length) return;
+
+                const start = cardIndexMap.length;
+                cardIndexMap.push(...groupGames);
+                sections.push(`
+                    <section class="section">
+                        <h2 class="section-title">${escapeHtml(GROUP_LABELS[group] || group)}</h2>
+                        <div class="game-grid">
+                            ${groupGames.map((game, index) => createCardHtml(game, start + index)).join('')}
+                        </div>
+                    </section>
+                `);
+            });
+
+            if (!sections.length) {
+                container.innerHTML = '<div class="game-empty">未找到匹配游戏</div>';
+                updateStats(0);
+                cardIndexMap = [];
+                return;
+            }
+
+            container.innerHTML = sections.join('');
+            updateStats(cardIndexMap.length);
+        }
+
+        function renderFlatTab(games, emptyText, sectionTitle = '') {
+            const container = document.getElementById('gameContent');
+
+            if (!games.length) {
+                container.innerHTML = `<div class="game-empty">${emptyText}</div>`;
+                updateStats(0);
+                cardIndexMap = [];
+                return;
+            }
+
+            const titleHtml = sectionTitle
+                ? `<h2 class="section-title">${sectionTitle}</h2>`
+                : '';
+
+            container.innerHTML = `
+                <section class="section">
+                    ${titleHtml}
+                    ${renderCards(games, 'game-grid')}
+                </section>
+            `;
+            updateStats(games.length);
+        }
+
+        function renderCurrentView() {
+            const games = getGamesForTab();
+
+            if (currentTab === 'all') {
+                renderAllTab(games);
+                return;
+            }
+
+            if (currentTab === 'favorites') {
+                renderFlatTab(games, '还没有收藏游戏<br>点击卡片右上角星标即可收藏');
+                return;
+            }
+
+            renderFlatTab(games, '还没有最近玩过的游戏<br>打开任意游戏后会出现在这里');
+        }
+
+        function switchTab(tab) {
+            currentTab = tab;
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.tab === tab);
+            });
+            renderCurrentView();
+        }
+
+        function handleContentClick(event) {
+            const favoriteBtn = event.target.closest('[data-action="favorite"]');
+            if (favoriteBtn) {
+                const card = favoriteBtn.closest('.game-card');
+                const game = cardIndexMap[Number(card.dataset.cardIndex)];
+                if (game) toggleFavorite(game.url, event);
+                return;
+            }
+
+            const card = event.target.closest('.game-card');
+            if (!card) return;
+            const game = cardIndexMap[Number(card.dataset.cardIndex)];
+            if (game) openGame(game);
+        }
+
+        function loadGameList() {
+            fetch('games.json?t=' + Date.now())
+                .then(response => {
+                    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+                    return response.json();
+                })
+                .then(data => {
+                    if (!Array.isArray(data) || data.length === 0) {
+                        throw new Error('游戏列表无效');
+                    }
+                    gameListData = data.map(game => ({
+                        ...game,
+                        tags: Array.isArray(game.tags) && game.tags.length ? game.tags : ['其他'],
+                    }));
+                    buildTagStats();
+                    renderTagFilters();
+                    renderCurrentView();
+                })
+                .catch(error => {
+                    console.error('游戏列表加载失败:', error);
+                    document.getElementById('gameStats').textContent = '';
+                    document.getElementById('gameContent').innerHTML =
+                        '<div class="game-empty">游戏列表加载失败，请稍后重试</div>';
+                });
+
+            document.getElementById('gameContent').addEventListener('click', handleContentClick);
+        }
+
+        window.addEventListener('DOMContentLoaded', loadGameList);
+    </script>
+</body>
+
+</html>
