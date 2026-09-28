@@ -1,0 +1,805 @@
+# http://127.0.0.1/index.html?&openID=52_12306754&loginKey=000136a02b8747d8fe61ce277512eac0cc4&isGuest=undefined&serverId=360058&originId=360058&ip=122.51.186.209&port=3006&serverName=%E9%AD%94%E5%8A%9B58%E5%8C%BA&serverUrlPrefix=https://mlgb-serverlist.bigrnet.com&bugUrlPrefix=http://account.quannijoy.com:7203&isShellLogin=1&sdkid=200&version=1.0&channelid=80010&gameDomain=wss://mlgb8090-gate.bigrnet.com/ws360058&accessToken=f7df8304243e3d793a0b0edd6cab459f&channelId=52&userId=12306754&userName=&cpExtra=null&isWd=false&centerflag=mlbb_gb8090&account_id=12306754&server_id=58&time=1735824727&is_adult=1&sign=ed0ba1a01d9d289f6f92eacbc24a9e4a&juheChannel=52&shellUrl=https%3A%2F%2Fmlgbcdn.bigrnet.com%2Fstart%2FindexQV_JuheH5.html%3Fcenterflag%3Dmlbb_gb8090%26sdkid%3D200%26channelid%3D80010%26account_id%3D12306754%26server_id%3D58%26time%3D1735824727%26is_adult%3D1%26sign%3Ded0ba1a01d9d289f6f92eacbc24a9e4a%26juheChannel%3D52
+
+
+# 获取sign
+获取当前页面的查询参数部分（即 ? 后面的部分）
+const queryString = window.location.search;
+
+# 去掉开头的问号
+const queryParamsString = queryString.substring(1);
+
+# 将查询参数转换为对象
+const queryParams = {};
+queryParamsString.split('&').forEach(param => {
+    const [key, value] = param.split('=');
+    queryParams[key] = decodeURIComponent(value || ''); // 解码 URL 编码的值
+});
+
+# 输出结果
+console.log(queryParams, setSign(queryParams));
+
+
+
+# 第一步
+# Request URL:
+https://juhe.gateway.yofijoy.com/juhe/api/user/getLoginToken
+# Request Method: POST
+# form-data:
+extension=%7B%22centerflag%22%3A%22mlbb_gb8090%22%2C%22sdkid%22%3A%22200%22%2C%22channelid%22%3A%2280010%22%2C%22account_id%22%3A%2212306754%22%2C%22server_id%22%3A%2258%22%2C%22time%22%3A%221735824727%22%2C%22is_adult%22%3A%221%22%2C%22sign%22%3A%22ed0ba1a01d9d289f6f92eacbc24a9e4a%22%2C%22juheChannel%22%3A%2252%22%7D&appId=1000040&channelId=52&timestamp=1737946339500&sign=9bb736a350af371b1e3d46fe614e969d
+# Headers:
+Accept: application/json
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: zh-CN,zh-TW;q=0.9,zh;q=0.8,en;q=0.7
+Cache-Control: no-cache
+Connection: keep-alive
+Content-Length: 408
+Content-Type: application/x-www-form-urlencoded
+Host: juhe.gateway.yofijoy.com
+Origin: https://mlgbcdn.bigrnet.com
+Pragma: no-cache
+Referer: https://mlgbcdn.bigrnet.com/
+Sec-Fetch-Dest: empty
+Sec-Fetch-Mode: cors
+Sec-Fetch-Site: cross-site
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36
+baseData: {"os":5,"sub_channel":null}
+sec-ch-ua: "Not A(Brand";v="8", "Chromium";v="132", "Google Chrome";v="132"
+sec-ch-ua-mobile: ?0
+sec-ch-ua-platform: "Windows"
+# 根据以上信息，生成js代码
+
+# response:
+{
+    "code": 0,
+    "msg": null,
+    "data": {
+        "channelUserId": "12306754",
+        "channelUserName": "",
+        "token": "006929e6a07295d41476198b24db6448",
+        "extension": "",
+        "cpExtra": null,
+        "serverId": "360058",
+        "holidays": [],
+        "newUser": false
+    }
+}
+
+# 第二步
+# url: POST
+https://mlgb-login.bigrnet.com/userlogin
+#query:
+{"ptid":6,"channel":80010,"token":"006929e6a07295d41476198b24db6448","channel_userid":"12306754","time":""}
+
+#response
+{"openId":"52_12306754","loginKey":"0002e84f06940cd2bf2a7eabcdeff396cbb","listServerAddr":"https://mlgb-serverlist.bigrnet.com","noticeServerAddr":"https://mlgb-web.bigrnet.com/gameapi/app/mxdxc/api/initialinfo/index.php?channel=","ts":1737857944052,"bugServerAddr":"http://account.quannijoy.com:7203"}
+
+
+
+
+# Request URL:
+https://juhe.gateway.yofijoy.com/juhe/api/user/getLoginToken
+# Request Method: OPTIONS
+# headers:
+Accept: */*
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: zh-CN,zh-TW;q=0.9,zh;q=0.8,en;q=0.7
+Access-Control-Request-Headers: basedata
+Access-Control-Request-Method: POST
+Cache-Control: no-cache
+Connection: keep-alive
+Host: juhe.gateway.yofijoy.com
+Origin: https://mlgbcdn.bigrnet.com
+Pragma: no-cache
+Referer: https://mlgbcdn.bigrnet.com/
+Sec-Fetch-Dest: empty
+Sec-Fetch-Mode: cors
+Sec-Fetch-Site: cross-site
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36
+
+# 根据以上信息，生成js代码
+
+
+# Request URL:
+https://juhe.gateway.yofijoy.com/juhe/api/gameconfig/init
+# Request Method: POST
+# Headers:
+Accept: application/json
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: zh-CN,zh-TW;q=0.9,zh;q=0.8,en;q=0.7
+Cache-Control: no-cache
+Connection: keep-alive
+Content-Length: 1025
+Content-Type: application/x-www-form-urlencoded
+Host: juhe.gateway.yofijoy.com
+Origin: https://mlgbcdn.bigrnet.com
+Pragma: no-cache
+Referer: https://mlgbcdn.bigrnet.com/
+Sec-Fetch-Dest: empty
+Sec-Fetch-Mode: cors
+Sec-Fetch-Site: cross-site
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36
+baseData: {"os":5,"sub_channel":null}
+sec-ch-ua: "Not A(Brand";v="8", "Chromium";v="132", "Google Chrome";v="132"
+sec-ch-ua-mobile: ?0
+sec-ch-ua-platform: "Windows"
+
+# form-data:
+openID=52_12306754&loginKey=0001910d72f71af20079f1a2f3d0d34f715&isGuest=undefined&serverId=360058&originId=360058&ip=122.51.186.209&port=3006&serverName=%25E9%25AD%2594%25E5%258A%259B58%25E5%258C%25BA&serverUrlPrefix=https%3A%2F%2Fmlgb-serverlist.bigrnet.com&bugUrlPrefix=http%3A%2F%2Faccount.quannijoy.com%3A7203&isShellLogin=1&sdkid=200&version=1.0&channelid=80010&gameDomain=wss%3A%2F%2Fmlgb8090-gate.bigrnet.com%2Fws360058&accessToken=fded1de0bb6c2b10d863618a0675e4e4&channelId=52&userId=12306754&userName=&cpExtra=null&isWd=false&centerflag=mlbb_gb8090&account_id=12306754&server_id=58&time=1735824727&is_adult=1&sign=b9a2249e2639cac04566ed745d86eaf0&juheChannel=52&shellUrl=https%253A%252F%252Fmlgbcdn.bigrnet.com%252Fstart%252FindexQV_JuheH5.html%253Fcenterflag%253Dmlbb_gb8090%2526sdkid%253D200%2526channelid%253D80010%2526account_id%253D12306754%2526server_id%253D58%2526time%253D1735824727%2526is_adult%253D1%2526sign%253Ded0ba1a01d9d289f6f92eacbc24a9e4a%2526juheChannel%253D52&appId=1000040&timestamp=1737944516542
+
+# 根据以上信息，生成js代码
+
+
+
+
+# Request URL:
+https://mlgb-login.bigrnet.com/userlogin
+# Request Method: POST
+# Headers:
+Accept: */*
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: zh-CN,zh-TW;q=0.9,zh;q=0.8,en;q=0.7
+Cache-Control: no-cache
+Connection: keep-alive
+Content-Length: 107
+Content-Type: application/x-www-form-urlencoded
+Host: mlgb-login.bigrnet.com
+Origin: https://mlgbcdn.bigrnet.com
+Pragma: no-cache
+Referer: https://mlgbcdn.bigrnet.com/
+Sec-Fetch-Dest: empty
+Sec-Fetch-Mode: cors
+Sec-Fetch-Site: same-site
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36
+sec-ch-ua: "Not A(Brand";v="8", "Chromium";v="132", "Google Chrome";v="132"
+sec-ch-ua-mobile: ?0
+sec-ch-ua-platform: "Windows"
+
+# form-data:
+{"ptid":6,"channel":80010,"token":"885776d9088eb1dd8a668a2f598f6d30","channel_userid":"12306754","time":""}
+
+# 我需要继续完善代码，请根据以上信息，生成js代码，填充到test.js文件中，方法名定义为toUserLogin
+
+
+# websocket 接受消息的断点搜索 l.transId = n,
+
+#----分割线----#
+
+
+# VIP等级 window.me.userInfo.vipLevel
+
+# 找到var Ql, zl, Jl, Zl = new class { 在方法最后添加 window.me = Zl;
+# 背包物品列表，window.me.userInfo.itemArray
+# 物品名称列表，window.meta.itemDict
+
+# 组队，找到ho.ACTIVITY_TYPE_PETMELEE = 17; ，在后面增加 window.kinkoo_zudui = ho.Singleton;
+# 组队列表，window.kinkoo_zudui.reqJoinTeam()
+
+# 购买宝石
+# 在bundle-xxxxxx.js文件中，搜索class SR extends y.scene.common.StoreAddDlgUI { 
+# class结束后 增加  window.kinkoo_buy = SR;  以便通过js进行调用
+# 调用方法：let kk = new window.kinkoo_buy({id: 2102, price: 83, petProp: []}) ;  kk.onClickBuy()
+# 参数：{id: 2102, price: 83, petProp: []}
+
+
+#----分割线----#
+
+# 请求商店信息
+# 在bundle-xxxxxx.js文件中，搜索“send(e, t=!1) {”  找到
+
+# 添加
+            ; console.log("SocketClient send: ", i, e);
+            ; varSync(e);
+
+# 在xB 函数结束，增加window.kinkoo_send = xB;
+
+#----分割线----#
+# 在bundle-xxxxxx.js文件中，搜索class aB {
+# 在aB.Singleton = new aB;后面增加window.kinkoo_ab = aB.Singleton;
+
+
+#----分割线----#
+# 领取菜园子的30点数
+# 在bundle-xxxxxx.js文件中，搜索class xX extends y.scene.game.starPalace.StarPalaceShopItemUI {
+# 在class结束后，增加 window.kinkoo_starbuy = xX;
+
+
+#----分割线----#
+
+# 找到(this.manualBtn.visible = e, this.computerBtn.visible = !e)  在其上面增加if，改成如下
+#            if (this.manualBtn)
+#                t instanceof Kv && t.dungeonMeta && t.dungeonMeta.dungeon_type == pb.DungeonType.ATTACK || (this.manualBtn.visible = e, this.computerBtn.visible = !e)
+#----分割线----#
+
+
+
+
+
+# 进入地图，kinkoo_qk.reqTeamMazeEnter(103)
+# 退出地图，kinkoo_qk.reqTeamMazeExit()
+# 地图遇敌，kinkoo_qk.reqTeamMazeBattleMonster(103, 3)
+# 快速结束回合，battleMgr.Singleton.rptBattleEnd()
+
+
+# 配合reqTeamMazeBattleMonster方法用，修改如下：
+            ; yf.sendAndWait(i).then((e => {
+            ;     // console.warn("遇敌成功！！！", Date.now())
+            ;     _battleMonster_receiveMessage() 
+            ; }
+            ; )).catch(error => {
+            ;     // _battleMonster_receiveMessage(error);
+            ; })
+
+# 配合在onMessageReceived函数中，增加如下代码，获取战斗结束信息
+                ; if(r == 'BattleEndNtf'){
+                ;     // 战斗结束
+                ;     _battleEndNtfr_receiveMessage();
+                ; }
+
+
+# 红包，找到FK.Singleton = new FK; 后面增加window.kinkoo_hongbao = FK.Singleton;
+# 红包消息：RedBagNtf ,params.batchId
+# 抢红包：window.kinkoo_hongbao.openRedPacket(id)
+
+# 排行榜，找到pB.GLOBAL_TYPE_ARRAY = [pb.RankType.USER_COMBAT, pb.RankType.PET_COMBAT, pb.RankType.FRIEND_BATTLE];
+# 增加    window.kinkoo_rank = pB.Singleton;
+# 获取排行信息，  window.kinkoo_rank.reqRankInfo(0,1,100,true,true)
+
+
+# 交易行，找到Of.Singleton = new Of; 增加 window.kinkoo_sale = Of.Singleton;
+# 宠物公示，window.kinkoo_sale.reqExchangeInfo(2,6,0,0,0,2,[],0,0,[])
+# 道具公示，window.kinkoo_sale.reqExchangeInfo(2,1,0,0,null,2,[],0,0,[1,2,3,4,6,7,8,9,11])
+# 武器公示，window.kinkoo_sale.reqExchangeInfo(2,2,0,0,1,1,[],0,0,[])
+# 防具公示，window.kinkoo_sale.reqExchangeInfo(2,2,0,0,2,1,[],0,0,[])
+# 首饰公示，window.kinkoo_sale.reqExchangeInfo(2,2,0,0,3,1,[],0,0,[])
+# 材料公示，window.kinkoo_sale.reqExchangeInfo(2,2,0,0,5,2,[],0,0,[])
+# 料理公示，window.kinkoo_sale.reqExchangeInfo(2,1,1,0,0,1,[],0,0,[10])
+# 魂石公示，window.kinkoo_sale.reqExchangeInfo(2,8,0,0,0,1,[],0,0,[])
+# 符文公示，window.kinkoo_sale.reqExchangeInfo(2,9,0,0,0,1,[],0,0,[])
+
+
+# 挂机的手动函数：onManualMode()，通过window.kinkoo_auto.onManualMode() 进行调用
+# 自动战斗的函数：onAutoMode()，通过window.kinkoo_auto.onAutoMode()进行调用
+
+
+# 背包卖东西，在class pj extends y.scene.game.bag.BagSoulStoneSmeltDlgUI { 函数结束后，增加 window.kinkoo_sell = pj;
+# 卖所有装备，window.kinkoo_sell.onClickSmelt()
+
+# 卖宠物卡，找到 GC，在后面增加window.kinkoo_smelt = GC;
+# 第一步，先new个对象，把物品的数组放进去，new window.kinkoo_smelt([[{type: 1, index: 7101, count: 1, countHigh: 0, id: 0}], true])
+# window.kinkoo_smelt.smeltGoods()
+
+# 主线任务调用，window.kinkoo_mainTask.prototype.doMainTask()，需要添加window.kinkoo_mainTask = DI;
+
+# 自动换装备，在class tH extends y.scene.game.role.RolePlayerViewUI {函数结束后，增加 window.kinkoo_player = tH;
+# 换装备的函数，window.kinkoo_player.onChangeEquipBtn()
+
+# 购买6个沙漏，window.kinkoo_TB.reqStoreBuy([15, 1502, 6])
+
+# 打卡类, 在reqSigninInfo() { 的类后面增加 window.kinkoo_daka = fB.Singleton
+# 获取打卡信息, 调用window.kinkoo_daka.reqSigninInfo()
+# 自动打卡, windows.kinkoo_daka.reqReceiveSignReward(5)
+# 累计登录，window.kinkoo_daka.reqReceiveSignReward(1)
+# 每日登录，window.kinkoo_daka.reqReceiveSignReward(2)
+# 特权奖励，window.kinkoo_daka.reqReceiveSignReward(3)
+# 
+
+# 购买时间水晶 , window.kinkoo_TB.reqStoreBuy([15, 1501, 10])  // 10为数量
+# 购买时间沙漏 , window.kinkoo_TB.reqStoreBuy([15, 1502, 6]) // 6为数量
+
+# 领取极速经验，找到reqMissionHangAward方法，在其类后面增加window.kinkoo_shalon = nU.Singleton;
+# 领取经验，两次：window.kinkoo_shalon.reqMissionHangAward(3, 0)
+
+# 星空活动，在zh.Singleton = new zh,后面增加window.kinkoo_xingkong = zh.Singleton;
+# 免费次数，window.kinkoo_xingkong.reqGetAwardShopFree()
+# 瓶子祈愿，window.kinkoo_xingkong.reqLottery(0)  // 瓶子
+# 魔币祈愿，window.kinkoo_xingkong.reqLottery(2)  // 魔币
+# 星空奖励，window.kinkoo_xingkong.reqWeekAward(5)
+
+# 元素塔，AG.Singleton = new AG;在这后面增加 window.yuansuta = AG.Singleton;
+# 自动挑战 window.yuansuta.reqPataBattle()
+# 重置 window.yuansuta.reqPataReset()
+# 扫荡 window.yuansuta.reqPataAutoBattle()
+
+
+# 禁地, 进入地图, window.kinkoo_qk.reqTeamMazeEnter(901,90101,{x: 700, y: 700})
+# 禁地，window.kinkoo_qk.reqMopup(901)；增加个次数，默认为2次
+
+# 领取活动，window.kinkoo_huodong = gf.Singleton;
+# 执行方法，window.kinkoo_huodong.reqActPointAward(1)   // 1为活动id ,2,3,4
+
+# 狩猎活动，window.kinkoo_shoulie = LX.Singleton;
+# 获取狩猎活动数据，window.kinkoo_shoulie.monsterHunterEnterReq()
+# 领取免费奖励，window.kinkoo_shoulie.reqShopBuy(2,[1])
+# 查看狩猎商店，window.kinkoo_shoulie.reqShopInfo(1)
+# 购买狩猎商店，window.kinkoo_shoulie.reqShopBuy(1 , [181, 1, 182, 1, 183, 1, 184, 1, 185, 1, 186, 1, 187, 1, 188, 1, 189, 1, 190, 1, 192, 1])
+# 自动前进，window.kinkoo_shoulie.monsterHunterDiceReq(0)
+# 自动前进，window.kinkoo_shoulie1.onClickGo(0)
+# 自动转盘，window.kinkoo_shoulie.reqTurntableAward()
+
+# 狩猎事件：
+# 偷别人的菜，window.kinkoo_shoulie.reqEnterGate(id) // 玩家ID，此ID与排行榜一致
+# 被抓以后，出来，window.kinkoo_shoulie.reqOutGate()
+# 金银岛，ID是13，window.kinkoo_shoulie.monsterHunterEventReq(13)
+# 金银岛，GO，window.kinkoo_shoulie.monsterHunterDiceReq(0)
+
+# 星空传送门，window.kinkoo_shoulie.monsterHunterEventReq(12)  // 传送门ID
+# 黑暗传送门，window.kinkoo_shoulie.monsterHunterEventReq(5)  // 传送门ID
+
+# 狩猎事件，window.kinkoo_shoulie.reqEnterGate(id) // 玩家ID
+
+# 在class CX extends y.scene.game.monsterhunterNew.MonsterHunterShopViewUI {后面增加window.kinkoo_shoulie_shop = CX;
+# 选择普通狩猎材料, window.kinkoo_shoulie_shop.onSelectNormal() 选择普通材料
+# 选择全部狩猎材料, window.kinkoo_shoulie_shop.onSelectAll() 选择全部材料
+# 购买狩猎材料, window.kinkoo_shoulie_shop.onClickBuy()
+# 狩猎事件，readyEventIds   // 事件ID
+
+# 钓鱼，在Uh.RefreshInterval = 5; 后面增加 window.kinkoo_fish = Uh.Singleton;
+# 请求钓鱼信息，widow.kinkoo_fish.reqSelectFishGround(1)
+# 返回每日订单信息，消息关键词FishingClubSelectGroundAck，参数
+# 每日订单，params.curOrders[0].state  // 1为未完成，3为已完成，2为已领取
+# 每日订单，reqGetTaskAward(5，25205)  // 25205为订单ID
+# 钓鱼每日福利，widow.kinkoo_fish.reqGetAwardShopFree()
+# 钓鱼，widow.kinkoo_fish.reqFishing(1, 1, false, -1, -1, false, false)
+# 钓鱼，widow.kinkoo_fish.reqFishing(5, 2, true, 0, 6, true, true) // 自动小型鱼
+# 杂物处理，提交订单，  window.kinkoo_fish.reqFishOp(3,{uniqueId: 0, confId: 92604, length: 0, randProps: Array(0)})
+# 杂物处理，放入水族箱，  window.kinkoo_fish.reqFishOp(1,{uniqueId: 0, confId: 92107, length: 545, randProps: Array(0), isNew: true})
+# 杂物处理，出售，  window.kinkoo_fish.reqFishOp(0,{uniqueId: 0, confId: 92218, length: 1081, randProps: Array(0)})
+
+
+# 勇士密令，找到Py.FIGHT_TASK = 1; 后面增加    window.kinkoo_yongshi = Py;
+# 勇士密令，window.kinkoo_yongshi.reqSecretAwardInfo()
+# 接收消息，SecretOrderInfoAck 关键词
+# 领取奖励，window.kinkoo_yongshi.singleton.reqTaskAward(501)  // 任务等级
+# 领取奖励，window.kinkoo_yongshi.singleton.reqReward(201,1)  // 1为等级
+
+
+# 百人，找到co.Singleton = new co; 后面增加 window.kinkoo_bairen = co.Singleton;
+# 进入地图，window.kinkoo_bairen.reqEnterDoujyou(1)
+# 挑战BOSS，window.kinkoo_bairen.reqDao100Battle(1) // 1为BOSS层数
+# 查看当前楼层，kinkoo_bairen.currentEnterLevel
+
+# 自动买升星，window.kinkoo_TB.reqStoreBuy([15, 1521, 3])  // 10为数量
+# 自动买精粹，window.kinkoo_TB.reqStoreBuy([15, 1530, 3])  // 10为数量
+
+
+# 小游戏
+# 在Po.RefreshInterval = 600;后面增加window.kinkoo_game = Po.Singleton;
+# reqReward(3, 1770, 90005)  // {level: 3, score: 1770, useTime: 90005} // 3为等级，1770为分数，90005为时间
+
+# 套圈
+# kinkoo_huodong.reqActivityQWTQReward(10)  // 从0开始
+
+# 数独游戏
+# 找到Uo.Singleton = new Uo, 最后增加kinkoo_shudu = Uo.Singleton
+# 比赛结束，kinkoo_shudu.reqReward(1,430,450283)
+
+# 奇妙魔石小游戏，找到Bo.RefreshInterval = 600; 后面增加 window.kinkoo_qimiaomoshi = Bo.Singleton;
+# 比赛结束，kinkoo_qimiaomoshi.reqReward(1,430,450283)
+
+# 宠物召唤 
+# 找到gd.RefreshInterval = 600; 后面增加window.kinkoo_pet = gd.Singleton;
+# 宠物召唤，window.kinkoo_pet.reqLottery(0, 14)  // 14为宠物ID
+# 每日福利，window.kinkoo_pet.reqReward(1,0,14)
+
+# 拿潘食品店
+# 找到qo.Singleton = new qo,后面增加  window.kinkoo_napanshipindian=qo.Singleton
+# 比赛结束 kinkoo_napanshipindian.reqReward(1,1710) // 1710为分数
+
+# 晶石消消乐
+# 找到Yo.Singleton = new Yo, 后面增加 window.kinkoo_xiaoxiaole = Yo.Singleton;
+# 开始游戏，window.kinkoo_xiaoxiaole.reqReward(1, 50, 36091)
+
+# 果蔬消消乐
+# 找到ih.RefreshInterval = 600;，后面增加 window.kinkoo_gsxxl = ih.Singleton;
+# 开始游戏，window.kinkoo_gsxxl.reqReward(1, 40, 23885)  // 40为分数 // 23885为毫秒
+
+# 神界，群星之墓，找到pI.Singleton = new pI; 增加window.kinkoo_godare = pI.Singleton;
+# 神界，群星之墓，window.kinkoo_godare.reqEnterGodArea(102) // 102为群星之墓地图
+# 神界，群星之墓，window.kinkoo_godare.reqGodAreaBattle(102, 3)  // 1为层数，1为BOSS层数
+
+# 宠物召唤
+# 每日领取，window.kinkoo_chongwuzhaohuan.reqReward(1,0,14)
+# 每日领取，window.kinkoo_chongwuzhaohuan.reqReward(1,0,60)
+
+# 每周活跃
+# window.kinkoo_huodong.ActivityJRFLRewardReq(1)  // 从1开始
+
+
+# 自动化人物相关
+# window.kinkoo_jiadian = wB.Singleton;
+# window.kinkoo_zhuangbei = yf.Singleton;
+
+
+# 创建人物，window.AccountManager.Singleton.reqCreateHero("善良温柔的农民",100012,0)
+# 移动到NPC，window.kinkoo_mv.Singleton.reqSceneMoveRpt(1, 268435928, {x: 721.06, y: 467.21})
+# NPC对话：window.kinkoo_mv.Singleton.reqNpcTalk(10001)
+# 对话：window.guide.reqGuideSetInfo(101,1)
+# 领取奖励：window.kinkoo_mainTask.singleton.reqMainTaskGetReward()
+# 对话：window.guide.reqGuideSetInfo(102,1)
+# 移动地图：window.kinkoo_mv.Singleton.reqJumpMapRpt(103, 2330,845)
+# 移动到NPC，window.kinkoo_mv.Singleton.reqSceneMoveRpt(0,268438314,{x: 1848, y: 476.55})
+# 移动到NPC，window.kinkoo_mv.Singleton.reqSceneMoveRpt(0,268438314,{x: 1848, y: 463.05})
+# NPC对话：window.kinkoo_mv.Singleton.reqNpcTalk(10009)
+# 领取奖励：window.kinkoo_mainTask.singleton.reqMainTaskGetReward()
+# 活动：window.kinkoo_huodong.reqActivityOpenList()
+# 加点：window.kinkoo_jiadian.reqChangePoint([{key: 1, value: 100},{key: 2, value: 200},{key: 4, value: 100}],0)
+# 领取奖励：window.kinkoo_mainTask.singleton.reqMainTaskGetReward()
+# 领取奖励：window.kinkoo_mainTask.singleton.reqMainTaskGetReward()
+# 移动地图：window.kinkoo_mv.Singleton.reqJumpMapRpt(101, 576,540)
+# 移动到NPC，window.kinkoo_mv.Singleton.reqSceneMoveRpt(1,268438315,{x: 721.06, y: 467.22})
+# NPC对话：window.kinkoo_mv.Singleton.reqNpcTalk(10001)
+# 领取奖励：window.kinkoo_mainTask.singleton.reqMainTaskGetReward()
+# 活动：window.kinkoo_huodong.reqActivityOpenList()
+# 移动地图：window.kinkoo_mv.Singleton.reqJumpMapRpt(204, 920,740)
+# 移动到NPC，window.kinkoo_mv.Singleton.reqSceneMoveRpt(6,268438315,{x: 479.97, y: 486})
+# NPC对话：window.kinkoo_mv.Singleton.reqNpcTalk(10013)
+# 领取奖励：window.kinkoo_mainTask.singleton.reqMainTaskGetReward()
+# 移动地图：window.kinkoo_mv.Singleton.reqJumpMapRpt(203, 2000,1650)
+# NPC对话：window.kinkoo_mv.Singleton.reqNpcTalk(10019)
+# 领取奖励：window.kinkoo_mainTask.singleton.reqMainTaskGetReward()
+# 穿装备：window.kinkoo_zhuangbei.reqEquip(0,[1, 2, 3, 4],[2, 3, 4, 5])
+
+# 领取奖励：window.kinkoo_mainTask.singleton.reqMainTaskGetReward()
+
+# 活动：window.kinkoo_huodong.reqActivityOpenList()
+# 移动地图：window.kinkoo_mv.Singleton.reqJumpMapRpt(1000, 6375,3090)
+
+# 移动到NPC，window.kinkoo_mv.Singleton.reqSceneMoveRpt(2,268438318,{x: 6656.91, y: 3186})
+# NPC对话：window.kinkoo_mv.Singleton.reqNpcTalk(10027)
+# 领取奖励：window.kinkoo_mainTask.singleton.reqMainTaskGetReward()
+
+# 封印宠物：window.kinkoo_pet.reqCatchPet(7409,40900,1,20,false)
+# 封印宠物：window.battleMgr.Singleton.rptBattleEnd()
+# 领取奖励：window.kinkoo_mainTask.singleton.reqMainTaskGetReward()
+
+# 设置宠物出战：window.kinkoo_pet.reqSetPetFightOrder(1,1)
+
+# 宠物升级：window.kinkoo_pet.reqPetUpgrade(1,2,0,0)
+# 领取奖励：window.kinkoo_mainTask.singleton.reqMainTaskGetReward()
+# 宠物加点：window.kinkoo_pet.reqChangePetPoint([{key: 2, value: 100}],1)
+# 领取奖励：window.kinkoo_mainTask.singleton.reqMainTaskGetReward()
+
+# 宠物升档：window.kinkoo_pet.reqPetUpgradeStepFailNum(1)
+# 宠物升档：window.kinkoo_pet.reqPetUpgradeStep(1, [3, 2])
+
+# 领取奖励：window.kinkoo_mainTask.singleton.reqMainTaskGetReward()
+
+# 移动地图：window.kinkoo_mv.Singleton.reqJumpMapRpt(1001, 1440,1160)
+
+# NPC对话：window.kinkoo_mv.Singleton.reqNpcTalk(10101)
+# 领取奖励：window.kinkoo_mainTask.singleton.reqMainTaskGetReward()
+# 移动地图：window.kinkoo_mv.Singleton.reqJumpMapRpt(205, 1080,800)
+
+# 移动到NPC，window.kinkoo_mv.Singleton.reqSceneMoveRpt(12,268438333,{x: 469.23, y: 378})
+# NPC对话：window.kinkoo_mv.Singleton.reqNpcTalk(10102)
+# 领取奖励：window.kinkoo_mainTask.singleton.reqMainTaskGetReward()
+
+
+# 移动地图：window.kinkoo_mv.Singleton.reqJumpMapRpt(4041,1800,900)
+# 移动到NPC，window.kinkoo_mv.Singleton.reqSceneMoveRpt(12,268438479,{x: 911.16, y: 846})
+# NPC对话：window.kinkoo_mv.Singleton.reqNpcTalk(10100)
+# 打怪：window.kinkoo_mv.Singleton.reqMainTaskKillMonster(2)
+
+# 打怪结束 ..... 触发
+
+# 领取奖励：window.kinkoo_mainTask.singleton.reqMainTaskGetReward()
+
+# 移动到NPC，window.kinkoo_mv.Singleton.reqSceneMoveRpt(12,268438334,{x: 577, y: 594})
+# NPC对话：window.kinkoo_mv.Singleton.reqNpcTalk(10103)
+# 领取奖励：window.kinkoo_mainTask.singleton.reqMainTaskGetReward()
+
+# 移动地图：window.kinkoo_mv.Singleton.reqJumpMapRpt(205, 1080,800)
+# 移动到NPC，window.kinkoo_mv.Singleton.reqSceneMoveRpt(12,268438333,{x: 469.23, y: 378})
+# NPC对话：window.kinkoo_mv.Singleton.reqNpcTalk(10104)
+# 领取奖励：window.kinkoo_mainTask.singleton.reqMainTaskGetReward()
+
+# 对话：window.guide.reqGuideSetInfo(1801, 1)
+# 就职：window.kinkoo_job.reqRoleCreer(0,3)
+# 领取奖励：window.kinkoo_mainTask.singleton.reqMainTaskGetReward()
+
+# window.kinkoo_skill.reqFuncOpenSet(6)
+# window.skillMgr.reqSkillUpgrade(9001, 0, 0)
+# 领取奖励：window.kinkoo_mainTask.singleton.reqMainTaskGetReward()
+
+
+# NPC对话：window.kinkoo_mv.Singleton.reqNpcTalk(10104)
+# 领取奖励：window.kinkoo_mainTask.singleton.reqMainTaskGetReward()
+
+# window.kinkoo_mv.Singleton.reqJumpMapRpt2(1002)
+# 遇敌：window.kinkoo_task_yudi.reqMissionKillMonster(1)
+# 领取奖励：window.kinkoo_mainTask.singleton.reqMainTaskGetReward()
+
+
+# 移动地图：window.kinkoo_mv.Singleton.reqJumpMapRpt(205, 1080,800)
+# 移动到NPC，window.kinkoo_mv.Singleton.reqSceneMoveRpt(12,268438333,{x: 469.23, y: 378})
+# NPC对话：window.kinkoo_mv.Singleton.reqNpcTalk(10104)
+# 领取奖励：window.kinkoo_mainTask.singleton.reqMainTaskGetReward()
+# NPC对话：window.kinkoo_mv.Singleton.reqNpcTalk(10104)
+# 领取奖励：window.kinkoo_mainTask.singleton.reqMainTaskGetReward()
+
+
+# 制造装备：window.kinkoo_zhizao.reqProduItem(2,1,undefined,undefined,undefined,undefined)
+# 领取奖励：window.kinkoo_mainTask.singleton.reqMainTaskGetReward()
+
+# 穿装备：window.kinkoo_zhuangbei.reqEquip(0,[1, 2, 3, 5, 6, 7],[11, 12, 7, 8, 9, 10])
+# 领取奖励：window.kinkoo_mainTask.singleton.reqMainTaskGetReward()
+# NPC对话：window.kinkoo_mv.Singleton.reqNpcTalk(10104)
+# 领取奖励：window.kinkoo_mainTask.singleton.reqMainTaskGetReward()
+
+# 加点：window.kinkoo_jiadian.reqChangePoint([{key: 1, value: 900},{key: 2, value: 1800},{key: 4, value: 900}],0)
+# 领取奖励：window.kinkoo_mainTask.singleton.reqMainTaskGetReward()
+
+# 移动地图：window.kinkoo_mv.Singleton.reqJumpMapRpt(324,1100,885)
+# 移动到NPC，window.kinkoo_mv.Singleton.reqSceneMoveRpt(12,268438347,{x: 625, y: 865})
+# NPC对话：window.kinkoo_mv.Singleton.reqNpcTalk(10201)
+# 领取奖励：window.kinkoo_mainTask.singleton.reqMainTaskGetReward()
+# 移动到NPC，window.kinkoo_mv.Singleton.reqSceneMoveRpt(12,268438347,{x: 334, y: 666})
+# NPC对话：window.kinkoo_mv.Singleton.reqNpcTalk(10202)
+# 领取奖励：window.kinkoo_mainTask.singleton.reqMainTaskGetReward()
+# 移动地图：window.kinkoo_mv.Singleton.reqJumpMapRpt(207,1420,340)
+# 对话：window.guide.reqGuideSetInfo(2902, 1)
+
+# 打怪：window.kinkoo_mv.Singleton.reqMainTaskKillMonster(1)
+# 对话：window.guide.reqGuideSetInfo(3001, 1)
+# 对话：window.guide.reqGuideSetInfo(3002, 1)
+
+# 领取奖励：window.kinkoo_mainTask.singleton.reqMainTaskGetReward()
+
+# 移动地图：window.kinkoo_mv.Singleton.reqJumpMapRpt(208,2620,1130)
+# 移动到NPC，window.kinkoo_mv.Singleton.reqSceneMoveRpt(12,268438347,{x: 334, y: 666})
+# NPC对话：window.kinkoo_mv.Singleton.reqNpcTalk(10203)
+# 打怪：window.kinkoo_mv.Singleton.reqMainTaskKillMonster(2)
+# 领取奖励：window.kinkoo_mainTask.singleton.reqMainTaskGetReward()
+
+# 移动地图：window.kinkoo_mv.Singleton.reqJumpMapRpt(324,1100,885)
+# 移动到NPC，window.kinkoo_mv.Singleton.reqSceneMoveRpt(12,268438347,{x: 334, y: 666})
+# NPC对话：window.kinkoo_mv.Singleton.reqNpcTalk(10202)
+# 领取奖励：window.kinkoo_mainTask.singleton.reqMainTaskGetReward()
+
+# 移动地图：window.kinkoo_mv.Singleton.reqJumpMapRpt(209,3255,1175)
+# 移动到NPC，window.kinkoo_mv.Singleton.reqSceneMoveRpt(12,268438366,{x: 909, y: 1674})
+# NPC对话：window.kinkoo_mv.Singleton.reqNpcTalk(10206)
+# 领取奖励：window.kinkoo_mainTask.singleton.reqMainTaskGetReward()
+
+; 装备有时候不确定是哪几件？？？？
+# 穿装备：window.kinkoo_zhuangbei.reqEquip(0,[5, 6, 7],[15, 13, 17])
+# 领取奖励：window.kinkoo_mainTask.singleton.reqMainTaskGetReward()
+
+# 移动地图：window.kinkoo_mv.Singleton.reqJumpMapRpt(205,1080,800)
+# 移动到NPC，window.kinkoo_mv.Singleton.reqSceneMoveRpt(12,268438333,{x: 469.23, y: 378})
+# NPC对话：window.kinkoo_mv.Singleton.reqNpcTalk(10104)
+# 领取奖励：window.kinkoo_mainTask.singleton.reqMainTaskGetReward()
+
+
+# window.kinkoo_mv.Singleton.reqJumpMapRpt2(1003)
+# 对话：window.guide.reqGuideSetInfo(3601, 1)
+# 遇敌：window.kinkoo_task_yudi.reqMissionKillMonster(1)
+# 领取奖励：window.kinkoo_mainTask.singleton.reqMainTaskGetReward()
+
+# 移动地图：window.kinkoo_mv.Singleton.reqJumpMapRpt(205,1080,800)
+# 移动到NPC，window.kinkoo_mv.Singleton.reqSceneMoveRpt(12,268438333,{x: 469.23, y: 378})
+# NPC对话：window.kinkoo_mv.Singleton.reqNpcTalk(10104)
+# 领取奖励：window.kinkoo_mainTask.singleton.reqMainTaskGetReward()
+# 称号：window.kinkoo_skill.reqFuncOpenSet(21)
+# 称号：window.kinkoo_chenghao.reqActiveTitle(0,2100)
+# 称号：window.kinkoo_chenghao.reqActiveTitle(0,2301)
+# 领取奖励：window.kinkoo_mainTask.singleton.reqMainTaskGetReward()
+
+# window.skillMgr.Singleton.reqSkillUpgrade(9001, 0, 0)
+# 领取奖励：window.kinkoo_mainTask.singleton.reqMainTaskGetReward()
+
+
+# 移动地图：window.kinkoo_mv.Singleton.reqJumpMapRpt(1157,6550,4915)
+# 移动到NPC，window.kinkoo_mv.Singleton.reqSceneMoveRpt(12,268438388,{x: 6091, y: 5454})
+# NPC对话：window.kinkoo_mv.Singleton.reqNpcTalk(10207)
+# 领取奖励：window.kinkoo_mainTask.singleton.reqMainTaskGetReward()
+
+
+
+# 移动到NPC，window.kinkoo_mv.Singleton.reqSceneMoveRpt(12,268438388,{x: 6481, y: 5183})
+# NPC对话：window.kinkoo_mv.Singleton.reqNpcTalk(2001)
+# 领取奖励：window.kinkoo_mainTask.singleton.reqMainTaskGetReward()
+
+# 移动地图：window.kinkoo_mv.Singleton.reqJumpMapRpt(103,2330,845)
+# 移动到NPC，window.kinkoo_mv.Singleton.reqSceneMoveRpt(12,268438401,{x: 575, y: 1583})
+# NPC对话：window.kinkoo_mv.Singleton.reqNpcTalk(10208)
+# 领取奖励：window.kinkoo_mainTask.singleton.reqMainTaskGetReward()
+
+# 移动地图：window.kinkoo_mv.Singleton.reqJumpMapRpt(4037,1022,224)
+# 对话：window.guide.reqGuideSetInfo(4301, 1)
+# 打怪：window.kinkoo_mv.Singleton.reqMainTaskKillMonster(1)
+# 领取奖励：window.kinkoo_mainTask.singleton.reqMainTaskGetReward()
+
+# 移动地图：window.kinkoo_mv.Singleton.reqJumpMapRpt(4038,1516,760)
+# 对话：window.guide.reqGuideSetInfo(4401, 1)
+# 移动到NPC，window.kinkoo_mv.Singleton.reqSceneMoveRpt(12,268438403,{x: 477, y: 414})
+# NPC对话：window.kinkoo_mv.Singleton.reqNpcTalk(10209)
+# 领取奖励：window.kinkoo_mainTask.singleton.reqMainTaskGetReward()
+
+# window.kinkoo_pet.reqPetUpgrade(1,2,0,0)
+# 领取奖励：window.kinkoo_mainTask.singleton.reqMainTaskGetReward()
+
+# window.kinkoo_pet.reqChangePetPoint([{key: 2, value: 1300}],1)
+# 领取奖励：window.kinkoo_mainTask.singleton.reqMainTaskGetReward()
+
+# 移动地图：window.kinkoo_mv.Singleton.reqJumpMapRpt(4039,1250,1000)
+# 移动到NPC，window.kinkoo_mv.Singleton.reqSceneMoveRpt(12,268438404,{x: 958, y: 755})
+# NPC对话：window.kinkoo_mv.Singleton.reqNpcTalk(10200)
+# 打怪：window.kinkoo_mv.Singleton.reqMainTaskKillMonster(2)
+# 领取奖励：window.kinkoo_mainTask.singleton.reqMainTaskGetReward()
+# 移动到NPC，window.kinkoo_mv.Singleton.reqSceneMoveRpt(12,268438404,{x: 430, y: 791})
+# NPC对话：window.kinkoo_mv.Singleton.reqNpcTalk(10210)
+# 领取奖励：window.kinkoo_mainTask.singleton.reqMainTaskGetReward()
+
+# 移动地图：window.kinkoo_mv.Singleton.reqJumpMapRpt(1157,6550,4915)
+# 对话：window.guide.reqGuideSetInfo(4901, 1)
+# 移动到NPC，window.kinkoo_mv.Singleton.reqSceneMoveRpt(12,268438388,{x: 6091, y: 5454})
+# NPC对话：window.kinkoo_mv.Singleton.reqNpcTalk(10207)
+# 领取奖励：window.kinkoo_mainTask.singleton.reqMainTaskGetReward()
+# window.kinkoo_useItem.reqEquipSmelt([2, 3, 4, 8, 9, 10],1)
+# 领取奖励：window.kinkoo_mainTask.singleton.reqMainTaskGetReward()
+
+# 移动地图：window.kinkoo_mv.Singleton.reqJumpMapRpt(1125,780,910)
+# 移动到NPC，window.kinkoo_mv.Singleton.reqSceneMoveRpt(12,268438406,{x: 1107, y: 1026})
+# NPC对话：window.kinkoo_mv.Singleton.reqNpcTalk(10301)
+# 领取奖励：window.kinkoo_mainTask.singleton.reqMainTaskGetReward()
+
+# NPC对话：window.kinkoo_mv.Singleton.reqNpcTalk(10301)
+# 领取奖励：window.kinkoo_mainTask.singleton.reqMainTaskGetReward()
+# 移动地图：window.kinkoo_mv.Singleton.reqJumpMapRpt(4035,685,1970)
+# 打怪：window.kinkoo_mv.Singleton.reqMainTaskKillMonster(1)
+# 领取奖励：window.kinkoo_mainTask.singleton.reqMainTaskGetReward()
+# 领取奖励：window.kinkoo_mainTask.singleton.reqMainTaskGetReward()
+
+# 移动地图：window.kinkoo_mv.Singleton.reqJumpMapRpt(4036,3816,1242)
+# 移动到NPC，window.kinkoo_mv.Singleton.reqSceneMoveRpt(12,268438408,{x: 861, y: 1242})
+# NPC对话：window.kinkoo_mv.Singleton.reqNpcTalk(10300)
+# 打怪：window.kinkoo_mv.Singleton.reqMainTaskKillMonster(2)
+# 领取奖励：window.kinkoo_mainTask.singleton.reqMainTaskGetReward()
+# 领取奖励：window.kinkoo_mainTask.singleton.reqMainTaskGetReward()
+
+# 移动地图：window.kinkoo_mv.Singleton.reqJumpMapRpt(1126,2850,1575)
+# 移动到NPC，window.kinkoo_mv.Singleton.reqSceneMoveRpt(12,268438409,{x: 2733, y: 1873})
+# NPC对话：window.kinkoo_mv.Singleton.reqNpcTalk(10501)
+# 领取奖励：window.kinkoo_mainTask.singleton.reqMainTaskGetReward()
+# 领取奖励：window.kinkoo_mainTask.singleton.reqMainTaskGetReward()
+
+# 领取奖励：window.kinkoo_mainTask.singleton.reqMainTaskGetReward()
+# NPC对话：window.kinkoo_mv.Singleton.reqNpcTalk(10501)
+# 领取奖励：window.kinkoo_mainTask.singleton.reqMainTaskGetReward()
+
+# window.kinkoo_mv.Singleton.reqJumpMapRpt2(1004)
+# 对话：window.guide.reqGuideSetInfo(6001, 1)
+# 遇敌：window.kinkoo_task_yudi.reqMissionKillMonster(1)
+# 领取奖励：window.kinkoo_mainTask.singleton.reqMainTaskGetReward()
+
+# 移动地图：window.kinkoo_mv.Singleton.reqJumpMapRpt(1126,2850,1575)
+# 移动到NPC，window.kinkoo_mv.Singleton.reqSceneMoveRpt(12,268438409,{x: 2733, y: 1873})
+# NPC对话：window.kinkoo_mv.Singleton.reqNpcTalk(10501)
+# 领取奖励：window.kinkoo_mainTask.singleton.reqMainTaskGetReward()
+
+# NPC对话：window.kinkoo_mv.Singleton.reqNpcTalk(10501)
+# 领取奖励：window.kinkoo_mainTask.singleton.reqMainTaskGetReward()
+....
+
+
+
+
+
+
+
+
+# ...
+
+
+
+
+
+
+https://mlgbcdn.bigrnet.com/1.0.212_JuheH5.html?&openID=52_12329501&loginKey=000c19e44cbe06a4a89df0a38bf8fcf7543&isGuest=undefined&serverId=360079&originId=360079&ip=111.231.145.18&port=3004&serverName=%E9%AD%94%E5%8A%9B79%E5%8C%BA&serverUrlPrefix=https://mlgb-serverlist.bigrnet.com&bugUrlPrefix=http://account.quannijoy.com:7203&isShellLogin=1&sdkid=200&version=1.0&channelid=80010&gameDomain=wss://mlgb8090-gate.bigrnet.com/ws360079&accessToken=d8ed9a14b63ceb87c65ae60577f81cb9&channelId=52&userId=12329501&userName=&cpExtra=null&isWd=false&centerflag=mlbb_gb8090&account_id=12329501&server_id=79&time=1745120256&is_adult=1&sign=13ea74456e036ad0d0ed6961e0452e9f&juheChannel=52&shellUrl=https%3A%2F%2Fmlgbcdn.bigrnet.com%2Fstart%2FindexQV_JuheH5.html%3Fcenterflag%3Dmlbb_gb8090%26sdkid%3D200%26channelid%3D80010%26account_id%3D12329501%26server_id%3D79%26time%3D1745120256%26is_adult%3D1%26sign%3D13ea74456e036ad0d0ed6961e0452e9f%26juheChannel%3D52
+https://mlgbcdn.bigrnet.com/1.0.213_JuheH5.html?&openID=52_12332570&loginKey=000a98094c7b776c8402455db2f758a4b65&isGuest=undefined&serverId=360080&originId=360080&ip=111.231.145.18&port=3005&serverName=%E9%AD%94%E5%8A%9B80%E5%8C%BA&serverUrlPrefix=https://mlgb-serverlist.bigrnet.com&bugUrlPrefix=http://account.quannijoy.com:7203&isShellLogin=1&sdkid=200&version=1.0&channelid=80010&gameDomain=wss://mlgb8090-gate.bigrnet.com/ws360080&accessToken=4ba2b89d855234ad0473c71cf53205ed&channelId=52&userId=12332570&userName=&cpExtra=null&isWd=false&centerflag=mlbb_gb8090&account_id=12332570&server_id=80&time=1745663102&is_adult=1&sign=21620f5d2f6ef5d4d3f578ee5f7743ab&juheChannel=52&shellUrl=https%3A%2F%2Fmlgbcdn.bigrnet.com%2Fstart%2FindexQV_JuheH5.html%3Fcenterflag%3Dmlbb_gb8090%26sdkid%3D200%26channelid%3D80010%26account_id%3D12332570%26server_id%3D80%26time%3D1745663102%26is_adult%3D1%26sign%3D21620f5d2f6ef5d4d3f578ee5f7743ab%26juheChannel%3D52
+
+
+; 还没弄完..
+
+
+
+
+
+
+
+; https://mlgbcdn.bigrnet.com/1.0.206_JuheH5.html?&openID=52_12281335&loginKey=00018dd184ee4eea4759b7b1c962682108c&isGuest=undefined&serverId=360036&originId=360021&ip=175.24.229.143&port=3002&serverName=%E9%AD%94%E5%8A%9B36%E5%8C%BA%5B%E4%BA%92%E9%80%9A2%E5%8C%BA%5D&serverUrlPrefix=https://mlgb-serverlist.bigrnet.com&bugUrlPrefix=http://account.quannijoy.com:7203&isShellLogin=1&sdkid=200&version=1.0&channelid=80010&gameDomain=wss://mlgb8090-gate.bigrnet.com/ws360021&accessToken=268f4d5ebf77d0cb2bc40cf0a9a50761&channelId=52&userId=12281335&userName=&cpExtra=null&isWd=false&centerflag=mlbb_gb8090&account_id=12281335&server_id=36&time=1730727785&is_adult=1&sign=5d73dcca5ea2250c64f3fcf824ba4721&juheChannel=52
+
+{
+  "dataType": 1,
+  "assembleCell": {
+    "itemCell": {
+      "actionCtrl": {},
+      "articleBase": {
+        "content": "#哪吒# #电影哪吒之魔童降世# \n终于为《哪吒》的60亿票房贡献了自己的力量。\n不得不说的确好看：制作精良、情感真挚。而且整体父爱含量超高，为中国传统故事填补了点儿空白（比如大家都记得岳飞的母亲深明大义却鲜有人知道岳飞的父亲是谁）。也顺手给传统故事里的李靖和东海龙王正了个名，镀了层父爱的光芒[偷笑]\n不过，我最欣赏的却是申正道，这个乡村教师，他不仅在艰苦的条件下把自己修炼成一个“扫地僧”，还培养出两个积极进取、善良正义的孩子；可能也正是因为他的刻苦努力、心怀正义才培养出同样优秀的孩子，毕竟“身教胜于言传”！\n\n宝子们，评论区等你们放分享噢\n\n#影视感触分享#",
+        "createTime": 1738902725,
+        "publishTime": 1738902725,
+        "articleURL": "https://www.toutiao.com/a1823371664311451?enter_from=click_creation_center&category_name=creation_center&gd_ext_json=%7B%22enter_from%22%3A%22click_creation_center%22%2C%22category_name%22%3A%22creation_center%22%7D",
+        "displayFlags": "0",
+        "groupID": 1823371664311451,
+        "schema": "https://www.toutiao.com/a1823371664311451?enter_from=click_creation_center&category_name=creation_center&gd_ext_json=%7B%22enter_from%22%3A%22click_creation_center%22%2C%22category_name%22%3A%22creation_center%22%7D",
+        "visibilityLevel": 40,
+        "abstractText": "#哪吒# #电影哪吒之魔童降世# \n终于为《哪吒》的60亿票房贡献了自己的力量。\n不得不说的确好看：制作精良、情感真挚。而且整体父爱含量超高，为中国传统故事填补了点儿空白（比如大家都记得岳飞的母亲深明大义却鲜有人知道岳飞的父亲是谁）。也顺手给传统故事里的李靖和东海龙王正了个名，镀了层父爱的光芒[偷笑]\n不过，我最欣赏的却是申正道，这个乡村教师，他不仅在艰苦的条件下把自己修炼成一个“扫地僧”，还培养出两个积极进取、善良正义的孩子；可能也正是因为他的刻苦努力、心怀正义才培养出同样优秀的孩子，毕竟“身教胜于言传”！\n\n宝子们，评论区等你们放分享噢\n\n#影视感触分享#",
+        "displayURL": "https://www.toutiao.com/a1823371664311451?enter_from=click_creation_center&category_name=creation_center&gd_ext_json=%7B%22enter_from%22%3A%22click_creation_center%22%2C%22category_name%22%3A%22creation_center%22%7D",
+        "gidStr": "1823371664311451",
+        "itemStatus": 20,
+        "subTitle": "null",
+        "title": "#哪吒# #电影哪吒之魔童降世# \n终于为《哪吒》的60亿票房贡献了自己的力量。\n不得不说的确好看：制作精良、情感真挚。而且整体父爱含量超高，为中国传统故事填补了点儿空白（比如大家都记得岳飞的母亲深明大义却鲜有人知道岳飞的父亲是谁）。也顺手给传统故事里的李靖和东海龙王正了个名，镀了层父爱的光芒[偷笑]\n不过，我最欣赏的却是申正道，这个乡村教师，他不仅在艰苦的条件下把自己修炼成一个“扫地僧”，还培养出两个积极进取、善良正义的孩子；可能也正是因为他的刻苦努力、心怀正义才培养出同样优秀的孩子，毕竟“身教胜于言传”！\n\n宝子们，评论区等你们放分享噢\n\n#影视感触分享#"
+      },
+      "articleClassification": {
+        "isStick": false,
+        "isSubject": false,
+        "articleSubType": 0,
+        "articleType": 0,
+        "bizID": 15,
+        "bizTag": 2,
+        "groupSource": 5,
+        "isOriginal": false
+      },
+      "extra": {
+        "answer_count": "0",
+        "origin_content": "{\"ArticleAttr\":{\"Gid\":\"1823371664311451\",\"Type\":1,\"TypeDesc\":\"微头条\",\"Title\":\"#哪吒# #电影哪吒之魔童降世# \\n终于为《哪吒》的60亿票房贡献了自己的力量。\\n不得不说的确好看：制作精良、情感真挚。而且整体父爱含量超高，为中国传统故事填补了点儿空白（比如大家都记得岳飞的母亲深明大义却鲜有人知道岳飞的父亲是谁）。也顺手给传统故事里的李靖和东海龙王正了个名，镀了层父爱的光芒[偷笑]\\n不过，我最欣赏的却是申正道，这个乡村教师，他不仅在艰苦的条件下把自己修炼成一个“扫地僧”，还培养出两个积极进取、善良正义的孩子；可能也正是因为他的刻苦努力、心怀正义才培养出同样优秀的孩子，毕竟“身教胜于言传”！\\n\\n宝子们，评论区等你们放分享噢\\n\\n#影视感触分享#\",\"RichTitle\":\"<a href=\\\"sslocal://concern?category_name=&cid=1606238332905540&concern_id=1606238332905540&enter_from=&group_id=1823371664311451&style_type=concern_topic&tab_sname=thread\\\">#哪吒#</a> <a href=\\\"sslocal://concern?category_name=&cid=1635401429557251&concern_id=1635401429557251&enter_from=&group_id=1823371664311451&style_type=concern_topic&tab_sname=thread\\\">#电影哪吒之魔童降世#</a> <br>终于为《哪吒》的60亿票房贡献了自己的力量。<br>不得不说的确好看：制作精良、情感真挚。而且整体父爱含量超高，为中国传统故事填补了点儿空白（比如大家都记得岳飞的母亲深明大义却鲜有人知道岳飞的父亲是谁）。也顺手给传统故事里的李靖和东海龙王正了个名，镀了层父爱的光芒<i class=\\\"emoji emoji_30_titter\\\"></i><span class=\\\"emoji-name\\\">[偷笑]</span><br>不过，我最欣赏的却是申正道，这个乡村教师，他不仅在艰苦的条件下把自己修炼成一个“扫地僧”，还培养出两个积极进取、善良正义的孩子；可能也正是因为他的刻苦努力、心怀正义才培养出同样优秀的孩子，毕竟“身教胜于言传”！<br><br>宝子们，评论区等你们放分享噢<br><br><a href=\\\"sslocal://concern?category_name=&cid=1792287105710112&concern_id=1792287105710112&enter_from=&group_id=1823371664311451&style_type=concern_topic&tab_sname=thread\\\">#影视感触分享#</a>\",\"Abstract\":\"#哪吒# #电影哪吒之魔童降世# \\n终于为《哪吒》的60亿票房贡献了自己的力量。\\n不得不说的确好看：制作精良、情感真挚。而且整体父爱含量超高，为中国传统故事填补了点儿空白（比如大家都记得岳飞的母亲深明大义却鲜有人知道岳飞的父亲是谁）。也顺手给传统故事里的李靖和东海龙王正了个名，镀了层父爱的光芒[偷笑]\\n不过，我最欣赏的却是申正道，这个乡村教师，他不仅在艰苦的条件下把自己修炼成一个“扫地僧”，还培养出两个积极进取、善良正义的孩子；可能也正是因为他的刻苦努力、心怀正义才培养出同样优秀的孩子，毕竟“身教胜于言传”！\\n\\n宝子们，评论区等你们放分享噢\\n\\n#影视感触分享#\",\"CreateTime\":1738902725,\"PopScore\":1738902725,\"ModifyTime\":1738908871,\"Status\":2,\"StatusDesc\":\"已发布\",\"CoverImage\":{\"ImageURL\":\"https://p3-sign.toutiaoimg.com/tos-cn-i-ezhpy3drpa/946efa21809f4237b7cf34f10c29b302~tplv-shrink:640:0.jpeg?lk3s=06827d14&x-expires=2147483647&x-signature=jnBlHyzTM3DLoALCnBhLMyhZEdI%3D\",\"Width\":0,\"Height\":0,\"ImageURI\":\"\"},\"MpId\":0,\"ActionUrls\":{\"0\":{\"Edit\":\"sslocal://send_thread?enter_from=click_creation_center&category_name=creation_center&gd_ext_json=%7B%22enter_from%22%3A%22click_creation_center%22%2C%22category_name%22%3A%22creation_center%22%7D&show_et_status=8&enter_type=edit_publish&publish_enter_from=creation_center&post_id=1823371664311451&post_content=%23%E5%93%AA%E5%90%92%23+%23%E7%94%B5%E5%BD%B1%E5%93%AA%E5%90%92%E4%B9%8B%E9%AD%94%E7%AB%A5%E9%99%8D%E4%B8%96%23+%0A%E7%BB%88%E4%BA%8E%E4%B8%BA%E3%80%8A%E5%93%AA%E5%90%92%E3%80%8B%E7%9A%8460%E4%BA%BF%E7%A5%A8%E6%88%BF%E8%B4%A1%E7%8C%AE%E4%BA%86%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8A%9B%E9%87%8F%E3%80%82%0A%E4%B8%8D%E5%BE%97%E4%B8%8D%E8%AF%B4%E7%9A%84%E7%A1%AE%E5%A5%BD%E7%9C%8B%EF%BC%9A%E5%88%B6%E4%BD%9C%E7%B2%BE%E8%89%AF%E3%80%81%E6%83%85%E6%84%9F%E7%9C%9F%E6%8C%9A%E3%80%82%E8%80%8C%E4%B8%94%E6%95%B4%E4%BD%93%E7%88%B6%E7%88%B1%E5%90%AB%E9%87%8F%E8%B6%85%E9%AB%98%EF%BC%8C%E4%B8%BA%E4%B8%AD%E5%9B%BD%E4%BC%A0%E7%BB%9F%E6%95%85%E4%BA%8B%E5%A1%AB%E8%A1%A5%E4%BA%86%E7%82%B9%E5%84%BF%E7%A9%BA%E7%99%BD%EF%BC%88%E6%AF%94%E5%A6%82%E5%A4%A7%E5%AE%B6%E9%83%BD%E8%AE%B0%E5%BE%97%E5%B2%B3%E9%A3%9E%E7%9A%84%E6%AF%8D%E4%BA%B2%E6%B7%B1%E6%98%8E%E5%A4%A7%E4%B9%89%E5%8D%B4%E9%B2%9C%E6%9C%89%E4%BA%BA%E7%9F%A5%E9%81%93%E5%B2%B3%E9%A3%9E%E7%9A%84%E7%88%B6%E4%BA%B2%E6%98%AF%E8%B0%81%EF%BC%89%E3%80%82%E4%B9%9F%E9%A1%BA%E6%89%8B%E7%BB%99%E4%BC%A0%E7%BB%9F%E6%95%85%E4%BA%8B%E9%87%8C%E7%9A%84%E6%9D%8E%E9%9D%96%E5%92%8C%E4%B8%9C%E6%B5%B7%E9%BE%99%E7%8E%8B%E6%AD%A3%E4%BA%86%E4%B8%AA%E5%90%8D%EF%BC%8C%E9%95%80%E4%BA%86%E5%B1%82%E7%88%B6%E7%88%B1%E7%9A%84%E5%85%89%E8%8A%92%5B%E5%81%B7%E7%AC%91%5D%0A%E4%B8%8D%E8%BF%87%EF%BC%8C%E6%88%91%E6%9C%80%E6%AC%A3%E8%B5%8F%E7%9A%84%E5%8D%B4%E6%98%AF%E7%94%B3%E6%AD%A3%E9%81%93%EF%BC%8C%E8%BF%99%E4%B8%AA%E4%B9%A1%E6%9D%91%E6%95%99%E5%B8%88%EF%BC%8C%E4%BB%96%E4%B8%8D%E4%BB%85%E5%9C%A8%E8%89%B0%E8%8B%A6%E7%9A%84%E6%9D%A1%E4%BB%B6%E4%B8%8B%E6%8A%8A%E8%87%AA%E5%B7%B1%E4%BF%AE%E7%82%BC%E6%88%90%E4%B8%80%E4%B8%AA%E2%80%9C%E6%89%AB%E5%9C%B0%E5%83%A7%E2%80%9D%EF%BC%8C%E8%BF%98%E5%9F%B9%E5%85%BB%E5%87%BA%E4%B8%A4%E4%B8%AA%E7%A7%AF%E6%9E%81%E8%BF%9B%E5%8F%96%E3%80%81%E5%96%84%E8%89%AF%E6%AD%A3%E4%B9%89%E7%9A%84%E5%AD%A9%E5%AD%90%EF%BC%9B%E5%8F%AF%E8%83%BD%E4%B9%9F%E6%AD%A3%E6%98%AF%E5%9B%A0%E4%B8%BA%E4%BB%96%E7%9A%84%E5%88%BB%E8%8B%A6%E5%8A%AA%E5%8A%9B%E3%80%81%E5%BF%83%E6%80%80%E6%AD%A3%E4%B9%89%E6%89%8D%E5%9F%B9%E5%85%BB%E5%87%BA%E5%90%8C%E6%A0%B7%E4%BC%98%E7%A7%80%E7%9A%84%E5%AD%A9%E5%AD%90%EF%BC%8C%E6%AF%95%E7%AB%9F%E2%80%9C%E8%BA%AB%E6%95%99%E8%83%9C%E4%BA%8E%E8%A8%80%E4%BC%A0%E2%80%9D%EF%BC%81%0A%0A%E5%AE%9D%E5%AD%90%E4%BB%AC%EF%BC%8C%E8%AF%84%E8%AE%BA%E5%8C%BA%E7%AD%89%E4%BD%A0%E4%BB%AC%E6%94%BE%E5%88%86%E4%BA%AB%E5%99%A2%0A%0A%23%E5%BD%B1%E8%A7%86%E6%84%9F%E8%A7%A6%E5%88%86%E4%BA%AB%23&post_content_rich_span=%7B%22links%22%3A%5B%7B%22start%22%3A0%2C%22length%22%3A4%2C%22link%22%3A%22sslocal%3A%2F%2Fconcern%3Fcategory_name%3D%5Cu0026cid%3D1606238332905540%5Cu0026concern_id%3D1606238332905540%5Cu0026enter_from%3D%5Cu0026group_id%3D1823371664311451%5Cu0026style_type%3Dconcern_topic%5Cu0026tab_sname%3Dthread%22%2C%22type%22%3A2%2C%22text%22%3A%22%23%E5%93%AA%E5%90%92%23%22%2C%22id%22%3A1606238332905540%2C%22id_str%22%3A%221606238332905540%22%2C%22id_type%22%3A8%7D%2C%7B%22start%22%3A5%2C%22length%22%3A11%2C%22link%22%3A%22sslocal%3A%2F%2Fconcern%3Fcategory_name%3D%5Cu0026cid%3D1635401429557251%5Cu0026concern_id%3D1635401429557251%5Cu0026enter_from%3D%5Cu0026group_id%3D1823371664311451%5Cu0026style_type%3Dconcern_topic%5Cu0026tab_sname%3Dthread%22%2C%22type%22%3A2%2C%22text%22%3A%22%23%E7%94%B5%E5%BD%B1%E5%93%AA%E5%90%92%E4%B9%8B%E9%AD%94%E7%AB%A5%E9%99%8D%E4%B8%96%23%22%2C%22id%22%3A1635401429557251%2C%22id_str%22%3A%221635401429557251%22%2C%22id_type%22%3A8%7D%2C%7B%22start%22%3A275%2C%22length%22%3A8%2C%22link%22%3A%22sslocal%3A%2F%2Fconcern%3Fcategory_name%3D%5Cu0026cid%3D1792287105710112%5Cu0026concern_id%3D1792287105710112%5Cu0026enter_from%3D%5Cu0026group_id%3D1823371664311451%5Cu0026style_type%3Dconcern_topic%5Cu0026tab_sname%3Dthread%22%2C%22type%22%3A2%2C%22text%22%3A%22%23%E5%BD%B1%E8%A7%86%E6%84%9F%E8%A7%A6%E5%88%86%E4%BA%AB%23%22%2C%22id%22%3A1792287105710112%2C%22id_str%22%3A%221792287105710112%22%2C%22id_type%22%3A8%7D%5D%7D&post_images=%5B%7B%22height%22%3A948%2C%22uri%22%3A%22tos-cn-i-ezhpy3drpa%2F946efa21809f4237b7cf34f10c29b302%22%2C%22url%22%3A%22http%3A%2F%2Fp3-sign.toutiaoimg.com%2Ftos-cn-i-ezhpy3drpa%2F946efa21809f4237b7cf34f10c29b302~tplv-shrink%3A1080%3A948.jpeg%3Ffrom%3Dpost%26lk3s%3D8f2de3d4%26x-expires%3D2147483647%26x-signature%3DMA4czZ%252BM7pS249rJLHxaJcEG8AA%253D%22%2C%22width%22%3A1080%7D%5D&position=&attach_card_info=%7B%22cover_image%22%3A%7B%22url%22%3A%22https%3A%2F%2Fp3-sign.toutiaoimg.com%2Ftop-static-files-outer%2Fbreaknews%2F5afc8870-a1f7-436f-a7d0-5387a183630d~tplv-tt-origin.png%3F_iz%3D30575%26from%3Dsign_default%26lk3s%3Dffc2a312%26x-expires%3D1741501889%26x-signature%3DFPNGvcnzUWsI6Ta04Pwu9ahQIrI%253D%22%2C%22uri%22%3A%22%22%2C%22image_style%22%3A1%7D%2C%22title%22%3A%222025%E6%98%A5%E8%8A%82%E6%A1%A3%22%2C%22description%22%3A%22%E4%B8%93%E9%A2%98+%7C+56%E4%B8%87%E9%98%85%E8%AF%BB%22%2C%22schema%22%3A%22sslocal%3A%2F%2Fwebview%3Famos_id%3D7441470668299829258%26bounce_disable%3D1%26disable_web_progressView%3D1%26gd_ext_json%3D%257B%2522amos_group_id%2522%253A%25227441470668299829258%2522%252C%2522amos_id%2522%253A%25227441470668299829258%2522%252C%2522amos_title%2522%253A%25222025%25E6%2598%25A5%25E8%258A%2582%25E6%25A1%25A3%2522%252C%2522category_name%2522%253A%2522%2522%252C%2522container_type%2522%253A%2522h5%2522%252C%2522event_type%2522%253A%2522hot_event_page%2522%252C%2522style_id%2522%253A%252230024%2522%252C%2522title%2522%253A%25222025%25E6%2598%25A5%25E8%258A%2582%25E6%25A1%25A3%2522%257D%26hide_back_close%3D1%26hide_bar%3D1%26hide_status_bar%3D1%26input_adjust_pan%3D1%26should_append_common_param%3D1%26show_load_anim%3D1%26title%3D2025%25E6%2598%25A5%25E8%258A%2582%25E6%25A1%25A3%26url%3Dhttps%253A%252F%252Fapi.toutiaoapi.com%252Ffeoffline%252Famos_subject%252Fhotrio_subject_page_h5%252Fhtml%252Fmain%252Findex.html%253Famos_id%253D7441470668299829258%2526category_name%253D%2526enable_native%253D1%2526group_id%253D7441470668299829258%2526is_full_screen%253D1%2526style_id%253D30024%2526title%253D2025%2525E6%252598%2525A5%2525E8%25258A%252582%2525E6%2525A1%2525A3%26use_offline%3D1%26use_ssr_param%3D1%26waiting_hide_anim%3D0%26waiting_hide_anim_ios%3D0%22%2C%22button%22%3A%7B%22name%22%3A%22%E8%BF%9B%E5%85%A5%E4%B8%93%E9%A2%98%22%2C%22schema%22%3A%22sslocal%3A%2F%2Fwebview%3Famos_id%3D7441470668299829258%26bounce_disable%3D1%26disable_web_progressView%3D1%26gd_ext_json%3D%257B%2522amos_group_id%2522%253A%25227441470668299829258%2522%252C%2522amos_id%2522%253A%25227441470668299829258%2522%252C%2522amos_title%2522%253A%25222025%25E6%2598%25A5%25E8%258A%2582%25E6%25A1%25A3%2522%252C%2522category_name%2522%253A%2522%2522%252C%2522container_type%2522%253A%2522h5%2522%252C%2522event_type%2522%253A%2522hot_event_page%2522%252C%2522style_id%2522%253A%252230024%2522%252C%2522title%2522%253A%25222025%25E6%2598%25A5%25E8%258A%2582%25E6%25A1%25A3%2522%257D%26hide_back_close%3D1%26hide_bar%3D1%26hide_status_bar%3D1%26input_adjust_pan%3D1%26should_append_common_param%3D1%26show_load_anim%3D1%26title%3D2025%25E6%2598%25A5%25E8%258A%2582%25E6%25A1%25A3%26url%3Dhttps%253A%252F%252Fapi.toutiaoapi.com%252Ffeoffline%252Famos_subject%252Fhotrio_subject_page_h5%252Fhtml%252Fmain%252Findex.html%253Famos_id%253D7441470668299829258%2526category_name%253D%2526enable_native%253D1%2526group_id%253D7441470668299829258%2526is_full_screen%253D1%2526style_id%253D30024%2526title%253D2025%2525E6%252598%2525A5%2525E8%25258A%252582%2525E6%2525A1%2525A3%26use_offline%3D1%26use_ssr_param%3D1%26waiting_hide_anim%3D0%26waiting_hide_anim_ios%3D0%22%7D%2C%22id%22%3A%2222%22%2C%22card_type%22%3A22%2C%22category%22%3A%22%E4%B8%93%E9%A2%98%22%2C%22text%22%3A%2256%E4%B8%87%E9%98%85%E8%AF%BB%22%2C%22review_info%22%3A%7B%22card_url%22%3A%22https%3A%2F%2Fapi.toutiaoapi.com%2Ffeoffline%2Famos_subject%2Fhotrio_subject_page_h5%2Fhtml%2Fmain%2Findex.html%3Famos_id%3D7441470668299829258%26category_name%3D%26enable_native%3D1%26group_id%3D7441470668299829258%26is_full_screen%3D1%26style_id%3D30024%26title%3D2025%25E6%2598%25A5%25E8%258A%2582%25E6%25A1%25A3%22%2C%22button_url%22%3A%22https%3A%2F%2Fapi.toutiaoapi.com%2Ffeoffline%2Famos_subject%2Fhotrio_subject_page_h5%2Fhtml%2Fmain%2Findex.html%3Famos_id%3D7441470668299829258%26category_name%3D%26enable_native%3D1%26group_id%3D7441470668299829258%26is_full_screen%3D1%26style_id%3D30024%26title%3D2025%25E6%2598%25A5%25E8%258A%2582%25E6%25A1%25A3%22%7D%2C%22card_style%22%3A1%2C%22event_extra%22%3A%7B%22amos_id%22%3A%227441470668299829258%22%2C%22card_engine%22%3A%22%7B%5C%22style_id%5C%22%3A%5C%2210000%5C%22%2C%5C%22style_name%5C%22%3A%5C%22post_common%5C%22%2C%5C%22genre_id%5C%22%3A%5C%222%5C%22%2C%5C%22dsp_id%5C%22%3A%5C%2222%5C%22%2C%5C%22dsp_name%5C%22%3A%5C%22%E5%A4%A7%E4%BA%8B%E4%BB%B6%5C%22%2C%5C%22dsp_service_name%5C%22%3A%5C%22hotspot_wtt%5C%22%7D%22%2C%22dist_id%22%3A%227457148615308463643%22%2C%22title%22%3A%222025%E6%98%A5%E8%8A%82%E6%A1%A3%22%7D%7D&sync_post=1&vote_info=\",\"Share\":\"sslocal://repost_page?enter_from=click_creation_center&category_name=creation_center&gd_ext_json=%7B%22enter_from%22%3A%22click_creation_center%22%2C%22category_name%22%3A%22creation_center%22%7D&fw_id_type=2&opt_id_type=2&repost_type=212&fw_id=1823371664311451&fw_user_id=6484175103&opt_id=1823371664311451&title=%23%E5%93%AA%E5%90%92%23+%23%E7%94%B5%E5%BD%B1%E5%93%AA%E5%90%92%E4%B9%8B%E9%AD%94%E7%AB%A5%E9%99%8D%E4%B8%96%23+%0A%E7%BB%88%E4%BA%8E%E4%B8%BA%E3%80%8A%E5%93%AA%E5%90%92%E3%80%8B%E7%9A%8460%E4%BA%BF%E7%A5%A8%E6%88%BF%E8%B4%A1%E7%8C%AE%E4%BA%86%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8A%9B%E9%87%8F%E3%80%82%0A%E4%B8%8D%E5%BE%97%E4%B8%8D%E8%AF%B4%E7%9A%84%E7%A1%AE%E5%A5%BD%E7%9C%8B%EF%BC%9A%E5%88%B6%E4%BD%9C%E7%B2%BE%E8%89%AF%E3%80%81%E6%83%85%E6%84%9F%E7%9C%9F%E6%8C%9A%E3%80%82%E8%80%8C%E4%B8%94%E6%95%B4%E4%BD%93%E7%88%B6%E7%88%B1%E5%90%AB%E9%87%8F%E8%B6%85%E9%AB%98%EF%BC%8C%E4%B8%BA%E4%B8%AD%E5%9B%BD%E4%BC%A0%E7%BB%9F%E6%95%85%E4%BA%8B%E5%A1%AB%E8%A1%A5%E4%BA%86%E7%82%B9%E5%84%BF%E7%A9%BA%E7%99%BD%EF%BC%88%E6%AF%94%E5%A6%82%E5%A4%A7%E5%AE%B6%E9%83%BD%E8%AE%B0%E5%BE%97%E5%B2%B3%E9%A3%9E%E7%9A%84%E6%AF%8D%E4%BA%B2%E6%B7%B1%E6%98%8E%E5%A4%A7%E4%B9%89%E5%8D%B4%E9%B2%9C%E6%9C%89%E4%BA%BA%E7%9F%A5%E9%81%93%E5%B2%B3%E9%A3%9E%E7%9A%84%E7%88%B6%E4%BA%B2%E6%98%AF%E8%B0%81%EF%BC%89%E3%80%82%E4%B9%9F%E9%A1%BA%E6%89%8B%E7%BB%99%E4%BC%A0%E7%BB%9F%E6%95%85%E4%BA%8B%E9%87%8C%E7%9A%84%E6%9D%8E%E9%9D%96%E5%92%8C%E4%B8%9C%E6%B5%B7%E9%BE%99%E7%8E%8B%E6%AD%A3%E4%BA%86%E4%B8%AA%E5%90%8D%EF%BC%8C%E9%95%80%E4%BA%86%E5%B1%82%E7%88%B6%E7%88%B1%E7%9A%84%E5%85%89%E8%8A%92%5B%E5%81%B7%E7%AC%91%5D%0A%E4%B8%8D%E8%BF%87%EF%BC%8C%E6%88%91%E6%9C%80%E6%AC%A3%E8%B5%8F%E7%9A%84%E5%8D%B4%E6%98%AF%E7%94%B3%E6%AD%A3%E9%81%93%EF%BC%8C%E8%BF%99%E4%B8%AA%E4%B9%A1%E6%9D%91%E6%95%99%E5%B8%88%EF%BC%8C%E4%BB%96%E4%B8%8D%E4%BB%85%E5%9C%A8%E8%89%B0%E8%8B%A6%E7%9A%84%E6%9D%A1%E4%BB%B6%E4%B8%8B%E6%8A%8A%E8%87%AA%E5%B7%B1%E4%BF%AE%E7%82%BC%E6%88%90%E4%B8%80%E4%B8%AA%E2%80%9C%E6%89%AB%E5%9C%B0%E5%83%A7%E2%80%9D%EF%BC%8C%E8%BF%98%E5%9F%B9%E5%85%BB%E5%87%BA%E4%B8%A4%E4%B8%AA%E7%A7%AF%E6%9E%81%E8%BF%9B%E5%8F%96%E3%80%81%E5%96%84%E8%89%AF%E6%AD%A3%E4%B9%89%E7%9A%84%E5%AD%A9%E5%AD%90%EF%BC%9B%E5%8F%AF%E8%83%BD%E4%B9%9F%E6%AD%A3%E6%98%AF%E5%9B%A0%E4%B8%BA%E4%BB%96%E7%9A%84%E5%88%BB%E8%8B%A6%E5%8A%AA%E5%8A%9B%E3%80%81%E5%BF%83%E6%80%80%E6%AD%A3%E4%B9%89%E6%89%8D%E5%9F%B9%E5%85%BB%E5%87%BA%E5%90%8C%E6%A0%B7%E4%BC%98%E7%A7%80%E7%9A%84%E5%AD%A9%E5%AD%90%EF%BC%8C%E6%AF%95%E7%AB%9F%E2%80%9C%E8%BA%AB%E6%95%99%E8%83%9C%E4%BA%8E%E8%A8%80%E4%BC%A0%E2%80%9D%EF%BC%81%0A%0A%E5%AE%9D%E5%AD%90%E4%BB%AC%EF%BC%8C%E8%AF%84%E8%AE%BA%E5%8C%BA%E7%AD%89%E4%BD%A0%E4%BB%AC%E6%94%BE%E5%88%86%E4%BA%AB%E5%99%A2%0A%0A%23%E5%BD%B1%E8%A7%86%E6%84%9F%E8%A7%A6%E5%88%86%E4%BA%AB%23&cover_url=https%3A%2F%2Fp3-sign.toutiaoimg.com%2Ftos-cn-i-ezhpy3drpa%2F946efa21809f4237b7cf34f10c29b302~tplv-shrink%3A640%3A0.jpeg%3Flk3s%3D06827d14%26x-expires%3D2147483647%26x-signature%3DjnBlHyzTM3DLoALCnBhLMyhZEdI%253D&schema=https%3A%2F%2Fwww.toutiao.com%2Fa1823371664311451\",\"Comment\":\"sslocal://webview?enter_from=click_creation_center&category_name=creation_center&gd_ext_json=%7B%22enter_from%22%3A%22click_creation_center%22%2C%22category_name%22%3A%22creation_center%22%7D&url=https%3A%2F%2Fi.snssdk.com%2Frogue%2Fugc_app_inside%2Fcomment%2Fmanagement.html%3Fenter_from%3Dclick_creation_center%26category_name%3Dcreation_center%26gd_ext_json%3D%257B%2522enter_from%2522%253A%2522click_creation_center%2522%252C%2522category_name%2522%253A%2522creation_center%2522%257D%26group_id%3D1823371664311451&title=评论管理&hide_more=1&should_append_common_param=1&disable_web_progressView=1&use_wk=1&background_colorkey=3\",\"ClickCell\":\"sslocal://thread_detail?enter_from=click_creation_center&category_name=creation_center&gd_ext_json=%7B%22enter_from%22%3A%22click_creation_center%22%2C%22category_name%22%3A%22creation_center%22%7D&tid=1823371664311451&fid=1606238332905540\",\"Boost\":\"\"},\"1\":{\"Edit\":\"sslocal://send_thread?enter_from=click_creation_center&category_name=creation_center&gd_ext_json=%7B%22enter_from%22%3A%22click_creation_center%22%2C%22category_name%22%3A%22creation_center%22%7D&show_et_status=8&enter_type=edit_publish&publish_enter_from=creation_center&post_id=1823371664311451&post_content=%23%E5%93%AA%E5%90%92%23+%23%E7%94%B5%E5%BD%B1%E5%93%AA%E5%90%92%E4%B9%8B%E9%AD%94%E7%AB%A5%E9%99%8D%E4%B8%96%23+%0A%E7%BB%88%E4%BA%8E%E4%B8%BA%E3%80%8A%E5%93%AA%E5%90%92%E3%80%8B%E7%9A%8460%E4%BA%BF%E7%A5%A8%E6%88%BF%E8%B4%A1%E7%8C%AE%E4%BA%86%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8A%9B%E9%87%8F%E3%80%82%0A%E4%B8%8D%E5%BE%97%E4%B8%8D%E8%AF%B4%E7%9A%84%E7%A1%AE%E5%A5%BD%E7%9C%8B%EF%BC%9A%E5%88%B6%E4%BD%9C%E7%B2%BE%E8%89%AF%E3%80%81%E6%83%85%E6%84%9F%E7%9C%9F%E6%8C%9A%E3%80%82%E8%80%8C%E4%B8%94%E6%95%B4%E4%BD%93%E7%88%B6%E7%88%B1%E5%90%AB%E9%87%8F%E8%B6%85%E9%AB%98%EF%BC%8C%E4%B8%BA%E4%B8%AD%E5%9B%BD%E4%BC%A0%E7%BB%9F%E6%95%85%E4%BA%8B%E5%A1%AB%E8%A1%A5%E4%BA%86%E7%82%B9%E5%84%BF%E7%A9%BA%E7%99%BD%EF%BC%88%E6%AF%94%E5%A6%82%E5%A4%A7%E5%AE%B6%E9%83%BD%E8%AE%B0%E5%BE%97%E5%B2%B3%E9%A3%9E%E7%9A%84%E6%AF%8D%E4%BA%B2%E6%B7%B1%E6%98%8E%E5%A4%A7%E4%B9%89%E5%8D%B4%E9%B2%9C%E6%9C%89%E4%BA%BA%E7%9F%A5%E9%81%93%E5%B2%B3%E9%A3%9E%E7%9A%84%E7%88%B6%E4%BA%B2%E6%98%AF%E8%B0%81%EF%BC%89%E3%80%82%E4%B9%9F%E9%A1%BA%E6%89%8B%E7%BB%99%E4%BC%A0%E7%BB%9F%E6%95%85%E4%BA%8B%E9%87%8C%E7%9A%84%E6%9D%8E%E9%9D%96%E5%92%8C%E4%B8%9C%E6%B5%B7%E9%BE%99%E7%8E%8B%E6%AD%A3%E4%BA%86%E4%B8%AA%E5%90%8D%EF%BC%8C%E9%95%80%E4%BA%86%E5%B1%82%E7%88%B6%E7%88%B1%E7%9A%84%E5%85%89%E8%8A%92%5B%E5%81%B7%E7%AC%91%5D%0A%E4%B8%8D%E8%BF%87%EF%BC%8C%E6%88%91%E6%9C%80%E6%AC%A3%E8%B5%8F%E7%9A%84%E5%8D%B4%E6%98%AF%E7%94%B3%E6%AD%A3%E9%81%93%EF%BC%8C%E8%BF%99%E4%B8%AA%E4%B9%A1%E6%9D%91%E6%95%99%E5%B8%88%EF%BC%8C%E4%BB%96%E4%B8%8D%E4%BB%85%E5%9C%A8%E8%89%B0%E8%8B%A6%E7%9A%84%E6%9D%A1%E4%BB%B6%E4%B8%8B%E6%8A%8A%E8%87%AA%E5%B7%B1%E4%BF%AE%E7%82%BC%E6%88%90%E4%B8%80%E4%B8%AA%E2%80%9C%E6%89%AB%E5%9C%B0%E5%83%A7%E2%80%9D%EF%BC%8C%E8%BF%98%E5%9F%B9%E5%85%BB%E5%87%BA%E4%B8%A4%E4%B8%AA%E7%A7%AF%E6%9E%81%E8%BF%9B%E5%8F%96%E3%80%81%E5%96%84%E8%89%AF%E6%AD%A3%E4%B9%89%E7%9A%84%E5%AD%A9%E5%AD%90%EF%BC%9B%E5%8F%AF%E8%83%BD%E4%B9%9F%E6%AD%A3%E6%98%AF%E5%9B%A0%E4%B8%BA%E4%BB%96%E7%9A%84%E5%88%BB%E8%8B%A6%E5%8A%AA%E5%8A%9B%E3%80%81%E5%BF%83%E6%80%80%E6%AD%A3%E4%B9%89%E6%89%8D%E5%9F%B9%E5%85%BB%E5%87%BA%E5%90%8C%E6%A0%B7%E4%BC%98%E7%A7%80%E7%9A%84%E5%AD%A9%E5%AD%90%EF%BC%8C%E6%AF%95%E7%AB%9F%E2%80%9C%E8%BA%AB%E6%95%99%E8%83%9C%E4%BA%8E%E8%A8%80%E4%BC%A0%E2%80%9D%EF%BC%81%0A%0A%E5%AE%9D%E5%AD%90%E4%BB%AC%EF%BC%8C%E8%AF%84%E8%AE%BA%E5%8C%BA%E7%AD%89%E4%BD%A0%E4%BB%AC%E6%94%BE%E5%88%86%E4%BA%AB%E5%99%A2%0A%0A%23%E5%BD%B1%E8%A7%86%E6%84%9F%E8%A7%A6%E5%88%86%E4%BA%AB%23&post_content_rich_span=%7B%22links%22%3A%5B%7B%22start%22%3A0%2C%22length%22%3A4%2C%22link%22%3A%22sslocal%3A%2F%2Fconcern%3Fcategory_name%3D%5Cu0026cid%3D1606238332905540%5Cu0026concern_id%3D1606238332905540%5Cu0026enter_from%3D%5Cu0026group_id%3D1823371664311451%5Cu0026style_type%3Dconcern_topic%5Cu0026tab_sname%3Dthread%22%2C%22type%22%3A2%2C%22text%22%3A%22%23%E5%93%AA%E5%90%92%23%22%2C%22id%22%3A1606238332905540%2C%22id_str%22%3A%221606238332905540%22%2C%22id_type%22%3A8%7D%2C%7B%22start%22%3A5%2C%22length%22%3A11%2C%22link%22%3A%22sslocal%3A%2F%2Fconcern%3Fcategory_name%3D%5Cu0026cid%3D1635401429557251%5Cu0026concern_id%3D1635401429557251%5Cu0026enter_from%3D%5Cu0026group_id%3D1823371664311451%5Cu0026style_type%3Dconcern_topic%5Cu0026tab_sname%3Dthread%22%2C%22type%22%3A2%2C%22text%22%3A%22%23%E7%94%B5%E5%BD%B1%E5%93%AA%E5%90%92%E4%B9%8B%E9%AD%94%E7%AB%A5%E9%99%8D%E4%B8%96%23%22%2C%22id%22%3A1635401429557251%2C%22id_str%22%3A%221635401429557251%22%2C%22id_type%22%3A8%7D%2C%7B%22start%22%3A275%2C%22length%22%3A8%2C%22link%22%3A%22sslocal%3A%2F%2Fconcern%3Fcategory_name%3D%5Cu0026cid%3D1792287105710112%5Cu0026concern_id%3D1792287105710112%5Cu0026enter_from%3D%5Cu0026group_id%3D1823371664311451%5Cu0026style_type%3Dconcern_topic%5Cu0026tab_sname%3Dthread%22%2C%22type%22%3A2%2C%22text%22%3A%22%23%E5%BD%B1%E8%A7%86%E6%84%9F%E8%A7%A6%E5%88%86%E4%BA%AB%23%22%2C%22id%22%3A1792287105710112%2C%22id_str%22%3A%221792287105710112%22%2C%22id_type%22%3A8%7D%5D%7D&post_images=%5B%7B%22height%22%3A948%2C%22uri%22%3A%22tos-cn-i-ezhpy3drpa%2F946efa21809f4237b7cf34f10c29b302%22%2C%22url%22%3A%22http%3A%2F%2Fp3-sign.toutiaoimg.com%2Ftos-cn-i-ezhpy3drpa%2F946efa21809f4237b7cf34f10c29b302~tplv-shrink%3A1080%3A948.jpeg%3Ffrom%3Dpost%26lk3s%3D8f2de3d4%26x-expires%3D2147483647%26x-signature%3DMA4czZ%252BM7pS249rJLHxaJcEG8AA%253D%22%2C%22width%22%3A1080%7D%5D&position=&attach_card_info=%7B%22cover_image%22%3A%7B%22url%22%3A%22https%3A%2F%2Fp3-sign.toutiaoimg.com%2Ftop-static-files-outer%2Fbreaknews%2F5afc8870-a1f7-436f-a7d0-5387a183630d~tplv-tt-origin.png%3F_iz%3D30575%26from%3Dsign_default%26lk3s%3Dffc2a312%26x-expires%3D1741501889%26x-signature%3DFPNGvcnzUWsI6Ta04Pwu9ahQIrI%253D%22%2C%22uri%22%3A%22%22%2C%22image_style%22%3A1%7D%2C%22title%22%3A%222025%E6%98%A5%E8%8A%82%E6%A1%A3%22%2C%22description%22%3A%22%E4%B8%93%E9%A2%98+%7C+56%E4%B8%87%E9%98%85%E8%AF%BB%22%2C%22schema%22%3A%22sslocal%3A%2F%2Fwebview%3Famos_id%3D7441470668299829258%26bounce_disable%3D1%26disable_web_progressView%3D1%26gd_ext_json%3D%257B%2522amos_group_id%2522%253A%25227441470668299829258%2522%252C%2522amos_id%2522%253A%25227441470668299829258%2522%252C%2522amos_title%2522%253A%25222025%25E6%2598%25A5%25E8%258A%2582%25E6%25A1%25A3%2522%252C%2522category_name%2522%253A%2522%2522%252C%2522container_type%2522%253A%2522h5%2522%252C%2522event_type%2522%253A%2522hot_event_page%2522%252C%2522style_id%2522%253A%252230024%2522%252C%2522title%2522%253A%25222025%25E6%2598%25A5%25E8%258A%2582%25E6%25A1%25A3%2522%257D%26hide_back_close%3D1%26hide_bar%3D1%26hide_status_bar%3D1%26input_adjust_pan%3D1%26should_append_common_param%3D1%26show_load_anim%3D1%26title%3D2025%25E6%2598%25A5%25E8%258A%2582%25E6%25A1%25A3%26url%3Dhttps%253A%252F%252Fapi.toutiaoapi.com%252Ffeoffline%252Famos_subject%252Fhotrio_subject_page_h5%252Fhtml%252Fmain%252Findex.html%253Famos_id%253D7441470668299829258%2526category_name%253D%2526enable_native%253D1%2526group_id%253D7441470668299829258%2526is_full_screen%253D1%2526style_id%253D30024%2526title%253D2025%2525E6%252598%2525A5%2525E8%25258A%252582%2525E6%2525A1%2525A3%26use_offline%3D1%26use_ssr_param%3D1%26waiting_hide_anim%3D0%26waiting_hide_anim_ios%3D0%22%2C%22button%22%3A%7B%22name%22%3A%22%E8%BF%9B%E5%85%A5%E4%B8%93%E9%A2%98%22%2C%22schema%22%3A%22sslocal%3A%2F%2Fwebview%3Famos_id%3D7441470668299829258%26bounce_disable%3D1%26disable_web_progressView%3D1%26gd_ext_json%3D%257B%2522amos_group_id%2522%253A%25227441470668299829258%2522%252C%2522amos_id%2522%253A%25227441470668299829258%2522%252C%2522amos_title%2522%253A%25222025%25E6%2598%25A5%25E8%258A%2582%25E6%25A1%25A3%2522%252C%2522category_name%2522%253A%2522%2522%252C%2522container_type%2522%253A%2522h5%2522%252C%2522event_type%2522%253A%2522hot_event_page%2522%252C%2522style_id%2522%253A%252230024%2522%252C%2522title%2522%253A%25222025%25E6%2598%25A5%25E8%258A%2582%25E6%25A1%25A3%2522%257D%26hide_back_close%3D1%26hide_bar%3D1%26hide_status_bar%3D1%26input_adjust_pan%3D1%26should_append_common_param%3D1%26show_load_anim%3D1%26title%3D2025%25E6%2598%25A5%25E8%258A%2582%25E6%25A1%25A3%26url%3Dhttps%253A%252F%252Fapi.toutiaoapi.com%252Ffeoffline%252Famos_subject%252Fhotrio_subject_page_h5%252Fhtml%252Fmain%252Findex.html%253Famos_id%253D7441470668299829258%2526category_name%253D%2526enable_native%253D1%2526group_id%253D7441470668299829258%2526is_full_screen%253D1%2526style_id%253D30024%2526title%253D2025%2525E6%252598%2525A5%2525E8%25258A%252582%2525E6%2525A1%2525A3%26use_offline%3D1%26use_ssr_param%3D1%26waiting_hide_anim%3D0%26waiting_hide_anim_ios%3D0%22%7D%2C%22id%22%3A%2222%22%2C%22card_type%22%3A22%2C%22category%22%3A%22%E4%B8%93%E9%A2%98%22%2C%22text%22%3A%2256%E4%B8%87%E9%98%85%E8%AF%BB%22%2C%22review_info%22%3A%7B%22card_url%22%3A%22https%3A%2F%2Fapi.toutiaoapi.com%2Ffeoffline%2Famos_subject%2Fhotrio_subject_page_h5%2Fhtml%2Fmain%2Findex.html%3Famos_id%3D7441470668299829258%26category_name%3D%26enable_native%3D1%26group_id%3D7441470668299829258%26is_full_screen%3D1%26style_id%3D30024%26title%3D2025%25E6%2598%25A5%25E8%258A%2582%25E6%25A1%25A3%22%2C%22button_url%22%3A%22https%3A%2F%2Fapi.toutiaoapi.com%2Ffeoffline%2Famos_subject%2Fhotrio_subject_page_h5%2Fhtml%2Fmain%2Findex.html%3Famos_id%3D7441470668299829258%26category_name%3D%26enable_native%3D1%26group_id%3D7441470668299829258%26is_full_screen%3D1%26style_id%3D30024%26title%3D2025%25E6%2598%25A5%25E8%258A%2582%25E6%25A1%25A3%22%7D%2C%22card_style%22%3A1%2C%22event_extra%22%3A%7B%22amos_id%22%3A%227441470668299829258%22%2C%22card_engine%22%3A%22%7B%5C%22style_id%5C%22%3A%5C%2210000%5C%22%2C%5C%22style_name%5C%22%3A%5C%22post_common%5C%22%2C%5C%22genre_id%5C%22%3A%5C%222%5C%22%2C%5C%22dsp_id%5C%22%3A%5C%2222%5C%22%2C%5C%22dsp_name%5C%22%3A%5C%22%E5%A4%A7%E4%BA%8B%E4%BB%B6%5C%22%2C%5C%22dsp_service_name%5C%22%3A%5C%22hotspot_wtt%5C%22%7D%22%2C%22dist_id%22%3A%227457148615308463643%22%2C%22title%22%3A%222025%E6%98%A5%E8%8A%82%E6%A1%A3%22%7D%7D&sync_post=1&vote_info=\",\"Share\":\"sslocal://repost_page?enter_from=click_creation_center&category_name=creation_center&gd_ext_json=%7B%22enter_from%22%3A%22click_creation_center%22%2C%22category_name%22%3A%22creation_center%22%7D&fw_id_type=2&opt_id_type=2&repost_type=212&fw_id=1823371664311451&fw_user_id=6484175103&opt_id=1823371664311451&title=%23%E5%93%AA%E5%90%92%23+%23%E7%94%B5%E5%BD%B1%E5%93%AA%E5%90%92%E4%B9%8B%E9%AD%94%E7%AB%A5%E9%99%8D%E4%B8%96%23+%0A%E7%BB%88%E4%BA%8E%E4%B8%BA%E3%80%8A%E5%93%AA%E5%90%92%E3%80%8B%E7%9A%8460%E4%BA%BF%E7%A5%A8%E6%88%BF%E8%B4%A1%E7%8C%AE%E4%BA%86%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8A%9B%E9%87%8F%E3%80%82%0A%E4%B8%8D%E5%BE%97%E4%B8%8D%E8%AF%B4%E7%9A%84%E7%A1%AE%E5%A5%BD%E7%9C%8B%EF%BC%9A%E5%88%B6%E4%BD%9C%E7%B2%BE%E8%89%AF%E3%80%81%E6%83%85%E6%84%9F%E7%9C%9F%E6%8C%9A%E3%80%82%E8%80%8C%E4%B8%94%E6%95%B4%E4%BD%93%E7%88%B6%E7%88%B1%E5%90%AB%E9%87%8F%E8%B6%85%E9%AB%98%EF%BC%8C%E4%B8%BA%E4%B8%AD%E5%9B%BD%E4%BC%A0%E7%BB%9F%E6%95%85%E4%BA%8B%E5%A1%AB%E8%A1%A5%E4%BA%86%E7%82%B9%E5%84%BF%E7%A9%BA%E7%99%BD%EF%BC%88%E6%AF%94%E5%A6%82%E5%A4%A7%E5%AE%B6%E9%83%BD%E8%AE%B0%E5%BE%97%E5%B2%B3%E9%A3%9E%E7%9A%84%E6%AF%8D%E4%BA%B2%E6%B7%B1%E6%98%8E%E5%A4%A7%E4%B9%89%E5%8D%B4%E9%B2%9C%E6%9C%89%E4%BA%BA%E7%9F%A5%E9%81%93%E5%B2%B3%E9%A3%9E%E7%9A%84%E7%88%B6%E4%BA%B2%E6%98%AF%E8%B0%81%EF%BC%89%E3%80%82%E4%B9%9F%E9%A1%BA%E6%89%8B%E7%BB%99%E4%BC%A0%E7%BB%9F%E6%95%85%E4%BA%8B%E9%87%8C%E7%9A%84%E6%9D%8E%E9%9D%96%E5%92%8C%E4%B8%9C%E6%B5%B7%E9%BE%99%E7%8E%8B%E6%AD%A3%E4%BA%86%E4%B8%AA%E5%90%8D%EF%BC%8C%E9%95%80%E4%BA%86%E5%B1%82%E7%88%B6%E7%88%B1%E7%9A%84%E5%85%89%E8%8A%92%5B%E5%81%B7%E7%AC%91%5D%0A%E4%B8%8D%E8%BF%87%EF%BC%8C%E6%88%91%E6%9C%80%E6%AC%A3%E8%B5%8F%E7%9A%84%E5%8D%B4%E6%98%AF%E7%94%B3%E6%AD%A3%E9%81%93%EF%BC%8C%E8%BF%99%E4%B8%AA%E4%B9%A1%E6%9D%91%E6%95%99%E5%B8%88%EF%BC%8C%E4%BB%96%E4%B8%8D%E4%BB%85%E5%9C%A8%E8%89%B0%E8%8B%A6%E7%9A%84%E6%9D%A1%E4%BB%B6%E4%B8%8B%E6%8A%8A%E8%87%AA%E5%B7%B1%E4%BF%AE%E7%82%BC%E6%88%90%E4%B8%80%E4%B8%AA%E2%80%9C%E6%89%AB%E5%9C%B0%E5%83%A7%E2%80%9D%EF%BC%8C%E8%BF%98%E5%9F%B9%E5%85%BB%E5%87%BA%E4%B8%A4%E4%B8%AA%E7%A7%AF%E6%9E%81%E8%BF%9B%E5%8F%96%E3%80%81%E5%96%84%E8%89%AF%E6%AD%A3%E4%B9%89%E7%9A%84%E5%AD%A9%E5%AD%90%EF%BC%9B%E5%8F%AF%E8%83%BD%E4%B9%9F%E6%AD%A3%E6%98%AF%E5%9B%A0%E4%B8%BA%E4%BB%96%E7%9A%84%E5%88%BB%E8%8B%A6%E5%8A%AA%E5%8A%9B%E3%80%81%E5%BF%83%E6%80%80%E6%AD%A3%E4%B9%89%E6%89%8D%E5%9F%B9%E5%85%BB%E5%87%BA%E5%90%8C%E6%A0%B7%E4%BC%98%E7%A7%80%E7%9A%84%E5%AD%A9%E5%AD%90%EF%BC%8C%E6%AF%95%E7%AB%9F%E2%80%9C%E8%BA%AB%E6%95%99%E8%83%9C%E4%BA%8E%E8%A8%80%E4%BC%A0%E2%80%9D%EF%BC%81%0A%0A%E5%AE%9D%E5%AD%90%E4%BB%AC%EF%BC%8C%E8%AF%84%E8%AE%BA%E5%8C%BA%E7%AD%89%E4%BD%A0%E4%BB%AC%E6%94%BE%E5%88%86%E4%BA%AB%E5%99%A2%0A%0A%23%E5%BD%B1%E8%A7%86%E6%84%9F%E8%A7%A6%E5%88%86%E4%BA%AB%23&cover_url=https%3A%2F%2Fp3-sign.toutiaoimg.com%2Ftos-cn-i-ezhpy3drpa%2F946efa21809f4237b7cf34f10c29b302~tplv-shrink%3A640%3A0.jpeg%3Flk3s%3D06827d14%26x-expires%3D2147483647%26x-signature%3DjnBlHyzTM3DLoALCnBhLMyhZEdI%253D&schema=https%3A%2F%2Fwww.toutiao.com%2Fa1823371664311451\",\"Comment\":\"sslocal://webview?enter_from=click_creation_center&category_name=creation_center&gd_ext_json=%7B%22enter_from%22%3A%22click_creation_center%22%2C%22category_name%22%3A%22creation_center%22%7D&url=https%3A%2F%2Fi.snssdk.com%2Frogue%2Fugc_app_inside%2Fcomment%2Fmanagement.html%3Fenter_from%3Dclick_creation_center%26category_name%3Dcreation_center%26gd_ext_json%3D%257B%2522enter_from%2522%253A%2522click_creation_center%2522%252C%2522category_name%2522%253A%2522creation_center%2522%257D%26group_id%3D1823371664311451&title=评论管理&hide_more=1&should_append_common_param=1&disable_web_progressView=1&use_wk=1&background_colorkey=3\",\"ClickCell\":\"sslocal://thread_detail?enter_from=click_creation_center&category_name=creation_center&gd_ext_json=%7B%22enter_from%22%3A%22click_creation_center%22%2C%22category_name%22%3A%22creation_center%22%7D&tid=1823371664311451&fid=1606238332905540\",\"Boost\":\"\"},\"2\":{\"Edit\":\"\",\"Share\":\"https://weitoutiao.zjurl.cn/ugc/share/thread/1823371664311451/?&target_app=13&enter_from=click_creation_center&category_name=creation_center&gd_ext_json=%7B%22enter_from%22%3A%22click_creation_center%22%2C%22category_name%22%3A%22creation_center%22%7D\",\"Comment\":\"\",\"ClickCell\":\"https://www.toutiao.com/a1823371664311451?enter_from=click_creation_center&category_name=creation_center&gd_ext_json=%7B%22enter_from%22%3A%22click_creation_center%22%2C%22category_name%22%3A%22creation_center%22%7D\",\"Boost\":\"\"}},\"ShowTime\":1738902725,\"ItemId\":\"1823371664311451\",\"CommentStatus\":0,\"UploadStatus\":0,\"StatusList\":{\"IsStick\":false,\"IsAnonymous\":false,\"SyncAwemeStatus\":0,\"IsFromWritingo\":false},\"MenuList\":{\"ShowDelete\":true,\"ShowModify\":true,\"ShowHide\":true,\"ShowStick\":true,\"ShowShare\":true,\"ShowAnonymous\":false,\"ShowComment\":true,\"ShowBoost\":false,\"ShowTimerPublish\":false,\"ShowSyncAweme\":false,\"ForbidToDetail\":false,\"ShowCopy\":false,\"ShowGraphic2Video\":false,\"ShowAds\":false,\"ForbidDeleteReason\":\"\",\"ForbidModifyReason\":\"\",\"ForbidHideReason\":\"\",\"ForbidBoostReason\":\"\",\"ForbidTimerPublishReason\":\"\",\"ForbidSyncAweme\":\"\",\"ForbidToDetailReason\":\"\",\"ForbidChangeAdsReason\":\"\"},\"IsGallery\":false,\"IsQuestion\":false,\"VerifyReason\":\"\",\"Duration\":0,\"ImageCnt\":0,\"VisibilityLevel\":40,\"LeaderSensitive\":false,\"IsExclusive\":true,\"Extra\":{\"contain_forum_ids\":\"\",\"user_name\":\"大数据那些事\",\"impr_id\":\"202502071431293DCF32D9B21CDB06A59B\",\"ugc_position\":\"{\\\"latitude\\\":0,\\\"longitude\\\":0,\\\"position\\\":\\\"\\\",\\\"city\\\":\\\"\\\",\\\"poi_id\\\":null,\\\"poi_type_code\\\":null}\",\"star_order_id\":\"0\"},\"ThreadData\":{\"Status\":4,\"DeleteBy\":\"\",\"ImageList\":[{\"uri\":\"tos-cn-i-ezhpy3drpa/946efa21809f4237b7cf34f10c29b302\",\"url\":\"http://p3-sign.toutiaoimg.com/tos-cn-i-ezhpy3drpa/946efa21809f4237b7cf34f10c29b302~tplv-shrink:1080:948.jpeg?from=post&lk3s=8f2de3d4&x-expires=2147483647&x-signature=MA4czZ%2BM7pS249rJLHxaJcEG8AA%3D\",\"width\":1080,\"height\":948,\"url_list\":[{\"url\":\"http://p3-sign.toutiaoimg.com/tos-cn-i-ezhpy3drpa/946efa21809f4237b7cf34f10c29b302~tplv-shrink:1080:948.jpeg?from=post&lk3s=8f2de3d4&x-expires=2147483647&x-signature=MA4czZ%2BM7pS249rJLHxaJcEG8AA%3D\"},{\"url\":\"http://p26-sign.toutiaoimg.com/tos-cn-i-ezhpy3drpa/946efa21809f4237b7cf34f10c29b302~tplv-shrink:1080:948.jpeg?from=post&lk3s=8f2de3d4&x-expires=2147483647&x-signature=c6qsPEjgXYu3BN4XqtM0RazGR9U%3D\"}],\"image_type\":1}],\"AttachCard\":{\"CardType\":22,\"ButtonName\":\"进入专题\",\"CoverImageUrl\":\"https://p3-sign.toutiaoimg.com/top-static-files-outer/breaknews/5afc8870-a1f7-436f-a7d0-5387a183630d~tplv-tt-origin.png?_iz=30575&from=sign_default&lk3s=ffc2a312&x-expires=1741501889&x-signature=FPNGvcnzUWsI6Ta04Pwu9ahQIrI%3D\",\"Title\":\"2025春节档\",\"Id\":\"22\",\"Description\":\"专题 | 56万阅读\"},\"Content\":\"#哪吒# #电影哪吒之魔童降世# \\n终于为《哪吒》的60亿票房贡献了自己的力量。\\n不得不说的确好看：制作精良、情感真挚。而且整体父爱含量超高，为中国传统故事填补了点儿空白（比如大家都记得岳飞的母亲深明大义却鲜有人知道岳飞的父亲是谁）。也顺手给传统故事里的李靖和东海龙王正了个名，镀了层父爱的光芒[偷笑]\\n不过，我最欣赏的却是申正道，这个乡村教师，他不仅在艰苦的条件下把自己修炼成一个“扫地僧”，还培养出两个积极进取、善良正义的孩子；可能也正是因为他的刻苦努力、心怀正义才培养出同样优秀的孩子，毕竟“身教胜于言传”！\\n\\n宝子们，评论区等你们放分享噢\\n\\n#影视感触分享#\",\"ArticleCommentStatus\":0,\"ImageCount\":1,\"ThreadId\":\"1823371664311451\",\"ForbidUserDel\":false,\"ProhibitDeleteReason\":\"\",\"IsFansArticle\":0,\"CommentBanned\":false,\"HasColumnCard\":0,\"HasBusniessAllianceCard\":0,\"HasPayWendaCard\":0,\"ThumbImageList\":[{\"uri\":\"tos-cn-i-ezhpy3drpa/946efa21809f4237b7cf34f10c29b302\",\"url\":\"http://p3-sign.toutiaoimg.com/tos-cn-i-ezhpy3drpa/946efa21809f4237b7cf34f10c29b302~tplv-tt-post:400:400.jpeg?from=post&lk3s=8f2de3d4&x-expires=2147483647&x-signature=9rQjQo4ShJ%2FpGae2iIxjXrmaj0Y%3D\",\"width\":400,\"height\":400,\"url_list\":[{\"url\":\"http://p3-sign.toutiaoimg.com/tos-cn-i-ezhpy3drpa/946efa21809f4237b7cf34f10c29b302~tplv-tt-post:400:400.jpeg?from=post&lk3s=8f2de3d4&x-expires=2147483647&x-signature=9rQjQo4ShJ%2FpGae2iIxjXrmaj0Y%3D\"},{\"url\":\"http://p26-sign.toutiaoimg.com/tos-cn-i-ezhpy3drpa/946efa21809f4237b7cf34f10c29b302~tplv-tt-post:400:400.jpeg?from=post&lk3s=8f2de3d4&x-expires=2147483647&x-signature=FHlPdb2p6rUJkHe5OlnOH2zcpkg%3D\"}],\"image_type\":1}]},\"GroupSource\":5,\"ArticleType\":\"weitoutiao\"},\"ArticleStat\":{\"ImpressionCount\":1035,\"GoDetailCount\":38,\"CommentCount\":1,\"PlayCount\":0,\"AnswerCount\":0,\"DiggCount\":0,\"RepinCount\":0,\"Counters\":[{\"Name\":\"展现\",\"Count\":1035},{\"Name\":\"阅读\",\"Count\":38},{\"Name\":\"评论\",\"Count\":1},{\"Name\":\"点赞\",\"Count\":0}]}}"
+      },
+      "imageList": {
+        "staggerFeedCover": [
+          {
+            "url": "https://p3-sign.toutiaoimg.com/tos-cn-i-ezhpy3drpa/946efa21809f4237b7cf34f10c29b302~tplv-shrink:640:0.jpeg?lk3s=06827d14&x-expires=2147483647&x-signature=jnBlHyzTM3DLoALCnBhLMyhZEdI%3D",
+            "width": 0,
+            "height": 0,
+            "uri": ""
+          }
+        ],
+        "thumbImageList": [
+          {
+            "url": "https://p3-sign.toutiaoimg.com/tos-cn-i-ezhpy3drpa/946efa21809f4237b7cf34f10c29b302~tplv-shrink:640:0.jpeg?lk3s=06827d14&x-expires=2147483647&x-signature=jnBlHyzTM3DLoALCnBhLMyhZEdI%3D",
+            "width": 0,
+            "height": 0,
+            "uri": ""
+          }
+        ]
+      },
+      "itemCounter": {
+        "commentCount": 1,
+        "diggCount": 0,
+        "readCount": 38,
+        "repinCount": 0,
+        "showCount": 1035,
+        "videoWatchCount": 0
+      },
+      "logPB": "{\"stream_biz_id\":\"15\",\"stream_category\":\"mp_all\",\"stream_channel_id\":\"94349611244\",\"stream_impr_id\":\"202502071431293DCF32D9B21CDB06A59B\",\"unified_sim_ids\":\"{\\\"GID\\\":1823371664311451}\"}",
+      "richContentInfo": {
+        "richContent": "<a href=\"sslocal://concern?category_name=&cid=1606238332905540&concern_id=1606238332905540&enter_from=&group_id=1823371664311451&style_type=concern_topic&tab_sname=thread\">#哪吒#</a> <a href=\"sslocal://concern?category_name=&cid=1635401429557251&concern_id=1635401429557251&enter_from=&group_id=1823371664311451&style_type=concern_topic&tab_sname=thread\">#电影哪吒之魔童降世#</a> <br>终于为《哪吒》的60亿票房贡献了自己的力量。<br>不得不说的确好看：制作精良、情感真挚。而且整体父爱含量超高，为中国传统故事填补了点儿空白（比如大家都记得岳飞的母亲深明大义却鲜有人知道岳飞的父亲是谁）。也顺手给传统故事里的李靖和东海龙王正了个名，镀了层父爱的光芒<i class=\"emoji emoji_30_titter\"></i><span class=\"emoji-name\">[偷笑]</span><br>不过，我最欣赏的却是申正道，这个乡村教师，他不仅在艰苦的条件下把自己修炼成一个“扫地僧”，还培养出两个积极进取、善良正义的孩子；可能也正是因为他的刻苦努力、心怀正义才培养出同样优秀的孩子，毕竟“身教胜于言传”！<br><br>宝子们，评论区等你们放分享噢<br><br><a href=\"sslocal://concern?category_name=&cid=1792287105710112&concern_id=1792287105710112&enter_from=&group_id=1823371664311451&style_type=concern_topic&tab_sname=thread\">#影视感触分享#</a>",
+        "titleRichSpan": "<a href=\"sslocal://concern?category_name=&cid=1606238332905540&concern_id=1606238332905540&enter_from=&group_id=1823371664311451&style_type=concern_topic&tab_sname=thread\">#哪吒#</a> <a href=\"sslocal://concern?category_name=&cid=1635401429557251&concern_id=1635401429557251&enter_from=&group_id=1823371664311451&style_type=concern_topic&tab_sname=thread\">#电影哪吒之魔童降世#</a> <br>终于为《哪吒》的60亿票房贡献了自己的力量。<br>不得不说的确好看：制作精良、情感真挚。而且整体父爱含量超高，为中国传统故事填补了点儿空白（比如大家都记得岳飞的母亲深明大义却鲜有人知道岳飞的父亲是谁）。也顺手给传统故事里的李靖和东海龙王正了个名，镀了层父爱的光芒<i class=\"emoji emoji_30_titter\"></i><span class=\"emoji-name\">[偷笑]</span><br>不过，我最欣赏的却是申正道，这个乡村教师，他不仅在艰苦的条件下把自己修炼成一个“扫地僧”，还培养出两个积极进取、善良正义的孩子；可能也正是因为他的刻苦努力、心怀正义才培养出同样优秀的孩子，毕竟“身教胜于言传”！<br><br>宝子们，评论区等你们放分享噢<br><br><a href=\"sslocal://concern?category_name=&cid=1792287105710112&concern_id=1792287105710112&enter_from=&group_id=1823371664311451&style_type=concern_topic&tab_sname=thread\">#影视感触分享#</a>"
+      },
+      "userInfo": {
+        "avatarURL": "https://sf1-cdn-tos.toutiaostatic.com/img/user-avatar/2x_16b9b0e6ca5803f6562a1506f13b41cc~300x300.image",
+        "name": "大数据那些事",
+        "userID": 6484175103
+      },
+      "cellCtrl": {
+        "dspStyle": null,
+        "articleImageType": 3
+      },
+      "containsElements": {
+        "hasImage": true,
+        "hasVideo": false
+      },
+      "shareInfo": {
+        "shareURL": "https://weitoutiao.zjurl.cn/ugc/share/thread/1823371664311451/?&target_app=13&enter_from=click_creation_center&category_name=creation_center&gd_ext_json=%7B%22enter_from%22%3A%22click_creation_center%22%2C%22category_name%22%3A%22creation_center%22%7D"
+      }
+    },
+    "behotTime": 1738909889,
+    "cursor": 1738909889000,
+    "rid": "202502071431293DCF32D9B21CDB06A59B"
+  },
+  "code": ""
+}
+
+
+
+https://mlgbcdn.bigrnet.com/1.0.206_JuheH5.html?&openID=49_3510000004978485&loginKey=0005e758504269b336bc4d59e045db9d887&isGuest=undefined&serverId=330064&originId=330064&ip=111.229.247.23&port=3001&serverName=%E6%B3%95%E5%85%B064%E5%8C%BA&serverUrlPrefix=https://mlgb-serverlist.bigrnet.com&bugUrlPrefix=http://account.quannijoy.com:7203&isShellLogin=1&sdkid=200&version=1.0&channelid=80005&gameDomain=wss://mlgb4yx-gate.bigrnet.com/ws330064&accessToken=33d7f39f90fcf79306b81c73ddbff2d3&channelId=49&userId=3510000004978485&userName=&cpExtra=null&isWd=false&centerflag=mlbb_gb4YX&clientType=1&sid=64&fcm=1&time=1739196343&client=0&sign=2ea5989a3b1e097c68e5207d4c607618&juheChannel=49&shellUrl=https%3A%2F%2Fmlgbcdn.bigrnet.com%2Fstart%2FindexQV_JuheH5.html%3Fcenterflag%3Dmlbb_gb4YX%26sdkid%3D200%26channelid%3D80005%26clientType%3D1%26sid%3D64%26account%3D3510000004978485%26fcm%3D1%26time%3D1739196343%26client%3D0%26sign%3D2ea5989a3b1e097c68e5207d4c607618%26juheChannel%3D49

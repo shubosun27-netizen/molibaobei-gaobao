@@ -1,0 +1,1 @@
+(()=>{var S={VERSION:"1.0",QUICKSDK:!1,YOFISDK:!1,YOFISDKWEB:!1,onLoginSocket:!0,ENV:"dev",SHOW_STAT:!1,SHOW_LOG:!1,CHARGE:!1,HTTP_LOGIN_ADDR:"http://49.232.237.231:8089",BASE_URL:"",ACTION_LOG_URL:"http://49.232.237.231:89/action_log",SDK_SHELL:!1};window.GameConf=S})();
