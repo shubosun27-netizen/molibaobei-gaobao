@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>省直机关 AI 应用集成门户</title>
+    <!-- 使用 Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 使用 Lucide 图标 -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap');
+
+        body {
+            font-family: 'Noto Sans SC', sans-serif;
+            background-color: #f8fafc;
+        }
+
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .app-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+
+<body class="min-h-screen flex flex-col">
+
+    <!-- 顶部导航 -->
+    <header class="bg-[#1e3a8a] text-white shadow-lg sticky top-0 z-40">
+        <div class="container mx-auto px-4 h-20 flex items-center justify-between">
+            <div class="flex items-center space-x-4">
+                <div class="w-12 h-12 bg-white/10 rounded-lg flex items-center justify-center backdrop-blur-md">
+                    <i data-lucide="layout-grid" class="w-8 h-8 text-blue-200"></i>
+                </div>
+                <div>
+                    <h1 class="text-xl font-bold tracking-tight">省直机关 AI 应用集成门户</h1>
+                    <p class="text-xs text-blue-200 tracking-widest opacity-80">全省一体化智能化公共数据平台 · 智算中心</p>
+                </div>
+            </div>
+
+            <div class="hidden md:flex items-center space-x-6">
+                <!-- 用户头像及下拉 -->
+                <div class="relative group">
+                    <div class="flex items-center space-x-3 bg-white/10 hover:bg-white/20 px-4 py-2 rounded-full cursor-pointer transition-all border border-white/10"
+                        id="userDropdownBtn">
+                        <div id="userAvatar"
+                            class="w-8 h-8 rounded-full bg-blue-500 flex items-center justify-center text-xs font-bold ring-2 ring-white/20">
+                            陈</div>
+                        <div class="text-left">
+                            <p id="userName" class="text-sm font-bold leading-none">陈主任</p>
+                            <p id="userDept" class="text-[10px] text-blue-200 opacity-75">省政府办公厅 · 处级干部</p>
+                        </div>
+                        <i data-lucide="settings" class="w-4 h-4 text-white/50"></i>
+                    </div>
+
+                    <!-- 演示身份切换 -->
+                    <div id="userDropdownMenu"
+                        class="absolute right-0 mt-2 w-64 bg-white rounded-xl shadow-2xl border border-gray-100 hidden p-2 text-gray-800 animate-in fade-in slide-in-from-top-2">
+                        <p class="px-3 py-2 text-xs font-bold text-gray-400 uppercase">演示账号切换</p>
+                        <div id="userList">
+                            <!-- 动态加载 -->
+                        </div>
+                    </div>
+                </div>
+                <button class="p-2 hover:bg-white/10 rounded-full relative">
+                    <i data-lucide="bell" class="w-5 h-5"></i>
+                    <span
+                        class="absolute top-0 right-0 w-2 h-2 bg-red-500 rounded-full border-2 border-[#1e3a8a]"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-1 container mx-auto px-4 py-8">
+        <!-- 欢迎及概览 -->
+        <section class="mb-10 flex flex-col lg:flex-row lg:items-end justify-between gap-6">
+            <div>
+                <h2 class="text-3xl font-bold text-slate-800 mb-2">
+                    您好，<span id="welcomeName">陈主任</span>
+                </h2>
+                <p class="text-slate-500 max-w-xl">
+                    欢迎访问省直机关 AI 应用集成门户。系统已根据您的岗位职责与权限，自动加载了相关的数字化助手。
+                </p>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 w-full lg:w-auto">
+                <div class="bg-white p-4 rounded-xl border border-gray-100 shadow-sm">
+                    <span class="text-gray-500 text-sm font-medium">已接入应用</span>
+                    <div class="mt-2 flex items-baseline">
+                        <span class="text-2xl font-bold text-blue-600">24</span><span
+                            class="ml-1 text-gray-400 text-xs">个</span>
+                    </div>
+                </div>
+                <div class="bg-white p-4 rounded-xl border border-gray-100 shadow-sm">
+                    <span class="text-gray-500 text-sm font-medium">今日调用量</span>
+                    <div class="mt-2 flex items-baseline">
+                        <span class="text-2xl font-bold text-emerald-600">182</span><span
+                            class="ml-1 text-gray-400 text-xs">万次</span>
+                    </div>
+                </div>
+                <div class="bg-white p-4 rounded-xl border border-gray-100 shadow-sm">
+                    <span class="text-gray-500 text-sm font-medium">算力池负载</span>
+                    <div class="mt-2 flex items-baseline">
+                        <span class="text-2xl font-bold text-indigo-600">62</span><span
+                            class="ml-1 text-gray-400 text-xs">%</span>
+                    </div>
+                </div>
+                <div class="bg-white p-4 rounded-xl border border-gray-100 shadow-sm">
+                    <span class="text-gray-500 text-sm font-medium">在线终端数</span>
+                    <div class="mt-2 flex items-baseline">
+                        <span class="text-2xl font-bold text-orange-600">842</span><span
+                            class="ml-1 text-gray-400 text-xs">台</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 过滤与搜索 -->
+        <section
+            class="bg-white p-2 rounded-2xl shadow-sm border border-gray-200 mb-8 flex flex-col md:flex-row items-center gap-4">
+            <div class="flex-1 flex items-center px-4 space-x-2 w-full">
+                <i data-lucide="search" class="w-5 h-5 text-gray-400"></i>
+                <input id="searchInput" type="text" placeholder="输入应用名称、功能关键字或所属部门进行检索..."
+                    class="bg-transparent border-none focus:outline-none focus:ring-0 text-gray-700 flex-1 py-3 text-sm" />
+            </div>
+            <div class="flex bg-gray-50 p-1 rounded-xl w-full md:w-auto overflow-x-auto whitespace-nowrap no-scrollbar"
+                id="categoryList">
+                <!-- 分类动态加载 -->
+            </div>
+        </section>
+
+        <!-- 应用列表区域 -->
+        <div id="appGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 transition-all">
+            <!-- 卡片动态加载 -->
+        </div>
+
+        <!-- 空状态 -->
+        <div id="emptyState" class="hidden py-20 text-center">
+            <div class="bg-gray-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4 text-gray-400">
+                <i data-lucide="lock" class="w-10 h-10"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-700">暂无可见应用</h3>
+            <p class="text-gray-500 mt-2">在该分类下没有匹配到您的权限范围内的应用。</p>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="bg-white border-t border-gray-200 py-8 mt-12">
+        <div
+            class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center text-sm text-gray-400">
+            <div class="flex items-center space-x-2 mb-4 md:mb-0">
+                <span class="font-bold text-gray-600">省政府办公厅信息中心</span>
+                <span>© 2026 全省一体化 AI 能力平台能力门户</span>
+            </div>
+            <div class="flex space-x-6">
+                <a href="#" class="hover:text-blue-600">技术支持</a>
+                <a href="#" class="hover:text-blue-600">管理办法</a>
+                <a href="#" class="hover:text-blue-600">安全审计</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 启动弹窗 -->
+    <div id="launchModal"
+        class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-md w-full p-8 text-center shadow-2xl">
+            <div class="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                <i data-lucide="zap" class="w-10 h-10 text-blue-600 animate-pulse"></i>
+            </div>
+            <h2 class="text-2xl font-bold mb-2">正在接入应用</h2>
+            <p id="modalText" class="text-gray-500 mb-6">正在验证访问凭证并启动系统内核...</p>
+            <button onclick="closeModal()"
+                class="px-6 py-3 bg-blue-600 text-white rounded-lg font-bold w-full hover:bg-blue-700 transition-colors">确认进入</button>
+        </div>
+    </div>
+
+    <!-- 演示浮窗容器 -->
+    <div class="fixed bottom-6 right-6 z-50 flex flex-col items-end space-y-4" id="floatingContainer">
+        <!-- 反馈浮窗 -->
+        <div class="relative">
+            <!-- 反馈表单 -->
+            <div id="feedbackForm"
+                class="absolute bottom-full right-0 mb-4 w-72 bg-white rounded-2xl shadow-2xl border border-gray-100 hidden p-6 animate-in slide-in-from-bottom-4">
+                <div id="formContent">
+                    <h3 class="text-lg font-bold text-gray-800 mb-4">问题反馈</h3>
+                    <textarea id="feedbackText"
+                        class="w-full h-32 p-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:outline-none text-sm mb-4"
+                        placeholder="请描述您遇到的问题或建议..."></textarea>
+                    <button id="submitFeedback"
+                        class="w-full py-2.5 bg-blue-600 text-white rounded-lg font-bold hover:bg-blue-700 transition-colors">提交反馈</button>
+                </div>
+                <div id="successContent" class="hidden text-center py-4">
+                    <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                        <i data-lucide="check" class="w-6 h-6 text-green-600"></i>
+                    </div>
+                    <p class="font-bold text-gray-800">提交成功</p>
+                    <p class="text-xs text-gray-500 mt-1">感谢您的反馈，我们会尽快处理。</p>
+                </div>
+            </div>
+            <!-- 反馈按钮 -->
+            <button id="feedbackBtn"
+                class="bg-white text-blue-600 p-4 rounded-full shadow-xl hover:bg-blue-50 transition-all border border-blue-100 group">
+                <i data-lucide="message-circle-plus" class="w-6 h-6 group-hover:scale-110 transition-transform"></i>
+            </button>
+        </div>
+
+        <!-- 环境状态浮窗 -->
+        <div class="bg-blue-600 text-white p-4 rounded-2xl shadow-2xl flex items-center space-x-3">
+            <div class="bg-white/20 p-2 rounded-lg">
+                <i data-lucide="shield-check" class="w-6 h-6"></i>
+            </div>
+            <div class="text-xs">
+                <p class="font-bold tracking-wide">系统运行环境：政务云</p>
+                <p id="envRole" class="opacity-80">权限身份：陈主任</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // --- 数据配置 ---
+        const USERS = [
+            { id: 'staff_1', name: '陈主任', role: '处级干部', dept: '省政府办公厅', level: 2 },
+            { id: 'leader_1', name: '张厅长', role: '厅局领导', dept: '省发展改革委', level: 1 },
+            { id: 'admin_1', name: '李工', role: '系统管理员', dept: '信息中心', level: 0 }
+        ];
+
+        const CATEGORIES = ["常用", "全部", "办公助手", "辅助决策", "公共服务", "数据治理", "安全审计"];
+
+        const APPS = [
+            {
+                id: 1,
+                title: "AI 政务公文助手",
+                desc: "提供公文自动校对、摘要提取及范文生成，提升办文效率约 40%。",
+                category: "办公助手",
+                isCommon: true,
+                provider: "信息中心",
+                status: "运行中",
+                visibility: [0, 1, 2],
+                icon: "file-text",
+                iconColor: "text-blue-600",
+                stats: "日活跃 1,200+"
+            },
+            {
+                id: 2,
+                title: "宏观经济决策仿真",
+                desc: "基于大模型分析全省 GDP 及产业结构，提供经济运行实时预警。 ",
+                category: "辅助决策",
+                isCommon: true,
+                provider: "省发改委",
+                status: "运行中",
+                visibility: [0, 1],
+                icon: "trending-up",
+                iconColor: "text-emerald-600",
+                stats: "预测精度 94.2%"
+            },
+            {
+                id: 3,
+                title: "智慧审计疑点识别",
+                desc: "自动扫描审计财务大数据，智能识别潜在合规风险点。 ",
+                category: "安全审计",
+                isCommon: false,
+                provider: "省审计厅",
+                status: "维护中",
+                visibility: [0, 2],
+                icon: "shield-check",
+                iconColor: "text-indigo-600",
+                stats: "风险检出 215 例"
+            },
+            {
+                id: 4,
+                title: "“民声直通车”情感分析",
+                desc: "自动分析全省信访诉求，提取群众关注热点及情绪变化趋势。",
+                category: "公共服务",
+                isCommon: true,
+                provider: "省信访局",
+                status: "运行中",
+                visibility: [0, 1, 2],
+                icon: "message-square",
+                iconColor: "text-orange-600",
+                stats: "处理效能提升 50%"
+            },
+            {
+                id: 5,
+                title: "政策法规知识库大模型",
+                desc: "集成各厅局政策文件，提供 7x24 小时智能政策咨询与搜索。 ",
+                category: "办公助手",
+                isCommon: false,
+                provider: "信息中心",
+                status: "运行中",
+                visibility: [0, 1, 2],
+                icon: "layers",
+                iconColor: "text-cyan-600",
+                stats: "收录条目 50万+"
+            },
+            {
+                id: 6,
+                title: "全省算力资源调度平台",
+                desc: "监控全省智算中心算力分配，保障高并发 AI 应用的算力供给。",
+                category: "数据治理",
+                isCommon: false,
+                provider: "信息中心",
+                status: "运行中",
+                visibility: [0],
+                icon: "cpu",
+                iconColor: "text-purple-600",
+                stats: "实时负载 78%"
+            }
+        ];
+
+        // --- 状态管理 ---
+        let currentUser = USERS[0];
+        let activeCategory = "全部";
+        let searchQuery = "";
+
+        // --- 初始化渲染 ---
+        function init() {
+            renderUserList();
+            renderCategories();
+            renderApps();
+            lucide.createIcons();
+        }
+
+        // 渲染用户列表
+        function renderUserList() {
+            const container = document.getElementById('userList');
+            container.innerHTML = USERS.map(user => `
+                <button onclick="switchUser('${user.id}')" class="w-full flex items-center px-3 py-2.5 rounded-lg hover:bg-blue-50 transition-colors ${currentUser.id === user.id ? 'bg-blue-50 text-blue-700' : ''}">
+                    <div class="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center mr-3 text-xs font-bold">${user.name.charAt(0)}</div>
+                    <div class="text-left">
+                        <p class="text-sm font-bold">${user.name}</p>
+                        <p class="text-xs opacity-60">${user.role}</p>
+                    </div>
+                </button>
+            `).join('');
+        }
+
+        // 切换用户
+        function switchUser(userId) {
+            currentUser = USERS.find(u => u.id === userId);
+            document.getElementById('userName').innerText = currentUser.name;
+            document.getElementById('userDept').innerText = `${currentUser.dept} · ${currentUser.role}`;
+            document.getElementById('userAvatar').innerText = currentUser.name.charAt(0);
+            document.getElementById('welcomeName').innerText = currentUser.name;
+            document.getElementById('envRole').innerText = `权限身份：${currentUser.role}`;
+
+            renderUserList();
+            renderApps();
+        }
+
+        // 渲染分类
+        function renderCategories() {
+            const container = document.getElementById('categoryList');
+            container.innerHTML = CATEGORIES.map(cat => `
+                <button onclick="switchCategory('${cat}')" class="px-4 py-2 rounded-lg text-sm font-medium transition-all ${activeCategory === cat ? 'bg-white text-blue-700 shadow-sm' : 'text-gray-500 hover:text-gray-700'}">
+                    ${cat}
+                </button>
+            `).join('');
+        }
+
+        function switchCategory(cat) {
+            activeCategory = cat;
+            renderCategories();
+            renderApps();
+        }
+
+        // 搜索功能
+        document.getElementById('searchInput').addEventListener('input', (e) => {
+            searchQuery = e.target.value;
+            renderApps();
+        });
+
+        // 渲染应用卡片
+        function renderApps() {
+            const grid = document.getElementById('appGrid');
+            const empty = document.getElementById('emptyState');
+
+            const filtered = APPS.filter(app => {
+                const canSee = app.visibility.includes(currentUser.level);
+                const matchCat = activeCategory === "全部" ||
+                    (activeCategory === "常用" ? app.isCommon : app.category === activeCategory);
+                const matchSearch = app.title.includes(searchQuery) || app.desc.includes(searchQuery);
+                return canSee && matchCat && matchSearch;
+            });
+
+            if (filtered.length === 0) {
+                grid.classList.add('hidden');
+                empty.classList.remove('hidden');
+            } else {
+                grid.classList.remove('hidden');
+                empty.classList.add('hidden');
+
+                grid.innerHTML = filtered.map(app => `
+                    <div class="app-card bg-white rounded-xl border border-gray-200 shadow-sm transition-all duration-300 overflow-hidden flex flex-col group">
+                        <div class="p-5 flex-1">
+                            <div class="flex justify-between items-start mb-4">
+                                <div class="p-3 bg-gray-50 rounded-lg group-hover:scale-110 transition-transform duration-300">
+                                    <i data-lucide="${app.icon}" class="w-6 h-6 ${app.iconColor}"></i>
+                                </div>
+                                <span class="text-xs px-2 py-1 rounded-full font-medium ${app.status === '运行中' ? 'bg-green-100 text-green-700' : 'bg-amber-100 text-amber-700'}">
+                                    ${app.status}
+                                </span>
+                            </div>
+                            <h3 class="text-lg font-bold text-gray-800 mb-2">${app.title}</h3>
+                            <p class="text-sm text-gray-500 line-clamp-2 mb-4 leading-relaxed">${app.desc}</p>
+                            <div class="flex items-center text-xs text-gray-400 space-x-3 mt-auto">
+                                <span class="flex items-center"><i data-lucide="briefcase" class="w-3 h-3 mr-1"></i> ${app.provider}</span>
+                                <span class="flex items-center font-medium text-blue-500">${app.stats}</span>
+                            </div>
+                        </div>
+                        <button onclick="launchApp('${app.title}')" class="w-full py-3 bg-gray-50 hover:bg-blue-600 hover:text-white border-t border-gray-100 transition-colors flex items-center justify-center font-medium text-gray-600">
+                            进入应用 <i data-lucide="external-link" class="w-4 h-4 ml-2"></i>
+                        </button>
+                    </div>
+                `).join('');
+                lucide.createIcons();
+            }
+        }
+
+        // 弹窗控制
+        function launchApp(title) {
+            document.getElementById('modalText').innerText = `正在验证【${currentUser.name}】的访问凭证，并启动 ${title} 服务...`;
+            document.getElementById('launchModal').classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('launchModal').classList.add('hidden');
+        }
+
+        // 账号下拉交互
+        const userDropdownBtn = document.getElementById('userDropdownBtn');
+        const userDropdownMenu = document.getElementById('userDropdownMenu');
+
+        userDropdownBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            userDropdownMenu.classList.toggle('hidden');
+        });
+
+        // 浮窗与页脚位置修正
+        const floatingContainer = document.getElementById('floatingContainer');
+        const footer = document.querySelector('footer');
+
+        function adjustFloatingPosition() {
+            const footerRect = footer.getBoundingClientRect();
+            const viewportHeight = window.innerHeight;
+
+            if (footerRect.top < viewportHeight) {
+                const offset = viewportHeight - footerRect.top + 24;
+                floatingContainer.style.bottom = `${offset}px`;
+            } else {
+                floatingContainer.style.bottom = '24px';
+            }
+        }
+
+        window.addEventListener('scroll', adjustFloatingPosition);
+        window.addEventListener('resize', adjustFloatingPosition);
+
+        // 反馈功能
+        const feedbackBtn = document.getElementById('feedbackBtn');
+        const feedbackForm = document.getElementById('feedbackForm');
+        const submitFeedback = document.getElementById('submitFeedback');
+        const formContent = document.getElementById('formContent');
+        const successContent = document.getElementById('successContent');
+        const feedbackText = document.getElementById('feedbackText');
+
+        feedbackBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            feedbackForm.classList.toggle('hidden');
+            if (!feedbackForm.classList.contains('hidden')) {
+                formContent.classList.remove('hidden');
+                successContent.classList.add('hidden');
+                feedbackText.value = '';
+            }
+        });
+
+        submitFeedback.addEventListener('click', () => {
+            if (!feedbackText.value.trim()) return;
+            formContent.classList.add('hidden');
+            successContent.classList.remove('hidden');
+            setTimeout(() => {
+                feedbackForm.classList.add('hidden');
+            }, 2000);
+        });
+
+        // 点击外部关闭
+        window.addEventListener('click', (e) => {
+            if (!userDropdownMenu.contains(e.target) && !userDropdownBtn.contains(e.target)) {
+                userDropdownMenu.classList.add('hidden');
+            }
+            if (!feedbackForm.contains(e.target) && !feedbackBtn.contains(e.target)) {
+                feedbackForm.classList.add('hidden');
+            }
+        });
+
+        // 启动
+        window.onload = () => {
+            init();
+            adjustFloatingPosition();
+        };
+    </script>
+</body>
+
+</html>

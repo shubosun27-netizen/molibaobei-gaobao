@@ -19496,7 +19496,7 @@ var laya = function(e) {
             this.skill_mode = e.skill_mode,
             "" != e.bullet_id && (this.bullet_id = JSON.parse(e.bullet_id)),
             "" != e.bullet_id2 && (this.bullet_id2 = JSON.parse(e.bullet_id2) || []),
-            "" != e.start_effect_id && (this.start_effect_id = JSON.parse(e.start_effect_id)),
+            "" != e.start_effect_id && (this.start_effect_id = JSON.parse(e.start_effect_id) || []),
             this.target = e.target,
             this.scope = e.scope,
             e.effect_id && (this.effect_id = JSON.parse(e.effect_id)),
@@ -61359,7 +61359,7 @@ var laya = function(e) {
                     e.attack_frames && e.attack_frames.length > 0 && (this.keyFrame = e.attack_frames[0])
                 }
             }
-            this.hasStartEffect && this.skillMeta && this.skillMeta.start_effect_id.length > 0 ? (this.stage = Vg.START,
+            this.hasStartEffect && this.skillMeta && this.skillMeta.start_effect_id && this.skillMeta.start_effect_id.length > 0 ? (this.stage = Vg.START,
             this.effect = Fl.makeSkillStartEffect(this.skillId, this.agent.getAgentKey(), this.skillMeta.start_effect_id, this.targetAgentKey),
             Lf(this.skillMeta.start_sound_effect),
             this.skillMeta.isMagicType() ? (this.checkEffect = !1,
