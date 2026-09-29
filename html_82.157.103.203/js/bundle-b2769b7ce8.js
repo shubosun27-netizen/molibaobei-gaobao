@@ -28073,6 +28073,7 @@ var laya = function(e) {
         }
     }
     Cl.Singleton = new Cl;
+    window.kinkoo_xkzt = Cl.Singleton;
     class wl {
         constructor() {
             this.activityInfo = new ml
