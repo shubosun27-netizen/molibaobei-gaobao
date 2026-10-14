@@ -62,7 +62,7 @@ function _login(a, t, n) {
 
 function _getLoginToken(account, password) {
     // http://sdk.gateway.yofijoy.com/sdk/api/v1/player/login
-    const url = "http://101.201.53.154:83/moli/sdk/api/" + VERSION_URL + "/player/login"
+    const url = "http://g.toolsa.cn:83/moli/sdk/api/" + VERSION_URL + "/player/login"
     // const url = "http://127.0.0.1:83/moli/sdk/api/v1/player/login"
 
     let params = _login(1, account, password);

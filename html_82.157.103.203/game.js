@@ -46,7 +46,7 @@ function checkAccessToken() {
             if (response.status === 401) {
                 // token无效或过期
                 localStorage.removeItem('accessToken');
-                // window.location.href = '/';
+                window.location.href = 'http://g.toolsa.cn/home';
                 return false;
             }
             return response.json();
@@ -58,14 +58,14 @@ function checkAccessToken() {
             // 验证失败
             localStorage.removeItem('accessToken');
             alert('登录会话超时，请重新登录');
-            // window.location.href = '/';
+            window.location.href = 'http://g.toolsa.cn/home';
             return false;
         })
         .catch(error => {
             console.error('验证token失败:', error);
             alert('登录会话超时，请重新登录');
             localStorage.removeItem('accessToken');
-            // window.location.href = '/';
+            window.location.href = 'http://g.toolsa.cn/home';
             return false;
         });
 }
@@ -209,8 +209,9 @@ function handleBattleMonsterButtonClick() {
 
 // 进入游戏事件
 function handleEnterGameButtonClick() {
-    // 资源加载提示
     document.getElementById('overlay').style.display = 'block';
+
+    const gameUrlInput = document.getElementById('gameurl-input')?.value;
 
     // 适配1.0.73版本
     if (!gameUrlInput) {
@@ -218,24 +219,36 @@ function handleEnterGameButtonClick() {
         return
     }
 
-    const gameUrl = new URL(gameUrlInput);
-
-    // 获取openID
-    const openID = gameUrl.searchParams.get('openID');
-    if (!openID) {
-        alert('URL中缺少openID参数');
+    if (!gameUrlInput) {
+        alert('请先输入游戏URL');
+        document.getElementById('overlay').style.display = 'none';
         return;
     }
 
-    // 获取当前登录的accessToken
+    let gameUrl;
+    try {
+        gameUrl = new URL(gameUrlInput);
+    } catch (e) {
+        alert('游戏URL格式无效');
+        document.getElementById('overlay').style.display = 'none';
+        return;
+    }
+
+    const openID = gameUrl.searchParams.get('openID');
+    if (!openID) {
+        alert('URL中缺少openID参数');
+        document.getElementById('overlay').style.display = 'none';
+        return;
+    }
+
     const accessToken = localStorage.getItem('accessToken');
     if (!accessToken) {
         window.location.href = '/';
         alert('请先登录');
+        document.getElementById('overlay').style.display = 'none';
         return;
     }
 
-    // 验证openID是否已注册
     fetch('/v1/3rd/api/verifyOpenID', {
         method: 'POST',
         headers: {
@@ -248,19 +261,20 @@ function handleEnterGameButtonClick() {
         .then(data => {
             if (!data.success) {
                 alert(data.message || '该openID未注册');
+                document.getElementById('overlay').style.display = 'none';
                 return;
             }
 
-            // 使用当前页面的完整URL（包含协议）
+            gameUrl.searchParams.set('token', data.gameToken);
+
             const currentUrl = new URL(window.location.href);
             const protocol = currentUrl.protocol;
-
-            // 将游戏地址加载到iframe中
             contentFrame.src = `${protocol}//${currentUrl.host}/1.0.221_JuheH5.html?${gameUrl.searchParams.toString()}`;
         })
         .catch(error => {
             console.error('Error:', error);
             alert('验证openID失败');
+            document.getElementById('overlay').style.display = 'none';
         });
 }
 

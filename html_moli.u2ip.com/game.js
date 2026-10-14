@@ -46,7 +46,7 @@ function checkAccessToken() {
             if (response.status === 401) {
                 // token无效或过期
                 localStorage.removeItem('accessToken');
-                // window.location.href = '/';
+                window.location.href = 'http://g.toolsa.cn/home';
                 return false;
             }
             return response.json();
@@ -58,14 +58,14 @@ function checkAccessToken() {
             // 验证失败
             localStorage.removeItem('accessToken');
             alert('登录会话超时，请重新登录');
-            // window.location.href = '/';
+            window.location.href = 'http://g.toolsa.cn/home';
             return false;
         })
         .catch(error => {
             console.error('验证token失败:', error);
             alert('登录会话超时，请重新登录');
             localStorage.removeItem('accessToken');
-            // window.location.href = '/';
+            window.location.href = 'http://g.toolsa.cn/home';
             return false;
         });
 }

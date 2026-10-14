@@ -52,7 +52,7 @@ function _login(a, t, n) {
 
 
 function _getLoginToken(account, password) {
-    const url = "http://101.201.53.154:81/moli/sdk/api/" + VERSION_URL + "/player/login"
+    const url = "http://g.toolsa.cn:81/moli/sdk/api/" + VERSION_URL + "/player/login"
     // let extension = getURLParameters();
     // console.log("extension", extension);
 

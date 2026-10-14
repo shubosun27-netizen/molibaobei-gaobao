@@ -1,17 +1,20 @@
 import sqlite3
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, make_response
 import jwt
 import datetime
-from functools import wraps  # 添加这行导入
-import json  # 新增导入json模块
-from flask import request
 from functools import wraps
+import json
 import time
+import hmac
+import hashlib
+import base64
 from rpa import get_hebei_gov
 
 
 app = Flask(__name__)
-app.config["SECRET_KEY"] = "1qaz@WSX!@#"  # 用于生成token的密钥
+app.config["SECRET_KEY"] = "1qaz@WSX!@#"
+GAME_TOKEN_TTL = 3600
+GAME_TOKEN_SECRET = "mtga_game_token_secret_2026_change_me"
 
 
 # 初始化数据库
@@ -272,6 +275,34 @@ def register():
         conn.close()
 
 
+# ========== gameToken 无状态 HMAC 签名工具 ==========
+def _generate_game_token(open_id, user_id, ttl=GAME_TOKEN_TTL):
+    expires = int(time.time()) + ttl
+    raw = f"{open_id}:{user_id}:{expires}"
+    sig = hmac.new(GAME_TOKEN_SECRET.encode(), raw.encode(), hashlib.sha256).hexdigest()[:16]
+    token = f"{raw}.{sig}"
+    return base64.urlsafe_b64encode(token.encode()).decode().rstrip("=")
+
+
+def _verify_game_token(token, open_id=None):
+    try:
+        padded = token + "=" * (-len(token) % 4)
+        decoded = base64.urlsafe_b64decode(padded.encode()).decode()
+        open_id_t, user_id_t, expires_str, sig = decoded.rsplit(".", 1)
+        if int(expires_str) < time.time():
+            return None
+        raw = f"{open_id_t}:{user_id_t}:{expires_str}"
+        expected = hmac.new(GAME_TOKEN_SECRET.encode(), raw.encode(), hashlib.sha256).hexdigest()[:16]
+        if not hmac.compare_digest(sig, expected):
+            return None
+        if open_id and open_id != open_id_t:
+            return None
+        return (int(user_id_t), open_id_t)
+    except Exception:
+        return None
+# =================================================
+
+
 @app.route("/v1/3rd/api/verifyOpenID", methods=["POST"])
 @token_required
 def verifyOpenID(current_user):
@@ -285,21 +316,41 @@ def verifyOpenID(current_user):
     c = conn.cursor()
 
     try:
-        # 查询当前用户的openID
-        c.execute(
-            "SELECT * FROM user_game_ids WHERE user_id = (SELECT id FROM users WHERE phone = ?) AND game_id = ?",
-            (current_user, openID),
-        )
-        result = c.fetchone()
+        c.execute("SELECT id, expire_date FROM users WHERE phone = ?", (current_user,))
+        user = c.fetchone()
+        if not user:
+            return jsonify({"success": False, "message": "用户不存在"})
+        user_id, expire_str = user[0], user[1]
 
-        if not result:
+        c.execute(
+            "SELECT 1 FROM user_game_ids WHERE user_id = ? AND game_id = ?",
+            (user_id, openID),
+        )
+        if not c.fetchone():
             return jsonify({"success": False, "message": "该openID未注册"})
 
-        return jsonify({"success": True})
+        if datetime.datetime.fromisoformat(expire_str) < datetime.datetime.now():
+            return jsonify({"success": False, "message": "账号已过期"})
+
+        game_token = _generate_game_token(openID, user_id)
+        return jsonify({"success": True, "gameToken": game_token})
     except Exception as e:
         return jsonify({"success": False, "message": str(e)})
     finally:
         conn.close()
+
+
+@app.route("/v1/3rd/api/verifyGameToken", methods=["GET"])
+def verifyGameToken():
+    token = request.args.get("token", "")
+    open_id = request.args.get("openID", "")
+
+    if not token or not open_id:
+        return make_response("forbidden", 403)
+
+    if _verify_game_token(token, open_id=open_id):
+        return make_response("ok", 200)
+    return make_response("forbidden", 403)
 
 
 @app.route("/v1/3rd/api/getUsers", methods=["GET"])

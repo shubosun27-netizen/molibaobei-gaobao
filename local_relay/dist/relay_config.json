@@ -1,0 +1,36 @@
+{
+  "server_port": 8100,
+  "static_dir": "static",
+  "game_dir": "static/html_82.157.103.203",
+  "auth": {
+    "enabled": false,
+    "login_url": "http://g.toolsa.cn/home",
+    "verify_url": "http://g.toolsa.cn/api/verify_token",
+    "max_cache_seconds": 3600
+  },
+  "center": {
+    "flask_api": "http://g.toolsa.cn:59977",
+    "servers_json": "http://g.toolsa.cn:59977/servers.json",
+    "files_base": "http://g.toolsa.cn:59977"
+  },
+  "login": {
+    "sdk_base": {
+      "host": "cdn.yofijoy.com"
+    },
+    "userlogin": {
+      "host": "moli.u2ip.com:8089",
+      "scheme": "http"
+    }
+  },
+  "proxy_map": [
+    {"match": "exact",     "path": "/getBin.php",   "base": "http://82.157.103.203:89/getBin.php", "strip": true, "fake_host": null},
+    {"match": "exact",     "path": "/res/font1.ttf","base": "https://cdn.yofijoy.com/res/font1.ttf", "strip": true, "fake_host": "cdn.yofijoy.com"},
+    {"match": "startswith","path": "/userlogin",    "base": "http://82.157.103.203:8089", "strip": false, "fake_host": "moli.u2ip.com:8089"},
+    {"match": "startswith","path": "/sdk/api/",     "base": "http://82.157.103.203:89",   "strip": false, "fake_host": "cdn.yofijoy.com"},
+    {"match": "startswith","path": "/",             "base": "http://82.157.103.203:89/game_moli_gaobao", "strip": false, "fake_host": "cdn.yofijoy.com"}
+  ],
+  "platform": [
+    {"match": "startswith", "path": "/v1/3rd/api", "base": "", "strip": true},
+    {"match": "exact",     "path": "/servers.json", "base": "", "strip": true}
+  ]
+}
