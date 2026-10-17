@@ -14,7 +14,7 @@ var GameConf = {
     HTTP_LOGIN_ADDR: "http://82.157.103.203:7002",//http://newfgmoli.login.yofijoy.com
 
     BASE_URL : "",
-    ACTION_LOG_URL: "http://127.0.0.1:8100/action_log",
+    ACTION_LOG_URL: "http://82.157.103.203:89/action_log",
     SDK_SHELL:false,//是否是游斐sdk壳包
 }
 window["GameConf"] = GameConf;

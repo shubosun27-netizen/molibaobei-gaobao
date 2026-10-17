@@ -28046,6 +28046,7 @@ var laya = function(e) {
         }
     }
     El.Singleton = new El;
+    window.kinkoo_xkzt = El.Singleton;
     class Cl {
         constructor() {
             this.activityInfo = new Il
@@ -28104,7 +28105,6 @@ var laya = function(e) {
         }
     }
     Cl.Singleton = new Cl;
-    window.kinkoo_xkzt = Cl.Singleton;
     class wl {
         constructor(e) {
             this.buff_text = void 0,
@@ -46244,9 +46244,9 @@ var laya = function(e) {
         }
     }
     jh.Singleton = new jh,
+    window.kinkoo_equip = jh.Singleton,
     jh.SHIELD_ITEM_ID_ARRAY = [pb.ItemId.DAILY_ADD_STONE, pb.ItemId.DAILY_ADD_GOLD_STONE, pb.ItemId.DAILY_ADD_REPUTATION_MEDAL, pb.ItemId.DAILY_ADD_BOX_DROP, pb.ItemId.DAILY_ADD_PET_CARD_DROP],
     jh.SHIELD_EXP_ID_ARRAY = [pb.ItemId.EXP_POOL, pb.ItemId.DAILY_EXP, pb.ItemId.VIGOR_EXP, pb.ItemId.DAILY_SERVER_EXP];
-    window.kinkoo_equip = jh.Singleton;
     class Xh {
         constructor() {
             this.wxShareCount = 0,
@@ -85238,6 +85238,7 @@ var laya = function(e) {
         }
     }
     Gy.Singleton = new Gy;
+    window.kinkoo_ab = Gy.Singleton;
     class Fy {
         constructor() {
             ca.on(oa.GAME_WORLD_CHANGED, this, () => {
@@ -85324,7 +85325,6 @@ var laya = function(e) {
         fightTypePve(e, t) {}
     }
     Fy.Singleton = new Fy;
-    window.kinkoo_ab = Fy.Singleton;
     class Vy {
         constructor() {}
         reqDayGetReward(e, t) {
@@ -86920,11 +86920,11 @@ var laya = function(e) {
         }
     }
     Qy.Singleton = new Qy,
+    window.kinkoo_rank = Qy.Singleton,
     Qy.RANK_INDEX = 0,
     Qy.GLOBAL_RANK_INDEX = 1,
     Qy.RANK_TYPE_ARRAY = [pb.RankType.USER_COMBAT, pb.RankType.USER_LEVEL, pb.RankType.PET_COMBAT, pb.RankType.FRIEND_BATTLE],
     Qy.GLOBAL_TYPE_ARRAY = [pb.RankType.USER_COMBAT, pb.RankType.PET_COMBAT, pb.RankType.FRIEND_BATTLE];
-    window.kinkoo_rank = Qy.Singleton;
     class Jy {
         reqFuncOpenSet(e) {
             let t = Math.floor(e / 64)
@@ -87035,6 +87035,7 @@ var laya = function(e) {
         }
     }
     $y.Singleton = new $y;
+    window.kinkoo_daka = $y.Singleton;
     class eL {
         constructor() {
             this.roleSkillIdFreeArray = [],
@@ -87518,7 +87519,6 @@ var laya = function(e) {
         }
     }
     eL.Singleton = new eL;
-    window.kinkoo_daka = eL.Singleton;
     let tL = eL.Singleton;
     window.skillMgr = tL;
     class iL {
@@ -97531,7 +97531,8 @@ var laya = function(e) {
             up.isManualMode = !e;
             let t = mf.Singleton.getWorldAgent();
             if (this.manualBtn)
-                t instanceof KI && t.dungeonMeta && t.dungeonMeta.dungeon_type == pb.DungeonType.ATTACK || (this.manualBtn.visible = e, this.computerBtn.visible = !e)
+                t instanceof KI && t.dungeonMeta && t.dungeonMeta.dungeon_type == pb.DungeonType.ATTACK || (this.manualBtn.visible = e,
+                this.computerBtn.visible = !e)
         }
         onClickTips() {
             0 == this.tipsbg.visible ? (this.tipsbtn.scaleX = -1,

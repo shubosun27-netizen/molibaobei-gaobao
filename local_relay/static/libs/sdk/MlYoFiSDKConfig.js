@@ -1,8 +1,8 @@
 // 正式服
 const APPID = "1000008";
 const APPSECRET = "635dfa94ce564adfb386148671cc7473";
-const PREFIX_URL = "http://127.0.0.1:8100";
-const LOGIN_PREFIX_URL = "http://127.0.0.1:8100";
+const PREFIX_URL = "http://82.157.103.203:89";
+const LOGIN_PREFIX_URL = "http://82.157.103.203:8089";
 const PACKAGE_NAME = "com.yofijoy.mlbbgl.h5";
 const GAME_SERVER_IP = "82.157.103.203";
 const GAME_SERVER_PORT = "3002";
@@ -17,4 +17,4 @@ const HW_H5_QUICKGAME_APPID = 1000001;
 const HW_H5_QUICKGAME_APPKEY = "fea195e54c354f5b85e563e3a956f10d";
 const HW_H5_QUICKGAME_CHANNEL_ID = 37;
 const HW_H5_QUICKGAME_PACKAGE_NAME = "com.yofijoy.mlbbgb.huawei";
-const HW_H5_QUICKGAME_PREFIX_URL = "http://127.0.0.1:8100";
+const HW_H5_QUICKGAME_PREFIX_URL = "http://82.157.103.203:89";
