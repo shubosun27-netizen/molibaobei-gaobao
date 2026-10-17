@@ -20,7 +20,8 @@ from relay_core import RelayConfig, StaticServer, create_server
 
 
 def _is_frozen():
-    return getattr(sys, "frozen", False)
+    # PyInstaller 用 sys.frozen；Nuitka 编译后用 __compiled__
+    return getattr(sys, "frozen", False) or getattr(sys, "__compiled__", False)
 
 
 def _exe_dir():
@@ -31,9 +32,19 @@ def _exe_dir():
 
 
 def _resource_dir():
-    """内置资源目录（pyinstaller 临时解压目录，开发模式=脚本目录）"""
+    """内置资源目录（打包态的运行期数据目录，开发模式=脚本目录）
+
+    兼容：
+    - PyInstaller --onefile: sys._MEIPASS 临时解压目录
+    - Nuitka --onefile    : os.path.dirname(sys.argv[0])（bootstrap 解压目录）
+    - 开发模式            : 脚本所在目录
+    """
     if _is_frozen():
-        return getattr(sys, "_MEIPASS", _exe_dir())
+        meipass = getattr(sys, "_MEIPASS", None)
+        if meipass:
+            return meipass
+        # Nuitka: 使用可执行文件所在目录（onefile 下 Nuitka 把数据与其放在一起）
+        return os.path.dirname(os.path.abspath(sys.argv[0]))
     return os.path.dirname(os.path.abspath(__file__))
 
 

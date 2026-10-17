@@ -32,7 +32,7 @@ DIST_DIR = os.path.join(LOCAL_RELAY_DIR, "dist")
 CONFIG_PATH = os.path.join(LOCAL_RELAY_DIR, "relay_config.json")
 SPEC_PATH = os.path.join(LOCAL_RELAY_DIR, "relay.spec")
 
-EXCLUDE_EXTS = {".bk", ".bak"}
+EXCLUDE_EXTS = {".bk", ".bak", ".参考"}
 
 REQUIRED_KINKOO = [
     "window.kinkoo_xkzt",

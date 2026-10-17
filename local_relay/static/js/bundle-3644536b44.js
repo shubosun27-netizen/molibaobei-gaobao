@@ -83792,7 +83792,7 @@ var laya = function(e) {
             let i = new pb.TeamMazeBattleMonsterReq;
             return i.dungeonId = e,
             i.speed = t,
-            zh.sendAndWait(i).then(e => {    
+            zh.sendAndWait(i).then((e => {    
                 _battleMonster_receiveMessage()
             }
             )).catch(error => {
@@ -88411,6 +88411,7 @@ var laya = function(e) {
         }
         send(e, t=!1) {
             let i = e.$type.name;
+            console.warn('send: ', i, e)
             if (i !== 'BeatHeartReq' && i !== 'SysAppInBackRpt') {
                 console.log(i, e)
             };
