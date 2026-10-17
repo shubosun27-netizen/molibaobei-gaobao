@@ -85,8 +85,8 @@ loadLib("libs/proto/proto_1.0.73.js");
 loadLib("app.js");
 // loadLib("outjs/app.c70ff0a6bb14c77adfca.bundle.js");
 
-// loadLib("js/bundle-3644536b44.js");
-loadLib("js/bundle-b2769b7ce8.js?v=1.0.73");
+loadLib("js/bundle-3644536b44.js?v=1.0.73");
+// loadLib("js/bundle-b2769b7ce8.js?v=1.0.73");
 // loadLib("js/bundle-b2769b7ce8.js");
 //<!--game-file-end-->
 

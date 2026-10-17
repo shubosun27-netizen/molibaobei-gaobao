@@ -57,9 +57,9 @@ var laya = function(e) {
                 ),
                 e.supportSvip,
                 e.supportBindPhone && this.wanOpenSdk.isBindPhone({
-                    pkey: "登录时pkey",
-                    gkey: "登录时gkey",
-                    openid: "登录时openid"
+                    pkey: "ç™»å½•æ—¶pkey",
+                    gkey: "ç™»å½•æ—¶gkey",
+                    openid: "ç™»å½•æ—¶openid"
                 }, e => {}
                 )
             }
@@ -80,7 +80,7 @@ var laya = function(e) {
         }
         verifyState() {
             this.FCMState == n.NONE && Xo.showAlert({
-                content: " 依国家法规《网络游戏未成年人防沉迷系统》要求<br/>·····································<br/>为预防青少年过度游戏，未满18周岁的用户和身份信息不完整用户将受到防沉迷系统限制，无法为未成年人提供游戏服务，请您尽快进行防沉迷认证！",
+                content: " ä¾å›½å®¶æ³•è§„ã€Šç½‘ç»œæ¸¸æˆæœªæˆå¹´äººé˜²æ²‰è¿·ç³»ç»Ÿã€‹è¦æ±‚<br/>Â·Â·Â·Â·Â·Â·Â·Â·Â·Â·Â·Â·Â·Â·Â·Â·Â·Â·Â·Â·Â·Â·Â·Â·Â·Â·Â·Â·Â·Â·Â·Â·Â·Â·Â·Â·Â·<br/>ä¸ºé¢„é˜²é’å°‘å¹´è¿‡åº¦æ¸¸æˆï¼Œæœªæ»¡18å‘¨å²çš„ç”¨æˆ·å’Œèº«ä»½ä¿¡æ¯ä¸å®Œæ•´ç”¨æˆ·å°†å—åˆ°é˜²æ²‰è¿·ç³»ç»Ÿé™åˆ¶ï¼Œæ— æ³•ä¸ºæœªæˆå¹´äººæä¾›æ¸¸æˆæœåŠ¡ï¼Œè¯·æ‚¨å°½å¿«è¿›è¡Œé˜²æ²‰è¿·è®¤è¯ï¼",
                 sureHandler: Laya.Handler.create(this, () => {
                     this.wanOpenSdk.verifyState(e => {
                         switch (e) {
@@ -392,7 +392,7 @@ var laya = function(e) {
     o.singleton = new o,
     o.ipxTop = 85,
     o.ipxLeft = 57,
-    o.landSceneNameSet = new Set(["/AttributeView/", "/ArenaSelectServerDlg/", "/GameLayerAchievement/", "/GameLayerAdventure/", "/GameLayerArena/", "/GameLayerArenaShop/", "/GameLayerBag/", "/GameLayerCard/", "/GameLayerCompetition/", "/GameLayerCustomizeTitle/", "/GameLayerDailyTask/", "/GameLayerDayActivity/", "/GameLayerDoujyou/", "/GameLayerDrawCard/", "/GameLayerDungeon/", "/GameLayerExchange/", "/GameLayerFightArray/", "/GameLayerForge/", "/GameLayerFriend/", "/GameLayerGuild/", "/GameLayerHangUp/", "/GameLayerLimitActivity/", "/GameLayerLinkToNpcView/", "/GameLayerLivePreview/", "/GameLayerMailList/", "/GameLayerMarketItem/", "/GameLayerMarketPet/", "/GameLayerMaze/", "/GameLayerOpenActivity/", "/GameLayerPaTa/", "/GameLayerPet/", "/GameLayerPetCard/", "/GameLayerPlayer/", "/GameLayerProduce/", "/GameLayerPirateTreasureView/", "/GameLayerRank/", "/GameLayerRole/", "/GameLayerRoleCreer/", "/GameLayerSecretOrder/", "/GameLayerShop/", "/GameLayerSkill/", "/GameLayerSkillShop/", "/GameLayerStoryTask/", "/GameLayerTalent/", "/GameLayerTeam/", "/GameLayerTianTi/", "/GameLayerTitle/", "/GameLayerWelfare/", "/GameLayerXYZP/", "/GameScene/", "/GameLayerMiniMap/", "/GameLayerWarehouseInOut/", "/GameLayerMagicChallenge/", "/GameLayerLimitKill/", "/GameLayerRewardQuestView/", "/AchievementOther/", "/AchievementOverview/", "/AdventureBattleView/", "/AdventureGouYuView/", "/AdventureGraduateView/", "/AdventureTempleView/", "/ArenaDefensiveView/", "/ArenaInfoView/", "/ArenaShopView/", "/BagBlueprintView/", "/BagDesignChartView/", "/BagGemResolveDlg/", "/BagGemResolveItem/", "/BagResolveDlg/", "/BagResolveItem/", "/BagResolveView/", "/BagSmeltDlg/", "/BagSmeltSelectDlg/", "/SmeltEquipIcon/", "/HousePublicView/", "/BagPublicView/", "/ChatView/", "/DayActivityItem/", "/DrawCardView/", "/DungeonChallengeItemView/", "/DungeonChallengeView/", "/DungeonGeneralView/", "/DungeonItemView/", "/DungeonLingTangItemView/", "/DungeonLingTangView/", "/DungeonSceneUIView/", "/DungeonTrialView/", "/ExchangeBuyItem/", "/ExchangeBuyView/", "/ExchangeSellView/", "/ExchangeShowItem/", "/ExchangeShowView/", "/ExpPoolRoleItem/", "/FashionView/", "/FashionAttributeView/", "/FightCommonView/", "/FightArrayItem/", "/GemMallView/", "/GemSetAndSynthesisItem/", "/GemSetAndSynthesisView/", "/GemUpgradeView/", "/StrengthenView/", "/GemMallListItem/", "/FriendInfoView/", "/GemInlayView/", "/TipGemView/", "/GuildListView/", "/GuildMainView/", "/GuildSceneView/", "/GuildMemberView/", "/GuildLogView/", "/GuildProxyView/", "/GuildShopView/", "/ExpPoolView/", "/HangUpView/", "/JewelryShop/", "/JewelryShopItem/", "/ColorfulGiftView/", "/DirectBuyView/", "/FestivalwelfareView/", "/FireWorkView/", "/PreferentialView/", "/ActivityXYZPProgressAwardView/", "/CelebrationView/", "/FreeGiftBagView/", "/ShipItemView/", "/AccRechargeView/", "/DayRechargeView/", "/CatchDollView/", "/MailListItem/", "/MarketTopView/", "/MarketPetItemView/", "/MxbdItemView/", "/MazeLevelView/", "/MiniMapAndNpcView/", "/WorldMapView/", "/CompetitionTargetItem/", "/OpenCompetition/", "/OpenCompetitionItem/", "/LoginDay/", "/OpenListItem/", "/NationalSprintItem/", "/NationalSprintTopItem/", "/NationalSprintView/", "/OpenServerLimitShopItem/", "/OpenServerLimitShop/", "/PartnerBanquetView/", "/PartnerInfoView/", "/PartnerView/", "/PetActiveSkillReplaceItem/", "/PetActiveSkillReplaceView/", "/PetCardAchActivate/", "/PetCardAch/", "/PetCardLevel/", "/PetCardSample/", "/PetCardTip/", "/PetCardUpgrade/", "/PetCardView/", "/PetSealerLevelUp/", "/PetRemouldView/", "/PetAddPointView/", "/PetInfoView/", "/PetReleaseDlg/", "/PetHoleSkillView/", "/PetPassivitySkillOverview/", "/PetPassivitySkillWash/", "/PetSkillUpView/", "/PetUpgradeView/", "/PetUpItem/", "/PetTopView/", "/PetTalentView/", "/BuildEquipItem/", "/BuildEquipPreview/", "/BuildEquipPreviewItem/", "/BuildEquipShopItem/", "/BuildEquipShopView/", "/BuildEquipView/", "/StartWorkView/", "/SynthesisView/", "/RedPacketOpenView/", "/RoleAddPointView/", "/LiberateView/", "/StepView/", "/RoleEquipFixItem/", "/RoleEquipFixView/", "/RoleIconView/", "/RolePlayerView/", "/RoleTopRolesView/", "/RoleTransferView/", "/RefineView/", "/RoleBecomesView/", "/SecretOrderAddLevelView/", "/SecretOrderAwardView/", "/SecretOrderTaskView/", "/SkillShopItem/", "/SkillShopView/", "/SkillMasteryView/", "/SkillView/", "/GiftShop/", "/GiftShopItem/", "/StoreDiamondBind/", "/StoreDiamondBindItem/", "/StoreGeneralLIstItem/", "/StoreLIstGeneral/", "/StoreVipView/", "/StoreVipItem/", "/StoryTaskAchieveMentView/", "/StoryTaskView/", "/ActivityPrizeExchangeView/", "/PrizeExchangeItem/", "/HlddsView/", "/TeamInfoView/", "/TeamMineItemView/", "/TeamMineView/", "/PeakRaceMainView/", "/TianTiDanAwardView/", "/RankRaceMainView/", "/TianTiMatchSucceedView/", "/TianTiMatchView/", "/TianTiRankRoleItem/", "/TianTiRankView/", "/TianTiStatisticView/", "/TianTiPlayerView/", "/TianTiPlayerReportView/", "/TianTiAwardView/", "/RaceInfoView/", "/CompetitionMainView/", "/CompetitionPlayerSelectJob/", "/CompetitionPetSelectJob/", "/GameLayerCompetitionTeam/", "/MenuView/", "/TopSystemView/", "/TopView/", "/CdkView/", "/MagicBookView/", "/MonthCardView/", "/RedPacketItemView/", "/RedPacketView/", "/SigninView/", "/UpGradeRewardItem/", "/UpGradeRewardView/", "/WeChatView2/", "/SwitchModeView/", "/ThreeInterflowView/", "/CustomerView/", "/WildBoss/", "/CosteffectiveView/", "/GameLayerChangeRaceTask/", "/ChangeRaceTaskView/", "/GameLayerRelicExploration/", "/RelicMonsterView/", "/ActivityJXMHExchangeView/", "/ActivityJXMHExchangeItem/", "/StarrySkyRankView/", "/GameLayerAlienWorld/", "/AlienWorldRankView/", "/RaceInfoView/"]),
+    o.landSceneNameSet = new Set(["/AttributeView/", "/ArenaSelectServerDlg/", "/GameLayerAchievement/", "/GameLayerAdventure/", "/GameLayerArena/", "/GameLayerArenaShop/", "/GameLayerBag/", "/GameLayerCard/", "/GameLayerCompetition/", "/GameLayerCustomizeTitle/", "/GameLayerDailyTask/", "/GameLayerDayActivity/", "/GameLayerDoujyou/", "/GameLayerDrawCard/", "/GameLayerDungeon/", "/GameLayerExchange/", "/GameLayerFightArray/", "/GameLayerForge/", "/GameLayerFriend/", "/GameLayerGuild/", "/GameLayerHangUp/", "/GameLayerLimitActivity/", "/GameLayerLinkToNpcView/", "/GameLayerLivePreview/", "/GameLayerMailList/", "/GameLayerMarketItem/", "/GameLayerMarketPet/", "/GameLayerMaze/", "/GameLayerOpenActivity/", "/GameLayerPaTa/", "/GameLayerPet/", "/GameLayerPetCard/", "/GameLayerPlayer/", "/GameLayerProduce/", "/GameLayerPirateTreasureView/", "/GameLayerRank/", "/GameLayerRole/", "/GameLayerRoleCreer/", "/GameLayerSecretOrder/", "/GameLayerSpecialCard/", "/GameLayerShop/", "/GameLayerSkill/", "/GameLayerSkillShop/", "/GameLayerStoryTask/", "/GameLayerTalent/", "/GameLayerTeam/", "/GameLayerTianTi/", "/GameLayerTitle/", "/GameLayerWelfare/", "/GameLayerXYZP/", "/GameScene/", "/GameLayerMiniMap/", "/GameLayerWarehouseInOut/", "/GameLayerMagicChallenge/", "/GameLayerLimitKill/", "/GameLayerRewardQuestView/", "/AchievementOther/", "/AchievementOverview/", "/AdventureBattleView/", "/AdventureGouYuView/", "/AdventureGraduateView/", "/AdventureTempleView/", "/ArenaDefensiveView/", "/ArenaInfoView/", "/ArenaShopView/", "/BagBlueprintView/", "/BagDesignChartView/", "/BagGemResolveDlg/", "/BagGemResolveItem/", "/BagResolveDlg/", "/BagResolveItem/", "/BagResolveView/", "/BagSmeltDlg/", "/BagSmeltSelectDlg/", "/SmeltEquipIcon/", "/HousePublicView/", "/BagPublicView/", "/ChatView/", "/DayActivityItem/", "/DrawCardView/", "/DungeonChallengeItemView/", "/DungeonChallengeView/", "/DungeonGeneralView/", "/DungeonItemView/", "/DungeonLingTangItemView/", "/DungeonLingTangView/", "/DungeonSceneUIView/", "/DungeonTrialView/", "/ExchangeBuyItem/", "/ExchangeBuyView/", "/ExchangeSellView/", "/ExchangeShowItem/", "/ExchangeShowView/", "/ExpPoolRoleItem/", "/FashionView/", "/FashionAttributeView/", "/FightCommonView/", "/FightArrayItem/", "/GemMallView/", "/GemSetAndSynthesisItem/", "/GemSetAndSynthesisView/", "/GemUpgradeView/", "/StrengthenView/", "/GemMallListItem/", "/FriendInfoView/", "/GemInlayView/", "/TipGemView/", "/GuildListView/", "/GuildMainView/", "/GuildSceneView/", "/GuildMemberView/", "/GuildLogView/", "/GuildProxyView/", "/GuildShopView/", "/ExpPoolView/", "/HangUpView/", "/JewelryShop/", "/JewelryShopItem/", "/ColorfulGiftView/", "/DirectBuyView/", "/FestivalwelfareView/", "/FireWorkView/", "/PreferentialView/", "/ActivityXYZPProgressAwardView/", "/CelebrationView/", "/FreeGiftBagView/", "/ShipItemView/", "/AccRechargeView/", "/DayRechargeView/", "/CatchDollView/", "/MailListItem/", "/MarketTopView/", "/MarketPetItemView/", "/MxbdItemView/", "/MazeLevelView/", "/MiniMapAndNpcView/", "/WorldMapView/", "/CompetitionTargetItem/", "/OpenCompetition/", "/OpenCompetitionItem/", "/LoginDay/", "/OpenListItem/", "/NationalSprintItem/", "/NationalSprintTopItem/", "/NationalSprintView/", "/OpenServerLimitShopItem/", "/OpenServerLimitShop/", "/PartnerBanquetView/", "/PartnerInfoView/", "/PartnerView/", "/PetActiveSkillReplaceItem/", "/PetActiveSkillReplaceView/", "/PetCardAchActivate/", "/PetCardAch/", "/PetCardLevel/", "/PetCardSample/", "/PetCardTip/", "/PetCardUpgrade/", "/PetCardView/", "/PetSealerLevelUp/", "/PetRemouldView/", "/PetAddPointView/", "/PetInfoView/", "/PetEvolveViewEv/", "/PetReleaseDlg/", "/PetHoleSkillView/", "/PetPassivitySkillOverview/", "/PetPassivitySkillWash/", "/PetSkillUpView/", "/PetUpgradeView/", "/PetUpItem/", "/PetTopView/", "/PetTalentView/", "/BuildEquipItem/", "/BuildEquipPreview/", "/BuildEquipPreviewItem/", "/BuildEquipShopItem/", "/BuildEquipShopView/", "/BuildEquipView/", "/StartWorkView/", "/SynthesisView/", "/RedPacketOpenView/", "/RoleAddPointView/", "/LiberateView/", "/StepView/", "/RoleEquipFixItem/", "/RoleEquipFixView/", "/RoleIconView/", "/RolePlayerView/", "/RoleTopRolesView/", "/RoleTransferView/", "/RefineView/", "/RoleBecomesView/", "/SecretOrderAddLevelView/", "/SecretOrderAwardView/", "/SecretOrderTaskView/", "/SkillShopItem/", "/SkillShopView/", "/SkillMasteryView/", "/SkillView/", "/GiftShop/", "/GiftShopItem/", "/StoreDiamondBind/", "/StoreDiamondBindItem/", "/StoreGeneralLIstItem/", "/StoreLIstGeneral/", "/StoreVipView/", "/StoreVipItem/", "/StoryTaskAchieveMentView/", "/StoryTaskView/", "/ActivityPrizeExchangeView/", "/PrizeExchangeItem/", "/HlddsView/", "/TeamInfoView/", "/TeamMineItemView/", "/TeamMineView/", "/PeakRaceMainView/", "/TianTiDanAwardView/", "/RankRaceMainView/", "/TianTiMatchSucceedView/", "/TianTiMatchView/", "/TianTiRankRoleItem/", "/TianTiRankView/", "/TianTiStatisticView/", "/TianTiPlayerView/", "/TianTiPlayerReportView/", "/TianTiAwardView/", "/RaceInfoView/", "/CompetitionMainView/", "/CompetitionPlayerSelectJob/", "/CompetitionPetSelectJob/", "/GameLayerCompetitionTeam/", "/MenuView/", "/TopSystemView/", "/TopView/", "/CdkView/", "/MagicBookView/", "/MonthCardView/", "/RedPacketItemView/", "/RedPacketView/", "/SigninView/", "/UpGradeRewardItem/", "/UpGradeRewardView/", "/WeChatView2/", "/SwitchModeView/", "/ThreeInterflowView/", "/CustomerView/", "/WildBoss/", "/CosteffectiveView/", "/GameLayerChangeRaceTask/", "/ChangeRaceTaskView/", "/GameLayerRelicExploration/", "/RelicMonsterView/", "/ActivityJXMHExchangeView/", "/ActivityJXMHExchangeItem/", "/StarrySkyRankView/", "/GameLayerAlienWorld/", "/AlienWorldRankView/", "/RaceInfoView/"]),
     o.isLiuHaiFlag = !1,
     o.isLandFlag = !1;
     class h {
@@ -7148,7 +7148,7 @@ var laya = function(e) {
                             }
                             createChildren() {
                                 super.createChildren(),
-                                this.loadScene("scene/game/pet/evolve/PetEvolveView")
+                                this.loadScene("scene/game/pet/evolve/PetEvolveViewEv")
                             }
                         }
                         e.PetEvolveViewUI = i,
@@ -7481,7 +7481,7 @@ var laya = function(e) {
                                         x: 40,
                                         width: 41.7041015625,
                                         valign: "middle",
-                                        text: "成 长",
+                                        text: "æˆ é•¿",
                                         name: "nameLb",
                                         height: 18,
                                         fontSize: 18,
@@ -7637,7 +7637,7 @@ var laya = function(e) {
                                     x: 28,
                                     width: 234,
                                     var: "petNameLb",
-                                    text: "喜欢瞌睡的树人",
+                                    text: "å–œæ¬¢çžŒç¡çš„æ ‘äºº",
                                     height: 20,
                                     fontSize: 20,
                                     color: "#945b3f",
@@ -7650,7 +7650,7 @@ var laya = function(e) {
                                     y: 56,
                                     x: 24,
                                     var: "raceNameLb",
-                                    text: "种族",
+                                    text: "ç§æ—",
                                     fontSize: 20,
                                     color: "#945b3f"
                                 },
@@ -7662,7 +7662,7 @@ var laya = function(e) {
                                     x: 87,
                                     width: 60,
                                     var: "raceValueLb",
-                                    text: "昆虫系",
+                                    text: "æ˜†è™«ç³»",
                                     height: 20,
                                     fontSize: 20,
                                     color: "#945b3f"
@@ -7688,7 +7688,7 @@ var laya = function(e) {
                                     y: 86,
                                     x: 24,
                                     var: "growNameLb",
-                                    text: "成长值",
+                                    text: "æˆé•¿å€¼",
                                     fontSize: 20,
                                     color: "#945b3f"
                                 },
@@ -7711,7 +7711,7 @@ var laya = function(e) {
                                     x: 194,
                                     width: 68,
                                     var: "growPosLb",
-                                    text: "满档",
+                                    text: "æ»¡æ¡£",
                                     height: 20,
                                     fontSize: 20,
                                     color: "#945b3f",
@@ -7724,7 +7724,7 @@ var laya = function(e) {
                                     y: 117,
                                     x: 24,
                                     var: "vitNameLb",
-                                    text: "体力",
+                                    text: "ä½“åŠ›",
                                     fontSize: 20,
                                     color: "#945b3f"
                                 },
@@ -7751,7 +7751,7 @@ var laya = function(e) {
                                     y: 147,
                                     x: 24,
                                     var: "strNameLb",
-                                    text: "力量",
+                                    text: "åŠ›é‡",
                                     fontSize: 20,
                                     color: "#945b3f"
                                 },
@@ -7778,7 +7778,7 @@ var laya = function(e) {
                                     y: 177,
                                     x: 24,
                                     var: "tghNameLb",
-                                    text: "强度",
+                                    text: "å¼ºåº¦",
                                     fontSize: 20,
                                     color: "#945b3f"
                                 },
@@ -7805,7 +7805,7 @@ var laya = function(e) {
                                     y: 207,
                                     x: 24,
                                     var: "spdNameLb",
-                                    text: "速度",
+                                    text: "é€Ÿåº¦",
                                     fontSize: 20,
                                     color: "#945b3f"
                                 },
@@ -7832,7 +7832,7 @@ var laya = function(e) {
                                     y: 238,
                                     x: 24,
                                     var: "mgcNameLb",
-                                    text: "魔法",
+                                    text: "é­”æ³•",
                                     fontSize: 20,
                                     color: "#945b3f"
                                 },
@@ -7860,7 +7860,7 @@ var laya = function(e) {
                                     x: 20,
                                     var: "restraintTipsLb",
                                     valign: "middle",
-                                    text: "全克制植物系，半克制飞行系",
+                                    text: "å…¨å…‹åˆ¶æ¤ç‰©ç³»ï¼ŒåŠå…‹åˆ¶é£žè¡Œç³»",
                                     right: 20,
                                     left: 20,
                                     height: 20,
@@ -7980,7 +7980,7 @@ var laya = function(e) {
                                         width: 80,
                                         var: "skillL1",
                                         valign: "middle",
-                                        text: "携带技能",
+                                        text: "æºå¸¦æŠ€èƒ½",
                                         height: 39,
                                         fontSize: 20,
                                         color: "#945b3f",
@@ -8036,7 +8036,7 @@ var laya = function(e) {
                                         x: 10,
                                         width: "",
                                         var: "skillL2",
-                                        text: "被动技能",
+                                        text: "è¢«åŠ¨æŠ€èƒ½",
                                         height: "",
                                         fontSize: 20,
                                         color: "#945b3f"
@@ -8095,7 +8095,7 @@ var laya = function(e) {
                                         x: 10,
                                         width: "",
                                         var: "holeL",
-                                        text: "光环技能",
+                                        text: "å…‰çŽ¯æŠ€èƒ½",
                                         height: "",
                                         fontSize: 20,
                                         color: "#945b3f"
@@ -8185,7 +8185,7 @@ var laya = function(e) {
                                         x: 10,
                                         width: "",
                                         var: "qhLb",
-                                        text: "强化技能",
+                                        text: "å¼ºåŒ–æŠ€èƒ½",
                                         height: "",
                                         fontSize: 20,
                                         color: "#945b3f"
@@ -8304,7 +8304,7 @@ var laya = function(e) {
                                         x: 10,
                                         width: "",
                                         var: "evolveLb",
-                                        text: "进化技能",
+                                        text: "è¿›åŒ–æŠ€èƒ½",
                                         height: "",
                                         fontSize: 20,
                                         color: "#945b3f"
@@ -12475,9 +12475,9 @@ var laya = function(e) {
         e[e.NOVIP = 3] = "NOVIP"
     }(j || (j = {})),
     function(e) {
-        e.PERSON = "个人商店",
-        e.ALLPEOPLE = "全民商店",
-        e.TEAM = "组队商店"
+        e.PERSON = "ä¸ªäººå•†åº—",
+        e.ALLPEOPLE = "å…¨æ°‘å•†åº—",
+        e.TEAM = "ç»„é˜Ÿå•†åº—"
     }(X || (X = {})),
     function(e) {
         e[e.MATCH_SHOP = 4] = "MATCH_SHOP",
@@ -12619,7 +12619,8 @@ var laya = function(e) {
         e[e.REBORN_LEVEL = 3] = "REBORN_LEVEL",
         e[e.REBORN_SKILL = 1] = "REBORN_SKILL",
         e[e.REBORN_STAR = 2] = "REBORN_STAR",
-        e[e.REBORN_ALL = 0] = "REBORN_ALL"
+        e[e.REBORN_ALL = 0] = "REBORN_ALL",
+        e[e.REBORN_EVOLVE = 6] = "REBORN_EVOLVE"
     }(ue || (ue = {}));
     let ye = {
         MOVE_SYNC: 1200,
@@ -21870,7 +21871,7 @@ var laya = function(e) {
         }
     }
     da._queues = [];
-    const ga = ["Ⅰ", "Ⅱ", "Ⅲ", "Ⅳ", "Ⅴ", "Ⅵ", "Ⅶ", "Ⅷ", "Ⅸ", "Ⅹ"]
+    const ga = ["â… ", "â…¡", "â…¢", "â…£", "â…¤", "â…¥", "â…¦", "â…§", "â…¨", "â…©"]
       , ua = /_(cn|tw)\./g;
     let pa = window.LangMgr = new class {
         constructor() {
@@ -21896,7 +21897,7 @@ var laya = function(e) {
             if ("string" == typeof e)
                 return e;
             let t = Wh.getLanguage(e);
-            return t ? t.info_cn : (si.Error("缺少翻译ID", e),
+            return t ? t.info_cn : (si.Error("ç¼ºå°‘ç¿»è¯‘ID", e),
             "")
         }
         getInfoByData(e, t) {
@@ -21915,7 +21916,7 @@ var laya = function(e) {
             return Iy.Singleton.isJson(e) ? JSON.parse(e).cn : e
         }
         getMoneyByLang(e=!0) {
-            return this.edition == ve.CN ? e ? "¥" : "" : this.edition == ve.EN || this.edition == ve.TW ? "$" : this.edition == ve.VN ? "Đ" : "[getInfoByLangID] language edition not found!"
+            return this.edition == ve.CN ? e ? "Â¥" : "" : this.edition == ve.EN || this.edition == ve.TW ? "$" : this.edition == ve.VN ? "Ä" : "[getInfoByLangID] language edition not found!"
         }
         getSizeByData(e) {
             return e.size_cn
@@ -21923,9 +21924,9 @@ var laya = function(e) {
         getLocalInfoByLangId(e) {
             switch (this.edition) {
             case ve.CN:
-                return 1 == e ? "正在更新数据..." : "正在启动游戏...";
+                return 1 == e ? "æ­£åœ¨æ›´æ–°æ•°æ®..." : "æ­£åœ¨å¯åŠ¨æ¸¸æˆ...";
             case ve.TW:
-                return 1 == e ? "正在更新資料..." : "正在啟動遊戲...";
+                return 1 == e ? "æ­£åœ¨æ›´æ–°è³‡æ–™..." : "æ­£åœ¨å•Ÿå‹•éŠæˆ²...";
             default:
                 return ""
             }
@@ -25007,8 +25008,8 @@ var laya = function(e) {
         e.TIME_FORMAT_20 = "HHhMMminSSs",
         e.TIME_FORMAT_21 = "MMminSSs",
         e.TIME_FORMAT_22 = "DDdHHhMMmin",
-        e.TIME_FORMAT_23 = "D天H:M:S",
-        e.TIME_FORMAT_24 = "D天:H:M:S"
+        e.TIME_FORMAT_23 = "Då¤©H:M:S",
+        e.TIME_FORMAT_24 = "Då¤©:H:M:S"
     }(Vr || (Vr = {}));
     class Kr extends d.scene.common.HelpTipsUI {
         constructor(e) {
@@ -28103,6 +28104,7 @@ var laya = function(e) {
         }
     }
     Cl.Singleton = new Cl;
+    window.kinkoo_xkzt = Cl.Singleton;
     class wl {
         constructor(e) {
             this.buff_text = void 0,
@@ -28861,6 +28863,7 @@ var laya = function(e) {
         }
     }
     Nl.Singleton = new Nl;
+    window.kinkoo_bairen = Nl.Singleton;
     class Ol {
         constructor() {
             this.buffId = 0,
@@ -29227,7 +29230,7 @@ var laya = function(e) {
             let i = this.calcAuto();
             si.Debug("setAuto isauto1:", `${t}`, " this.isAuto:", `${this.isAuto}`, " isauto2:", `${i}`, " this.operateTime:", `${this.operateTime}`, " operateCountdown:", this.getOperateCountdown()),
             t != i && (i && (this.getOperateCountdown() > 0 || !this.autooperate) ? (this.autooperate = !0,
-            this.setOperate(!1)) : e || !this.isoperating || this.autooperate ? ca.event(oa.BATTLE_BTN_CHANGE, null, !0) : (si.Debug("首次从自动切换到手动 给予30s"),
+            this.setOperate(!1)) : e || !this.isoperating || this.autooperate ? ca.event(oa.BATTLE_BTN_CHANGE, null, !0) : (si.Debug("é¦–æ¬¡ä»Žè‡ªåŠ¨åˆ‡æ¢åˆ°æ‰‹åŠ¨ ç»™äºˆ30s"),
             this.autooperate = !0,
             this.operateTime = 30,
             this.operateEndTime = (new Date).serverTime() + this.operateTime,
@@ -29291,7 +29294,7 @@ var laya = function(e) {
             ca.event(oa.BATTLE_ROUND_OPERATION, null, !0)
         }
         setRoundOver() {
-            this.isReport() ? si.Debug("TODO: 战报直接显示下一轮") : this.rptBattleEnd()
+            this.isReport() ? si.Debug("TODO: æˆ˜æŠ¥ç›´æŽ¥æ˜¾ç¤ºä¸‹ä¸€è½®") : this.rptBattleEnd()
         }
         getOperateTime() {
             return this.operateTime
@@ -29571,20 +29574,20 @@ var laya = function(e) {
                     if (e instanceof pb.BattleRoundBeginNtf) {
                         let t = e;
                         if (!this.battleId || this.battleId != t.battleId) {
-                            si.Error("战斗Id 不对应 this.battleId:", this.battleId, " battleId:", t.battleId);
+                            si.Error("æˆ˜æ–—Id ä¸å¯¹åº” this.battleId:", this.battleId, " battleId:", t.battleId);
                             continue
                         }
                         this.battleAgent.roundBegin(t.round, t.beginTime, t.defendTeam)
                     } else if (e instanceof pb.BattleRoundNtf) {
                         let t = e;
                         if (!this.battleId || this.battleId != t.battleId) {
-                            si.Error("战斗Id 不对应 this.battleId:", this.battleId, " battleId:", t.battleId);
+                            si.Error("æˆ˜æ–—Id ä¸å¯¹åº” this.battleId:", this.battleId, " battleId:", t.battleId);
                             continue
                         }
                         this.battleAgent.roundNotify(t.round, t.watchNum)
                     } else if (e instanceof pb.BattleSyncStatusNtf2) {
                         let t = e;
-                        t.round == this.battleAgent.getRound() ? this.battleAgent.onUpdateAgentStatus(t.userIds, t.status) : si.Error("回合 不对应 this.round:", this.battleAgent.getRound(), " round:", t.round)
+                        t.round == this.battleAgent.getRound() ? this.battleAgent.onUpdateAgentStatus(t.userIds, t.status) : si.Error("å›žåˆ ä¸å¯¹åº” this.round:", this.battleAgent.getRound(), " round:", t.round)
                     } else
                         e instanceof pb.BattleEndNtf && this.handleBattleEndNtf(e)
                 }
@@ -29645,7 +29648,7 @@ var laya = function(e) {
         }
         onBattleBeginNtf(e) {
             si.Debug("onBattleBeginNtf "),
-            this.isBattle() && (si.Debug("当前还处于战斗中"),
+            this.isBattle() && (si.Debug("å½“å‰è¿˜å¤„äºŽæˆ˜æ–—ä¸­"),
             ay.Singleton.endBattle(!1)),
             this.isreconnect = !1,
             this.iswatch = !1,
@@ -29656,7 +29659,7 @@ var laya = function(e) {
         }
         onBattleWatchAck(e) {
             si.Debug("onBattleWatchAck"),
-            this.isBattle() && (si.Debug("当前还处于战斗中"),
+            this.isBattle() && (si.Debug("å½“å‰è¿˜å¤„äºŽæˆ˜æ–—ä¸­"),
             ay.Singleton.endBattle(!1)),
             this.isreconnect = !1,
             this.iswatch = !0,
@@ -29871,7 +29874,7 @@ var laya = function(e) {
                     e.extraData && e.extraData.length;
                     break;
                 default:
-                    si.Error("尚未处理战斗类型:", this.fightType)
+                    si.Error("å°šæœªå¤„ç†æˆ˜æ–—ç±»åž‹:", this.fightType)
                 }
                 ca.event(oa.BATTLE_DURATION_OVER, e.battleId)
             }
@@ -31332,6 +31335,8 @@ var laya = function(e) {
                 return "atlas/ui/produce/icon_produce_wear_manual.png";
             case 11:
                 return "atlas/ui/produce/icon_produce_wear_token.png";
+            case 17:
+                return "atlas/ui/produce/icon_produce_jewelry.png";
             default:
                 return ""
             }
@@ -32273,7 +32278,7 @@ var laya = function(e) {
                       , a = (i - n.markWidth) / 2
                       , r = (s - n.markHeight) / 2;
                     e.recorder.onStart( () => {
-                        si.Debug("录屏开始")
+                        si.Debug("å½•å±å¼€å§‹")
                     }
                     ),
                     e.recorder.start({
@@ -32283,7 +32288,7 @@ var laya = function(e) {
                         locTop: r
                     }),
                     e.recorder.onStop(t => {
-                        si.Debug("录屏结束"),
+                        si.Debug("å½•å±ç»“æŸ"),
                         e.shareVideo = t
                     }
                     )
@@ -32295,7 +32300,7 @@ var laya = function(e) {
         }
         shareRecorder() {
             this.shareVideo ? window.tt.shareAppMessage({
-                title: "分享精彩视频",
+                title: "åˆ†äº«ç²¾å½©è§†é¢‘",
                 channel: "video",
                 extra: {
                     videoPath: this.shareVideo.videoPath,
@@ -32303,17 +32308,17 @@ var laya = function(e) {
                 },
                 success() {
                     window.tt.showModal({
-                        title: "分享成功",
+                        title: "åˆ†äº«æˆåŠŸ",
                         content: ""
                     })
                 },
                 fail() {
                     window.tt.showModal({
-                        title: "分享失败",
+                        title: "åˆ†äº«å¤±è´¥",
                         content: ""
                     })
                 }
-            }) : si.Debug("没有可分享视频")
+            }) : si.Debug("æ²¡æœ‰å¯åˆ†äº«è§†é¢‘")
         }
     }
     Io.Singleton = new Io;
@@ -33592,7 +33597,7 @@ var laya = function(e) {
                     return void Yr.AddTipSimple(pa.getInfoByLangID(Lw.ErrHasSensitiveCharacter), "#FF0000");
                 if (Pl.Singleton.myTeam)
                     return void Yr.AddTipSimple(pa.getInfoByLangID(910));
-                var i = new RegExp("[一-龥]+");
+                var i = new RegExp("[ä¸€-é¾¥]+");
                 let s = 0;
                 for (let e = 0; e < this.input.text.length; e++) {
                     let t = this.input.text[e];
@@ -34220,7 +34225,7 @@ var laya = function(e) {
             jh.Singleton.checkSensitiveCharsOnWXShenHe(e, t => {
                 if (t)
                     return void Yr.AddTipSimple(pa.getInfoByLangID(Lw.ErrHasSensitiveCharacter), "#FF0000");
-                var i = new RegExp("[一-龥]+");
+                var i = new RegExp("[ä¸€-é¾¥]+");
                 let s = 0;
                 for (let e = 0; e < this.input.text.length; e++) {
                     let t = this.input.text[e];
@@ -45062,13 +45067,13 @@ var laya = function(e) {
                 jh.Singleton.serverDiffTs = -i,
                 i - this.beatHeartCSDeltaTime > 50 ? this.beatHeartCSWaveCount < 0 ? this.beatHeartCSWaveCount += 2 : this.beatHeartCSWaveCount += 1 : i - this.beatHeartCSDeltaTime < -50 && (this.beatHeartCSWaveCount > 0 ? this.beatHeartCSWaveCount -= 2 : this.beatHeartCSWaveCount -= 1),
                 this.beatHeartCSDeltaTime = 0 == this.beatHeartCSDeltaTime ? i : (this.beatHeartCSDeltaTime + i) / 2,
-                (this.beatHeartCSWaveCount > 20 || this.beatHeartCSWaveCount < -20) && (si.Error("波动过大!!! 疑似加速器"),
+                (this.beatHeartCSWaveCount > 20 || this.beatHeartCSWaveCount < -20) && (si.Error("æ³¢åŠ¨è¿‡å¤§!!! ç–‘ä¼¼åŠ é€Ÿå™¨"),
                 this.beatHeartCSWaveCount = 0,
                 this.beatHeartDubious = !0,
                 Ly.Singleton.reportBugToServer("JiaSuQi", De.LOW_FRAME))
             }
             ).catch(e => {
-                si.Error("心跳异常", e)
+                si.Error("å¿ƒè·³å¼‚å¸¸", e)
             }
             )
         }
@@ -45551,7 +45556,7 @@ var laya = function(e) {
         checkBuyItemIsEnough(e, t) {
             let i = Wh.getStoreMetaByItemId(e)[0];
             if (!i)
-                throw new Error("DataManager.checkBuyItemIsEnough() 商城表找不到:" + e);
+                throw new Error("DataManager.checkBuyItemIsEnough() å•†åŸŽè¡¨æ‰¾ä¸åˆ°:" + e);
             if (i.getCost_item() == pb.ItemId.DIAMOND_BIND) {
                 if (Math.floor(vl.userInfo.bindDiamond / i.getSize()) >= t)
                     return {
@@ -46106,7 +46111,7 @@ var laya = function(e) {
         getNameByCount(e, t) {
             if (!e || "" == e || e.length <= t)
                 return e;
-            var i = new RegExp("[一-龥]+");
+            var i = new RegExp("[ä¸€-é¾¥]+");
             let s = 0
               , n = "";
             for (let a = 0; a < e.length; a++) {
@@ -46168,7 +46173,7 @@ var laya = function(e) {
                     let t = "";
                     for (let i = 0; i < e.length; i++)
                         t += pa.getHeroJobName(e[i]),
-                        i != e.length - 1 && (t += "、");
+                        i != e.length - 1 && (t += "ã€");
                     return t
                 }
             }
@@ -46241,6 +46246,7 @@ var laya = function(e) {
     jh.Singleton = new jh,
     jh.SHIELD_ITEM_ID_ARRAY = [pb.ItemId.DAILY_ADD_STONE, pb.ItemId.DAILY_ADD_GOLD_STONE, pb.ItemId.DAILY_ADD_REPUTATION_MEDAL, pb.ItemId.DAILY_ADD_BOX_DROP, pb.ItemId.DAILY_ADD_PET_CARD_DROP],
     jh.SHIELD_EXP_ID_ARRAY = [pb.ItemId.EXP_POOL, pb.ItemId.DAILY_EXP, pb.ItemId.VIGOR_EXP, pb.ItemId.DAILY_SERVER_EXP];
+    window.kinkoo_equip = jh.Singleton;
     class Xh {
         constructor() {
             this.wxShareCount = 0,
@@ -46338,8 +46344,8 @@ var laya = function(e) {
         ,
         e.getWxWindowInfo = function() {
             return "undefined" == typeof wx ? {} : wx.getSystemInfoSync ? wx.getSystemInfoSync() : (wx.showModal({
-                title: "提示",
-                content: "当前微信版本过低，无法使用该功能，请升级到最新微信版本后重试。",
+                title: "æç¤º",
+                content: "å½“å‰å¾®ä¿¡ç‰ˆæœ¬è¿‡ä½Žï¼Œæ— æ³•ä½¿ç”¨è¯¥åŠŸèƒ½ï¼Œè¯·å‡çº§åˆ°æœ€æ–°å¾®ä¿¡ç‰ˆæœ¬åŽé‡è¯•ã€‚",
                 showCancel: !0
             }),
             {})
@@ -47589,7 +47595,7 @@ var laya = function(e) {
             n -= 3600 * a.getHours() + 60 * a.getMinutes() + a.getSeconds();
             let r = i - (i - n) % (24 * t * 3600)
               , l = r + 24 * t * 3600;
-            si.Debug(this, "活动开启时间：" + Fr.getMDH(1e3 * r) + "-" + Fr.getMDH(1e3 * l));
+            si.Debug(this, "æ´»åŠ¨å¼€å¯æ—¶é—´ï¼š" + Fr.getMDH(1e3 * r) + "-" + Fr.getMDH(1e3 * l));
             let o = l - (new Date).serverTime();
             o = o > 0 ? o : 0,
             Laya.timer.clearAll(this),
@@ -47809,6 +47815,7 @@ var laya = function(e) {
     }
     hc.NORMAL_TASK = 0,
     hc.FIGHT_TASK = 1;
+    window.kinkoo_yongshi = hc;
     class cc extends d.scene.game.task.TaskReceivedViewUI {
         constructor() {
             super(),
@@ -48023,7 +48030,7 @@ var laya = function(e) {
             this.curTaskMeta && this.taskDetailPane.updateAllTask(this.curTaskMeta)
         }
         updateTaskName() {
-            this.curTaskMeta && (this.taskNameTxt.text = this.curTaskMeta.info_cn_2 + " · " + this.curTaskMeta.info_cn_3)
+            this.curTaskMeta && (this.taskNameTxt.text = this.curTaskMeta.info_cn_2 + " Â· " + this.curTaskMeta.info_cn_3)
         }
     }
     class gc {
@@ -48793,7 +48800,7 @@ var laya = function(e) {
             this.imgIcon.skin = oo.getHeroHeadIcon(n.icon),
             this.imgFrame.skin = oo.getHeadFrameByFrameId(n.iconFrame),
             this.lblName.text = e.userName + "",
-            this.lblPosition.text = `【${nd.Singleton.getGuildPlaceName(n.place)}】`,
+            this.lblPosition.text = `ã€${nd.Singleton.getGuildPlaceName(n.place)}ã€‘`,
             this.lblPosition.color = ["#FF2F2F", "#E97031", "#D3C129", "#0CCA2A"][n.place - 1])
         }
     }
@@ -52814,7 +52821,7 @@ var laya = function(e) {
         onErrorAck(e, t) {
             if (e.code > 0) {
                 let t = pa.getInfoByLangID(e.code);
-                t && "" != t ? Yr.AddTipSimple(pa.getInfoByLangID(e.code), "#ff0000", Wr.POSITION_CENTER) : si.Debug("onErrorAck code 找不到语言: " + e.code)
+                t && "" != t ? Yr.AddTipSimple(pa.getInfoByLangID(e.code), "#ff0000", Wr.POSITION_CENTER) : si.Debug("onErrorAck code æ‰¾ä¸åˆ°è¯­è¨€: " + e.code)
             }
         }
         onRedBagNtf(e, t) {
@@ -53231,7 +53238,7 @@ var laya = function(e) {
                 e.align = "center",
                 e.height = 18,
                 e.fontSize = 21,
-                e.text = "【" + pa.getInfoByData(t, 1) + "】",
+                e.text = "ã€" + pa.getInfoByData(t, 1) + "ã€‘",
                 e.centerX = 0,
                 this.titleBox.addChild(e)
             }
@@ -55951,7 +55958,7 @@ var laya = function(e) {
             return this.fightOrder
         }
         getFightOrder() {
-            return this.fightOrder >= K.PREPARE_ONE ? K.REST : this.fightOrder
+            return this.fightOrder >= K.PREPARE_ONE - 1 ? K.REST : this.fightOrder
         }
         setFightOrder(e) {
             this.fightOrder = e,
@@ -57997,7 +58004,7 @@ var laya = function(e) {
                   , t = this.roleAgent.guildTitle
                   , i = this.roleAgent.guildPlaceId
                   , s = "";
-                if (e && (s += "【" + e + "】"),
+                if (e && (s += "ã€" + e + "ã€‘"),
                 t)
                     s += t;
                 else {
@@ -58060,7 +58067,7 @@ var laya = function(e) {
                 e.align = "center",
                 e.height = 18,
                 e.fontSize = 21,
-                e.text = "【" + pa.getInfoByData(t, 1) + "】",
+                e.text = "ã€" + pa.getInfoByData(t, 1) + "ã€‘",
                 e.pos(150 - e.textField.textWidth / 2, 60, !0),
                 this.titleBox.addChild(e)
             }
@@ -58417,7 +58424,7 @@ var laya = function(e) {
             let t;
             e.npc.npcType == pb.NpcType.MARKET ? (t = new OI(e.npc),
             t.init(e),
-            this.agents.push(t)) : si.Error("尚未处理Npc类型", e.npc.npcType)
+            this.agents.push(t)) : si.Error("å°šæœªå¤„ç†Npcç±»åž‹", e.npc.npcType)
         }
         addUser(e) {
             let t = e.user;
@@ -62568,7 +62575,7 @@ var laya = function(e) {
             this.runningRound && this.runningRound.immediate()
         }
         nextRound() {
-            si.Debug(`切换回合 ${this.curRound} => ${this.curRound + 1}`),
+            si.Debug(`åˆ‡æ¢å›žåˆ ${this.curRound} => ${this.curRound + 1}`),
             this.curRound = this.curRound + 1,
             this.rounds.has(this.curRound) ? this.runningRound = this.rounds.get(this.curRound) : this.runningRound = null,
             this.runningRound && ca.event(oa.BATTLE_WATCH_NUM, [this.runningRound.getWatchNum()])
@@ -63191,13 +63198,13 @@ var laya = function(e) {
                 {
                     let t = e.hurts[0].skillId;
                     if (!(t && t > 0)) {
-                        si.Error("尚未处理 其他 指令");
+                        si.Error("å°šæœªå¤„ç† å…¶ä»– æŒ‡ä»¤");
                         break
                     }
                     {
                         let s = Wh.getSkillMeta(t);
                         if (!s) {
-                            si.Error("本地没有技能Id:", t);
+                            si.Error("æœ¬åœ°æ²¡æœ‰æŠ€èƒ½Id:", t);
                             break
                         }
                         i = this.makeSkillCommand(s, e)
@@ -67524,7 +67531,7 @@ var laya = function(e) {
             this.name = ""
         }
         onTimeOut() {
-            this.reject(this.name + "请求超时!"),
+            this.reject(this.name + "è¯·æ±‚è¶…æ—¶!"),
             this.clear()
         }
     }
@@ -67653,7 +67660,7 @@ var laya = function(e) {
                 if (0 == n)
                     return void s({
                         code: -1,
-                        message: "连接已断开"
+                        message: "è¿žæŽ¥å·²æ–­å¼€"
                     });
                 let a = AI.create();
                 a.name = e.$type.name,
@@ -67777,7 +67784,7 @@ var laya = function(e) {
                 return this.changeCardModel;
             if (this.decorate && this.decorate.fashion) {
                 let e = Wh.getFashionById(this.decorate.fashion);
-                return e ? oo.getFrameAniModeIdById(e.icon_id_1, this.weaponId) : (si.Error("不存在时装", this.decorate.fashion),
+                return e ? oo.getFrameAniModeIdById(e.icon_id_1, this.weaponId) : (si.Error("ä¸å­˜åœ¨æ—¶è£…", this.decorate.fashion),
                 oo.getFrameAniModeIdById(this.model, this.weaponId))
             }
             return oo.getFrameAniModeIdById(this.model, this.weaponId)
@@ -68685,7 +68692,7 @@ var laya = function(e) {
             nl.Singleton.checkShowSnailNpcTalk(this.npcMeta.id) ? this.checkOpDistance() && up.meAgent.changeState(I.STATE_IDLE) : up.meAgent.changeState(I.STATE_IDLE))
         }
         doClick() {
-            if (si.Debug(this, "点击npc " + this.npcMeta.id),
+            if (si.Debug(this, "ç‚¹å‡»npc " + this.npcMeta.id),
             !this.isShowModel())
                 return;
             if (nl.Singleton.checkShowSnailNpcTalk(this.npcMeta.id))
@@ -68886,7 +68893,7 @@ var laya = function(e) {
         doClick() {
             nc.Singleton.isOpen(C.MARKET_FUNCTION) && Gy.Singleton.reqMarketInfo(this.data.id).then( () => {
                 let e = Wh.getMarketVenderMetaById(Gy.Singleton.shopId).shops_type;
-                1 == e ? Xo.showWindow(d_) : 2 == e ? Xo.showWindow(g_) : si.Error(this, "商铺类型不存在!! shopType:", e)
+                1 == e ? Xo.showWindow(d_) : 2 == e ? Xo.showWindow(g_) : si.Error(this, "å•†é“ºç±»åž‹ä¸å­˜åœ¨!! shopType:", e)
             }
             )
         }
@@ -69244,7 +69251,7 @@ var laya = function(e) {
         onClickStage() {
             this.lastOperateTime = 0,
             this.checkAutoOperate = !0,
-            si.Debug(this, "上次操作时间:" + this.lastOperateTime)
+            si.Debug(this, "ä¸Šæ¬¡æ“ä½œæ—¶é—´:" + this.lastOperateTime)
         }
         onUpdateOperate() {
             this.checkAutoOperate && (Pl.Singleton.isTeamMember() ? this.checkAutoOperate = !1 : (this.lastOperateTime += Yd.Singleton.getTimeDeltaTruely(),
@@ -69641,7 +69648,7 @@ var laya = function(e) {
         onClickStage() {
             this.lastOperateTime = 0,
             this.checkAutoOperate = !0,
-            si.Debug(this, "上次操作时间:" + this.lastOperateTime)
+            si.Debug(this, "ä¸Šæ¬¡æ“ä½œæ—¶é—´:" + this.lastOperateTime)
         }
         onUpdateOperate() {
             this.checkAutoOperate && (Pl.Singleton.isTeamMember() ? this.checkAutoOperate = !1 : (this.lastOperateTime += Yd.Singleton.getTimeDeltaTruely(),
@@ -69849,7 +69856,7 @@ var laya = function(e) {
             super.clear()
         }
         reportBug() {
-            Wh.getMapMeta(this.mapId) || Ly.Singleton.reportBugToServer("地图id: " + ld.LAST_MAPID + " 不存在!, 角色名: " + vl.userInfo.getNickName() + " 区服:" + jh.Singleton.serverInfoSelect.serverName, De.ERROR_TYPE_MAPID)
+            Wh.getMapMeta(this.mapId) || Ly.Singleton.reportBugToServer("åœ°å›¾id: " + ld.LAST_MAPID + " ä¸å­˜åœ¨!, è§’è‰²å: " + vl.userInfo.getNickName() + " åŒºæœ:" + jh.Singleton.serverInfoSelect.serverName, De.ERROR_TYPE_MAPID)
         }
         removeFireAni() {
             if (this.fireWorkDragonArray) {
@@ -72207,11 +72214,11 @@ var laya = function(e) {
             case pb.PTID.MANFANG:
                 break;
             default:
-                return void si.Debug("当前 SdkMode 不支持 " + s)
+                return void si.Debug("å½“å‰ SdkMode ä¸æ”¯æŒ " + s)
             }
         }
         static responseNoteCB(e) {
-            0 != JSON.parse(e).code ? Yr.AddTipSimple("获取短信验证码失败") : Yr.AddTipSimple("短信验证码已经发出请查收"),
+            0 != JSON.parse(e).code ? Yr.AddTipSimple("èŽ·å–çŸ­ä¿¡éªŒè¯ç å¤±è´¥") : Yr.AddTipSimple("çŸ­ä¿¡éªŒè¯ç å·²ç»å‘å‡ºè¯·æŸ¥æ”¶"),
             si.Debug("[YoFiSdkConfig]  ", e)
         }
         static responsePayCB(e) {
@@ -72415,7 +72422,7 @@ var laya = function(e) {
                 ha.Singleton.event(oa.USER_INFO)
             }
             ).catch(e => {
-                Yr.AddTipSimple("道具发放失败", Tf.RED)
+                Yr.AddTipSimple("é“å…·å‘æ”¾å¤±è´¥", Tf.RED)
             }
             )
         }
@@ -72431,7 +72438,7 @@ var laya = function(e) {
                 ha.Singleton.event(oa.BAG_UPDATE))
             }
             ).catch(e => {
-                Yr.AddTipSimple("装备发放失败", Tf.RED)
+                Yr.AddTipSimple("è£…å¤‡å‘æ”¾å¤±è´¥", Tf.RED)
             }
             )
         }
@@ -72445,7 +72452,7 @@ var laya = function(e) {
                 ha.Singleton.event(oa.BAG_UPDATE))
             }
             ).catch(e => {
-                Yr.AddTipSimple("宝石发放失败", Tf.RED)
+                Yr.AddTipSimple("å®çŸ³å‘æ”¾å¤±è´¥", Tf.RED)
             }
             )
         }
@@ -72459,7 +72466,7 @@ var laya = function(e) {
                 ha.Singleton.event(oa.BAG_UPDATE))
             }
             ).catch(e => {
-                Yr.AddTipSimple("材料发放失败", Tf.RED)
+                Yr.AddTipSimple("ææ–™å‘æ”¾å¤±è´¥", Tf.RED)
             }
             )
         }
@@ -72468,7 +72475,7 @@ var laya = function(e) {
             t.cmdType = -100,
             t.id = e,
             zh.sendAndWait(t).then(t => {
-                Yr.AddTipSimple("设置职业成功！", Tf.GREEN),
+                Yr.AddTipSimple("è®¾ç½®èŒä¸šæˆåŠŸï¼", Tf.GREEN),
                 vl.userInfo.getCurSelectHero().setJob(e),
                 ha.Singleton.event(oa.USER_INFO)
             }
@@ -72479,7 +72486,7 @@ var laya = function(e) {
             t.cmdType = -101,
             t.id = e,
             zh.sendAndWait(t).then(t => {
-                Yr.AddTipSimple("设置阶数成功！", Tf.GREEN),
+                Yr.AddTipSimple("è®¾ç½®é˜¶æ•°æˆåŠŸï¼", Tf.GREEN),
                 vl.userInfo.getCurSelectHero().setStep(e),
                 ha.Singleton.event(oa.USER_INFO)
             }
@@ -72493,7 +72500,7 @@ var laya = function(e) {
                 i.position = Math.ceil(3 * Math.random()),
                 i.index = 1002,
                 i.count = 1,
-                i.text = "测试TipView专用",
+                i.text = "æµ‹è¯•TipViewä¸“ç”¨",
                 i.color = t(Math.ceil(5 * Math.random())),
                 e.push(i)
             }
@@ -72580,7 +72587,7 @@ var laya = function(e) {
             }
             )
         }
-        broadcast(e="服务器即将重启,请玩家及时下线.") {
+        broadcast(e="æœåŠ¡å™¨å³å°†é‡å¯,è¯·çŽ©å®¶åŠæ—¶ä¸‹çº¿.") {
             let t = new pb.DebugReq;
             t.cmdType = -2004,
             t.args = [e],
@@ -72749,7 +72756,7 @@ var laya = function(e) {
             return t.cmdType = -1e3,
             t.args = e,
             zh.sendAndWait(t).then(e => {
-                si.Debug(this, "F5后生效")
+                si.Debug(this, "F5åŽç”Ÿæ•ˆ")
             }
             )
         }
@@ -72770,18 +72777,18 @@ var laya = function(e) {
         }
         showGoods(e, t) {
             let i = {
-                "道具": "item",
-                "装备": "equip",
-                "宝石": "gem_item",
-                "材料": "item_materials",
-                "符文": "rune_item"
+                "é“å…·": "item",
+                "è£…å¤‡": "equip",
+                "å®çŸ³": "gem_item",
+                "ææ–™": "item_materials",
+                "ç¬¦æ–‡": "rune_item"
             }
               , s = i[e];
             if (s && s.length > 0) {
                 let e = Zt.queryByNamePre(s, t);
                 si.Debug(this, e)
             } else
-                si.Debug(this, "类型非法，只支持："),
+                si.Debug(this, "ç±»åž‹éžæ³•ï¼Œåªæ”¯æŒï¼š"),
                 si.Debug(this, i)
         }
         command(e) {
@@ -72789,7 +72796,7 @@ var laya = function(e) {
             return t.cmdType = -2030,
             t.args = e,
             zh.sendAndWait(t).then(e => {
-                si.Debug(this, "F5后生效")
+                si.Debug(this, "F5åŽç”Ÿæ•ˆ")
             }
             )
         }
@@ -72803,7 +72810,7 @@ var laya = function(e) {
         addStageClick() {
             Laya.stage.on(Laya.Event.CLICK, null, e => {
                 let t = e.target;
-                t && (t.label = "其味无穷无群群无群无群无",
+                t && (t.label = "å…¶å‘³æ— ç©·æ— ç¾¤ç¾¤æ— ç¾¤æ— ç¾¤æ— ",
                 t.labelSize = 30)
             }
             )
@@ -72834,7 +72841,7 @@ var laya = function(e) {
         }
         sendMsgToWorld() {
             Laya.timer.loop(500, this, () => {
-                fy.Singleton.reqIMMessage(pb.IMMessageType.WORLD, 0, "奥斯卡就卡拉瓦乔plsam卢萨卡的萨满下午去")
+                fy.Singleton.reqIMMessage(pb.IMMessageType.WORLD, 0, "å¥¥æ–¯å¡å°±å¡æ‹‰ç“¦ä¹”plsamå¢è¨å¡çš„è¨æ»¡ä¸‹åˆåŽ»")
             }
             )
         }
@@ -72849,7 +72856,7 @@ var laya = function(e) {
             this.addItem(6003, 1e8),
             this.addItem(26012, 1),
             this.addItem(6004, 5e7);
-            let e = Zt.queryByNamePre("equip", "极");
+            let e = Zt.queryByNamePre("equip", "æž");
             for (let t = 0; t < e.length; t++)
                 this.addEquip(e[t].id, 5);
             this.addGem(120, 25),
@@ -72918,7 +72925,7 @@ var laya = function(e) {
             let i = new pb.SysMsgNtf;
             i.msgId = pb.SYSTEM_MSG.RANK_ARENA,
             i.msg = "",
-            i.args = `["光明正大的贝斯",${e},${t},1]`,
+            i.args = `["å…‰æ˜Žæ­£å¤§çš„è´æ–¯",${e},${t},1]`,
             i.channel = 0,
             ca.event(oa.RECEIVE_CHAT_MESSAGE, i)
         }
@@ -72926,11 +72933,11 @@ var laya = function(e) {
             let t = new pb.SysMsgNtf;
             t.msgId = pb.SYSTEM_MSG.RANK_ARENA_SINGLE,
             t.msg = "",
-            t.args = `["光明正大的贝斯",0,${e},2]`,
+            t.args = `["å…‰æ˜Žæ­£å¤§çš„è´æ–¯",0,${e},2]`,
             t.channel = 0,
             ca.event(oa.RECEIVE_CHAT_MESSAGE, t)
         }
-        showTopSystemMessage(e="测试跑马灯测试跑马灯测试跑马灯测试跑马灯测试跑马灯") {
+        showTopSystemMessage(e="æµ‹è¯•è·‘é©¬ç¯æµ‹è¯•è·‘é©¬ç¯æµ‹è¯•è·‘é©¬ç¯æµ‹è¯•è·‘é©¬ç¯æµ‹è¯•è·‘é©¬ç¯") {
             ca.event(oa.RECEIVE_TOP_SYSTEM_MESSAGE, {
                 str: e,
                 channelId: 0,
@@ -72946,7 +72953,7 @@ var laya = function(e) {
         }
         isInTimeByHourAndMinute(e, t, i, s, n, a) {
             let r = [i, s, n, a];
-            Fr.isInTimeByHourAndMinute(e, t, r) && Yr.AddTipSimple(`时间 ${e}::${t} 在活动时间 ${r[0]}:${r[1]} - ${r[2]}:${r[3]} 内`)
+            Fr.isInTimeByHourAndMinute(e, t, r) && Yr.AddTipSimple(`æ—¶é—´ ${e}::${t} åœ¨æ´»åŠ¨æ—¶é—´ ${r[0]}:${r[1]} - ${r[2]}:${r[3]} å†…`)
         }
         netNativeClose() {
             zh.nativeClose()
@@ -74380,7 +74387,7 @@ var laya = function(e) {
                 i.push(Pf.Singleton.getConditionTip(n))),
                 Pf.Singleton.checkCondition(n, !1) && (s = !0))
             }
-            return t && !s && Yr.AddTipSimple(`${i.join("或")}`),
+            return t && !s && Yr.AddTipSimple(`${i.join("æˆ–")}`),
             s
         }
         checkCondition(e, t=!1) {
@@ -75616,7 +75623,7 @@ var laya = function(e) {
         }
         onEndBattle(e) {
             si.Debug("GameWorldManager onEndBattle"),
-            Kl.Singleton.isBattle() && (e > 0 && Kl.Singleton.battleId > 0 && Kl.Singleton.battleId != e ? si.Error("关闭的不是这场战斗") : this.isEndBattle ? si.Debug("正在退出战斗中,无法重复退出") : (si.Debug("开始战斗中", e),
+            Kl.Singleton.isBattle() && (e > 0 && Kl.Singleton.battleId > 0 && Kl.Singleton.battleId != e ? si.Error("å…³é—­çš„ä¸æ˜¯è¿™åœºæˆ˜æ–—") : this.isEndBattle ? si.Debug("æ­£åœ¨é€€å‡ºæˆ˜æ–—ä¸­,æ— æ³•é‡å¤é€€å‡º") : (si.Debug("å¼€å§‹æˆ˜æ–—ä¸­", e),
             this.isEndBattle = !0,
             this.battleInoutSp.playIn().then( () => {
                 this.endBattle(!0),
@@ -79284,7 +79291,7 @@ var laya = function(e) {
                 Laya.Browser.window.onerror = e ? function(e, i, s, n, a) {
                     if (t++ < 5 && a) {
                         var r = e + "\n" + a.stack;
-                        window && window.errorAlert && window.errorAlert("出错啦，请把此信息截图给研发商\n" + r),
+                        window && window.errorAlert && window.errorAlert("å‡ºé”™å•¦ï¼Œè¯·æŠŠæ­¤ä¿¡æ¯æˆªå›¾ç»™ç ”å‘å•†\n" + r),
                         window && window.AccountManager && window.AccountManager.Singleton.reportBugToServer(r, De.ALERT_GLOBAL_ERROR)
                     }
                 }
@@ -79727,11 +79734,11 @@ var laya = function(e) {
             window.tt.setClipboardData({
                 data: this.data.url,
                 success() {
-                    Yr.AddTipSimple("复制成功"),
+                    Yr.AddTipSimple("å¤åˆ¶æˆåŠŸ"),
                     e.onClickClose()
                 },
                 fail() {
-                    Yr.AddTipSimple("复制失败")
+                    Yr.AddTipSimple("å¤åˆ¶å¤±è´¥")
                 }
             })
         }
@@ -80143,7 +80150,7 @@ var laya = function(e) {
                     if (t && -1 != t.destroyTime && this.curTime > t.destroyTime) {
                         let t = this.dragonCacheRes.splice(e, 1)[0];
                         this.destroyResNow(t.url),
-                        si.Debug(this, "destroy龙骨Templet: key=" + t.key)
+                        si.Debug(this, "destroyé¾™éª¨Templet: key=" + t.key)
                     }
                 }
             }
@@ -80254,15 +80261,15 @@ var laya = function(e) {
         }
         getDragon(e) {
             let t = this.dragonCacheRes.indexKeyIn("key", e);
-            return t ? (t.count <= 0 && si.Debug(this, "clear龙骨Templet: key=" + e + "    取消倒计时....."),
+            return t ? (t.count <= 0 && si.Debug(this, "clearé¾™éª¨Templet: key=" + e + "    å–æ¶ˆå€’è®¡æ—¶....."),
             t.count++,
             t.destroyTime = -1,
-            si.Debug(this, "重用龙骨Templet: key=" + e + "count=" + t.count),
+            si.Debug(this, "é‡ç”¨é¾™éª¨Templet: key=" + e + "count=" + t.count),
             t.res) : null
         }
         setDragon(e, t, i) {
             if (!this.dragonCacheRes.indexKeyIn("key", e)) {
-                si.Debug(this, "缓存龙骨Templet: key=" + e + "    url=" + t);
+                si.Debug(this, "ç¼“å­˜é¾™éª¨Templet: key=" + e + "    url=" + t);
                 let s = new dy;
                 s.key = e,
                 s.url = t,
@@ -80275,7 +80282,7 @@ var laya = function(e) {
         clearDragon(e, t=5) {
             let i = this.dragonCacheRes.indexKeyIn("key", e);
             i && (i.count--,
-            i.count <= 0 && (si.Debug(this, "clear龙骨Templet: key=" + e + "    倒计时中....."),
+            i.count <= 0 && (si.Debug(this, "clearé¾™éª¨Templet: key=" + e + "    å€’è®¡æ—¶ä¸­....."),
             i.destroyTime = this.curTime + t))
         }
     }
@@ -80780,7 +80787,7 @@ var laya = function(e) {
             }
         }
         getBuildEquipPartName(e) {
-            return 1 == e ? pa.getInfoByLangID(226) : 2 == e ? pa.getInfoByLangID(227) : 3 == e ? pa.getInfoByLangID(228) : 4 == e ? pa.getInfoByLangID(229) : 5 == e ? pa.getInfoByLangID(230) : 6 == e ? pa.getInfoByLangID(231) : 7 == e ? pa.getInfoByLangID(232) : 8 == e ? pa.getInfoByLangID(2914) : 9 == e ? pa.getInfoByLangID(96) : 10 == e ? pa.getInfoByLangID(3418) : 11 == e ? pa.getInfoByLangID(3078) : ""
+            return 1 == e ? pa.getInfoByLangID(226) : 2 == e ? pa.getInfoByLangID(227) : 3 == e ? pa.getInfoByLangID(228) : 4 == e ? pa.getInfoByLangID(229) : 5 == e ? pa.getInfoByLangID(230) : 6 == e ? pa.getInfoByLangID(231) : 7 == e ? pa.getInfoByLangID(232) : 8 == e ? pa.getInfoByLangID(2914) : 9 == e ? pa.getInfoByLangID(96) : 10 == e ? pa.getInfoByLangID(3418) : 11 == e ? pa.getInfoByLangID(3078) : 17 == e ? pa.getInfoByLangID(13762) : ""
         }
         getRankName(e) {
             switch (e) {
@@ -80930,7 +80937,7 @@ var laya = function(e) {
         CHAT_SYSTEM_MESSAGE_TEAM_BOSS: "<span style='color:#70e214; width:64px' href='missionId=%s#teamId=%s'>%s</span>",
         CHAT_TOP_MSG_COLOR_AND_MSG: "<span style='color:%s;'>%s</span>",
         CHAT_TOP_MSG_COLOR_AND_ITEMINFO_AND_MSG: "<span style='color:%s;' href='itemType=%s#itemId=%s'>%s</span>",
-        CHAT_GGK_NORMAL_MSG: "<span style='color:#bb6a1c;'>%s 刮开鼠王刮刮卡幸运的抽到了 %s %s</span>！",
+        CHAT_GGK_NORMAL_MSG: "<span style='color:#bb6a1c;'>%s åˆ®å¼€é¼ çŽ‹åˆ®åˆ®å¡å¹¸è¿çš„æŠ½åˆ°äº† %s %s</span>ï¼",
         CHAT_LOOK_BATTLE_REPORT: "<span style='color:#70e214; width:64px' href='reportId=%s'>%s</span>",
         CHAT_LOOK_TIANTI_REPORT: "<span style='color:#70e214; width:64px' href='classId=%s#reportId=%s#mode=%s'>%s</span>",
         CHAT_PARTNER_NAME: "<span style='color:%s;'>[%s]</span>",
@@ -81532,7 +81539,7 @@ var laya = function(e) {
         }
         reqConnectError(e, t) {
             let i;
-            si.Debug("#### 重连游戏服失败！"),
+            si.Debug("#### é‡è¿žæ¸¸æˆæœå¤±è´¥ï¼"),
             this.reconnectView && this.reconnectView.removeSelf(),
             t && e ? i = e : (i = pa.getInfoByLangID(315),
             e && (i = i.concat("\n", e))),
@@ -81556,7 +81563,7 @@ var laya = function(e) {
         startLoopReconnect() {
             let e;
             this.reconnectTimes++,
-            si.Debug(`#### 尝试网络链接第${this.reconnectTimes}次 ####`),
+            si.Debug(`#### å°è¯•ç½‘ç»œé“¾æŽ¥ç¬¬${this.reconnectTimes}æ¬¡ ####`),
             this.reconnectView && this.reconnectView.updateTimes(this.reconnectTimes, this.reconnectMaxTime),
             e = l.data.onWx ? jh.Singleton.serverInfoSelect.gameDomain : vl.isArena ? `ws://${this.areanAddress}/ws` : `ws://${jh.Singleton.serverInfoSelect.ip + ":" + jh.Singleton.serverInfoSelect.port}/ws`,
             zh.connect(e, uL.Game).then( () => {
@@ -81585,7 +81592,7 @@ var laya = function(e) {
             e = !0),
             this.reqEnterGame(vl.openID, i, t).then(t => {
                 if (t.errCode == at.LOGIN_SUCCESS)
-                    si.Debug("#### 重连游戏服成功！"),
+                    si.Debug("#### é‡è¿žæ¸¸æˆæœæˆåŠŸï¼"),
                     jh.Singleton.openServerTime = t.openServerTime,
                     jh.Singleton.version = t.version,
                     jh.Singleton.reConnectToken = t.reConnectToken,
@@ -81609,18 +81616,18 @@ var laya = function(e) {
                     e && HI.Singleton.reqJumpMapAfterLogin(),
                     e = !1;
                 else if (t.errCode == at.LOGINERR_RECONNECT_FAIL)
-                    si.Debug("#### 重连失败 玩家已经离线 #####"),
+                    si.Debug("#### é‡è¿žå¤±è´¥ çŽ©å®¶å·²ç»ç¦»çº¿ #####"),
                     zh.close(),
                     this.rehttpTimes = 0,
                     this.reqReLoginHttp();
                 else if (t.errCode == at.LOGINERR_RECONNECT_ONLINE_FAIL)
-                    si.Debug("#### 重连失败 玩家重复在线 #####"),
+                    si.Debug("#### é‡è¿žå¤±è´¥ çŽ©å®¶é‡å¤åœ¨çº¿ #####"),
                     zh.close(),
                     this.reconnectTimes >= this.reconnectMaxTime ? (Ly.Singleton.reportBugToServer("ReconMax2", De.NET_ERROR),
                     this.reqConnectError("ReconMax2")) : (zh.setProtoCache(!1),
                     Laya.timer.once(this.reconnectIntervalTime, this, this.startLoopReconnect));
                 else {
-                    si.Debug("#### 重连失败 走重新登录！");
+                    si.Debug("#### é‡è¿žå¤±è´¥ èµ°é‡æ–°ç™»å½•ï¼");
                     let e = `REGAC: ${t.errCode}`;
                     Ly.Singleton.reportBugToServer(e, De.NET_ERROR),
                     zh.close(),
@@ -81629,7 +81636,7 @@ var laya = function(e) {
                 }
             }
             ).catch(e => {
-                si.Debug("#### 重连失败 走重新登录！");
+                si.Debug("#### é‡è¿žå¤±è´¥ èµ°é‡æ–°ç™»å½•ï¼");
                 let t = "REGA: -1"
                   , i = "REGA: -1";
                 if (e)
@@ -81932,9 +81939,9 @@ var laya = function(e) {
               , s = (new Date).getTime()
               , n = vl.userInfo.getId() + ""
               , a = jh.Singleton.secret + "roleId" + n + "serverId" + i + "timestamp" + s + "uuid" + t + jh.Singleton.secret;
-            si.Debug(this, "sdkLoginRole sign加密前: " + a);
+            si.Debug(this, "sdkLoginRole signåŠ å¯†å‰: " + a);
             let r = window.md5(a).toLowerCase();
-            si.Debug(this, "sdkLoginRole sign加密后: " + r),
+            si.Debug(this, "sdkLoginRole signåŠ å¯†åŽ: " + r),
             e += "?uuid=" + vl.openID,
             e += "&serverId=" + i,
             e += "&timestamp=" + s,
@@ -82048,7 +82055,7 @@ var laya = function(e) {
             t += "&zoneId=" + e,
             cL.Singleton.send(t).then(t => {
                 let i = JSON.parse(t);
-                if (si.Debug(this, e + "大区列表: " + i),
+                if (si.Debug(this, e + "å¤§åŒºåˆ—è¡¨: " + i),
                 0 != i.code)
                     return void Yr.AddTipSimple(i.msg);
                 let s = [];
@@ -82189,7 +82196,7 @@ var laya = function(e) {
             return e += "&serverId=" + t,
             cL.Singleton.send(e).then(e => {
                 let i = JSON.parse(e);
-                return si.Debug(this, t + "区状态: " + JSON.stringify(i)),
+                return si.Debug(this, t + "åŒºçŠ¶æ€: " + JSON.stringify(i)),
                 0 != i.code ? (Yr.AddTipSimple(i.msg),
                 Promise.reject(null)) : 0 == i.data.onlineStatus
             }
@@ -82301,7 +82308,7 @@ var laya = function(e) {
                 }
                 , null, !1))
             }
-            ).then( () => (si.Debug("#### 链接跨服成功！"),
+            ).then( () => (si.Debug("#### é“¾æŽ¥è·¨æœæˆåŠŸï¼"),
             this.reqAreanEnterGame(t))).then( () => {
                 this.reconnectView && this.reconnectView.removeSelf(),
                 vl.isArena = !0,
@@ -82437,7 +82444,7 @@ var laya = function(e) {
         reqAreanEnterGame(e) {
             return new Promise( (t, i) => {
                 this.reqEnterGame(vl.openID, e, !1, !0).then(e => {
-                    e.errCode == at.LOGIN_SUCCESS ? (si.Debug("#### 登录跨服成功！"),
+                    e.errCode == at.LOGIN_SUCCESS ? (si.Debug("#### ç™»å½•è·¨æœæˆåŠŸï¼"),
                     jh.Singleton.openServerTime = e.openServerTime,
                     jh.Singleton.version = e.version,
                     jh.Singleton.reConnectToken = e.reConnectToken,
@@ -82454,7 +82461,7 @@ var laya = function(e) {
                     ca.event(oa.USER_INFO),
                     zh.setProtoCache(!1),
                     zh.handleNtfCached(),
-                    t()) : (si.Debug("#### 登录跨服失败！"),
+                    t()) : (si.Debug("#### ç™»å½•è·¨æœå¤±è´¥ï¼"),
                     zh.setProtoCache(!1),
                     zh.close(),
                     i())
@@ -82986,7 +82993,7 @@ var laya = function(e) {
                     ca.event(oa.BUFF_VIGOR_USE)
                 } else
                     e == re.TIME_HOURGLASS || Wh.getItemMeta(e).getType() == pb.ItemType.MAZE_POWER ? jh.Singleton.updateGoods(i.change) : jh.Singleton.updateGoods(i.awards);
-                if (e != he.SPECIAL_CARD_SHOP && e != he.MONTHITEMID && e != he.WEEKITEMID || (si.Debug(this, "调用cardBuyReport"),
+                if (e != he.SPECIAL_CARD_SHOP && e != he.MONTHITEMID && e != he.WEEKITEMID || (si.Debug(this, "è°ƒç”¨cardBuyReport"),
                 l.data.onWx || tO.cardBuyReport()),
                 Wh.getItemMeta(e).getType() == pb.ItemType.MAZE_POWER) {
                     let t = vl.userInfo.dailyBossInfo.getN(pb.FightType.Maze).ids
@@ -83837,6 +83844,7 @@ var laya = function(e) {
         }
     }
     wy.Singleton = new wy;
+    window.kinkoo_qk = wy.Singleton;
     class My {
         constructor() {}
         static get effBox() {
@@ -85264,7 +85272,7 @@ var laya = function(e) {
         receiveBattleAck(e, t=0, i=!0, s=null, n="") {
             let a = -1;
             e && e.battleType && (a = e.battleType),
-            si.Debug("回看战报 当前类型为:", a),
+            si.Debug("å›žçœ‹æˆ˜æŠ¥ å½“å‰ç±»åž‹ä¸º:", a),
             ay.Singleton.endBattle(),
             jh.Singleton.updateGoods(e.awards, !1, Wr.POSITION_CENTER, !1),
             Kl.Singleton.showAwards = e.awards,
@@ -85316,6 +85324,7 @@ var laya = function(e) {
         fightTypePve(e, t) {}
     }
     Fy.Singleton = new Fy;
+    window.kinkoo_ab = Fy.Singleton;
     class Vy {
         constructor() {}
         reqDayGetReward(e, t) {
@@ -85381,7 +85390,7 @@ var laya = function(e) {
                     vl.userInfo.getHerosTotalLevel() >= s.getLevel_show() && this.shopItems.push([t, e])
                 }
                 ),
-                this.shopItems.length < 1 && Yr.AddTipSimple("限时商城道具列表是空的! testList.length:" + i.length + "  testList:" + i),
+                this.shopItems.length < 1 && Yr.AddTipSimple("é™æ—¶å•†åŸŽé“å…·åˆ—è¡¨æ˜¯ç©ºçš„! testList.length:" + i.length + "  testList:" + i),
                 this.shopItems.sort( (e, t) => e[0] < t[0] ? -1 : 1)
             }
             ).catch(e => {}
@@ -86915,6 +86924,7 @@ var laya = function(e) {
     Qy.GLOBAL_RANK_INDEX = 1,
     Qy.RANK_TYPE_ARRAY = [pb.RankType.USER_COMBAT, pb.RankType.USER_LEVEL, pb.RankType.PET_COMBAT, pb.RankType.FRIEND_BATTLE],
     Qy.GLOBAL_TYPE_ARRAY = [pb.RankType.USER_COMBAT, pb.RankType.PET_COMBAT, pb.RankType.FRIEND_BATTLE];
+    window.kinkoo_rank = Qy.Singleton;
     class Jy {
         reqFuncOpenSet(e) {
             let t = Math.floor(e / 64)
@@ -87508,6 +87518,7 @@ var laya = function(e) {
         }
     }
     eL.Singleton = new eL;
+    window.kinkoo_daka = eL.Singleton;
     let tL = eL.Singleton;
     window.skillMgr = tL;
     class iL {
@@ -87822,8 +87833,8 @@ var laya = function(e) {
             else {
                 e.skin = "res/icon/title/customtitle_bmpFont_cn.png",
                 e.spaceX = -3;
-                let t = ["首世祖不隔超给机忧拉激霸羞扎开扔打洗", "使无老靠以绝药官欲人一假口还放笑猴暗", "纯大前钵皮铲接小钢背铁头氪劳女钞扶致", "妇葬撞广资夕颜精浪宝过席袭传朽壁神力", "智郁风萌气涩心挂肥酱坏法脸帅地方言狠", "本装吐能弃而子中司爷表男屎班乖筋锅版", "锤号金影动贫富爱衫场深阳值味藏的皂油", "睡自吃服求认又话正坚芬抢治请观们哥友", "鸡鸭虾兽侠靓妹玩杀模对之贵舞儿剑担仙", "网控红饭饶停证止少经强芳救疗语来察仔", "家手范佬者象族师娘童客当伙孩限村佛很", "被割走怀必演全乘含多店海胖猫奶路拖灵", "倔幕花暴封糟职折宣量里系难破拿韭容向", "带才成堪艰忘技情财长受王虎奴狗魂后样", "腻面业代翼哄防捏菜凝巅初炸希脉推震甲", "瓶伴英祸美芭选宗天固峰景遇器击拆裂重", "望亿荐撼侣年雄水比叔郎"];
-                pa.edition == ve.TW && (t = ["首世祖不隔超給機憂拉激霸羞紮開扔打洗", "使無老靠以絕藥官欲人一假口還放笑猴暗", "純大前缽皮鏟接小鋼背鐵頭氪勞女鈔扶致", "婦葬撞廣資夕顏精浪寶過席襲傳朽壁神力", "智鬱風萌氣澀心掛肥醬壞法臉帥地方言狠", "本裝吐能棄而子中司爺表男屎班乖筋鍋版", "錘號金影動貧富愛衫場深陽值味藏的皂油", "睡自吃服求認又話正堅芬搶治請觀們哥友", "雞鴨蝦獸俠靚妹玩殺模對之貴舞兒劍擔仙", "網控紅飯饒停證止少經強芳救療語來察仔", "家手範佬者象族師娘童客當夥孩限村佛很", "被割走懷必演全乘含多店海胖貓奶路拖靈", "倔幕花暴封糟職折宣量裡係難破拿韭容向", "帶才成堪艱忘技情財長受王虎奴狗魂後樣", "膩面業代翼哄防捏菜凝巔初炸希脈推震甲", "瓶伴英禍美芭選宗天固峰景遇器擊拆裂重", "望億薦撼侶年雄水比叔郎"]);
+                let t = ["é¦–ä¸–ç¥–ä¸éš”è¶…ç»™æœºå¿§æ‹‰æ¿€éœ¸ç¾žæ‰Žå¼€æ‰”æ‰“æ´—", "ä½¿æ— è€é ä»¥ç»è¯å®˜æ¬²äººä¸€å‡å£è¿˜æ”¾ç¬‘çŒ´æš—", "çº¯å¤§å‰é’µçš®é“²æŽ¥å°é’¢èƒŒé“å¤´æ°ªåŠ³å¥³é’žæ‰¶è‡´", "å¦‡è‘¬æ’žå¹¿èµ„å¤•é¢œç²¾æµªå®è¿‡å¸­è¢­ä¼ æœ½å£ç¥žåŠ›", "æ™ºéƒé£ŽèŒæ°”æ¶©å¿ƒæŒ‚è‚¥é…±åæ³•è„¸å¸…åœ°æ–¹è¨€ç‹ ", "æœ¬è£…åèƒ½å¼ƒè€Œå­ä¸­å¸çˆ·è¡¨ç”·å±Žç­ä¹–ç­‹é”…ç‰ˆ", "é”¤å·é‡‘å½±åŠ¨è´«å¯Œçˆ±è¡«åœºæ·±é˜³å€¼å‘³è—çš„çš‚æ²¹", "ç¡è‡ªåƒæœæ±‚è®¤åˆè¯æ­£åšèŠ¬æŠ¢æ²»è¯·è§‚ä»¬å“¥å‹", "é¸¡é¸­è™¾å…½ä¾ é“å¦¹çŽ©æ€æ¨¡å¯¹ä¹‹è´µèˆžå„¿å‰‘æ‹…ä»™", "ç½‘æŽ§çº¢é¥­é¥¶åœè¯æ­¢å°‘ç»å¼ºèŠ³æ•‘ç–—è¯­æ¥å¯Ÿä»”", "å®¶æ‰‹èŒƒä½¬è€…è±¡æ—å¸ˆå¨˜ç«¥å®¢å½“ä¼™å­©é™æ‘ä½›å¾ˆ", "è¢«å‰²èµ°æ€€å¿…æ¼”å…¨ä¹˜å«å¤šåº—æµ·èƒ–çŒ«å¥¶è·¯æ‹–çµ", "å€”å¹•èŠ±æš´å°ç³ŸèŒæŠ˜å®£é‡é‡Œç³»éš¾ç ´æ‹¿éŸ­å®¹å‘", "å¸¦æ‰æˆå ªè‰°å¿˜æŠ€æƒ…è´¢é•¿å—çŽ‹è™Žå¥´ç‹—é­‚åŽæ ·", "è…»é¢ä¸šä»£ç¿¼å“„é˜²æèœå‡å·…åˆç‚¸å¸Œè„‰æŽ¨éœ‡ç”²", "ç“¶ä¼´è‹±ç¥¸ç¾ŽèŠ­é€‰å®—å¤©å›ºå³°æ™¯é‡å™¨å‡»æ‹†è£‚é‡", "æœ›äº¿èæ’¼ä¾£å¹´é›„æ°´æ¯”å”éƒŽ"];
+                pa.edition == ve.TW && (t = ["é¦–ä¸–ç¥–ä¸éš”è¶…çµ¦æ©Ÿæ†‚æ‹‰æ¿€éœ¸ç¾žç´®é–‹æ‰”æ‰“æ´—", "ä½¿ç„¡è€é ä»¥çµ•è—¥å®˜æ¬²äººä¸€å‡å£é‚„æ”¾ç¬‘çŒ´æš—", "ç´”å¤§å‰ç¼½çš®éŸæŽ¥å°é‹¼èƒŒéµé ­æ°ªå‹žå¥³éˆ”æ‰¶è‡´", "å©¦è‘¬æ’žå»£è³‡å¤•é¡ç²¾æµªå¯¶éŽå¸­è¥²å‚³æœ½å£ç¥žåŠ›", "æ™ºé¬±é¢¨èŒæ°£æ¾€å¿ƒæŽ›è‚¥é†¬å£žæ³•è‡‰å¸¥åœ°æ–¹è¨€ç‹ ", "æœ¬è£åèƒ½æ£„è€Œå­ä¸­å¸çˆºè¡¨ç”·å±Žç­ä¹–ç­‹é‹ç‰ˆ", "éŒ˜è™Ÿé‡‘å½±å‹•è²§å¯Œæ„›è¡«å ´æ·±é™½å€¼å‘³è—çš„çš‚æ²¹", "ç¡è‡ªåƒæœæ±‚èªåˆè©±æ­£å …èŠ¬æ¶æ²»è«‹è§€å€‘å“¥å‹", "é›žé´¨è¦ç¸ä¿ éšå¦¹çŽ©æ®ºæ¨¡å°ä¹‹è²´èˆžå…’åŠæ“”ä»™", "ç¶²æŽ§ç´…é£¯é¥’åœè­‰æ­¢å°‘ç¶“å¼·èŠ³æ•‘ç™‚èªžä¾†å¯Ÿä»”", "å®¶æ‰‹ç¯„ä½¬è€…è±¡æ—å¸«å¨˜ç«¥å®¢ç•¶å¤¥å­©é™æ‘ä½›å¾ˆ", "è¢«å‰²èµ°æ‡·å¿…æ¼”å…¨ä¹˜å«å¤šåº—æµ·èƒ–è²“å¥¶è·¯æ‹–éˆ", "å€”å¹•èŠ±æš´å°ç³Ÿè·æŠ˜å®£é‡è£¡ä¿‚é›£ç ´æ‹¿éŸ­å®¹å‘", "å¸¶æ‰æˆå ªè‰±å¿˜æŠ€æƒ…è²¡é•·å—çŽ‹è™Žå¥´ç‹—é­‚å¾Œæ¨£", "è†©é¢æ¥­ä»£ç¿¼å“„é˜²æèœå‡å·”åˆç‚¸å¸Œè„ˆæŽ¨éœ‡ç”²", "ç“¶ä¼´è‹±ç¦ç¾ŽèŠ­é¸å®—å¤©å›ºå³°æ™¯é‡å™¨æ“Šæ‹†è£‚é‡", "æœ›å„„è–¦æ’¼ä¾¶å¹´é›„æ°´æ¯”å”éƒŽ"]);
                 let i = "";
                 for (let e = 0; e < t.length; e++)
                     i += t[e];
@@ -88401,7 +88412,7 @@ var laya = function(e) {
             };
             if (i !== 'SceneMoveRpt') {
                 console.log(i)
-            }    
+            }
             $m.Singleton.showSocketDebug && "BeatHeartReq" != i && si.Debug("SocketClient send: ", i, e);
             let s = pb.nameMap[i]
               , n = new dcodeIO.ByteBuffer;
@@ -88429,7 +88440,7 @@ var laya = function(e) {
                 }
                 let r = pb.idMap[s];
                 if (null == r || null == pb[r]) {
-                    si.Debug("SocketClient --\x3e onMessageReceived遗弃: " + s),
+                    si.Debug("SocketClient --\x3e onMessageReceivedé—å¼ƒ: " + s),
                     t.readArrayBuffer(a - 8);
                     break
                 }
@@ -88439,7 +88450,7 @@ var laya = function(e) {
                 !zh.isProtoCache() || this.reqInfoDict.getN(l.transId) ? (i.push(l),
                 $m.Singleton.showSocketDebug && "BeatHeartAck" != r && si.Debug("SocketClient onMessageReceived: ", r, l),
                 "CompressAck" == r && (zh.isHandleEnterGameAck() || (zh.setHandleEnterGameAck(!0),
-                zh.setProtoCache(!0)))) : (si.Debug("SocketClient 缓存 proto: ", r, l),
+                zh.setProtoCache(!0)))) : (si.Debug("SocketClient ç¼“å­˜ proto: ", r, l),
                 this.ntfArray.push(l))
             }
             for (let t of i)
@@ -88459,7 +88470,7 @@ var laya = function(e) {
                             if (e.reject(i),
                             t.code > 0 && !i.handled) {
                                 let e = pa.getInfoByLangID(t.code);
-                                e && "" != e ? Yr.AddTipSimple(pa.getInfoByLangID(t.code), "#ff0000", Wr.POSITION_CENTER) : si.Debug("ErrorAck code 找不到语言: " + t.code)
+                                e && "" != e ? Yr.AddTipSimple(pa.getInfoByLangID(t.code), "#ff0000", Wr.POSITION_CENTER) : si.Debug("ErrorAck code æ‰¾ä¸åˆ°è¯­è¨€: " + t.code)
                             }
                             Laya.timer.clear(this, this.timeOut),
                             Xo.hideServerLoading()
@@ -88475,7 +88486,7 @@ var laya = function(e) {
         handleNtfCached() {
             for (let e = 0; e < this.ntfArray.length; e++)
                 ld.Singleton.handleNTF(this.ntfArray[e]),
-                si.Debug("SocketClient 处理被缓存的 proto: ", this.ntfArray[e].$type.name, this.ntfArray[e]);
+                si.Debug("SocketClient å¤„ç†è¢«ç¼“å­˜çš„ proto: ", this.ntfArray[e].$type.name, this.ntfArray[e]);
             this.ntfArray.length = 0
         }
     }
@@ -88488,7 +88499,7 @@ var laya = function(e) {
               , i = 0;
             for (let s in e)
                 t++,
-                e[s]instanceof Array ? i += e[s].length : i++;
+                e[s] instanceof Array ? i += e[s].length : i++;
             si.Debug(this, "typeCount:" + t, "listenerCount:" + i)
         }
         static showAtalsBigMap() {
@@ -94932,7 +94943,7 @@ var laya = function(e) {
                 ).catch(e => {}
                 )
             } else
-                Yr.AddTipSimple("商城表没有配id:这个道具")
+                Yr.AddTipSimple("å•†åŸŽè¡¨æ²¡æœ‰é…id:è¿™ä¸ªé“å…·")
         }
         onClickCheck(e) {
             this.checkindex == e ? this.checkindex = 0 : this.checkindex = e,
@@ -97519,8 +97530,8 @@ var laya = function(e) {
         showBtnMode(e) {
             up.isManualMode = !e;
             let t = mf.Singleton.getWorldAgent();
-            t instanceof KI && t.dungeonMeta && t.dungeonMeta.dungeon_type == pb.DungeonType.ATTACK || (this.manualBtn.visible = e,
-            this.computerBtn.visible = !e)
+            if (this.manualBtn)
+                t instanceof KI && t.dungeonMeta && t.dungeonMeta.dungeon_type == pb.DungeonType.ATTACK || (this.manualBtn.visible = e, this.computerBtn.visible = !e)
         }
         onClickTips() {
             0 == this.tipsbg.visible ? (this.tipsbtn.scaleX = -1,
@@ -97536,11 +97547,11 @@ var laya = function(e) {
               , i = "";
             for (let i = 0; i < e.race.length; i++)
                 t += this.tipstitle.format(e.colour[1], Iy.Singleton.getPetRaceNameByRaceId(e.race[i])),
-                i + 1 < e.race.length && (t += "或");
+                i + 1 < e.race.length && (t += "æˆ–");
             for (let t = 0; t < e.element.length; t++) {
                 let s = Wh.getEquipMeta(e.element[t]);
                 i += this.tipstitle.format(e.colour[1], pa.getInfoByData(s, 1)),
-                t + 1 < e.element.length && (i += "或")
+                t + 1 < e.element.length && (i += "æˆ–")
             }
             this.tipstr.innerHTML = pa.getInfoByData(e, 2).format(t, i),
             this.tipsbg.width = 510,
@@ -97587,6 +97598,7 @@ var laya = function(e) {
             t.text = s
         }
     }
+    window.kinkoo_auto = kT;
     class vT extends d.scene.game.expPool.ExpPoolBuyCardUI {
         constructor(e) {
             super(),
@@ -98386,7 +98398,7 @@ var laya = function(e) {
                 t[Iy.Singleton.getEquipTypeName(e || 1)] = e
             }
             ),
-            Object.keys(t).join("、")
+            Object.keys(t).join("ã€")
         }
         checkInMagicSeal() {
             if (this.skillId <= 0)
@@ -98724,14 +98736,14 @@ var laya = function(e) {
             Xo.showWindow(cw)
         }
         onSpeedBtn() {
-            mf.Singleton.getWorldAgent()instanceof KI && Pl.Singleton.isTeamMember() ? Yr.AddTipSimple(pa.getInfoByLangID(924)) : Kl.Singleton.setSetSpeed(Kl.Singleton.getSetSpeed() + 1)
+            mf.Singleton.getWorldAgent() instanceof KI && Pl.Singleton.isTeamMember() ? Yr.AddTipSimple(pa.getInfoByLangID(924)) : Kl.Singleton.setSetSpeed(Kl.Singleton.getSetSpeed() + 1)
         }
         updateSpeed(e=!0) {
             let t = Kl.Singleton.getSpeed();
             si.Debug("updateSpeed speed:", t, " update:", e),
             this.speedImg.skin = `atlas/ui/main/img_main_battle_speed_${t}.png`,
             e && Yd.Singleton.setDefaultSpeed(t),
-            mf.Singleton.getWorldAgent()instanceof KI && Pl.Singleton.isCaptain() && Pl.Singleton.reqTeamMazeSetPlaySpeed(Kl.Singleton.getSpeed())
+            mf.Singleton.getWorldAgent() instanceof KI && Pl.Singleton.isCaptain() && Pl.Singleton.reqTeamMazeSetPlaySpeed(Kl.Singleton.getSpeed())
         }
         onFigthInfoBtn() {
             Xo.showWindow(tC, {
@@ -101416,7 +101428,7 @@ var laya = function(e) {
                 if (0 != this.equipInfo.refines.length) {
                     if (-1 != this.list.selectedIndex)
                         if (this.list.selectedIndex > this.equipInfo.refines.length - 1)
-                            Yr.AddTipSimple("格位未解锁");
+                            Yr.AddTipSimple("æ ¼ä½æœªè§£é”");
                         else if (!this.costData || this.costData.enough)
                             if (this.equipInfo.readyRefines[this.list.selectedIndex] > 0) {
                                 let t = Wh.getRefineMeta(this.equipInfo.readyRefines[this.list.selectedIndex]);
@@ -103979,7 +103991,7 @@ var laya = function(e) {
         }
         updateView() {
             let e = []
-              , t = [[1], [2], [3], [4], [5], [6], [7], [8, 6506], [11, 6509], [9, 6507], [10, 6508]];
+              , t = [[1], [2], [3], [4], [5], [6], [7], [8, 6506], [11, 6509], [9, 6507], [10, 6508], [17, 16509]];
             for (let i = 0; i < t.length; i++)
                 t[i][1] && !nc.Singleton.isOpen(t[i][1], null, !1) || e.push(t[i][0]);
             this.lstPart.array = e,
@@ -104105,7 +104117,7 @@ var laya = function(e) {
             if (!e)
                 return;
             let t = e.material[0];
-            if (t && (t[0] != pb.GoodsType.EQUIP || this.selectedEquip) && (9 == e.pos || e.synthetic_rule != ut.RULE_1))
+            if (t && (t[0] != pb.GoodsType.EQUIP || this.selectedEquip) && (9 == e.pos || 17 == e.pos || e.synthetic_rule != ut.RULE_1))
                 if (11 != e.pos || 1 != e.screen_type)
                     switch (this.bskPreLb.visible = !1,
                     this.bskAfterLb.visible = !1,
@@ -107388,7 +107400,7 @@ var laya = function(e) {
         createByteServiceBtn() {
             wx && !wx.createContactButton || (this.byteServiceBtn = wx.createContactButton({
                 type: "text",
-                text: "客 服",
+                text: "å®¢ æœ",
                 style: {
                     left: 40,
                     top: 40,
@@ -107894,7 +107906,7 @@ var laya = function(e) {
             })
         }
         onClickMaincity() {
-            if (mf.Singleton.getWorldAgent()instanceof KI)
+            if (mf.Singleton.getWorldAgent() instanceof KI)
                 return void Yr.AddTipSimple(pa.getInfoByLangID(933));
             let e = mf.Singleton.getWorldAgent();
             if (e && e.getAgentType() == g.MAINCITY) {
@@ -108830,7 +108842,7 @@ var laya = function(e) {
             this.iconImg.skin = oo.getHeroHeadIcon(e.icon),
             this.iconImg.gray = e.lastOnline > 0,
             this.iconFrameImg.skin = oo.getHeadFrameByFrameId(e.iconFrame),
-            this.jobTxt.text = `【${nd.Singleton.getGuildPlaceName(e.place)}】`,
+            this.jobTxt.text = `ã€${nd.Singleton.getGuildPlaceName(e.place)}ã€‘`,
             this.jobTxt.color = ["#FF2F2F", "#E97031", "#D3C129", "#0CCA2A"][e.place - 1],
             this.nameTxt.text = e.nickName,
             this.nameTxt.left = this.jobTxt.left + this.jobTxt.width,
@@ -108950,7 +108962,7 @@ var laya = function(e) {
             Wh.getGuildBuild(pb.GuildBuilding.LOBBY, t.level))
               , s = Wh.getGuildPlace(nd.Singleton.getMyPlace());
             this.applyBtn.visible = 1 == s.manage_application,
-            this.peopleTxt.text = pa.getInfoByLangID(2258) + "：" + e.guildMemberList.length + "/" + i.member_limit,
+            this.peopleTxt.text = pa.getInfoByLangID(2258) + "ï¼š" + e.guildMemberList.length + "/" + i.member_limit,
             o.getLandFlag() ? yS.Instance().hBoxLayout(this.btnBox, 34, 114, w.RIGHT) : yS.Instance().hBoxLayout(this.btnBox, 151, 114, w.CENTER)
         }
     }
@@ -113614,7 +113626,7 @@ var laya = function(e) {
             "" != e ? jh.Singleton.checkSensitiveCharsOnWXShenHe(e, t => {
                 if (t)
                     return void Yr.AddTipSimple(pa.getInfoByLangID(Lw.ErrHasSensitiveCharacter), "#ff0000");
-                var i = new RegExp("[一-龥]+");
+                var i = new RegExp("[ä¸€-é¾¥]+");
                 let s = 0;
                 for (let e = 0; e < this.input.text.length; e++) {
                     let t = this.input.text[e];
@@ -115169,7 +115181,7 @@ var laya = function(e) {
         constructor(e) {
             super(),
             this.petInfo = void 0,
-            this.list = [ue.REBORN_LEVEL, ue.REBORN_SKILL, ue.REBORN_FORCE_SKILL, ue.REBORN_TALENT],
+            this.list = [ue.REBORN_LEVEL, ue.REBORN_SKILL, ue.REBORN_FORCE_SKILL, ue.REBORN_TALENT, ue.REBORN_EVOLVE],
             this.petInfo = e
         }
         onShow() {
@@ -115241,8 +115253,9 @@ var laya = function(e) {
                 i = pa.getInfoByLangID(602).format(s)
             } else
                 e == ue.REBORN_TALENT ? (this.reBornBtn.label = pa.getInfoByLangID(3335),
-                i = pa.getInfoByLangID(3334).format(t.getPetHaloLv())) : e == ue.REBORN_FORCE_SKILL && (this.reBornBtn.label = pa.getInfoByLangID(3602),
-                i = pa.getInfoByLangID(3603).format(t.getPetforceLv()));
+                i = pa.getInfoByLangID(3334).format(t.getPetHaloLv())) : e == ue.REBORN_FORCE_SKILL ? (this.reBornBtn.label = pa.getInfoByLangID(3602),
+                i = pa.getInfoByLangID(3603).format(t.getPetforceLv())) : e == ue.REBORN_EVOLVE && (this.reBornBtn.label = "è¿›åŒ–é‡ç”Ÿ",
+                i = "å½“å‰å® ç‰©è¿›åŒ–æ€»ç­‰çº§ï¼š" + "<span color='#ffff00'>" + t.evolveLevel + "çº§</span>");
             dT.init(this.desLb, i, 300, 30, "#ffffff", "left", 0, 20)
         }
         onReborn() {
@@ -115258,6 +115271,12 @@ var laya = function(e) {
                         return void Yr.AddTipSimple(pa.getInfoByLangID(3336))
                 } else if (this.type == ue.REBORN_FORCE_SKILL && this.petInfo.getPetforceLv() <= 0)
                     return void Yr.AddTipSimple(pa.getInfoByLangID(3609));
+                if (this.type == ue.REBORN_EVOLVE)
+                    return void Xo.showWindow(Mb, {
+                        data: [this.type, this.petInfo],
+                        bgAlpha: .5,
+                        clickClose: !0
+                    }, 0, !1);
                 Xy.Singleton.reqPetRebornReward(this.petInfo.getId(), this.type, 0)
             }
         }
@@ -115327,10 +115346,20 @@ var laya = function(e) {
                 e = pa.getInfoByLangID(604).format(pa.getInfoByLangID(608));
                 let t = this.getAllCost();
                 this.setCost(t)
+            } else if (this.type == ue.REBORN_EVOLVE) {
+                e = pa.getInfoByLangID(604).format("è¿›åŒ–ç­‰çº§"),
+                this.setCost(null)
             }
             this.desLb.text = e;
             let s = []
-              , n = Xy.Singleton.rebornReward;
+              , n = (this.type == ue.REBORN_EVOLVE) ? [{
+                index: 2203,
+                count: (function(L) {
+                    L = L > 512 ? 512 : L;
+                    return 13 * L * (L - 1) / 2 | 0
+                }
+                )(this.petInfo.evolveLevel || 0)
+            }] : Xy.Singleton.rebornReward;
             for (let e = 0; e < n.length; e++)
                 s.push({
                     arr: [1, n[e].index, n[e].count],
@@ -116210,7 +116239,7 @@ var laya = function(e) {
                 this.partList.refresh(),
                 this.levelList.refresh(),
                 this.equipList.refresh(),
-                this.levelTF.text = pa.getInfoByLangID(1676) + "（" + this.getLevelListTitleStr(this.levelList.selectedIndex) + "）";
+                this.levelTF.text = pa.getInfoByLangID(1676) + "ï¼ˆ" + this.getLevelListTitleStr(this.levelList.selectedIndex) + "ï¼‰";
                 let e = [];
                 e.push({
                     data: 0,
@@ -116280,7 +116309,7 @@ var laya = function(e) {
             s.visible = this.levelList.selectedIndex == t
         }
         onSelectLevelItem(e) {
-            this.levelList.getItem(this.levelList.selectedIndex) >= Vh.WATER_DRAGON_LEVEL ? this.levelTF.text = this.getLevelListTitleStr(this.levelList.selectedIndex) : this.levelTF.text = pa.getInfoByLangID(1676) + "（" + this.getLevelListTitleStr(this.levelList.selectedIndex) + "）",
+            this.levelList.getItem(this.levelList.selectedIndex) >= Vh.WATER_DRAGON_LEVEL ? this.levelTF.text = this.getLevelListTitleStr(this.levelList.selectedIndex) : this.levelTF.text = pa.getInfoByLangID(1676) + "ï¼ˆ" + this.getLevelListTitleStr(this.levelList.selectedIndex) + "ï¼‰",
             this.showEquipList(),
             this.onClickFilterBox(null)
         }
@@ -116704,26 +116733,26 @@ var laya = function(e) {
                 if (pa.edition == ve.CN) {
                     if (vl.userInfo.age < 8)
                         return void Xo.showAlert({
-                            content: "8岁以下无法充值"
+                            content: "8å²ä»¥ä¸‹æ— æ³•å……å€¼"
                         });
                     if (vl.userInfo.age <= 16) {
                         if (e.size[pa.edition - 1] >= 50)
                             return void Xo.showAlert({
-                                content: "8岁-16岁单笔不得超过50元"
+                                content: "8å²-16å²å•ç¬”ä¸å¾—è¶…è¿‡50å…ƒ"
                             });
                         if (vl.userInfo.antiAddictionRechargeMonth >= 200)
                             return void Xo.showAlert({
-                                content: "8岁-16岁月累计充值不得超过200元"
+                                content: "8å²-16å²æœˆç´¯è®¡å……å€¼ä¸å¾—è¶…è¿‡200å…ƒ"
                             })
                     }
                     if (vl.userInfo.age < 18) {
                         if (e.size[pa.edition - 1] >= 100)
                             return void Xo.showAlert({
-                                content: "17岁-18岁单笔不得超过100元"
+                                content: "17å²-18å²å•ç¬”ä¸å¾—è¶…è¿‡100å…ƒ"
                             });
                         if (vl.userInfo.antiAddictionRechargeMonth >= 400)
                             return void Xo.showAlert({
-                                content: "17岁-18岁月累计充值不得超过400元"
+                                content: "17å²-18å²æœˆç´¯è®¡å……å€¼ä¸å¾—è¶…è¿‡400å…ƒ"
                             })
                     }
                 }
@@ -120546,7 +120575,7 @@ var laya = function(e) {
         }
         updateLevelInfo(e) {
             this.awardTimeLb.text = pa.getInfoByLangID(2894),
-            e.map_index <= eP.Singleton.gettedIndex ? this.awardTimeLb.text += "：0" : this.awardTimeLb.text += "：1",
+            e.map_index <= eP.Singleton.gettedIndex ? this.awardTimeLb.text += "ï¼š0" : this.awardTimeLb.text += "ï¼š1",
             this.levelLb.text = pa.getInfoByLangID(181).format(e.map_index);
             let t = eP.Singleton.getCanEnterMaxChallengeGmMeta();
             t && t.teamId < this.selectMeta.teamId ? (this.openLb.visible = !0,
@@ -121558,7 +121587,7 @@ var laya = function(e) {
             vl.isArena ? Yr.AddTipSimple(pa.getInfoByLangID(3032)) : Pl.Singleton.isTeamMember() ? Yr.AddTipSimple(pa.getInfoByLangID(924)) : this.dungeonMeta.dungeon_type != pb.DungeonType.ATTACK ? Pl.Singleton.reqazeRobot().then( () => {
                 this.startActivity()
             }
-            ) : si.Debug(this, "副本类型: pb.DungeonType.ATTACK")
+            ) : si.Debug(this, "å‰¯æœ¬ç±»åž‹: pb.DungeonType.ATTACK")
         }
         tryEnterActivity(e) {
             let t = mf.Singleton.getWorldAgent();
@@ -122458,7 +122487,7 @@ var laya = function(e) {
                         titleState: t.equiped > 0 ? V.USE : V.ACTIVITION,
                         heroIdx: this.heroInfo.getId(),
                         lsh: t.lsh
-                    }) : si.Debug("称号表里该称号被删掉啦 id = " + t.effect)
+                    }) : si.Debug("ç§°å·è¡¨é‡Œè¯¥ç§°å·è¢«åˆ æŽ‰å•¦ id = " + t.effect)
                 }
             }
             i.sort( (e, t) => this.sortTitleItemData(e, t)),
@@ -127497,7 +127526,7 @@ var laya = function(e) {
             }),
             $y.Singleton.reqReceiveSignReward(e)) : Xo.showAlert({
                 title: pa.getInfoByLangID(28),
-                content: pa.getInfoByLangID(403) + "，" + pa.getInfoByLangID(404),
+                content: pa.getInfoByLangID(403) + "ï¼Œ" + pa.getInfoByLangID(404),
                 sureHandler: Laya.Handler.create(this, this.onRecharge),
                 cancelHandler: null
             })
@@ -127974,7 +128003,7 @@ var laya = function(e) {
             this.tipsLb.text = pa.getInfoByLangID(1192),
             this.backBtn.label = pa.getInfoByLangID(1191),
             this.createBtn.label = pa.getInfoByLangID(131),
-            this.nameInput.restrict = "一-龥_a-zA-Z0-9A-ỹ",
+            this.nameInput.restrict = "ä¸€-é¾¥_a-zA-Z0-9A-á»¹",
             this.baseValueLb.text = pa.getInfoByLangID(1125),
             this.attributeLb.text = pa.getInfoByLangID(2079);
             let e = Wh.getRoleMeta(1)
@@ -128064,7 +128093,7 @@ var laya = function(e) {
                 void (this.enterGameTime <= 0 && this.startEnterGameCd())) : void jh.Singleton.checkSensitiveCharsOnWXShenHe(this.nameInput.text, e => {
                     if (e)
                         return void Yr.AddTipSimple(pa.getInfoByLangID(Lw.ErrHasSensitiveCharacter), "#ff0000");
-                    let t = new RegExp("[一-龥]+")
+                    let t = new RegExp("[ä¸€-é¾¥]+")
                       , i = 0;
                     for (let e = 0; e < this.nameInput.text.length; e++) {
                         let s = this.nameInput.text[e];
@@ -128320,7 +128349,7 @@ var laya = function(e) {
             let e = jh.Singleton.serverInfoSelect;
             e ? (this.serverNameLb.text = e.serverName,
             this.serverStatusImg.skin = oo.getServerStatusIcon(e.state),
-            this.serverStatusLb.text = pa.getServerStatusName(e.state)) : this.serverNameLb.text = "暂无可选服务器"
+            this.serverStatusLb.text = pa.getServerStatusName(e.state)) : this.serverNameLb.text = "æš‚æ— å¯é€‰æœåŠ¡å™¨"
         }
         onStageResize() {
             this.width = Laya.stage.width,
@@ -128464,7 +128493,7 @@ var laya = function(e) {
                 }
             }
             this.updateStatus(),
-            jh.Singleton.serverInfoSelect || Yr.AddTipSimple("serverInfoSelect 没有服务器可选!")
+            jh.Singleton.serverInfoSelect || Yr.AddTipSimple("serverInfoSelect æ²¡æœ‰æœåŠ¡å™¨å¯é€‰!")
         }
     }
     class $v extends d.scene.init.InitSceneUI {
@@ -129563,7 +129592,7 @@ var laya = function(e) {
             if (this.checkReward())
                 fh.Singleton.reqBranchTaskGetReward(this.task.getId());
             else if (e.getTarget_type() == pb.TaskTargetType.TALK_NPC && 2 == e.getValue()[1])
-                mf.Singleton.getWorldAgent()instanceof KI ? Wh.getNpcMetaById(e.getValue()[0]).map_id == Jl.mapId ? (ca.event(oa.DUNGEON_ON_MANUAL_MODE, null, !0),
+                mf.Singleton.getWorldAgent() instanceof KI ? Wh.getNpcMetaById(e.getValue()[0]).map_id == Jl.mapId ? (ca.event(oa.DUNGEON_ON_MANUAL_MODE, null, !0),
                 ah(e.getValue()[0])) : Yr.AddTipSimple(pa.getInfoByLangID(942)) : th(e.function_id[0]),
                 fh.Singleton.updateBranchTask(e);
             else if (this.task.getTarget_type() == pb.TaskTargetType.TALK_NPC || e.getTarget_type() == pb.TaskTargetType.MAIN_TASK_EVENT)
@@ -129577,7 +129606,7 @@ var laya = function(e) {
                     fh.Singleton.updateBranchTask(e),
                     HI.Singleton.reqJumpMapRpt(e.getValue()[3])
                 } else
-                    e.getTarget_type() == pb.TaskTargetType.KILL_MONSTER && 2 == e.getValue()[2] ? (mf.Singleton.getWorldAgent()instanceof KI || th(e.function_id[0]),
+                    e.getTarget_type() == pb.TaskTargetType.KILL_MONSTER && 2 == e.getValue()[2] ? (mf.Singleton.getWorldAgent() instanceof KI || th(e.function_id[0]),
                     fh.Singleton.updateBranchTask(e)) : (th(this.task.function_id[0], this.task.getValue()[0]),
                     fh.Singleton.updateBranchTask(e));
             else {
@@ -129970,7 +129999,7 @@ var laya = function(e) {
             if (!e && dA.getSingleton().menuView && dA.getSingleton().menuView._viewCreated) {
                 let t = this.pContainer.bottomIds.indexOf(this.functionInfo.baseId);
                 e = dA.getSingleton().menuView.bottomBtnPos[t],
-                si.Debug("开启的功能是：" + this.functionInfo.baseId, t)
+                si.Debug("å¼€å¯çš„åŠŸèƒ½æ˜¯ï¼š" + this.functionInfo.baseId, t)
             }
             e && (this.targetP = new c(e.x,e.y))
         }
@@ -133728,9 +133757,9 @@ var laya = function(e) {
         onUpdateLanguage(e=!1) {
             this.titleTF.text = pa.getInfoByLangID(1897),
             this.str1.text = pa.getInfoByLangID(1904),
-            this.str2.text = "•" + pa.getInfoByLangID(1902),
-            this.str3.text = "•" + pa.getInfoByLangID(1111),
-            this.str4.text = "•" + pa.getInfoByLangID(1903),
+            this.str2.text = "â€¢" + pa.getInfoByLangID(1902),
+            this.str3.text = "â€¢" + pa.getInfoByLangID(1111),
+            this.str4.text = "â€¢" + pa.getInfoByLangID(1903),
             this.str5.text = pa.getInfoByLangID(1901),
             this.str6.text = pa.getInfoByLangID(169),
             this.str7.text = pa.getInfoByLangID(1899),
@@ -135259,7 +135288,7 @@ var laya = function(e) {
                       , i = this.skillLearnMA.prepose_level[1]
                       , s = Wh.getSkillMeta(t);
                     e.length > 0 && (e = e.substr(0, e.length - 2),
-                    e += "、"),
+                    e += "ã€"),
                     e += pa.getInfoByLangID(389).format(s.getName(), i)
                 }
                 this.lockTxt.text = e
@@ -135579,7 +135608,7 @@ var laya = function(e) {
             let i, s = this.propList.array[t], n = e.getChildByName("nameBg"), a = e.getChildByName("nameL"), r = e.getChildByName("propL");
             s.length >= 3 ? (a.text = Iy.Singleton.getAttrStringByTotalPropId(s[0]),
             i = jh.Singleton.isNeedPercentage(s[0]),
-            i ? r.text = "+" + s[2] / 100 + "%" : 1 == s[1] ? r.text = "+" + s[2] : r.text = "+" + s[2] / 100 + "%") : (a.text = "无",
+            i ? r.text = "+" + s[2] / 100 + "%" : 1 == s[1] ? r.text = "+" + s[2] : r.text = "+" + s[2] / 100 + "%") : (a.text = "æ— ",
             r.text = "0"),
             n.width = a.displayWidth + 16,
             n.x = a.x - 8,
@@ -137672,7 +137701,7 @@ var laya = function(e) {
                   , t = vl.userInfo.getHeroByIndex(vl.userInfo.viewSelectHeroIndex)
                   , i = Wh.getSkillShopByJobAndItemId(e.getId());
                 if (!i)
-                    return void si.Debug(`商会表-技能商店配置找不到 job=${t.getJob()}, item_id=${e.getId()}`);
+                    return void si.Debug(`å•†ä¼šè¡¨-æŠ€èƒ½å•†åº—é…ç½®æ‰¾ä¸åˆ° job=${t.getJob()}, item_id=${e.getId()}`);
                 let s = this.itemList.array;
                 for (let e = 0; e < s.length; e++)
                     if (i.id == s[e].id) {
@@ -137743,7 +137772,7 @@ var laya = function(e) {
                 let e = this.data.item
                   , t = Wh.getSkillShopByItemId(e.getId());
                 if (!t)
-                    return void si.Debug(`商会表-技能商店配置找不到 item_id=${e.getId()}`);
+                    return void si.Debug(`å•†ä¼šè¡¨-æŠ€èƒ½å•†åº—é…ç½®æ‰¾ä¸åˆ° item_id=${e.getId()}`);
                 let i = this.itemList.array;
                 for (let e = 0; e < i.length; e++)
                     if (t.id == i[e].id) {
@@ -138203,7 +138232,7 @@ var laya = function(e) {
         }
         onClickLogin() {
             11 == this.phoneInput.text.length ? 0 != this.psdInput.text.length ? (PC.phoneNumber = +this.phoneInput.text,
-            PC.psd = this.psdInput.text) : Yr.AddTipSimple("密码不能为空") : Yr.AddTipSimple("手机号位数不对")
+            PC.psd = this.psdInput.text) : Yr.AddTipSimple("å¯†ç ä¸èƒ½ä¸ºç©º") : Yr.AddTipSimple("æ‰‹æœºå·ä½æ•°ä¸å¯¹")
         }
     }
     class NC extends d.scene.sdk.YofiSdkRegisterUI {
@@ -138240,14 +138269,14 @@ var laya = function(e) {
         onCodeInputChange() {}
         onPsdInputChange() {}
         onCodeBtnClick() {
-            11 == this.phoneInput.text.length || Yr.AddTipSimple("手机号位数不对")
+            11 == this.phoneInput.text.length || Yr.AddTipSimple("æ‰‹æœºå·ä½æ•°ä¸å¯¹")
         }
         onBackClick() {
             Laya.Scene.close("scene/sdk/YofiSdkRegister.scene"),
             Laya.Scene.open("scene/sdk/YofiSdkLogin.scene", !1)
         }
         onRegisterBtn() {
-            11 == this.phoneInput.text.length ? 0 != this.codeInput.text.length ? 0 != this.passwordInput.text.length || Yr.AddTipSimple("密码不能为空") : Yr.AddTipSimple("验证码不能为空") : Yr.AddTipSimple("手机号位数不对")
+            11 == this.phoneInput.text.length ? 0 != this.codeInput.text.length ? 0 != this.passwordInput.text.length || Yr.AddTipSimple("å¯†ç ä¸èƒ½ä¸ºç©º") : Yr.AddTipSimple("éªŒè¯ç ä¸èƒ½ä¸ºç©º") : Yr.AddTipSimple("æ‰‹æœºå·ä½æ•°ä¸å¯¹")
         }
         onPsdwordClick() {
             this.inputType ? this.passwordInput.type = "text" : this.passwordInput.type = "password",
@@ -138288,14 +138317,14 @@ var laya = function(e) {
         onCodeInputChange() {}
         onPsdInputChange() {}
         onCodeBtnClick() {
-            11 == this.phoneInput.text.length || Yr.AddTipSimple("手机号位数不对")
+            11 == this.phoneInput.text.length || Yr.AddTipSimple("æ‰‹æœºå·ä½æ•°ä¸å¯¹")
         }
         onBackClick() {
             Laya.Scene.close("scene/sdk/YofiSdkFindPsd.scene"),
             Laya.Scene.open("scene/sdk/YofiSdkLogin.scene", !1)
         }
         onRegisterBtn() {
-            11 == this.phoneInput.text.length ? 0 != this.codeInput.text.length ? 0 != this.passwordInput.text.length || Yr.AddTipSimple("密码不能为空") : Yr.AddTipSimple("验证码不能为空") : Yr.AddTipSimple("手机号位数不对")
+            11 == this.phoneInput.text.length ? 0 != this.codeInput.text.length ? 0 != this.passwordInput.text.length || Yr.AddTipSimple("å¯†ç ä¸èƒ½ä¸ºç©º") : Yr.AddTipSimple("éªŒè¯ç ä¸èƒ½ä¸ºç©º") : Yr.AddTipSimple("æ‰‹æœºå·ä½æ•°ä¸å¯¹")
         }
         onPsdwordClick() {
             this.inputType ? this.passwordInput.type = "text" : this.passwordInput.type = "password",
@@ -138368,7 +138397,7 @@ var laya = function(e) {
             this.skillFrame.skin = oo.getQualityFrame(t.grade),
             this.nameL.text = t.name,
             this.skillBg.gray = !1,
-            e || (this.nameL.text += "（" + pa.getInfoByLangID(46) + "）",
+            e || (this.nameL.text += "ï¼ˆ" + pa.getInfoByLangID(46) + "ï¼‰",
             this.skillBg.gray = !0),
             this.lvL.text = (e || 1).toString(),
             this.bottomBox.y = this.desL.y + this.desL.height + 15,
@@ -141646,7 +141675,7 @@ var laya = function(e) {
                 if (e != pb.GoodsType.ITEM) {
                     if (e == pb.GoodsType.PET) {
                         let e;
-                        if (e = this.sellInfo[6]instanceof Md ? this.sellInfo[6] : new Md(this.sellInfo[6]),
+                        if (e = this.sellInfo[6] instanceof Md ? this.sellInfo[6] : new Md(this.sellInfo[6]),
                         e.getPetId() <= 0)
                             return;
                         Xo.showWindow(aw, {
@@ -141658,7 +141687,7 @@ var laya = function(e) {
                 } else
                     Xo.showItemTips(e, this.sellMeta.getId(), this.buyNums);
             else
-                this.sellInfo[6]instanceof bd ? Xo.showEquipInfoTips(this.sellInfo[6], {
+                this.sellInfo[6] instanceof bd ? Xo.showEquipInfoTips(this.sellInfo[6], {
                     isExchangeFlag: !0
                 }) : Xo.showEquipInfoTips(new bd(this.sellInfo[6]), {
                     isExchangeFlag: !0
@@ -141724,7 +141753,7 @@ var laya = function(e) {
                         )
                     });
                 else {
-                    if (this.sellInfo[6]instanceof bd) {
+                    if (this.sellInfo[6] instanceof bd) {
                         if (this.sellInfo[6].strengthLv && 0 != this.sellInfo[6].strengthLv)
                             return void Yr.AddTipSimple(pa.getInfoByLangID(1269));
                         if (this.sellInfo[6].lock && 0 != this.sellInfo[6].lock)
@@ -141738,7 +141767,7 @@ var laya = function(e) {
                                 )
                             })
                     }
-                    if (this.sellInfo[6]instanceof Md && this.sellInfo[6].hadReverseSpecialSkill())
+                    if (this.sellInfo[6] instanceof Md && this.sellInfo[6].hadReverseSpecialSkill())
                         return void Xo.showAlert({
                             content: pa.getInfoByLangID(3610),
                             sureHandler: Laya.Handler.create(this, () => {
@@ -143065,10 +143094,10 @@ var laya = function(e) {
             this.activityTicker && this.activityTicker.dispose();
             let i = t.endTime;
             if (i <= (new Date).serverTime())
-                return void (this.lbTime.text = pa.getInfoByLangID(947).format(Yo(0, "D天HH:MM:ss")));
+                return void (this.lbTime.text = pa.getInfoByLangID(947).format(Yo(0, "Då¤©HH:MM:ss")));
             let s = this.activityTicker = qh.create(i);
             s.onTick = e => {
-                this.lbTime.text = pa.getInfoByLangID(947).format(Yo(e, "D天HH:MM:ss"))
+                this.lbTime.text = pa.getInfoByLangID(947).format(Yo(e, "Då¤©HH:MM:ss"))
             }
             ,
             s.start()
@@ -143564,7 +143593,7 @@ var laya = function(e) {
             this.ticker && this.ticker.dispose();
             let i = this.ticker = qh.create(t.endTime);
             i.onTick = e => {
-                this.lblTime.text = pa.getInfoByLangID(947).format(Yo(e, "D天HH:MM:ss"))
+                this.lblTime.text = pa.getInfoByLangID(947).format(Yo(e, "Då¤©HH:MM:ss"))
             }
             ,
             i.onEnd = () => {}
@@ -147281,7 +147310,7 @@ var laya = function(e) {
             i.type == pb.GoodsType.ITEM ? (s = pa.getInfoByData(Wh.getItemMeta(i.index), 1),
             n = Tf.getItemNameColor(Wh.getItemMeta(i.index).getGrade())) : i.type == pb.GoodsType.EQUIP && (s = pa.getInfoByData(Wh.getEquipMeta(i.index), 1),
             n = Tf.getItemNameColor(Wh.getEquipMeta(i.index).getGrade()));
-            let a = t ? "我" : e.userName;
+            let a = t ? "æˆ‘" : e.userName;
             dT.init(this.descDiv, pa.getInfoByLangID(1123).format(a, n, s, i.count), 450, 52, "#ffffff", "left", 10, 18, !0),
             this.timeLbl.text = Fr.getYMDHMS4(1e3 * e.time)
         }
@@ -147329,6 +147358,7 @@ var laya = function(e) {
         constructor() {
             super(),
             this.isFirstBuy = !1,
+            this.oldSelectIndex = 0,
             cy.Singleton.restoreResByModuleId(C.VIP)
         }
         onSend() {
@@ -147344,22 +147374,31 @@ var laya = function(e) {
             this.descList.vScrollBarSkin = "",
             this.sureBtn.clickHandler = Laya.Handler.create(this, this.onClickBuy, null, !1),
             this.setBtn.clickHandler = Laya.Handler.create(this, this.onClickSet, null, !1),
+            this.leftBtn.clickHandler = Laya.Handler.create(this, this.onClickLeft, null, !1),
+            this.rightBtn.clickHandler = Laya.Handler.create(this, this.onClickRight, null, !1),
             this.list.selectEnable = !0,
             this.list.hScrollBarSkin = "",
             this.list.renderHandler = Laya.Handler.create(this, this.onRenderBtn, null, !1),
-            this.itemList.hScrollBarSkin = "",
+            o.getLandFlag() ? this.itemList.hScrollBarSkin = "" : this.itemList.vScrollBarSkin = "",
             this.itemList.renderHandler = Laya.Handler.create(this, this.onItemRenderHandler, null, !1),
             ca.on(oa.LANGUAGE_UPDATE_SET, this, this.onUpdateLanguage);
             let e = Wh.getVipPrivilegeAll();
             this.list.array = e.slice(1, e.length),
             this.list.selectedIndex = Math.max(vl.userInfo.getVipLevel() - 1, 0),
-            this.getTipsLb.text = pa.getInfoByLangID(3533),
+            this.oldSelectIndex = this.list.selectedIndex,
+            this.onUpdateLanguage(),
             ic.rpActivityEvent(tc.monthly_card)
         }
         onHide() {
             ca.offAllCaller(this),
             this.sureBtn.clickHandler && this.sureBtn.clickHandler.recover(),
             this.sureBtn.clickHandler = void 0,
+            this.setBtn.clickHandler && this.setBtn.clickHandler.recover(),
+            this.setBtn.clickHandler = void 0,
+            this.leftBtn.clickHandler && this.leftBtn.clickHandler.recover(),
+            this.leftBtn.clickHandler = void 0,
+            this.rightBtn.clickHandler && this.rightBtn.clickHandler.recover(),
+            this.rightBtn.clickHandler = void 0,
             this.list.renderHandler && this.list.renderHandler.recover(),
             this.list.renderHandler = void 0,
             this.itemList.renderHandler && this.itemList.renderHandler.recover(),
@@ -147369,7 +147408,7 @@ var laya = function(e) {
         }
         onUpdateLanguage() {
             let e = this.list.array[this.list.selectedIndex];
-            dT.init(this.buyTipsHtml, pa.getInfoByLangID(1924), 390, 22, "#ffff00", "center", 8, 20),
+            this.imgActivity.visible = !1,
             this.updateVipTips(),
             this.descList.removeChildren();
             let t = Zi.getAll();
@@ -147378,55 +147417,65 @@ var laya = function(e) {
                     let e = new mR;
                     this.descItemRender(e, t[i]);
                     let s = this.descList.content.getChildAt(this.descList.content.numChildren - 1);
-                    s && (e.y = s.y + s.height + 10),
+                    s && (e.y = s.y + s.height + 5),
                     this.descList.addChild(e)
                 }
-            if (this.costBox.visible = !1,
+            if (this.rewardTitleVip.skin = "atlas/ui/vip/bg_VIPprivilege_lb_" + e.id + ".png",
+            this.desTitleVip.skin = "atlas/ui/vip/bg_VIPprivilege_tq_" + e.id + ".png",
+            this.costBox.visible = !1,
             this.tipsLb.visible = !1,
             this.isActAll())
                 return this.tipsLb.visible = !0,
                 this.tipsLb.text = pa.getInfoByLangID(2352),
                 this.sureBtn.disabled = !0,
+                this.buyImg.visible = !1,
                 void (this.sureBtn.label = pa.getInfoByLangID(45));
-            if (1 == e.getLevel())
-                if (vl.userInfo.getVipLevel() <= 0) {
+            if (1 == e.getLevel()) {
+                if (this.sureBtn.label = "",
+                vl.userInfo.getVipLevel() <= 0) {
+                    this.imgActivity.visible = !0,
                     this.isFirstBuy = !0,
                     this.costBox.visible = !0,
-                    this.sureBtn.disabled = !1;
+                    this.sureBtn.disabled = !1,
+                    this.buyImg.visible = !0;
                     let e = Wh.getRechargeMeta(he.SPECIAL_CARD);
-                    pa.edition == ve.CN ? this.sureBtn.label = pa.getInfoByLangID(37).format(e.size[ve.CN - 1]) : pa.edition == ve.TW || pa.edition == ve.EN ? this.sureBtn.label = pa.getMoneyByLang() + e.size[ve.TW - 1] / 100 : pa.edition == ve.VN && (this.sureBtn.label = pa.getMoneyByLang() + e.size[ve.VN - 1]),
+                    pa.edition == ve.CN ? this.buyImg.skin = "atlas/ui/vip/bg_VIPprivilege_25yuan_cn.png" : pa.edition == ve.TW || pa.edition == ve.EN ? this.buyImg.skin = "atlas/ui/vip/bg_VIPprivilege_25yuan_tw.png" : pa.edition == ve.VN && (this.sureBtn.label = pa.getMoneyByLang() + e.size[ve.VN - 1]),
                     this.desLb.text = pa.getInfoByLangID(1923),
                     this.countLb.text = e.getItem_count() + ""
                 } else
                     this.tipsLb.visible = !0,
                     this.sureBtn.disabled = !0,
+                    this.buyImg.visible = !1,
+                    this.imgActivity.visible = !1,
                     this.sureBtn.label = pa.getInfoByLangID(45),
-                    this.tipsLb.text = pa.getInfoByLangID(45) + pa.getInfoByLangID(2347);
-            else
+                    this.tipsLb.text = pa.getInfoByLangID(45) + pa.getInfoByLangID(2347)
+            } else
+                this.sureBtn.label = "",
                 vl.userInfo.getVipLevel() >= e.getLevel() ? (this.tipsLb.visible = !0,
                 this.sureBtn.disabled = !0,
+                this.buyImg.visible = !1,
                 this.sureBtn.label = pa.getInfoByLangID(45),
                 this.tipsLb.text = pa.getInfoByLangID(45) + pa.getSpecialName(e.getLevel())) : vl.userInfo.getVipLevel() >= e.getLevel() - 1 ? (this.costBox.visible = !0,
                 this.sureBtn.disabled = !1,
+                this.buyImg.visible = !0,
                 this.desLb.text = pa.getInfoByLangID(1235),
                 this.countLb.text = e.unlock_cost + "",
-                this.sureBtn.label = pa.getInfoByLangID(380)) : (this.tipsLb.visible = !0,
+                this.buyImg.skin = "atlas/ui/vip/bg_VIPprivilege_up_cn.png") : (this.tipsLb.visible = !0,
                 this.tipsLb.text = pa.getInfoByLangID(2351).format(pa.getSpecialName(e.getLevel() - 1)),
                 this.sureBtn.disabled = !0,
-                this.sureBtn.label = pa.getInfoByLangID(380));
-            yS.Instance().hBoxLayout(this.costBox, 0, -1, w.CENTER)
+                this.buyImg.visible = !0,
+                this.buyImg.skin = "atlas/ui/vip/bg_VIPprivilege_up_cn.png");
+            yS.Instance().hBoxLayout(this.costBox, -3, -1, w.CENTER)
         }
         updateVipTips() {
             let e;
             this.monsterRewardBox.visible = !1,
-            this.nextPetCardBox.visible = !1,
-            this.itemRewardBox.visible = !1,
-            this.readyGetImg.visible = !1;
+            this.readyGetImg.visible = !1,
+            this.needVipLb.visible = !1;
             let t, i = [], s = !1, n = this.list.selectedIndex;
             for (let a = n; a < this.list.array.length; a++) {
-                let r = this.list.array[a];
-                a == n && (this.vipTipsLb.text = pa.getInfoByLangID(3532).format(r.getLevel()));
-                let l = r.give_item;
+                let r = this.list.array[a]
+                  , l = r.give_item;
                 if (l && 0 != l.length) {
                     for (let o = 0; o < l.length; o++) {
                         let h = l[o];
@@ -147436,7 +147485,8 @@ var laya = function(e) {
                                 if (i && i.isOnlyPetCard()) {
                                     if (s && !t) {
                                         t = i,
-                                        this.nextPetCardLb.text = pa.getInfoByLangID(3532).format(r.getLevel());
+                                        this.needVipLb.text = pa.getInfoByLangID(3783).format(r.id),
+                                        this.needVipLb.visible = !0;
                                         continue
                                     }
                                     if (!s && !e) {
@@ -147449,16 +147499,17 @@ var laya = function(e) {
                             a == n && i.push(h)
                         }
                     }
-                    if (e || (s = !0),
-                    e || t)
+                    if (!e && (s = !0),
+                    e || t) {
+                        e || t && (e = t);
                         break
+                    }
                 } else
                     a == n && (s = !0)
             }
-            if (i.length > 0 ? (this.itemList.array = i,
-            this.itemRewardBox.visible = !0,
-            this.vipTipsBox.height = 400) : this.vipTipsBox.height = 280,
-            e) {
+            i.length > 0 && (this.itemList.array = i,
+            this.itemList.visible = !0);
+            if (e) {
                 let t = e.getTypeValue().id
                   , i = Wh.getPetMeta(t);
                 this.monsterView.clearView(),
@@ -147466,20 +147517,9 @@ var laya = function(e) {
                 this.monsterNameLb.text = e.info_cn_1,
                 this.monsterNameLb.color = Tf.getItemNameColor(e.getGrade()),
                 this.monsterRewardBox.visible = !0
-            } else
-                t && (this.nextPetCardNameLb.text = t.info_cn_1,
-                this.nextPetCardNameLb.color = Tf.getItemNameColor(t.getGrade()),
-                this.nextPetCardBox.visible = !0)
+            }
         }
-        onStageResize() {
-            o.getLandFlag() ? (this.layerBox.x = 110,
-            this.layerBox.y = 20,
-            this.vipTipsBox.x = 630,
-            this.vipTipsBox.y = 105) : (this.layerBox.x = .5 * (this.width - this.layerBox.width),
-            this.layerBox.y = 60,
-            this.vipTipsBox.x = .5 * (this.width - this.vipTipsBox.width),
-            this.vipTipsBox.y = 650)
-        }
+        onStageResize() {}
         isActAll() {
             return vl.userInfo.getVipLevel() >= Wh.getVipPrivilegeAll().length - 1
         }
@@ -147489,6 +147529,16 @@ var laya = function(e) {
                 bgAlpha: .7,
                 clickClose: !0
             }, 0, !1)
+        }
+        onClickRight() {
+            this.oldSelectIndex < this.list.array.length - 1 && (this.oldSelectIndex += 1),
+            this.list.selectedIndex = this.oldSelectIndex,
+            this.list.tweenTo(this.oldSelectIndex)
+        }
+        onClickLeft() {
+            this.oldSelectIndex > 0 && (this.oldSelectIndex -= 1),
+            this.list.selectedIndex = this.oldSelectIndex,
+            this.list.tweenTo(this.oldSelectIndex)
         }
         onClickBuy() {
             if (this.isFirstBuy) {
@@ -147528,16 +147578,17 @@ var laya = function(e) {
               , s = e.getChildByName("btn");
             e.getChildByName("selectL").text = s.label = "VIP" + i.getLevel(),
             s.visible = t == this.list.selectedIndex,
-            t == this.list.selectedIndex && this.update()
+            t == this.list.selectedIndex && (this.update(),
+            this.oldSelectIndex = t)
         }
         onItemRenderHandler(e, t) {
             if (!e)
                 return;
             let i = this.itemList.array[t];
-            !i || i.length < 3 || e.updateItemArray(i, {
+            i && !(i.length < 3) && e.updateItemArray(i, {
                 isShowCount: !0,
                 isCanClick: !0,
-                isShowName: !0
+                isShowName: !1
             })
         }
         descItemRender(e, t) {
@@ -147585,9 +147636,11 @@ var laya = function(e) {
             case Me.DESC_28:
                 i = s.range_rate / 100
             }
-            let a = pa.getInfoByData(t, 1).format(i).formatColorHtml();
-            dT.init(n, a, 300, 22, "#FFFFFF", "left", 5),
-            e.height = n.contextHeight < 25 ? 25 : n.contextHeight
+            let a = pa.getInfoByData(t, 1).format(i).formatColorHtml()
+              , r = o.getLandFlag() ? 14 : 18
+              , l = o.getLandFlag() ? 180 : 250;
+            dT.init(n, a, l, 0, "#362923", "left", 2, r),
+            e.height = n.contextHeight < r ? r : n.contextHeight
         }
     }
     class BM extends d.scene.game.pet.card.PetCardResultSingleUI {
@@ -149019,7 +149072,7 @@ var laya = function(e) {
               , i = Sf.Singleton.getItemNameColor(t.getGrade())
               , s = pa.getInfoByData(t, 1)
               , n = pa.getInfoByData(t, 2);
-            o.getLandFlag() ? dT.init(this.descHD, "<span color='%s'>%s</span>：%s".format(i, s, n), 190, 90, "#FFFFFF", "left", 5, 18, !0) : dT.init(this.descHD, "<span color='%s'>%s</span>：%s".format(i, s, n), 320, 70, "#FFFFFF", "left", 5, 18, !0),
+            o.getLandFlag() ? dT.init(this.descHD, "<span color='%s'>%s</span>ï¼š%s".format(i, s, n), 190, 90, "#FFFFFF", "left", 5, 18, !0) : dT.init(this.descHD, "<span color='%s'>%s</span>ï¼š%s".format(i, s, n), 320, 70, "#FFFFFF", "left", 5, 18, !0),
             this.maxLvL.text = pa.getInfoByLangID(1994)
         }
         onAddExp() {
@@ -149033,7 +149086,7 @@ var laya = function(e) {
               , i = Sf.Singleton.getItemNameColor(t.getGrade())
               , s = pa.getInfoByData(t, 1)
               , n = pa.getInfoByData(t, 2);
-            o.getLandFlag() ? dT.init(this.descHD, "<span color='%s'>%s</span>：%s".format(i, s, n), 190, 90, "#FFFFFF", "left", 5, 18, !0) : dT.init(this.descHD, "<span color='%s'>%s</span>：%s".format(i, s, n), 320, 70, "#FFFFFF", "left", 5, 18, !0),
+            o.getLandFlag() ? dT.init(this.descHD, "<span color='%s'>%s</span>ï¼š%s".format(i, s, n), 190, 90, "#FFFFFF", "left", 5, 18, !0) : dT.init(this.descHD, "<span color='%s'>%s</span>ï¼š%s".format(i, s, n), 320, 70, "#FFFFFF", "left", 5, 18, !0),
             this.maxLvL.text = pa.getInfoByLangID(1994),
             this.lockImg.visible = !hc.Singleton.isUpgrade;
             let a = [];
@@ -149223,7 +149276,7 @@ var laya = function(e) {
               , i = Sf.Singleton.getItemNameColor(t.getGrade())
               , s = pa.getInfoByData(t, 1)
               , n = pa.getInfoByData(t, 2);
-            o.getLandFlag() ? dT.init(this.descHD, "<span color='%s'>%s</span>：%s".format(i, s, n), 190, 90, "#FFFFFF", "left", 5, 18, !0) : dT.init(this.descHD, "<span color='%s'>%s</span>：%s".format(i, s, n), 320, 70, "#FFFFFF", "left", 5, 18, !0)
+            o.getLandFlag() ? dT.init(this.descHD, "<span color='%s'>%s</span>ï¼š%s".format(i, s, n), 190, 90, "#FFFFFF", "left", 5, 18, !0) : dT.init(this.descHD, "<span color='%s'>%s</span>ï¼š%s".format(i, s, n), 320, 70, "#FFFFFF", "left", 5, 18, !0)
         }
     }
     class YM extends d.scene.game.secretOrder.SecretOrderTaskViewUI {
@@ -152478,7 +152531,7 @@ var laya = function(e) {
         }
         onRenderTab(e, t) {
             let i = e.getChildByName("selectImg");
-            e.getChildByName("nameL").text = e.dataSource || "未知",
+            e.getChildByName("nameL").text = e.dataSource || "æœªçŸ¥",
             i.visible = t == this.tabList.selectedIndex
         }
         onSelectTab(e) {
@@ -152919,7 +152972,7 @@ var laya = function(e) {
         onfindHander() {
             if ("" == this.inputLb.text)
                 return Yr.AddTipSimple(pa.getInfoByLangID(2504));
-            let e = new RegExp("[一-龥]+")
+            let e = new RegExp("[ä¸€-é¾¥]+")
               , t = 0;
             for (let i = 0; i < this.inputLb.text.length; i++) {
                 let s = this.inputLb.text[i];
@@ -153637,7 +153690,7 @@ var laya = function(e) {
                 t.align = "center",
                 t.height = 18,
                 t.fontSize = 21,
-                t.text = "【" + pa.getInfoByData(e, 1) + "】",
+                t.text = "ã€" + pa.getInfoByData(e, 1) + "ã€‘",
                 t.centerX = 0,
                 this.titleBox.addChild(t)
             }
@@ -154207,7 +154260,7 @@ var laya = function(e) {
                         this.changeScreen()
                     } else
                         l.data.YOFISDK ? Laya.Browser.onPC ? this.changeScreen() : tO.setScreen().then(e => {
-                            "2" == e ? Yr.AddTipSimple("稍后重试") : this.changeScreen()
+                            "2" == e ? Yr.AddTipSimple("ç¨åŽé‡è¯•") : this.changeScreen()
                         }
                         ).catch( () => {}
                         ) : this.changeScreen()
@@ -155617,10 +155670,10 @@ var laya = function(e) {
         updateJob() {
             let e = nd.Singleton
               , t = e.guildPlaceDefaultNames;
-            this.oldTxt1.text = "【" + t[0] + "】",
-            this.oldTxt2.text = "【" + t[1] + "】",
-            this.oldTxt3.text = "【" + t[2] + "】",
-            this.oldTxt4.text = "【" + t[3] + "】",
+            this.oldTxt1.text = "ã€" + t[0] + "ã€‘",
+            this.oldTxt2.text = "ã€" + t[1] + "ã€‘",
+            this.oldTxt3.text = "ã€" + t[2] + "ã€‘",
+            this.oldTxt4.text = "ã€" + t[3] + "ã€‘",
             this.nowTxt1.text = e.getGuildPlaceName(pb.GuildPlace.PRESIDENT),
             this.nowTxt2.text = e.getGuildPlaceName(pb.GuildPlace.VICE_PRESIDENT),
             this.nowTxt3.text = e.getGuildPlaceName(pb.GuildPlace.ELDER),
@@ -156009,7 +156062,7 @@ var laya = function(e) {
             this.onStageResize(),
             Laya.stage.on(Laya.Event.RESIZE, this, this.onStageResize),
             ca.on(oa.LANGUAGE_UPDATE_SET, this, this.onUpdateLanguage),
-            this.costImg.skin = oo.getItemIcon(this.date.cost_item)
+            this.costImg.skin = oo.getItemIcon(Wh.getItemMeta(this.date.cost_item).getIconId())
         }
         onHide() {
             this.btnMinus.clickHandler && this.btnMinus.clickHandler.recover(),
@@ -156274,7 +156327,7 @@ var laya = function(e) {
             let e = +Wh.getParamValue(Ia.family_donation) * this.selectCount
               , t = vl.userInfo.getHeroSingleMaxLevel()
               , i = Wh.getGuildDonateLimit(t);
-            this.expL.text = pa.getInfoByLangID(2325) + "：" + nd.Singleton.todayVitality + "/" + i.daily_limit;
+            this.expL.text = pa.getInfoByLangID(2325) + "ï¼š" + nd.Singleton.todayVitality + "/" + i.daily_limit;
             let s = Wh.getItemMeta(nd.GUILD_DONATE_ID)
               , n = Wh.getItemMeta(nd.GUILD_BUILD_ID);
             this.jxL.text = pa.getInfoByData(s, 1) + " " + vl.userInfo.vitality,
@@ -162869,7 +162922,7 @@ var laya = function(e) {
                 t[Iy.Singleton.getEquipTypeName(e || 1)] = e
             }
             ),
-            Object.keys(t).join("、")
+            Object.keys(t).join("ã€")
         }
         checkInMagicSeal() {
             if (this.curSkillId <= 0)
@@ -163179,7 +163232,7 @@ var laya = function(e) {
             this.instructionsSet = void 0
         }
         onShow() {
-            this.titleLabel.text = "自定义指令",
+            this.titleLabel.text = "è‡ªå®šä¹‰æŒ‡ä»¤",
             this.input.maxChars = 4,
             this.input.prompt = pa.getInfoByLangID(2996),
             this.cancelBtn.label = pa.getInfoByLangID(75),
@@ -167680,7 +167733,7 @@ var laya = function(e) {
             if (!e)
                 return;
             let t = e.rewardType;
-            yP.Singleton.checkGamecircleShareGetAward() ? Xh.Singleton.reqWXShareReward(t, 0) : Yr.AddTipSimple("任务未完成")
+            yP.Singleton.checkGamecircleShareGetAward() ? Xh.Singleton.reqWXShareReward(t, 0) : Yr.AddTipSimple("ä»»åŠ¡æœªå®Œæˆ")
         }
     }
     class yP extends TI {
@@ -169173,7 +169226,7 @@ var laya = function(e) {
             this.imgIcon.skin = oo.getHeroHeadIcon(n.icon),
             this.imgFrame.skin = oo.getHeadFrameByFrameId(n.iconFrame),
             this.lblName.text = e.userName + "",
-            this.lblPosition.text = `【${nd.Singleton.getGuildPlaceName(n.place)}】`,
+            this.lblPosition.text = `ã€${nd.Singleton.getGuildPlaceName(n.place)}ã€‘`,
             this.lblPosition.color = ["#FF2F2F", "#E97031", "#D3C129", "#0CCA2A"][n.place - 1])
         }
     }
@@ -170624,7 +170677,7 @@ var laya = function(e) {
             let i, s = this.propList.array[t], n = e.getChildByName("nameL"), a = e.getChildByName("valueL");
             s.length >= 3 ? (n.text = Iy.Singleton.getAttrStringByTotalPropId(s[0]),
             i = jh.Singleton.isNeedPercentage(s[0]),
-            i ? a.text = "+" + s[2] / 100 + "%" : 1 == s[1] ? a.text = "+" + s[2] : a.text = "+" + s[2] / 100 + "%") : (n.text = "无",
+            i ? a.text = "+" + s[2] / 100 + "%" : 1 == s[1] ? a.text = "+" + s[2] : a.text = "+" + s[2] / 100 + "%") : (n.text = "æ— ",
             a.text = "0"),
             a.x = n.x + n.displayWidth + 5;
             let r = Xy.Singleton.isActivePetSampleByPetType(this.petMA.getPet_type());
@@ -172592,8 +172645,8 @@ var laya = function(e) {
             super()
         }
         onShow() {
-            this.topTipsLb.text = "为规范网络游戏服务，国家新闻出版署发布《关于进一步严格管理切实防止未成年人沉迷网络游戏的通知》",
-            this.tipsLb.text = "同一网络游戏企业所提供的游戏付费服务：\n*8周岁以上未满16周岁的用户，单次充值金额不得超过50元人民币，每月充值金额累计不得超过200元人民币\n*16周岁以上未满18岁的用户，单次充值金额不得超过100元人民币，每月充值金额累计不得超过400元人民币",
+            this.topTipsLb.text = "ä¸ºè§„èŒƒç½‘ç»œæ¸¸æˆæœåŠ¡ï¼Œå›½å®¶æ–°é—»å‡ºç‰ˆç½²å‘å¸ƒã€Šå…³äºŽè¿›ä¸€æ­¥ä¸¥æ ¼ç®¡ç†åˆ‡å®žé˜²æ­¢æœªæˆå¹´äººæ²‰è¿·ç½‘ç»œæ¸¸æˆçš„é€šçŸ¥ã€‹",
+            this.tipsLb.text = "åŒä¸€ç½‘ç»œæ¸¸æˆä¼ä¸šæ‰€æä¾›çš„æ¸¸æˆä»˜è´¹æœåŠ¡ï¼š\n*8å‘¨å²ä»¥ä¸Šæœªæ»¡16å‘¨å²çš„ç”¨æˆ·ï¼Œå•æ¬¡å……å€¼é‡‘é¢ä¸å¾—è¶…è¿‡50å…ƒäººæ°‘å¸ï¼Œæ¯æœˆå……å€¼é‡‘é¢ç´¯è®¡ä¸å¾—è¶…è¿‡200å…ƒäººæ°‘å¸\n*16å‘¨å²ä»¥ä¸Šæœªæ»¡18å²çš„ç”¨æˆ·ï¼Œå•æ¬¡å……å€¼é‡‘é¢ä¸å¾—è¶…è¿‡100å…ƒäººæ°‘å¸ï¼Œæ¯æœˆå……å€¼é‡‘é¢ç´¯è®¡ä¸å¾—è¶…è¿‡400å…ƒäººæ°‘å¸",
             this.backBtn.clickHandler = Laya.Handler.create(this, this.onClickClose, null, !1),
             this.rule1.updateRule(1),
             this.rule2.updateRule(2),
@@ -172618,10 +172671,10 @@ var laya = function(e) {
             this.cancelBtn.clickHandler = Laya.Handler.create(this, this.onClickClose, null, !1),
             this.backBtn.clickHandler = Laya.Handler.create(this, this.onClickClose, null, !1),
             this.tipsThreeLb.on(Laya.Event.LINK, this, this.onClickLink),
-            this.nameInput.prompt = "请输入真实姓名",
+            this.nameInput.prompt = "è¯·è¾“å…¥çœŸå®žå§“å",
             this.nameInput.text = "",
             this.nameInput.on(Laya.Event.CHANGE, this, this.onNameInputChange),
-            this.idInput.prompt = "请输入身份证号码",
+            this.idInput.prompt = "è¯·è¾“å…¥èº«ä»½è¯å·ç ",
             this.idInput.text = "",
             this.idInput.on(Laya.Event.CHANGE, this, this.onIdInputChange),
             this.setAllTipsData()
@@ -172650,11 +172703,11 @@ var laya = function(e) {
         onNameInputChange() {}
         onIdInputChange() {}
         setAllTipsData() {
-            this.tipsLb.text = "根据国家相关法律，需要提交实名认证",
-            this.tipsOneLb.text = "1. 姓名、身份证、手机号须同属一人",
-            this.tipsTwoLb.text = "2. 实名认证通过后，不可更改，请如实填写";
-            let e = "3. 应国家未成年人防沉迷政策要求，将限制未成年人每日游戏时间、充值等，详情查看";
-            e += "<span style='color:#FF513A' href='onClick'>《防沉迷政策》</span>",
+            this.tipsLb.text = "æ ¹æ®å›½å®¶ç›¸å…³æ³•å¾‹ï¼Œéœ€è¦æäº¤å®žåè®¤è¯",
+            this.tipsOneLb.text = "1. å§“åã€èº«ä»½è¯ã€æ‰‹æœºå·é¡»åŒå±žä¸€äºº",
+            this.tipsTwoLb.text = "2. å®žåè®¤è¯é€šè¿‡åŽï¼Œä¸å¯æ›´æ”¹ï¼Œè¯·å¦‚å®žå¡«å†™";
+            let e = "3. åº”å›½å®¶æœªæˆå¹´äººé˜²æ²‰è¿·æ”¿ç­–è¦æ±‚ï¼Œå°†é™åˆ¶æœªæˆå¹´äººæ¯æ—¥æ¸¸æˆæ—¶é—´ã€å……å€¼ç­‰ï¼Œè¯¦æƒ…æŸ¥çœ‹";
+            e += "<span style='color:#FF513A' href='onClick'>ã€Šé˜²æ²‰è¿·æ”¿ç­–ã€‹</span>",
             dT.init(this.tipsThreeLb, e.formatColorHtml(), 500, 50, "#57515F", "left", 0, 20, !0, "top")
         }
     }
@@ -172685,11 +172738,11 @@ var laya = function(e) {
         getTitleByRule(e) {
             switch (e) {
             case 1:
-                return "一、实行网络游戏用户账号实名注册制度";
+                return "ä¸€ã€å®žè¡Œç½‘ç»œæ¸¸æˆç”¨æˆ·è´¦å·å®žåæ³¨å†Œåˆ¶åº¦";
             case 2:
-                return "二、严格控制未成年人使用网络游戏时段、时长";
+                return "äºŒã€ä¸¥æ ¼æŽ§åˆ¶æœªæˆå¹´äººä½¿ç”¨ç½‘ç»œæ¸¸æˆæ—¶æ®µã€æ—¶é•¿";
             case 3:
-                return "三、规范向未成年人提供付费服务";
+                return "ä¸‰ã€è§„èŒƒå‘æœªæˆå¹´äººæä¾›ä»˜è´¹æœåŠ¡";
             default:
                 return ""
             }
@@ -172697,11 +172750,11 @@ var laya = function(e) {
         getDesByRule(e) {
             switch (e) {
             case 1:
-                return "严格实名，所有网络游戏用户必须使用真实有效身份信息进行游戏账号注册并登录网络游戏。";
+                return "ä¸¥æ ¼å®žåï¼Œæ‰€æœ‰ç½‘ç»œæ¸¸æˆç”¨æˆ·å¿…é¡»ä½¿ç”¨çœŸå®žæœ‰æ•ˆèº«ä»½ä¿¡æ¯è¿›è¡Œæ¸¸æˆè´¦å·æ³¨å†Œå¹¶ç™»å½•ç½‘ç»œæ¸¸æˆã€‚";
             case 2:
-                return "所有网络游戏企业仅可在周五、周六、周日和法定节假日每日20时至21时向未成年人提供1小时网络游戏服务，其他时间均不得以任何形式向未成年人提供网络游戏服务。";
+                return "æ‰€æœ‰ç½‘ç»œæ¸¸æˆä¼ä¸šä»…å¯åœ¨å‘¨äº”ã€å‘¨å…­ã€å‘¨æ—¥å’Œæ³•å®šèŠ‚å‡æ—¥æ¯æ—¥20æ—¶è‡³21æ—¶å‘æœªæˆå¹´äººæä¾›1å°æ—¶ç½‘ç»œæ¸¸æˆæœåŠ¡ï¼Œå…¶ä»–æ—¶é—´å‡ä¸å¾—ä»¥ä»»ä½•å½¢å¼å‘æœªæˆå¹´äººæä¾›ç½‘ç»œæ¸¸æˆæœåŠ¡ã€‚";
             case 3:
-                return "网络游戏企业不得为未满8周岁的用户提供游戏付费服务。";
+                return "ç½‘ç»œæ¸¸æˆä¼ä¸šä¸å¾—ä¸ºæœªæ»¡8å‘¨å²çš„ç”¨æˆ·æä¾›æ¸¸æˆä»˜è´¹æœåŠ¡ã€‚";
             default:
                 return ""
             }
@@ -172718,13 +172771,13 @@ var laya = function(e) {
             this.backBtn.clickHandler = Laya.Handler.create(this, this.onClickClose, null, !1),
             this.nextBtn.clickHandler = Laya.Handler.create(this, this.onClickNext, null, !1),
             this.getCodeBtn.clickHandler = Laya.Handler.create(this, this.onClickGetCode, null, !1),
-            this.codeInput.prompt = "请输入验证码",
+            this.codeInput.prompt = "è¯·è¾“å…¥éªŒè¯ç ",
             this.codeInput.text = "",
             this.codeInput.on(Laya.Event.CHANGE, this, this.onCodeInputChange),
-            this.idInput.prompt = "请输入身份证号码",
+            this.idInput.prompt = "è¯·è¾“å…¥èº«ä»½è¯å·ç ",
             this.idInput.text = "",
             this.idInput.on(Laya.Event.CHANGE, this, this.onIdInputChange),
-            this.tipsLb.text = `验证码会发送到 + ${this.curPhoneNumber}[待定] 上`,
+            this.tipsLb.text = `éªŒè¯ç ä¼šå‘é€åˆ° + ${this.curPhoneNumber}[å¾…å®š] ä¸Š`,
             this.updateGetCodeBtnStatus()
         }
         onHide() {
@@ -172749,12 +172802,12 @@ var laya = function(e) {
         onIdInputChange() {}
         checkIdValid() {
             let e = this.idInput.text;
-            return !(!e || "" == e) || (Yr.AddTipSimple("请重新输入真实的身份证号！"),
+            return !(!e || "" == e) || (Yr.AddTipSimple("è¯·é‡æ–°è¾“å…¥çœŸå®žçš„èº«ä»½è¯å·ï¼"),
             !1)
         }
         updateGetCodeBtnStatus() {
             if (!this.isGetCode)
-                return this.getCodeBtn.label = "获取验证码",
+                return this.getCodeBtn.label = "èŽ·å–éªŒè¯ç ",
                 void (this.getCodeBtn.mouseEnabled = !0);
             this.totalTime = 60,
             this.getCodeBtn.label = this.totalTime + "S",
@@ -172764,7 +172817,7 @@ var laya = function(e) {
         }
         updateTime(e) {
             this.totalTime--,
-            this.totalTime > 0 ? this.getCodeBtn.label = this.totalTime + "S" : (this.getCodeBtn.label = "获取验证码",
+            this.totalTime > 0 ? this.getCodeBtn.label = this.totalTime + "S" : (this.getCodeBtn.label = "èŽ·å–éªŒè¯ç ",
             this.getCodeBtn.mouseEnabled = !0,
             this.isGetCode = !1,
             Laya.timer.clearAll(this))
@@ -172776,8 +172829,8 @@ var laya = function(e) {
         }
         onShow() {
             this.backBtn.clickHandler = Laya.Handler.create(this, this.onClickClose, null, !1),
-            this.publicCodeLb.text = "官方公众号: 待定",
-            this.tipsLb.text = "快速添加：截屏 -> 打开微信 -> 点击右上角的【+】 ->  点击 【扫一扫】 ->  相册 ->  截屏图片 -> 完成"
+            this.publicCodeLb.text = "å®˜æ–¹å…¬ä¼—å·: å¾…å®š",
+            this.tipsLb.text = "å¿«é€Ÿæ·»åŠ ï¼šæˆªå± -> æ‰“å¼€å¾®ä¿¡ -> ç‚¹å‡»å³ä¸Šè§’çš„ã€+ã€‘ ->  ç‚¹å‡» ã€æ‰«ä¸€æ‰«ã€‘ ->  ç›¸å†Œ ->  æˆªå±å›¾ç‰‡ -> å®Œæˆ"
         }
         onHide() {
             this.backBtn.clickHandler && this.backBtn.clickHandler.recover(),
@@ -172792,7 +172845,7 @@ var laya = function(e) {
             super()
         }
         onShow() {
-            this.contentLb.text = "确定退出当前账号吗?",
+            this.contentLb.text = "ç¡®å®šé€€å‡ºå½“å‰è´¦å·å—?",
             this.confirmBtn.clickHandler = Laya.Handler.create(this, this.onClickSwitch, null, !1),
             this.cancelBtn.clickHandler = Laya.Handler.create(this, this.onCliclClose, null, !1)
         }
@@ -175293,7 +175346,7 @@ var laya = function(e) {
         }
         static loginDay() {
             let e = Fr.getLoginDays();
-            if (si.Debug("###玩家登陆天数: " + e),
+            if (si.Debug("###çŽ©å®¶ç™»é™†å¤©æ•°: " + e),
             l.data.onWx)
                 return;
             if (kI.Singleton.getSdkMode() == pb.PTID.YOFI_CN || kI.Singleton.getSdkMode() == pb.PTID.YUMIN || kI.Singleton.getSdkMode() == pb.PTID.YOFI_JUHE || kI.Singleton.getSdkMode() == pb.PTID.QUICK)
@@ -175382,9 +175435,9 @@ var laya = function(e) {
             ) : Promise.reject()
         }
         static clearCache() {
-            l.isOnNative() && (si.Debug("clearCache() 开始清除缓存--------------"),
+            l.isOnNative() && (si.Debug("clearCache() å¼€å§‹æ¸…é™¤ç¼“å­˜--------------"),
             window.YoFiSDK.clearCache(e => {
-                si.Debug("clearCache() 清除缓存完毕-------------- code: ", e),
+                si.Debug("clearCache() æ¸…é™¤ç¼“å­˜å®Œæ¯•-------------- code: ", e),
                 0 == e && Ly.Singleton.windowReload()
             }
             ))
@@ -175540,7 +175593,7 @@ var laya = function(e) {
             }
             ).catch(e => {
                 Xo.showAlert({
-                    content: pa.getInfoByLangID(2396) + "失败\n" + e.message,
+                    content: pa.getInfoByLangID(2396) + "å¤±è´¥\n" + e.message,
                     sureHandler: Laya.Handler.create(this, () => {
                         Ly.Singleton.windowReload()
                     }
@@ -175560,7 +175613,7 @@ var laya = function(e) {
                 ))
             }
             ).catch(e => {
-                Yr.AddTipSimple("fileconfig.json下载失败\n" + e.message)
+                Yr.AddTipSimple("fileconfig.jsonä¸‹è½½å¤±è´¥\n" + e.message)
             }
             )
         }
@@ -175622,7 +175675,8 @@ var laya = function(e) {
             jh.Singleton.serverInfoSelect.ip = Laya.Utils.getQueryString("ip"),
             jh.Singleton.serverInfoSelect.port = Laya.Utils.getQueryString("port"),
             jh.Singleton.serverInfoSelect.gameDomain = Laya.Utils.getQueryString("gameDomain");
-            var n = new RegExp("(^|&)serverName=([^&]*)(&|$)"), a = window.location.search.substr(1).match(n);
+            var n = new RegExp("(^|&)serverName=([^&]*)(&|$)")
+              , a = window.location.search.substr(1).match(n);
             jh.Singleton.serverInfoSelect.serverName = decodeURI(a[2]),
             jh.Singleton.serverUrlPrefix = Laya.Utils.getQueryString("serverUrlPrefix");
             let h = Laya.Utils.getQueryString("bugUrlPrefix");
@@ -175675,7 +175729,8 @@ var laya = function(e) {
         }
         onDataBin() {
             Laya.Loader.clearRes("fileconfig.json");
-            var e = this, t = new XMLHttpRequest;
+            var e = this
+              , t = new XMLHttpRequest;
             t.open("GET", "/getBin.php", !0),
             t.responseType = "arraybuffer",
             t.onload = function() {
@@ -175709,7 +175764,7 @@ var laya = function(e) {
             this.run()
         }
         init() {
-            tO.showLoadingLog("正在更新数据…"),
+            tO.showLoadingLog("æ­£åœ¨æ›´æ–°æ•°æ®â€¦"),
             ly.init(),
             r.Singleton.init(),
             Config.useWebGL2 = !1,
@@ -175720,7 +175775,8 @@ var laya = function(e) {
             window.Laya3D ? Laya3D.init(eO.width, eO.height) : Laya.init(eO.width, eO.height, Laya.WebGL),
             new l,
             Laya.DebugPanel && Laya.DebugPanel.enable();
-            let e = Laya.Utils.getQueryString("orientationgame"), t = !1;
+            let e = Laya.Utils.getQueryString("orientationgame")
+              , t = !1;
             null == e ? t = l.isLandScreen() : (t = "1" == e,
             l.setLandScreenState(e)),
             t ? (eO.width = 1136,
@@ -175787,7 +175843,7 @@ var laya = function(e) {
         onDataBin() {
             Laya.Loader.clearRes("fileconfig.json");
             var e = this
-                , t = new XMLHttpRequest;
+              , t = new XMLHttpRequest;
             t.open("GET", "/getBin.php", !0),
             t.responseType = "arraybuffer",
             t.onload = function() {
