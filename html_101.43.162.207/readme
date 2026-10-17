@@ -212,8 +212,7 @@ sec-ch-ua-platform: "Windows"
 
 
 
-
-
+#-----每次更新bundle-xxxx.js后必须修改如下：------#
 # 进入地图，kinkoo_qk.reqTeamMazeEnter(103)
 # 退出地图，kinkoo_qk.reqTeamMazeExit()
 # 地图遇敌，kinkoo_qk.reqTeamMazeBattleMonster(103, 3)
@@ -230,11 +229,13 @@ sec-ch-ua-platform: "Windows"
             ; })
 
 # 配合在onMessageReceived函数中，增加如下代码，获取战斗结束信息
-                ; if(r == 'BattleEndNtf'){
-                ;     // 战斗结束
-                ;     _battleEndNtfr_receiveMessage();
-                ; }
-
+                // ; if(r == 'BattleEndNtf'){
+                // ;     // 战斗结束
+                // ;     _battleEndNtfr_receiveMessage(r,l);
+                // ; }
+                or
+                // r !== 'BeatHeartAck' ? _messageBuff_receiveMessage(r, l) : '';
+#-----结束线------#
 
 # 红包，找到FK.Singleton = new FK; 后面增加window.kinkoo_hongbao = FK.Singleton;
 # 红包消息：RedBagNtf ,params.batchId

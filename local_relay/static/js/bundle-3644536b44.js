@@ -83792,8 +83792,12 @@ var laya = function(e) {
             let i = new pb.TeamMazeBattleMonsterReq;
             return i.dungeonId = e,
             i.speed = t,
-            zh.sendAndWait(i).then(e => {}
-            )
+            zh.sendAndWait(i).then(e => {    
+                _battleMonster_receiveMessage()
+            }
+            )).catch(error => {
+                // _battleMonster_receiveMessage(error);
+            })
         }
         reqBuyBossCount(e) {
             let t = new pb.BuyMazeBossCountReq;
